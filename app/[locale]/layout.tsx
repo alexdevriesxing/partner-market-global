@@ -33,7 +33,7 @@ export default async function LocaleLayout({
           <Navigation />
           <main className="page-shell">{children}</main>
           <div className="page-shell">
-            <FooterWrapper />
+            <FooterWrapper locale={locale} />
           </div>
         </NextIntlClientProvider>
       </body>

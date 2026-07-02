@@ -1,21 +1,45 @@
 import Link from "next/link";
 
-export function CTA({ compact = false, locale = "en" }: { compact?: boolean; locale?: string }) {
+type CTAProps = {
+  compact?: boolean;
+  locale?: string;
+  headline?: string;
+  subheadline?: string;
+  feature1?: string;
+  feature2?: string;
+  feature3?: string;
+  feature4?: string;
+  ctaList?: string;
+  ctaTerms?: string;
+};
+
+export function CTA({
+  compact = false,
+  locale = "en",
+  headline = "Have a product, service, brand or franchise ready for new markets?",
+  subheadline = "Showcase your opportunity to qualified international partners.",
+  feature1 = "Reach global qualified partners",
+  feature2 = "Structured & verified opportunity profile",
+  feature3 = "Qualified inquiries that convert",
+  feature4 = "Grow your business internationally",
+  ctaList = "Apply to List Your Opportunity",
+  ctaTerms = "View Commercial Terms"
+}: CTAProps) {
   return (
     <section className={compact ? "cta-band compact" : "cta-band"}>
       <div>
-        <h2>Have a product, service, brand or franchise ready for new markets?</h2>
-        <p>Showcase your opportunity to qualified international partners.</p>
+        <h2>{headline}</h2>
+        <p>{subheadline}</p>
       </div>
       <div className="cta-features">
-        <span>✈ Reach global qualified partners</span>
-        <span>▣ Structured & verified opportunity profile</span>
-        <span>◔ Qualified inquiries that convert</span>
-        <span>✣ Grow your business internationally</span>
+        <span>✈ {feature1}</span>
+        <span>▣ {feature2}</span>
+        <span>◔ {feature3}</span>
+        <span>✣ {feature4}</span>
       </div>
       <div className="cta-actions">
-        <Link className="btn btn-orange" href={`/${locale}/list-your-opportunity`}>Apply to List Your Opportunity</Link>
-        <Link className="btn btn-dark-outline" href={`/${locale}/commercial-terms`}>View Commercial Terms</Link>
+        <Link className="btn btn-orange" href={`/${locale}/list-your-opportunity`}>{ctaList}</Link>
+        <Link className="btn btn-dark-outline" href={`/${locale}/commercial-terms`}>{ctaTerms}</Link>
       </div>
     </section>
   );

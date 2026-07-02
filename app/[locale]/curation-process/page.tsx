@@ -34,6 +34,7 @@ export default async function CurationProcessPage({ params }: { params: Promise<
   const t = await getTranslations('curation');
   const tSteps = await getTranslations('forCompanies');
   const tTrust = await getTranslations('trust');
+  const tCta = await getTranslations('cta');
 
   return (
     <>
@@ -76,7 +77,18 @@ export default async function CurationProcessPage({ params }: { params: Promise<
         <p>{t('disclaimerText')}</p>
       </section>
 
-      <CTA compact locale={locale} />
+      <CTA
+        compact
+        locale={locale}
+        headline={tCta('headline')}
+        subheadline={tCta('subheadline')}
+        feature1={tCta('features.global')}
+        feature2={tCta('features.structured')}
+        feature3={tCta('features.qualified')}
+        feature4={tCta('features.grow')}
+        ctaList={tCta('ctaList')}
+        ctaTerms={tCta('ctaTerms')}
+      />
     </>
   );
 }

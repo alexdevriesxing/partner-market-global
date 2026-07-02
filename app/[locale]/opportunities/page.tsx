@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function OpportunitiesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations('opportunities');
+  const tCta = await getTranslations('cta');
 
   const filters = [
     t('filters.all'),
@@ -54,7 +55,18 @@ export default async function OpportunitiesPage({ params }: { params: Promise<{ 
       </section>
 
       <CategoryGrid locale={locale} />
-      <CTA compact locale={locale} />
+      <CTA
+        compact
+        locale={locale}
+        headline={tCta('headline')}
+        subheadline={tCta('subheadline')}
+        feature1={tCta('features.global')}
+        feature2={tCta('features.structured')}
+        feature3={tCta('features.qualified')}
+        feature4={tCta('features.grow')}
+        ctaList={tCta('ctaList')}
+        ctaTerms={tCta('ctaTerms')}
+      />
     </>
   );
 }

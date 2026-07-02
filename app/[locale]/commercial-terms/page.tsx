@@ -17,6 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function CommercialTermsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations('commercial');
+  const tCta = await getTranslations('cta');
 
   return (
     <>
@@ -28,13 +29,35 @@ export default async function CommercialTermsPage({ params }: { params: Promise<
         </div>
         <img src="/assets/packages-section.webp" alt="Partner Market Global commercial package cards" />
       </section>
-      <PricingCards locale={locale} />
+      <PricingCards
+        locale={locale}
+        title={t('packages.title')}
+        subtitle={t('packages.subtitle')}
+        legalNote={t('packages.legalNote')}
+        mostPopular={t('packages.mostPopular')}
+        perMonth={t('packages.perMonth')}
+        oneTime={t('packages.oneTime')}
+        byAgreement={t('packages.byAgreement')}
+        getStarted={t('packages.getStarted')}
+        contactUs={t('packages.contactUs')}
+      />
       <section className="content-section">
         <h2>{t('importantNotes.title')}</h2>
         <p>{t('importantNotes.note1')}</p>
         <p>{t('importantNotes.note2')}</p>
       </section>
-      <CTA compact locale={locale} />
+      <CTA
+        compact
+        locale={locale}
+        headline={tCta('headline')}
+        subheadline={tCta('subheadline')}
+        feature1={tCta('features.global')}
+        feature2={tCta('features.structured')}
+        feature3={tCta('features.qualified')}
+        feature4={tCta('features.grow')}
+        ctaList={tCta('ctaList')}
+        ctaTerms={tCta('ctaTerms')}
+      />
     </>
   );
 }

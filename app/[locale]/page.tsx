@@ -25,6 +25,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const tHero = await getTranslations('hero');
   const tFeatured = await getTranslations('featured');
   const tFaq = await getTranslations('faq');
+  const tCta = await getTranslations('cta');
+  const tTrust = await getTranslations('trust');
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -84,8 +86,31 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </section>
 
       <CategoryGrid locale={locale} />
-      <TrustStrip />
-      <CTA locale={locale} />
+      <TrustStrip
+        headline={tTrust('title')}
+        subheadline={tTrust('subtitle')}
+        trust1={tTrust('businessVerification')}
+        trust1Desc={tTrust('businessVerificationDesc')}
+        trust2={tTrust('credentialReview')}
+        trust2Desc={tTrust('credentialReviewDesc')}
+        trust3={tTrust('opportunityAssessment')}
+        trust3Desc={tTrust('opportunityAssessmentDesc')}
+        trust4={tTrust('documentSupport')}
+        trust4Desc={tTrust('documentSupportDesc')}
+        trust5={tTrust('secureInquiries')}
+        trust5Desc={tTrust('secureInquiriesDesc')}
+      />
+      <CTA
+        locale={locale}
+        headline={tCta('headline')}
+        subheadline={tCta('subheadline')}
+        feature1={tCta('features.global')}
+        feature2={tCta('features.structured')}
+        feature3={tCta('features.qualified')}
+        feature4={tCta('features.grow')}
+        ctaList={tCta('ctaList')}
+        ctaTerms={tCta('ctaTerms')}
+      />
     </>
   );
 }

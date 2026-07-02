@@ -13,9 +13,10 @@ type FooterProps = {
   copyright: string;
   brandBy: string;
   devriesUrl: string;
+  locale: string;
 };
 
-export function Footer({ tagline, columns, copyright, brandBy, devriesUrl }: FooterProps) {
+export function Footer({ tagline, columns, copyright, brandBy, devriesUrl, locale }: FooterProps) {
   return (
     <footer className="footer">
       <div className="footer-brand">
@@ -29,7 +30,7 @@ export function Footer({ tagline, columns, copyright, brandBy, devriesUrl }: Foo
         <div className="footer-column" key={column.title}>
           <h3>{column.title}</h3>
           {column.links.map(([label, href]) => (
-            <Link key={label} href={href}>{label}</Link>
+            <Link key={label} href={`/${locale}${href}`}>{label}</Link>
           ))}
         </div>
       ))}

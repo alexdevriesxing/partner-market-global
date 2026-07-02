@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 type FooterLink = [string, string];
 type FooterColumn = { title: string; links: FooterLink[] };
 
-export async function FooterWrapper() {
+export async function FooterWrapper({ locale }: { locale: string }) {
   const t = await getTranslations("footer");
 
   const columns: FooterColumn[] = [
@@ -65,6 +65,7 @@ export async function FooterWrapper() {
       copyright={t("copyright")}
       brandBy={t("brandBy")}
       devriesUrl={t("devriesUrl")}
+      locale={locale}
     />
   );
 }

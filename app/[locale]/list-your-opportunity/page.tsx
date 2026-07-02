@@ -45,6 +45,8 @@ export default async function ListOpportunityPage({ params }: { params: Promise<
   const t = await getTranslations('forCompanies');
   const tCategories = await getTranslations('categories');
   const tInquiry = await getTranslations('inquiry');
+  const tCta = await getTranslations('cta');
+  const tCommercial = await getTranslations('commercial');
 
   return (
     <>
@@ -94,13 +96,66 @@ export default async function ListOpportunityPage({ params }: { params: Promise<
         </div>
       </section>
 
-      <PricingCards locale={locale} />
+      <PricingCards
+        locale={locale}
+        title={tCommercial('packages.title')}
+        subtitle={tCommercial('packages.subtitle')}
+        legalNote={tCommercial('packages.legalNote')}
+        mostPopular={tCommercial('packages.mostPopular')}
+        perMonth={tCommercial('packages.perMonth')}
+        oneTime={tCommercial('packages.oneTime')}
+        byAgreement={tCommercial('packages.byAgreement')}
+        getStarted={tCommercial('packages.getStarted')}
+        contactUs={tCommercial('packages.contactUs')}
+      />
 
       <section className="content-section" id="application">
-        <InquiryForm title={tInquiry('title')} />
+        <InquiryForm
+          title={tInquiry('title')}
+          subtitle={tInquiry('subtitle')}
+          nameLabel={`${tInquiry('fields.fullName')} *`}
+          namePlaceholder={tInquiry('placeholders.name')}
+          companyLabel={`${tInquiry('fields.company')} *`}
+          companyPlaceholder={tInquiry('placeholders.company')}
+          emailLabel={`${tInquiry('fields.email')} *`}
+          emailPlaceholder={tInquiry('placeholders.email')}
+          phoneLabel={`${tInquiry('fields.phone')} *`}
+          phonePlaceholder={tInquiry('placeholders.phone')}
+          countryLabel={`${tInquiry('fields.country')} *`}
+          countryDefault={tInquiry('placeholders.countrySelect')}
+          websiteLabel={tInquiry('fields.website')}
+          websitePlaceholder={tInquiry('placeholders.website')}
+          partnerTypeLabel={`${tInquiry('fields.partnerType')} *`}
+          partnerTypeDefault={tInquiry('placeholders.partnerTypeSelect')}
+          activityLabel={`${tInquiry('fields.currentActivity')} *`}
+          activityPlaceholder={tInquiry('placeholders.activity')}
+          networkLabel={`${tInquiry('fields.network')} *`}
+          networkPlaceholder={tInquiry('placeholders.network')}
+          reasonLabel={`${tInquiry('fields.reason')} *`}
+          reasonPlaceholder={tInquiry('placeholders.reason')}
+          requirementsLabel={`${tInquiry('fields.requirements')} *`}
+          requirementsDefault={tInquiry('placeholders.requirementsSelect')}
+          yesOption={tInquiry('requirements.0')}
+          discussOption={tInquiry('requirements.1')}
+          noOption={tInquiry('requirements.2')}
+          consentText={tInquiry('consent')}
+          submitLabel={tInquiry('submit')}
+          disclaimer={tInquiry('privacyNote')}
+        />
       </section>
 
-      <CTA compact locale={locale} />
+      <CTA
+        compact
+        locale={locale}
+        headline={tCta('headline')}
+        subheadline={tCta('subheadline')}
+        feature1={tCta('features.global')}
+        feature2={tCta('features.structured')}
+        feature3={tCta('features.qualified')}
+        feature4={tCta('features.grow')}
+        ctaList={tCta('ctaList')}
+        ctaTerms={tCta('ctaTerms')}
+      />
     </>
   );
 }
