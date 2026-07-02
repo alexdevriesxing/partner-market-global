@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export function CTA({ compact = false }: { compact?: boolean }) {
+export function CTA({ compact = false, locale = "en" }: { compact?: boolean; locale?: string }) {
   return (
     <section className={compact ? "cta-band compact" : "cta-band"}>
       <div>
@@ -14,8 +14,8 @@ export function CTA({ compact = false }: { compact?: boolean }) {
         <span>✣ Grow your business internationally</span>
       </div>
       <div className="cta-actions">
-        <Link className="btn btn-orange" href="/list-your-opportunity">Apply to List Your Opportunity</Link>
-        <Link className="btn btn-dark-outline" href="/commercial-terms">View Commercial Terms</Link>
+        <Link className="btn btn-orange" href={`/${locale}/list-your-opportunity`}>Apply to List Your Opportunity</Link>
+        <Link className="btn btn-dark-outline" href={`/${locale}/commercial-terms`}>View Commercial Terms</Link>
       </div>
     </section>
   );

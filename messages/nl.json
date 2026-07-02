@@ -1,0 +1,377 @@
+{
+  "site": {
+    "name": "Partner Market Global",
+    "tagline": "Gecureerd. Geverifieerd. Globaal.",
+    "description": "Partner Market Global is een samengestelde B2B-vitrine voor import-, export-, distributie-, licentie-, private label- en franchisekansen van ambitieuze bedrijven die gekwalificeerde internationale partners zoeken.",
+    "url": "https://www.partnermarketglobal.com",
+    "email": "listings@partnermarketglobal.com"
+  },
+  "nav": {
+    "opportunities": "Kansen",
+    "categories": "Categorieën",
+    "forCompanies": "Voor Bedrijven",
+    "resources": "Bronnen",
+    "aboutUs": "Over ons",
+    "listOpportunity": "Plaats Uw Kans",
+    "login": "Inloggen"
+  },
+  "hero": {
+    "eyebrow": "Gecureerd. Geverifieerd. Globaal.",
+    "headline": "Samengestelde wereldwijde zakelijke kansen, klaar voor de juiste marktpartner.",
+    "subheadline": "Ontdek geverifieerde import-, export-, distributie-, franchise- en licentiekansen van ambitieuze bedrijven die internationaal willen expanderen.",
+    "ctaExplore": "Kansen Ontdekken",
+    "ctaList": "Plaats Uw Kans",
+    "stats": {
+      "opportunities": "Geverifieerde Kansen",
+      "countries": "Landen",
+      "sectors": "Sectoren",
+      "partners": "Gekwalificeerde Partners"
+    }
+  },
+  "featured": {
+    "title": "Uitgelichte Kansen",
+    "viewAll": "Alle kansen bekijken →"
+  },
+  "categories": {
+    "title": "Ontdek per Type Kans",
+    "import": "Importkansen",
+    "export": "Exportkansen",
+    "franchise": "Franchisekansen",
+    "distribution": "Distributierechten",
+    "licensing": "Licenties en Merkallianties",
+    "masterFranchise": "Master-Franchise Rechten",
+    "countryPartner": "Landpartnerkansen",
+    "privateLabel": "Private Label-/OEM-kansen"
+  },
+  "trust": {
+    "title": "Gecureerd. Gestructureerd. Gemakkelijker te vertrouwen.",
+    "subtitle": "We verifiëren en structureren elke kans, zodat u deze met vertrouwen kunt evalueren en sneller de juiste partner kunt vinden.",
+    "businessVerification": "Bedrijfsverificatie",
+    "businessVerificationDesc": "Bedrijf en registratie geverifieerd",
+    "credentialReview": "Referentiecontrole",
+    "credentialReviewDesc": "Licenties, certificaten en referenties beoordeeld",
+    "opportunityAssessment": "Kansbeoordeling",
+    "opportunityAssessmentDesc": "Marktpotentieel en partnerprofiel beoordeeld",
+    "documentSupport": "Documentondersteuning",
+    "documentSupportDesc": "Belangrijke informatie beschikbaar op aanvraag",
+    "secureInquiries": "Beveiligde Navragen",
+    "secureInquiriesDesc": "Alleen gekwalificeerde navragen via beveiligd platform"
+  },
+  "cta": {
+    "headline": "Heeft u een product, dienst, merk of franchise klaar voor nieuwe markten?",
+    "subheadline": "Toon uw kans aan gekwalificeerde internationale partners.",
+    "features": {
+      "global": "Bereik gekwalificeerde wereldwijde partners",
+      "structured": "Gestructureerd en geverifieerd kansprofiel",
+      "qualified": "Gekwalificeerde navragen die converteren",
+      "grow": "Groei internationaal"
+    },
+    "ctaList": "Plaats Uw Kans",
+    "ctaTerms": "Handelsvoorwaarden Bekijken"
+  },
+  "opportunities": {
+    "title": "Ontdek samengestelde zakelijke kansen",
+    "subtitle": "Ontdek geverifieerde import-, export-, distributie-, masterfranchise-, licentie- en private label-kansen van bedrijven die klaar zijn om nieuwe markten te betreden.",
+    "filters": {
+      "all": "Alle",
+      "import": "Import",
+      "export": "Export",
+      "franchise": "Franchise",
+      "distribution": "Distributie",
+      "licensing": "Licenties",
+      "privateLabel": "Private Label / OEM",
+      "countryPartner": "Landpartner"
+    },
+    "viewDetails": "Details Bekijken",
+    "origin": "Herkomst",
+    "targetMarkets": "Doelmarkten"
+  },
+  "opportunityDetail": {
+    "back": "← Terug naar kansen",
+    "interested": "Interesseert deze kans u?",
+    "sendInquiry": "Gekwalificeerde Navraag Verzenden",
+    "saveOpportunity": "Kans Opslaan",
+    "askQuestion": "Vraag Stellen",
+    "secureBox": "♡ 100% Veilig en Vertrouwelijk\nWe respecteren uw privacy.",
+    "quickFacts": {
+      "originCountry": "Herkunftsland",
+      "targetMarkets": "Doelmarkten",
+      "partnerType": "Partner Type",
+      "exclusivity": "Exclusiviteit",
+      "investmentReq": "Investeringsvereiste",
+      "status": "Status"
+    },
+    "tabs": {
+      "overview": "Overzicht",
+      "company": "Bedrijf",
+      "products": "Producten",
+      "market": "Markt",
+      "partnerProfile": "Partnerprofiel",
+      "commercial": "Commercieel",
+      "territories": "Gebieden",
+      "more": "Meer"
+    },
+    "overview": "Overzicht",
+    "keyHighlights": "Belangrijkste Hoogtepunten",
+    "companyBackground": "Bedrijfsachtergrond",
+    "productDetails": "Product-/Dienst-/Franchisegegevens",
+    "marketOpportunity": "Marktkans",
+    "idealPartner": "Ideaal Partnerprofiel",
+    "commercialModel": "Commercieel Model",
+    "territoryAvailability": "Territoriale Beschikbaarheid",
+    "documentsAvailable": "Beschikbare Documenten",
+    "whyPartner": "Waarom Met Ons Partneren",
+    "whyPartnerList": [
+      "Bewezen producten met sterke consumentenvraag",
+      "Competitieve prijzen en marges",
+      "Volledige partnerondersteuning",
+      "Flexibele partnerschapsmodellen",
+      "Gericht op langetermijngroei"
+    ],
+    "risksNotes": "Risico's en Opmerkingen"
+  },
+  "forCompanies": {
+    "hero": {
+      "eyebrow": "Voor Bedrijven",
+      "headline": "Toon uw zakelijke kans aan gekwalificeerde internationale partners.",
+      "subheadline": "We helpen u importeurs, distributors, franchisenemers, exploitanten en investeerders te bereiken die op zoek zijn naar de juiste kansen.",
+      "checklist": [
+        "Gecureerd en Geverifieerd Platform",
+        "Gekwalificeerd Internationaal Bereik",
+        "Gestructureerd Kansprofiel",
+        "Serieuze Converterende Navragen"
+      ]
+    },
+    "whoCanList": {
+      "title": "Wie Kan Plaatsen?",
+      "subtitle": "We verwelkomen een breed scala aan zakelijke kansen."
+    },
+    "curation": {
+      "title": "Ons Curatieproces",
+      "steps": {
+        "submit": "Aanvraag Indienen",
+        "submitDesc": "Vertel ons over uw kans.",
+        "review": "Beoordeling en Verificatie",
+        "reviewDesc": "We beoordelen en verifiëren uw bedrijf en documenten.",
+        "profile": "Profiel Aanmaken",
+        "profileDesc": "We creëren uw premium kansprofiel.",
+        "goLive": "Live Gaan",
+        "goLiveDesc": "Uw kans wordt op ons platform geplaatst.",
+        "inquiries": "Navragen Ontvangen",
+        "inquiriesDesc": "Verbind met gekwalificeerde internationale partners."
+      }
+    }
+  },
+  "commercial": {
+    "hero": {
+      "eyebrow": "Handelsvoorwaarden",
+      "headline": "Transparante pakketten voor de promotie van internationale kansen",
+      "subheadline": "Kies een eenvoudige listing, een premium vitrine of een partnerzoekcampagne passend bij uw groeidoelen."
+    },
+    "packages": {
+      "title": "Commerciële Pakketten",
+      "subtitle": "Kies het pakket dat bij uw doelen past. Alle prijzen in EUR.",
+      "basic": "Basis Gecureerde Listing",
+      "premium": "Premium Vitrine",
+      "campaign": "Partnerzoekcampagne",
+      "success": "Succes-/Introductiekosten",
+      "perMonth": "/ maand",
+      "oneTime": "Eenmalige betaling",
+      "byAgreement": "In overleg",
+      "mostPopular": "Meest Populair",
+      "getStarted": "Aan de Slag",
+      "contactUs": "Neem Contact Op",
+      "legalNote": "Alle pakketten zijn onderworpen aan onze Gebruiksvoorwaarden. We geven geen juridisch, financieel of beleggingsadvies.",
+      "features": {
+        "basic": ["Standaard profielpagina", "Navraagformulier en leadcapture", "Standaard plaatsing", "Basisondersteuning"],
+        "premium": ["Alles van Basis", "Uitgelichte plaatsing", "Verbeterd profiel en visuals", "Prioriteitsondersteuning"],
+        "campaign": ["Alles van Premium", "Gerichte acties", "Gecureerde prospectlijst", "Campagnerapport"],
+        "success": ["Alleen wanneer juridisch gepast", "Afhankelijk van waarde en bereik", "Transparante voorwaarden"]
+      }
+    },
+    "importantNotes": {
+      "title": "Belangrijke Opmerkingen",
+      "note1": "Partner Market Global biedt marketing-, curatie- en leadgeneratiediensten. We geven geen juridisch, financieel, beleggings-, franchise-, fiscaal of effectenadvies. Bedrijven en geïnteresseerde partners zijn verantwoordelijk voor hun eigen due diligence, juridische beoordeling en marktspecifieke naleving.",
+      "note2": "Succes- of introductiekosten mogen alleen worden gebruikt wanneer juridisch gepast en altijd onder een duidelijke schriftelijke overeenkomst."
+    }
+  },
+  "curation": {
+    "hero": {
+      "eyebrow": "Curatieproces",
+      "headline": "Gestructureerde kansprofielen die gemakkelijker te evalueren zijn",
+      "subheadline": "We combineren bedrijfsbeoordeling, documentorganisatie en duidelijke partnervereisten, zodat serieuze navragen sneller vorderen."
+    },
+    "whatWeCheck": "Wat We Controleren",
+    "disclaimer": "Vrijwaring",
+    "disclaimerText": "Onze beoordeling verbetert de presentatiekwaliteit en helpt voor de hand liggende spam- of onvolledige kansen eruit te filteren. Het is geen garantie voor prestaties, winstgevendheid, wettelijke naleving of zakelijk succes. Geïnteresseerde partijen moeten hun eigen due diligence voltooien."
+  },
+  "about": {
+    "eyebrow": "Over Partner Market Global",
+    "headline": "Merken, bedrijven en kansen verbinden met de juiste partners over de hele wereld.",
+    "body1": "Partner Market Global is ontworpen voor bedrijven die een betere manier willen om internationale kansen te presenteren dan een generieke directory of een koude prospectiecampagne.",
+    "body2": "We structureren elke kans in een duidelijk kwaliteitsgericht profiel dat investeerdersdeck-achtig partnervereisten, marktbereik, bedrijfsmodel, referenties, beschikbare documenten en de volgende stap voor geïnteresseerden behandelt.",
+    "focusTitle": "Onze Focus",
+    "focusList": [
+      "Import- en exportkansen",
+      "Distributie- en landpartnerrechten",
+      "Franchise- en masterfranchisekansen",
+      "Licenties, merkallianties en private label-/OEM-kansen"
+    ]
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Contact",
+      "headline": "Spreek met ons over uw internationale kans",
+      "subheadline": "Stuur ons een e-mail of gebruik het navraagformulier hieronder."
+    }
+  },
+  "inquiry": {
+    "title": "Gekwalificeerde Navraag Verzenden",
+    "subtitle": "Vertel ons over uw bedrijf en we verbinden u met de juiste persoon.",
+    "fields": {
+      "fullName": "Volledige Naam",
+      "company": "Bedrijf",
+      "email": "E-mail",
+      "phone": "Telefoon / WhatsApp",
+      "country": "Land",
+      "website": "Website",
+      "partnerType": "Partner Type",
+      "currentActivity": "Huidige Bedrijfsactiviteit",
+      "network": "Netwerk / Bestaande Kanalen",
+      "reason": "Waarom interesseert deze kans u?",
+      "requirements": "Kunt u aan de minimumvereisten voldoen?"
+    },
+    "placeholders": {
+      "name": "Uw naam",
+      "company": "Uw bedrijf",
+      "email": "u@bedrijf.nl",
+      "phone": "+31 6 000 000 00",
+      "countrySelect": "Land selecteren",
+      "website": "https://uwbedrijf.nl",
+      "partnerTypeSelect": "Partner type selecteren",
+      "activity": "Vertel ons over uw bedrijf",
+      "network": "Uw netwerk of kanalen",
+      "reason": "Uw bericht",
+      "requirementsSelect": "Selecteren"
+    },
+    "partnerTypes": ["Importeur", "Distributor", "Franchisenemer", "Investeerder", "Exploitant"],
+    "countries": ["Nederland", "België", "Duitsland", "Frankrijk", "Verenigd Koninkrijk", "Italië", "Spanje", "Portugal", "Polen", "Tsjechië", "Roemenië", "Hongarije", "Zweden", "Noorwegen", "Denemarken", "Finland", "Oostenrijk", "Zwitserland", "Verenigde Staten", "Canada", "Mexico", "Brazilië", "Argentinië", "Colombia", "Chili", "Peru", "Verenigde Arabische Emiraten", "Saoedi-Arabië", "Qatar", "Egypte", "Zuid-Afrika", "India", "China", "Japan", "Zuid-Korea", "Australië", "Nieuw-Zeeland", "Singapore", "Andere"],
+    "requirements": ["Ja", "Ik moet het bespreken", "Nee"],
+    "consent": "Ik bevestig dat ik het Privacybeleid heb gelezen en ermee akkoord ga en toestemming geef om mijn navraag te delen met de eigenaar van de kans.",
+    "submit": "Navraag Verzenden",
+    "privacyNote": "We respecteren uw privacy. Geen spam. Op elk moment opzeggen."
+  },
+  "privacy": {
+    "title": "Privacybeleid",
+    "lastUpdated": "Laatst bijgewerkt: 2 juli 2026",
+    "intro": "Partner Market Global verzamelt informatie die via navraag-, contact- en publicatieformulieren wordt verzonden om kansen te beoordelen, op navragen te reageren en, wanneer toestemming is gegeven, gekwalificeerde navragen te delen met de overeenkomstige kans-eigenaar.",
+    "infoTitle": "Welke Informatie We Verzamelen",
+    "infoList": [
+      "Naam, bedrijf, e-mail, telefoon of WhatsApp-nummer en land",
+      "Bedrijfswebsite, bedrijfsactiviteit en partnerprofiel",
+      "Kansdetails en documenten ingediend voor beoordeling",
+      "Technische analytische gegevens zoals paginaweergaven en ruime regio"
+    ],
+    "howTitle": "Hoe We Informatie Gebruiken",
+    "howText": "We gebruiken de informatie om het platform te beheren, publicatieaanvragen te evalueren, navragen te kwalificeren, spam te voorkomen, de website te verbeteren en met gebruikers te communiceren.",
+    "sharingTitle": "Delen",
+    "sharingText": "We delen alleen details van gekwalificeerde navragen met de overeenkomstige kans-eigenaar wanneer de gebruiker toestemming heeft gegeven of wanneer nodig om de gevraagde service te leveren.",
+    "contactTitle": "Contact",
+    "contactText": "Voor privacyvragen kunt u contact opnemen met"
+  },
+  "terms": {
+    "title": "Gebruiksvoorwaarden",
+    "lastUpdated": "Laatst bijgewerkt: 2 juli 2026",
+    "intro": "Partner Market Global is een samengestelde vitrine van zakelijke kansen. Door deze website te gebruiken, gaat u akkoord dat de listings alleen worden verstrekt voor informatie- en zakelijke introductiedoeleinden.",
+    "disclaimerTitle": "Vrijwaring",
+    "disclaimerText": "We garanderen geen zakelijk succes, winstgevendheid, financiering, markttoegangsgoedkeuring, wettelijke naleving of partnerprestaties. We geven geen juridisch, financieel, beleggings-, franchise-, fiscaal of effectenadvies. Gebruikers moeten hun eigen due diligence uitvoeren.",
+    "listingsTitle": "Listings",
+    "listingsText": "We kunnen listings weigeren, bewerken, opschorten of verwijderen die onvolledig, misleidend, verouderd of ongeschikt voor het platform zijn.",
+    "inquiriesTitle": "Navragen",
+    "inquiriesText": "Het verzenden van een navraag creëert geen partnerschap, franchiseovereenkomst, distributieovereenkomst of investeringsrelatie.",
+    "contactTitle": "Contact",
+    "contactText": "Vragen over deze voorwaarden kunnen worden verzonden naar"
+  },
+  "footer": {
+    "tagline": "Merken, bedrijven en kansen verbinden met de juiste partners over de hele wereld.",
+    "columns": {
+      "explore": "Ontdekken",
+      "exploreLinks": {
+        "all": "Alle Kansen",
+        "import": "Importkansen",
+        "export": "Exportkansen",
+        "franchise": "Franchisekansen",
+        "distribution": "Distributierechten",
+        "licensing": "Licenties en Merkallianties"
+      },
+      "forCompanies": "Voor Bedrijven",
+      "forCompaniesLinks": {
+        "list": "Plaats Uw Kans",
+        "terms": "Handelsvoorwaarden",
+        "curation": "Curatieproces",
+        "howItWorks": "Hoe Het Werkt",
+        "faq": "Veelgestelde Vragen"
+      },
+      "resources": "Bronnen",
+      "resourcesLinks": {
+        "blog": "Blog en Inzichten",
+        "guides": "Gidsen",
+        "webinars": "Webinars",
+        "reports": "Marktrapporten",
+        "success": "Succesverhalen"
+      },
+      "company": "Bedrijf",
+      "companyLinks": {
+        "about": "Over Ons",
+        "contact": "Neem Contact Op",
+        "careers": "Vacatures",
+        "newsroom": "Perskamer"
+      },
+      "legal": "Juridisch",
+      "legalLinks": {
+        "privacy": "Privacybeleid",
+        "terms": "Gebruiksvoorwaarden",
+        "disclaimer": "Vrijwaring"
+      }
+    },
+    "copyright": "Alle rechten voorbehouden.",
+    "brandBy": "Een merk van De Vries Sales Consultancy.",
+    "devriesUrl": "www.devriessalesconsultancy.com"
+  },
+  "admin": {
+    "title": "Admin Panel Layout",
+    "listings": "Listings",
+    "inquiries": "Navragen",
+    "applications": "Aanvragen",
+    "packages": "Pakketten",
+    "documents": "Documenten",
+    "settings": "Instellingen",
+    "newListing": "Nieuwe Listing",
+    "tableHeaders": {
+      "title": "Titel",
+      "type": "Type",
+      "sector": "Sector",
+      "status": "Status",
+      "inquiries": "Navragen"
+    },
+    "statusOpen": "Open voor navragen"
+  },
+  "faq": {
+    "whatIs": {
+      "question": "Wat is Partner Market Global?",
+      "answer": "Partner Market Global is een samengestelde B2B-vitrine voor import-, export-, distributie-, licentie-, private label- en franchisekansen."
+    },
+    "canList": {
+      "question": "Kunnen bedrijven franchise- of distributiekansen plaatsen?",
+      "answer": "Ja. Bedrijven kunnen na beoordeling en curatie publicatie aanvragen van product-, dienst-, franchise-, licentie-, private label- en landpartnerkansen."
+    },
+    "guarantee": {
+      "question": "Garandeert Partner Market Global zakelijk succes?",
+      "answer": "Nee. Partner Market Global biedt een samengestelde vitrineplatform maar garandeert geen zakelijk succes, winstgevendheid of partnerprestaties. Alle geïnteresseerde partijen moeten hun eigen due diligence uitvoeren."
+    },
+    "howInquire": {
+      "question": "Hoe kan ik informeren naar een kans?",
+      "answer": "Klik op een willekeurige knop Details Bekijken op een kanskaart, bekijk het volledige profiel en verzend een gekwalificeerde navraag via het beveiligde navraagformulier op de detailpagina van de kans."
+    }
+  }
+}

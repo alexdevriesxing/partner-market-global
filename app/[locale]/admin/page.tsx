@@ -1,0 +1,58 @@
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import { opportunities } from "@/lib/data";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'admin' });
+  return {
+    title: t('title'),
+    robots: { index: false, follow: false }
+  };
+};
+
+export default async function AdminPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations('admin');
+
+  return (
+    <section className="admin-shell">
+      <aside className="admin-sidebar">
+        <a>{t('listings')}</a>
+        <a>{t('inquiries')}</a>
+        <a>{t('applications')}</a>
+        <a>{t('packages')}</a>
+        <a>{t('documents')}</a>
+        <a>{t('settings')}</a>
+      </aside>
+      <div className="admin-main">
+        <div className="section-top" style={{ margin: 0, marginBottom: 20 }}>
+          <h1>{t('listings')}</h1>
+          <button className="btn btn-primary">{t('newListing')}</button>
+        </div>
+        <table className="admin-table">
+          <thead>
+            <tr>
+              <th>{t('tableHeaders.title')}</th>
+              <th>{t('tableHeaders.type')}</th>
+              <th>{t('tableHeaders.sector')}</th>
+              <th>{t('tableHeaders.status')}</th>
+              <th>{t('tableHeaders.inquiries')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {opportunities.map((opportunity, index) => (
+              <tr key={opportunity.id}>
+                <td>{opportunity.title}</td>
+                <td>{opportunity.type}</td>
+                <td>{opportunity.sector}</td>
+                <td><span className="status">{t('statusOpen')}</span></td>
+                <td>{12 + index * 3}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}

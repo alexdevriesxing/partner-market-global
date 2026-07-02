@@ -1,0 +1,377 @@
+{
+  "site": {
+    "name": "파트너 마켓 글로벌",
+    "tagline": "큐레이션. 검증. 글로벌.",
+    "description": "파트너 마켓 글로벌는 자격 있는 국제 파트너를 찾는 야심찬 기업을 위한 수입, 수출, 유통, 라이선스, 자사 브랜드, 프랜차이즈 기회들의 큐레이션된 B2B 쇼케이스입니다.",
+    "url": "https://www.partnermarketglobal.com",
+    "email": "listings@partnermarketglobal.com"
+  },
+  "nav": {
+    "opportunities": "비즈니스 기회",
+    "categories": "카테고리",
+    "forCompanies": "기업 안내",
+    "resources": "리소스",
+    "aboutUs": "회사 소개",
+    "listOpportunity": "기회 등록하기",
+    "login": "로그인"
+  },
+  "hero": {
+    "eyebrow": "큐레이션. 검증. 글로벌.",
+    "headline": "적합한 시장 파트너를 찾기 위한 큐레이션된 글로벌 비즈니스 기회.",
+    "subheadline": "국제적으로 확장하려는 야심찬 기업들의 검증된 수입, 수출, 유통, 프랜차이즈, 라이선스 기회를 탐색하세요.",
+    "ctaExplore": "기회 탐색하기",
+    "ctaList": "기회 등록하기",
+    "stats": {
+      "opportunities": "검증된 기회",
+      "countries": "국가",
+      "sectors": "섹터",
+      "partners": "자격 있는 파트너"
+    }
+  },
+  "featured": {
+    "title": "주목할 만한 기회",
+    "viewAll": "모든 기회 보기 →"
+  },
+  "categories": {
+    "title": "기회 유형별로 탐색",
+    "import": "수입 기회",
+    "export": "수출 기회",
+    "franchise": "프랜차이즈 기회",
+    "distribution": "유통 권한",
+    "licensing": "라이선스 및 브랜드 얼라이언스",
+    "masterFranchise": "마스터 프랜차이즈 권한",
+    "countryPartner": "국가 파트너 기회",
+    "privateLabel": "자사 브랜드/OEM 기회"
+  },
+  "trust": {
+    "title": "큐레이션. 구조화. 신뢰하기 쉬움.",
+    "subtitle": "각 기회를 검증하고 구조화하여 자신 있게 평가하고 올바른 파트너를 더 빨리 찾을 수 있도록 도와드립니다.",
+    "businessVerification": "기업 검증",
+    "businessVerificationDesc": "기업 및 등록 검증됨",
+    "credentialReview": "자격 검토",
+    "credentialReviewDesc": "라이선스, 인증서 및 자격 검토됨",
+    "opportunityAssessment": "기회 평가",
+    "opportunityAssessmentDesc": "시장 잠재력 및 파트너 프로필 평가됨",
+    "documentSupport": "문서 지원",
+    "documentSupportDesc": "중요한 정보는 요청 시 제공",
+    "secureInquiries": "안전한 문의",
+    "secureInquiriesDesc": "안전한 플랫폼을 통한 자격 있는 문의만"
+  },
+  "cta": {
+    "headline": "새로운 시장에 준비된 제품, 서비스, 브랜드 또는 프랜차이즈가 있으신가요?",
+    "subheadline": "자격 있는 국제 파트너에게 당신의 기회를 보여주세요.",
+    "features": {
+      "global": "자격 있는 글로벌 파트너에게 도달",
+      "structured": "구조화되고 검증된 기회 프로필",
+      "qualified": "전환되는 자격 있는 문의",
+      "grow": "국제적으로 비즈니스 성장"
+    },
+    "ctaList": "기회 등록하기",
+    "ctaTerms": "상업 조건 보기"
+  },
+  "opportunities": {
+    "title": "큐레이션된 비즈니스 기회 탐색",
+    "subtitle": "새로운 시장에 진입할 준비가 된 기업들의 검증된 수입, 수출, 유통, 마스터 프랜차이즈, 라이선스, 자사 브랜드 기회를 탐색하세요.",
+    "filters": {
+      "all": "전체",
+      "import": "수입",
+      "export": "수출",
+      "franchise": "프랜차이즈",
+      "distribution": "유통",
+      "licensing": "라이선스",
+      "privateLabel": "자사 브랜드 / OEM",
+      "countryPartner": "국가 파트너"
+    },
+    "viewDetails": "세부 정보 보기",
+    "origin": "원산지",
+    "targetMarkets": "목표 시장"
+  },
+  "opportunityDetail": {
+    "back": "← 기회로 돌아가기",
+    "interested": "이 기회에 관심이 있으신가요?",
+    "sendInquiry": "자격 있는 문의 보내기",
+    "saveOpportunity": "기회 저장",
+    "askQuestion": "질문하기",
+    "secureBox": "♡ 100% 안전하고 기밀\n당신의 프라이버시를 존중합니다.",
+    "quickFacts": {
+      "originCountry": "원산국",
+      "targetMarkets": "목표 시장",
+      "partnerType": "파트너 유형",
+      "exclusivity": "독점권",
+      "investmentReq": "투자 요건",
+      "status": "상태"
+    },
+    "tabs": {
+      "overview": "개요",
+      "company": "기업",
+      "products": "제품",
+      "market": "시장",
+      "partnerProfile": "파트너 프로필",
+      "commercial": "상업",
+      "territories": "지역",
+      "more": "더보기"
+    },
+    "overview": "개요",
+    "keyHighlights": "주요 하이라이트",
+    "companyBackground": "기업 배경",
+    "productDetails": "제품/서비스/프랜차이즈 세부 정보",
+    "marketOpportunity": "시장 기회",
+    "idealPartner": "이상적인 파트너 프로필",
+    "commercialModel": "비즈니스 모델",
+    "territoryAvailability": "지역 가용성",
+    "documentsAvailable": "사용 가능한 문서",
+    "whyPartner": "왜 우리와 파트너가 되는가",
+    "whyPartnerList": [
+      "소비자 수요가 입증된 제품",
+      "경쟁력 있는 가격과 마진",
+      "완전한 파트너 지원",
+      "유연한 파트너십 모델",
+      "장기 성장 지향"
+    ],
+    "risksNotes": "위험 및 참고 사항"
+  },
+  "forCompanies": {
+    "hero": {
+      "eyebrow": "기업 안내",
+      "headline": "자격 있는 국제 파트너에게 당신의 비즈니스 기회를 보여주세요.",
+      "subheadline": "올바른 기회를 찾고 있는 수입업자, 유통업자, 프랜차이즈 사업자, 운영자, 투자자와의 연결을 도와드립니다.",
+      "checklist": [
+        "큐레이션 및 검증된 플랫폼",
+        "자격 있는 국제적 도달",
+        "구조화된 기회 프로필",
+        "전환되는 진지한 문의"
+      ]
+    },
+    "whoCanList": {
+      "title": "누가 등록할 수 있나요?",
+      "subtitle": "다양한 비즈니스 기회를 환영합니다."
+    },
+    "curation": {
+      "title": "우리의 큐레이션 프로세스",
+      "steps": {
+        "submit": "신청서 제출",
+        "submitDesc": "당신의 기회에 대해 알려주세요.",
+        "review": "검토 및 검증",
+        "reviewDesc": "기업과 문서를 검토하고 검증합니다.",
+        "profile": "프로필 생성",
+        "profileDesc": "프리미엄 기회 프로필을 생성합니다.",
+        "goLive": "라이브",
+        "goLiveDesc": "당신의 기회가 플랫폼에 게시됩니다.",
+        "inquiries": "문의 수신",
+        "inquiriesDesc": "자격 있는 국제 파트너와 연결됩니다."
+      }
+    }
+  },
+  "commercial": {
+    "hero": {
+      "eyebrow": "상업 조건",
+      "headline": "국제 기회 홍보를 위한 투명한 패키지",
+      "subheadline": "성장 목표에 따라 단순한 목록, 프리미엄 쇼케이스 또는 파트너 검색 캠페인 중 선택하세요."
+    },
+    "packages": {
+      "title": "상업 패키지",
+      "subtitle": "목표에 맞는 패키지를 선택하세요. 모든 가격은 EUR.",
+      "basic": "기본 큐레이션 목록",
+      "premium": "프리미엄 쇼케이스",
+      "campaign": "파트너 검색 캠페인",
+      "success": "성공/소개 수수료",
+      "perMonth": "/월",
+      "oneTime": "일회성 결제",
+      "byAgreement": "협상에 따름",
+      "mostPopular": "가장 인기",
+      "getStarted": "시작하기",
+      "contactUs": "문의하기",
+      "legalNote": "모든 패키지는 이용약관에 따릅니다. 우리는 법률, 재정 또는 투자 자문을 제공하지 않습니다.",
+      "features": {
+        "basic": ["표준 프로필 페이지", "문의 양식 및 리드 캡처", "표준 배치", "기본 지원"],
+        "premium": ["기본의 모든 것", "주요 배치", "향상된 프로필 및 비주얼", "우선 지원"],
+        "campaign": ["프리미엄의 모든 것", "타겟팅된 액션", "큐레이션된 잠재 고객 목록", "캠페인 보고서"],
+        "success": ["법적으로 적절한 경우에만", "가치 및 범위에 따라", "투명한 조건"]
+      }
+    },
+    "importantNotes": {
+      "title": "중요 참고 사항",
+      "note1": "파트너 마켓 글로벌은 마케팅, 큐레이션, 리드 생성 서비스를 제공합니다. 우리는 법률, 재정, 투자, 프랜차이즈, 세금 또는 증권 자문을 제공하지 않습니다. 기업 및 관심 있는 파트너는 자체적인尽职调查, 법적 검토 및 시장 특정合规에 책임집니다.",
+      "note2": "성공 또는 소개 수수료는 법적으로 적절한 경우에만 명확한 서면 합의하에 사용해야 합니다."
+    }
+  },
+  "curation": {
+    "hero": {
+      "eyebrow": "큐레이션 프로세스",
+      "headline": "평가하기更容易한 구조화된 기회 프로필",
+      "subheadline": "비즈니스 검토, 문서 조직, 명확한 파트너 요건을 결합하여 진지한 문의가 더 빨리 진행되도록 합니다."
+    },
+    "whatWeCheck": "검증하는 것",
+    "disclaimer": "면책 조항",
+    "disclaimerText": "우리의 검토는 발표 품질을 향상시키고 명백한 스팸 또는 불완전한 기회를 필터링하는 데 도움이 됩니다. 이는 성능, 수익성, 법적 준수 또는 비즈니스 성공을 보장하지 않습니다. 이해관계자는 자체적인尽职调查를 완료해야 합니다."
+  },
+  "about": {
+    "eyebrow": "파트너 마켓 글로벌 소개",
+    "headline": "브랜드, 비즈니스, 기회를 전 세계 올바른 파트너와 연결합니다.",
+    "body1": "파트너 마켓 글로벌은 범용 디렉토리나 차가운 영업 활동보다 우수한 방식으로 국제 기회를 발표하려는 기업을 위해 설계되었습니다.",
+    "body2": "각 기회를 투자자 데크 유사한 명확한 품질 프로필로 구조화하여 파트너 요건, 시장 범위, 비즈니스 모델, 자격, 사용 가능한 문서, 이해관계자를 위한 다음 단계를 다룹니다.",
+    "focusTitle": "우리의 초점",
+    "focusList": [
+      "수입 및 수출 기회",
+      "유통 및 국가 파트너 권한",
+      "프랜차이즈 및 마스터 프랜차이즈 기회",
+      "라이선스, 브랜드 얼라이언스, 자사 브랜드/OEM 기회"
+    ]
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "문의",
+      "headline": "당신의 국제 기회에 대해 이야기하세요",
+      "subheadline": "이메일给我们或使用下面的 문의 양식."
+    }
+  },
+  "inquiry": {
+    "title": "자격 있는 문의 보내기",
+    "subtitle": "당신의 비즈니스에 대해 알려주시면 적절한 사람과 연결해 드립니다.",
+    "fields": {
+      "fullName": "성명",
+      "company": "기업",
+      "email": "이메일",
+      "phone": "전화/카카오톡",
+      "country": "국가",
+      "website": "웹사이트",
+      "partnerType": "파트너 유형",
+      "currentActivity": "현재 비즈니스 활동",
+      "network": "네트워크/기존 채널",
+      "reason": "이 기회에 관심이 있는 이유가 무엇인가요?",
+      "requirements": "최소 요건을 충족할 수 있나요?"
+    },
+    "placeholders": {
+      "name": "성명",
+      "company": "기업명",
+      "email": "you@company.kr",
+      "phone": "+82 10 0000 0000",
+      "countrySelect": "국가 선택",
+      "website": "https://yourcompany.co.kr",
+      "partnerTypeSelect": "파트너 유형 선택",
+      "activity": "비즈니스에 대해 알려주세요",
+      "network": "네트워크 또는 채널",
+      "reason": "메시지",
+      "requirementsSelect": "선택"
+    },
+    "partnerTypes": ["수입업자", "유통업자", "프랜차이즈 사업자", "투자자", "운영자"],
+    "countries": ["대한민국", "미국", "캐나다", "영국", "독일", "프랑스", "이탈리아", "스페인", "포르투갈", "네덜란드", "벨기에", "스위스", "오스트리아", "호주", "뉴질랜드", "중국", "일본", "싱가포르", "인도", "브라질", "멕시코", "아르헨티나", "콜롬비아", "칠레", "페루", "아랍에미리트", "사우디아라비아", "카타르", "이집트", "남아프리카", "러시아", "인도네시아", "말레이시아", "태국", "필리핀", "베트남", "기타"],
+    "requirements": ["예", "논의 필요", "아니오"],
+    "consent": "개인정보 보호정책을 읽고 동의하며, 기회에 소유자와 내 문의를 공유することに同意합니다.",
+    "submit": "문의 보내기",
+    "privacyNote": "당신의 프라이버시를 존중합니다. 스팸 없음. 언제든지 취소 가능."
+  },
+  "privacy": {
+    "title": "개인정보 보호정책",
+    "lastUpdated": "최종 업데이트: 2026년 7월 2일",
+    "intro": "파트너 마켓 글로벌은 기회 검토, 문의 응답, 동의 획득 시 해당 기회 소유자와 자격 있는 문의 공유를 위해 문의, 연락, 게시 양식을 통해 제출된 정보를 수집합니다.",
+    "infoTitle": "수집하는 정보",
+    "infoList": [
+      "성명, 기업, 이메일, 전화번호 또는 카카오톡ID 및 국가",
+      "기업 웹사이트, 비즈니스 활동 및 파트너 프로필",
+      "검토를 위해 제출된 기회 세부 정보 및 문서",
+      "페이지 뷰 및 대략적인 지역과 같은 기술 분석 데이터"
+    ],
+    "howTitle": "정보 사용 방법",
+    "howText": "정보를 사용하여 플랫폼을 운영, 게시 신청 평가, 문의 자격 부여, 스팸 방지, 웹사이트 개선, 사용자와 통신합니다.",
+    "sharingTitle": "공유",
+    "sharingText": "사용자가 동의했거나 요청된 서비스를 제공するために 필요한 경우에만 해당 기회 소유자와 자격 있는 문의 세부 정보를 공유합니다.",
+    "contactTitle": "문의",
+    "contactText": "개인정보 관련 질문은 문의하세요"
+  },
+  "terms": {
+    "title": "이용약관",
+    "lastUpdated": "최종 업데이트: 2026년 7월 2일",
+    "intro": "파트너 마켓 글로벌은 비즈니스 기회들의 큐레이션된 쇼케이스입니다. 이 웹사이트를 사용하면 목록이 정보 및 비즈니스 소개 목적でのみ 제공되는ことに同意한 것입니다.",
+    "disclaimerTitle": "면책 조항",
+    "disclaimerText": "비즈니스 성공, 수익성, 자금 조달, 시장 진입 승인, 법적 준수 또는 파트너 성과를 보장하지 않습니다. 법률, 재정, 투자, 프랜차이즈, 세금 또는 증권 자문을 제공하지 않습니다. 사용자는 자체적인尽职调查를 수행해야 합니다.",
+    "listingsTitle": "목록",
+    "listingsText": "불완전, 오해의 소지가 있거나, 최신이 아니거나, 플랫폼에 적합하지 않은 목록을 거부, 편집, 일시 중단 또는 삭제할 수 있습니다.",
+    "inquiriesTitle": "문의",
+    "inquiriesText": "문의を送信しても、パートナーシップ、프랜차이즈合意、配送合意 또는 투자 관계가成立하지 않습니다.",
+    "contactTitle": "문의",
+    "contactText": "이러한 조건에 대한 질문은 다음으로 보낼 수 있습니다"
+  },
+  "footer": {
+    "tagline": "브랜드, 비즈니스, 기회를 전 세계 올바른 파트너와 연결합니다.",
+    "columns": {
+      "explore": "탐색",
+      "exploreLinks": {
+        "all": "모든 기회",
+        "import": "수입 기회",
+        "export": "수출 기회",
+        "franchise": "프랜차이즈 기회",
+        "distribution": "유통 권한",
+        "licensing": "라이선스 및 브랜드 얼라이언스"
+      },
+      "forCompanies": "기업 안내",
+      "forCompaniesLinks": {
+        "list": "기회 등록하기",
+        "terms": "상업 조건",
+        "curation": "큐레이션 프로세스",
+        "howItWorks": "작동 방식",
+        "faq": "자주 묻는 질문"
+      },
+      "resources": "리소스",
+      "resourcesLinks": {
+        "blog": "블로그 및 인사이트",
+        "guides": "가이드",
+        "webinars": "웨비나",
+        "reports": "시장 보고서",
+        "success": "성공 사례"
+      },
+      "company": "기업",
+      "companyLinks": {
+        "about": "회사 소개",
+        "contact": "문의하기",
+        "careers": "채용",
+        "newsroom": "뉴스룸"
+      },
+      "legal": "법적",
+      "legalLinks": {
+        "privacy": "개인정보 보호정책",
+        "terms": "이용약관",
+        "disclaimer": "면책 조항"
+      }
+    },
+    "copyright": "모든 권리 보유.",
+    "brandBy": "De Vries Sales Consultancy의 브랜드.",
+    "devriesUrl": "www.devriessalesconsultancy.com"
+  },
+  "admin": {
+    "title": "관리자 패널 레이아웃",
+    "listings": "목록",
+    "inquiries": "문의",
+    "applications": "신청",
+    "packages": "패키지",
+    "documents": "문서",
+    "settings": "설정",
+    "newListing": "새 목록",
+    "tableHeaders": {
+      "title": "제목",
+      "type": "유형",
+      "sector": "섹터",
+      "status": "상태",
+      "inquiries": "문의"
+    },
+    "statusOpen": "문의 가능"
+  },
+  "faq": {
+    "whatIs": {
+      "question": "파트너 마켓 글로벌란 무엇인가요?",
+      "answer": "파트너 마켓 글로벌는 수입, 수출, 유통, 라이선스, 자사 브랜드, 프랜차이즈 기회들의 큐레이션된 B2B 쇼케이스입니다."
+    },
+    "canList": {
+      "question": "기업이 프랜차이즈나 유통 기회를 게시할 수 있나요?",
+      "answer": "네. 기업은 검토 및 큐레이션 후 제품, 서비스, 프랜차이즈, 라이선스, 자사 브랜드, 국가 파트너 기회 게시를 신청할 수 있습니다."
+    },
+    "guarantee": {
+      "question": "파트너 마켓 글로벌이 비즈니스 성공을 보장하나요?",
+      "answer": "아니요. 파트너 마켓 글로벌은 큐레이션된 쇼케이스 플랫폼을 제공하지만 비즈니스 성공, 수익성 또는 파트너 성과를 보장하지 않습니다. 모든 이해관계자는 자체적인尽职调查를 수행해야 합니다."
+    },
+    "howInquire": {
+      "question": "기회에 대해 문의하려면 어떻게 하나요?",
+      "answer": "기회 카드에서 세부 정보 보기 버튼을 클릭하고, 전체 프로필을 검토한 다음, 기회 세부 정보 페이지의 안전한 문의 양식을 통해 자격 있는 문의를 보내세요."
+    }
+  }
+}

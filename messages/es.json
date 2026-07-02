@@ -1,0 +1,377 @@
+{
+  "site": {
+    "name": "Partner Market Global",
+    "tagline": "Curado. Verificado. Global.",
+    "description": "Partner Market Global es un escaparate B2B curado para oportunidades de importación, exportación, distribución, licencias, marca blanca y franquicias de empresas ambiciosas que buscan socios internacionales cualificados.",
+    "url": "https://www.partnermarketglobal.com",
+    "email": "listings@partnermarketglobal.com"
+  },
+  "nav": {
+    "opportunities": "Oportunidades",
+    "categories": "Categorías",
+    "forCompanies": "Para Empresas",
+    "resources": "Recursos",
+    "aboutUs": "Sobre Nosotros",
+    "listOpportunity": "Publica Tu Oportunidad",
+    "login": "Iniciar Sesión"
+  },
+  "hero": {
+    "eyebrow": "Curado. Verificado. Global.",
+    "headline": "Oportunidades de negocio globales curadas, listas para el socio de mercado adecuado.",
+    "subheadline": "Explora oportunidades verificadas de importación, exportación, distribución, franquicia y licencias de empresas ambiciosas que buscan expandirse internacionalmente.",
+    "ctaExplore": "Explorar Oportunidades",
+    "ctaList": "Publica Tu Oportunidad",
+    "stats": {
+      "opportunities": "Oportunidades Verificadas",
+      "countries": "Países",
+      "sectors": "Sectores",
+      "partners": "Socios Cualificados"
+    }
+  },
+  "featured": {
+    "title": "Oportunidades Destacadas",
+    "viewAll": "Ver todas las oportunidades →"
+  },
+  "categories": {
+    "title": "Explorar por Tipo de Oportunidad",
+    "import": "Oportunidades de Importación",
+    "export": "Oportunidades de Exportación",
+    "franchise": "Oportunidades de Franquicia",
+    "distribution": "Derechos de Distribución",
+    "licensing": "Licencias y Alianzas de Marca",
+    "masterFranchise": "Derechos de Master Franquicia",
+    "countryPartner": "Oportunidades de Socio por País",
+    "privateLabel": "Marca Blanca / Oportunidades OEM"
+  },
+  "trust": {
+    "title": "Curado. Estructurado. Más fácil de confiar.",
+    "subtitle": "Verificamos y estructuramos cada oportunidad para que puedas evaluarla con confianza y conectar con el socio adecuado más rápido.",
+    "businessVerification": "Verificación de Empresa",
+    "businessVerificationDesc": "Empresa y registro verificados",
+    "credentialReview": "Revisión de Credenciales",
+    "credentialReviewDesc": "Licencias, certificados y credenciales revisados",
+    "opportunityAssessment": "Evaluación de Oportunidad",
+    "opportunityAssessmentDesc": "Potencial de mercado y perfil de socio evaluados",
+    "documentSupport": "Soporte Documental",
+    "documentSupportDesc": "Información clave disponible bajo solicitud",
+    "secureInquiries": "Consultas Seguras",
+    "secureInquiriesDesc": "Solo consultas cualificadas a través de plataforma segura"
+  },
+  "cta": {
+    "headline": "¿Tienes un producto, servicio, marca o franquicia listo para nuevos mercados?",
+    "subheadline": "Muestra tu oportunidad a socios internacionales cualificados.",
+    "features": {
+      "global": "Alcanza socios cualificados globales",
+      "structured": "Perfil de oportunidad estructurado y verificado",
+      "qualified": "Consultas cualificadas que convierten",
+      "grow": "Haz crecer tu negocio internacionalmente"
+    },
+    "ctaList": "Publica Tu Oportunidad",
+    "ctaTerms": "Ver Términos Comerciales"
+  },
+  "opportunities": {
+    "title": "Explora oportunidades de negocio curadas",
+    "subtitle": "Explora oportunidades verificadas de importación, exportación, distribución, master franquicia, licencias y marca blanca de empresas listas para entrar en nuevos mercados.",
+    "filters": {
+      "all": "Todos",
+      "import": "Importación",
+      "export": "Exportación",
+      "franchise": "Franquicia",
+      "distribution": "Distribución",
+      "licensing": "Licencias",
+      "privateLabel": "Marca Blanca / OEM",
+      "countryPartner": "Socio por País"
+    },
+    "viewDetails": "Ver Detalles",
+    "origin": "Origen",
+    "targetMarkets": "Mercados Objetivo"
+  },
+  "opportunityDetail": {
+    "back": "← Volver a oportunidades",
+    "interested": "¿Te interesa esta oportunidad?",
+    "sendInquiry": "Enviar Consulta Cualificada",
+    "saveOpportunity": "Guardar Oportunidad",
+    "askQuestion": "Hacer una Pregunta",
+    "secureBox": "♡ 100% Seguro y Confidencial\nRespetamos tu privacidad.",
+    "quickFacts": {
+      "originCountry": "País de Origen",
+      "targetMarkets": "Mercados Objetivo",
+      "partnerType": "Tipo de Socio",
+      "exclusivity": "Exclusividad",
+      "investmentReq": "Inversión Req.",
+      "status": "Estado"
+    },
+    "tabs": {
+      "overview": "Resumen",
+      "company": "Empresa",
+      "products": "Productos",
+      "market": "Mercado",
+      "partnerProfile": "Perfil del Socio",
+      "commercial": "Comercial",
+      "territories": "Territorios",
+      "more": "Más"
+    },
+    "overview": "Resumen",
+    "keyHighlights": "Puntos Clave",
+    "companyBackground": "Antecedentes de la Empresa",
+    "productDetails": "Detalles del Producto / Servicio / Franquicia",
+    "marketOpportunity": "Oportunidad de Mercado",
+    "idealPartner": "Perfil del Socio Ideal",
+    "commercialModel": "Modelo Comercial",
+    "territoryAvailability": "Disponibilidad Territorial",
+    "documentsAvailable": "Documentos Disponibles",
+    "whyPartner": "Por Qué Asociarse Con Nosotros",
+    "whyPartnerList": [
+      "Productos probados con gran demanda del consumidor",
+      "Precios competitivos y márgenes",
+      "Soporte completo para socios",
+      "Modelos de asociación flexibles",
+      "Orientados al crecimiento a largo plazo"
+    ],
+    "risksNotes": "Riesgos y Notas"
+  },
+  "forCompanies": {
+    "hero": {
+      "eyebrow": "Para Empresas",
+      "headline": "Muestra tu oportunidad de negocio a socios internacionales cualificados.",
+      "subheadline": "Te ayudamos a llegar a importadores, distribuidores, franquiciados, operadores e inversores que buscan las oportunidades adecuadas.",
+      "checklist": [
+        "Plataforma Curada y Verificada",
+        "Alcance Internacional Cualificado",
+        "Perfil de Oportunidad Estructurado",
+        "Consultas Serias que Convierten"
+      ]
+    },
+    "whoCanList": {
+      "title": "¿Quién Puede Publicar?",
+      "subtitle": "Damos la bienvenida a una amplia gama de oportunidades de negocio."
+    },
+    "curation": {
+      "title": "Nuestro Proceso de Curación",
+      "steps": {
+        "submit": "Enviar Solicitud",
+        "submitDesc": "Cuéntanos sobre tu oportunidad.",
+        "review": "Revisión y Verificación",
+        "reviewDesc": "Revisamos y verificamos tu empresa y documentos.",
+        "profile": "Creación del Perfil",
+        "profileDesc": "Creamos tu perfil de oportunidad premium.",
+        "goLive": "En Vivo",
+        "goLiveDesc": "Tu oportunidad se publica en nuestra plataforma.",
+        "inquiries": "Recibir Consultas",
+        "inquiriesDesc": "Conéctate con socios internacionales cualificados."
+      }
+    }
+  },
+  "commercial": {
+    "hero": {
+      "eyebrow": "Términos Comerciales",
+      "headline": "Paquetes transparentes para la promoción de oportunidades internacionales",
+      "subheadline": "Elige un listado simple, un escaparate premium o una campaña de búsqueda de socios según tus objetivos de crecimiento."
+    },
+    "packages": {
+      "title": "Paquetes Comerciales",
+      "subtitle": "Elige el paquete que se adapte a tus objetivos. Todos los precios en EUR.",
+      "basic": "Listado Curado Básico",
+      "premium": "Escaparate Premium",
+      "campaign": "Campaña de Búsqueda de Socios",
+      "success": "Tarifa de Éxito / Introducción",
+      "perMonth": "/ mes",
+      "oneTime": "Pago único",
+      "byAgreement": "Por acuerdo",
+      "mostPopular": "Más Popular",
+      "getStarted": "Comenzar",
+      "contactUs": "Contáctanos",
+      "legalNote": "Todos los paquetes están sujetos a nuestros Términos de Uso. No proporcionamos asesoramiento legal, financiero o de inversión.",
+      "features": {
+        "basic": ["Página de perfil estándar", "Formulario de consulta y captura de clientes potenciales", "Ubicación estándar", "Soporte básico"],
+        "premium": ["Todo lo del Básico", "Ubicación destacada", "Perfil y visuales mejorados", "Soporte prioritario"],
+        "campaign": ["Todo lo del Premium", "Acciones dirigidas", "Lista de prospectos curada", "Informe de campaña"],
+        "success": ["Solo cuando sea legalmente apropiado", "Según el valor y alcance", "Términos transparentes"]
+      }
+    },
+    "importantNotes": {
+      "title": "Notas Importantes",
+      "note1": "Partner Market Global proporciona servicios de marketing, curación y generación de clientes potenciales. No proporcionamos asesoramiento legal, financiero, de inversión, franquicias, fiscal o de valores. Las empresas y los socios interesados son responsables de su propia diligencia debida, revisión legal y cumplimiento específico del mercado.",
+      "note2": "Las tarifas de éxito o introducción solo deben usarse cuando sea legalmente apropiado y siempre bajo un acuerdo escrito claro."
+    }
+  },
+  "curation": {
+    "hero": {
+      "eyebrow": "Proceso de Curación",
+      "headline": "Perfiles de oportunidad estructurados que son más fáciles de evaluar",
+      "subheadline": "Combinamos revisión de negocios, organización de documentos y requisitos claros de socios para que las consultas serias avancen más rápido."
+    },
+    "whatWeCheck": "Lo Que Verificamos",
+    "disclaimer": "Aviso Legal",
+    "disclaimerText": "Nuestra revisión mejora la calidad de la presentación y ayuda a filtrar oportunidades obvias de spam o incompletas. No es una garantía de rendimiento, rentabilidad, cumplimiento legal o éxito comercial. Las partes interesadas deben completar su propia diligencia debida."
+  },
+  "about": {
+    "eyebrow": "Sobre Partner Market Global",
+    "headline": "Conectando marcas, negocios y oportunidades con los socios adecuados en todo el mundo.",
+    "body1": "Partner Market Global está diseñado para empresas que quieren una mejor manera de presentar oportunidades internacionales que un directorio genérico o una campaña de prospección en frío.",
+    "body2": "Estructuramos cada oportunidad en un perfil claro de calidad de deck de inversor que cubre requisitos de socios, alcance del mercado, modelo comercial, credenciales, documentos disponibles y el siguiente paso para las partes interesadas.",
+    "focusTitle": "Nuestro Enfoque",
+    "focusList": [
+      "Oportunidades de importación y exportación",
+      "Derechos de distribución y socio por país",
+      "Oportunidades de franquicia y master franquicia",
+      "Licencias, alianzas de marca y oportunidades de marca blanca / OEM"
+    ]
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Contacto",
+      "headline": "Habla con nosotros sobre tu oportunidad internacional",
+      "subheadline": "Envíanos un correo electrónico o utiliza el formulario de consulta a continuación."
+    }
+  },
+  "inquiry": {
+    "title": "Enviar una Consulta Cualificada",
+    "subtitle": "Cuéntanos sobre tu negocio y te conectaremos con la persona adecuada.",
+    "fields": {
+      "fullName": "Nombre Completo",
+      "company": "Empresa",
+      "email": "Correo Electrónico",
+      "phone": "Teléfono / WhatsApp",
+      "country": "País",
+      "website": "Sitio Web",
+      "partnerType": "Tipo de Socio",
+      "currentActivity": "Actividad Empresarial Actual",
+      "network": "Red / Canales Existentes",
+      "reason": "¿Por qué te interesa esta oportunidad?",
+      "requirements": "¿Puedes cumplir con los requisitos mínimos?"
+    },
+    "placeholders": {
+      "name": "Tu nombre",
+      "company": "Tu empresa",
+      "email": "tu@empresa.com",
+      "phone": "+34 600 000 000",
+      "countrySelect": "Seleccionar país",
+      "website": "https://tuempresa.com",
+      "partnerTypeSelect": "Seleccionar tipo de socio",
+      "activity": "Cuéntanos sobre tu negocio",
+      "network": "Tu red o canales",
+      "reason": "Tu mensaje",
+      "requirementsSelect": "Seleccionar"
+    },
+    "partnerTypes": ["Importador", "Distribuidor", "Franquiciado", "Inversor", "Operador"],
+    "countries": ["España", "México", "Argentina", "Colombia", "Chile", "Perú", "Emiratos Árabes Unidos", "Arabia Saudita", "Países Bajos", "Alemania", "Francia", "Reino Unido", "Estados Unidos", "Otro"],
+    "requirements": ["Sí", "Necesito discutirlo", "No"],
+    "consent": "Confirmo que he leído y acepto la Política de Privacidad y consiento compartir mi consulta con el propietario de la oportunidad.",
+    "submit": "Enviar Consulta",
+    "privacyNote": "Respetamos tu privacidad. Sin spam. Cancela cuando quieras."
+  },
+  "privacy": {
+    "title": "Política de Privacidad",
+    "lastUpdated": "Última actualización: 2 de julio de 2026",
+    "intro": "Partner Market Global recopila información enviada a través de formularios de consulta, contacto y publicación para poder revisar oportunidades, responder a consultas y, cuando se dé el consentimiento, compartir consultas cualificadas con el propietario de la oportunidad correspondiente.",
+    "infoTitle": "Información Que Recopilamos",
+    "infoList": [
+      "Nombre, empresa, correo electrónico, teléfono o número de WhatsApp y país",
+      "Sitio web de la empresa, actividad empresarial y perfil de socio",
+      "Detalles de la oportunidad y documentos enviados para revisión",
+      "Datos analíticos técnicos como páginas vistas y región aproximada"
+    ],
+    "howTitle": "Cómo Utilizamos la Información",
+    "howText": "Utilizamos la información para operar la plataforma, evaluar solicitudes de publicación, cualificar consultas, prevenir spam, mejorar el sitio web y comunicarnos con los usuarios.",
+    "sharingTitle": "Compartir",
+    "sharingText": "Solo compartimos los detalles de consultas cualificadas con el propietario de la oportunidad correspondiente cuando el usuario ha dado su consentimiento o cuando es necesario para proporcionar el servicio solicitado.",
+    "contactTitle": "Contacto",
+    "contactText": "Para preguntas sobre privacidad, contacta con"
+  },
+  "terms": {
+    "title": "Términos de Uso",
+    "lastUpdated": "Última actualización: 2 de julio de 2026",
+    "intro": "Partner Market Global es un escaparate curado de oportunidades de negocio. Al usar este sitio web, aceptas que loslistados se proporcionan solo con fines de información e introducción de negocios.",
+    "disclaimerTitle": "Aviso Legal",
+    "disclaimerText": "No garantizamos el éxito comercial, la rentabilidad, la financiación, la aprobación de entrada al mercado, el cumplimiento legal o el rendimiento del socio. No proporcionamos asesoramiento legal, financiero, de inversión, franquicias, fiscal o de valores. Los usuarios deben realizar su propia diligencia debida.",
+    "listingsTitle": "Listados",
+    "listingsText": "Podemos rechazar, editar, suspender o eliminar listados que estén incompletos, engañosos, desactualizados o inadecuados para la plataforma.",
+    "inquiriesTitle": "Consultas",
+    "inquiriesText": "Enviar una consulta no crea una sociedad, acuerdo de franquicia, acuerdo de distribución ni relación de inversión.",
+    "contactTitle": "Contacto",
+    "contactText": "Las preguntas sobre estos términos pueden enviarse a"
+  },
+  "footer": {
+    "tagline": "Conectando marcas, negocios y oportunidades con los socios adecuados en todo el mundo.",
+    "columns": {
+      "explore": "Explorar",
+      "exploreLinks": {
+        "all": "Todas las Oportunidades",
+        "import": "Oportunidades de Importación",
+        "export": "Oportunidades de Exportación",
+        "franchise": "Oportunidades de Franquicia",
+        "distribution": "Derechos de Distribución",
+        "licensing": "Licencias y Alianzas"
+      },
+      "forCompanies": "Para Empresas",
+      "forCompaniesLinks": {
+        "list": "Publica Tu Oportunidad",
+        "terms": "Términos Comerciales",
+        "curation": "Proceso de Curación",
+        "howItWorks": "Cómo Funciona",
+        "faq": "Preguntas Frecuentes"
+      },
+      "resources": "Recursos",
+      "resourcesLinks": {
+        "blog": "Blog y Perspectivas",
+        "guides": "Guías",
+        "webinars": "Seminarios Web",
+        "reports": "Informes de Mercado",
+        "success": "Historias de Éxito"
+      },
+      "company": "Empresa",
+      "companyLinks": {
+        "about": "Sobre Nosotros",
+        "contact": "Contáctanos",
+        "careers": "Empleos",
+        "newsroom": "Sala de Prensa"
+      },
+      "legal": "Legal",
+      "legalLinks": {
+        "privacy": "Política de Privacidad",
+        "terms": "Términos de Uso",
+        "disclaimer": "Aviso Legal"
+      }
+    },
+    "copyright": "Todos los derechos reservados.",
+    "brandBy": "Una marca de De Vries Sales Consultancy.",
+    "devriesUrl": "www.devriessalesconsultancy.com"
+  },
+  "admin": {
+    "title": "Maquetación del Panel de Administración",
+    "listings": "Listados",
+    "inquiries": "Consultas",
+    "applications": "Solicitudes",
+    "packages": "Paquetes",
+    "documents": "Documentos",
+    "settings": "Configuración",
+    "newListing": "Nuevo Listado",
+    "tableHeaders": {
+      "title": "Título",
+      "type": "Tipo",
+      "sector": "Sector",
+      "status": "Estado",
+      "inquiries": "Consultas"
+    },
+    "statusOpen": "Abierto a consultas"
+  },
+  "faq": {
+    "whatIs": {
+      "question": "¿Qué es Partner Market Global?",
+      "answer": "Partner Market Global es un escaparate B2B curado para oportunidades de importación, exportación, distribución, licencias, marca blanca y franquicias."
+    },
+    "canList": {
+      "question": "¿Pueden las empresas publicar oportunidades de franquicia o distribución?",
+      "answer": "Sí. Las empresas pueden solicitar publicar oportunidades de productos, servicios, franquicias, licencias, marca blanca y socios por país después de la revisión y curación."
+    },
+    "guarantee": {
+      "question": "¿Garantiza Partner Market Global el éxito comercial?",
+      "answer": "No. Partner Market Global proporciona una plataforma de escaparate curado pero no garantiza el éxito comercial, la rentabilidad o el rendimiento del socio. Todas las partes interesadas deben realizar su propia diligencia debida."
+    },
+    "howInquire": {
+      "question": "¿Cómo puedo consultar sobre una oportunidad?",
+      "answer": "Haz clic en cualquier botón Ver Detalles en una tarjeta de oportunidad, revisa el perfil completo y envía una consulta cualificada a través del formulario seguro de consulta en la página de detalles de la oportunidad."
+    }
+  }
+}

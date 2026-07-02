@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { commercialPackages } from "@/lib/data";
 
-export function PricingCards() {
+export function PricingCards({ locale = "en" }: { locale?: string }) {
   return (
     <section className="pricing-section">
       <div className="section-heading">
@@ -18,7 +18,7 @@ export function PricingCards() {
             <ul>
               {pkg.features.map((feature) => <li key={feature}>✓ {feature}</li>)}
             </ul>
-            <Link className={pkg.popular ? "btn btn-orange full" : "btn btn-line full"} href="/list-your-opportunity#application">
+            <Link className={pkg.popular ? "btn btn-orange full" : "btn btn-line full"} href={`/${locale}/list-your-opportunity#application`}>
               {pkg.cta}
             </Link>
           </article>

@@ -1,0 +1,377 @@
+{
+  "site": {
+    "name": "全球伙伴市场",
+    "tagline": "精选. 验证. 全球.",
+    "description": "全球伙伴市场是一个精心策划的B2B展示平台，为寻求合格国际合作伙伴的有雄心企业提供进口、出口、分销、许可、私有品牌和特许经营机会。",
+    "url": "https://www.partnermarketglobal.com",
+    "email": "listings@partnermarketglobal.com"
+  },
+  "nav": {
+    "opportunities": "商机",
+    "categories": "类别",
+    "forCompanies": "企业服务",
+    "resources": "资源",
+    "aboutUs": "关于我们",
+    "listOpportunity": "发布您的商机",
+    "login": "登录"
+  },
+  "hero": {
+    "eyebrow": "精选. 验证. 全球.",
+    "headline": "精心策划的全球商业机会，为合适的市场合作伙伴准备。",
+    "subheadline": "探索来自希望国际扩张的有雄心企业的已验证进口、出口、分销、特许经营和许可机会。",
+    "ctaExplore": "探索商机",
+    "ctaList": "发布您的商机",
+    "stats": {
+      "opportunities": "已验证商机",
+      "countries": "国家",
+      "sectors": "行业",
+      "partners": "合格合作伙伴"
+    }
+  },
+  "featured": {
+    "title": "精选商机",
+    "viewAll": "查看所有商机 →"
+  },
+  "categories": {
+    "title": "按机会类型探索",
+    "import": "进口机会",
+    "export": "出口机会",
+    "franchise": "特许经营机会",
+    "distribution": "分销权",
+    "licensing": "许可和品牌联盟",
+    "masterFranchise": "主特许经营权",
+    "countryPartner": "国家合作伙伴机会",
+    "privateLabel": "自有品牌/OEM机会"
+  },
+  "trust": {
+    "title": "精选. 结构化. 更值得信赖.",
+    "subtitle": "我们验证并结构化每个机会，让您能够自信地评估并更快地找到合适的合作伙伴。",
+    "businessVerification": "企业验证",
+    "businessVerificationDesc": "企业和注册已验证",
+    "credentialReview": "资质审查",
+    "credentialReviewDesc": "许可证、证书和资质已审查",
+    "opportunityAssessment": "机会评估",
+    "opportunityAssessmentDesc": "市场潜力和合作伙伴概况已评估",
+    "documentSupport": "文件支持",
+    "documentSupportDesc": "关键信息可根据要求提供",
+    "secureInquiries": "安全咨询",
+    "secureInquiriesDesc": "仅通过安全平台进行合格咨询"
+  },
+  "cta": {
+    "headline": "您有准备好进入新市场的产品、服务、品牌或特许经营吗？",
+    "subheadline": "向合格的国际合作伙伴展示您的机会。",
+    "features": {
+      "global": "接触全球合格合作伙伴",
+      "structured": "结构化且已验证的机会简介",
+      "qualified": "有效的合格咨询",
+      "grow": "在国际上发展您的业务"
+    },
+    "ctaList": "发布您的商机",
+    "ctaTerms": "查看商业条款"
+  },
+  "opportunities": {
+    "title": "探索精选的商业机会",
+    "subtitle": "探索来自准备进入新市场的企业的已验证进口、出口、分销、主特许经营、许可和自有品牌机会。",
+    "filters": {
+      "all": "全部",
+      "import": "进口",
+      "export": "出口",
+      "franchise": "特许经营",
+      "distribution": "分销",
+      "licensing": "许可",
+      "privateLabel": "自有品牌 / OEM",
+      "countryPartner": "国家合作伙伴"
+    },
+    "viewDetails": "查看详情",
+    "origin": "原产地",
+    "targetMarkets": "目标市场"
+  },
+  "opportunityDetail": {
+    "back": "← 返回机会列表",
+    "interested": "您对这个机会感兴趣吗？",
+    "sendInquiry": "发送合格咨询",
+    "saveOpportunity": "保存机会",
+    "askQuestion": "提问",
+    "secureBox": "♡ 100% 安全和保密\n我们尊重您的隐私。",
+    "quickFacts": {
+      "originCountry": "原产国",
+      "targetMarkets": "目标市场",
+      "partnerType": "合作伙伴类型",
+      "exclusivity": "独家性",
+      "investmentReq": "投资要求",
+      "status": "状态"
+    },
+    "tabs": {
+      "overview": "概述",
+      "company": "公司",
+      "products": "产品",
+      "market": "市场",
+      "partnerProfile": "合作伙伴简介",
+      "commercial": "商业",
+      "territories": "地区",
+      "more": "更多"
+    },
+    "overview": "概述",
+    "keyHighlights": "关键亮点",
+    "companyBackground": "公司背景",
+    "productDetails": "产品/服务/特许经营详情",
+    "marketOpportunity": "市场机会",
+    "idealPartner": "理想合作伙伴简介",
+    "commercialModel": "商业模式",
+    "territoryAvailability": "地区可用性",
+    "documentsAvailable": "可用文件",
+    "whyPartner": "为什么与我们合作",
+    "whyPartnerList": [
+      "经消费者需求验证的产品",
+      "有竞争力的价格和利润率",
+      "全面的合作伙伴支持",
+      "灵活的合作伙伴模式",
+      "长期增长导向"
+    ],
+    "risksNotes": "风险和注意事项"
+  },
+  "forCompanies": {
+    "hero": {
+      "eyebrow": "企业服务",
+      "headline": "向合格的国际合作伙伴展示您的商业机会。",
+      "subheadline": "我们帮助您接触正在寻找合适机会的进口商、分销商、特许经营者、运营商和投资者。",
+      "checklist": [
+        "精选和验证平台",
+        "合格的国际覆盖",
+        "结构化的机会简介",
+        "有效的认真咨询"
+      ]
+    },
+    "whoCanList": {
+      "title": "谁可以发布？",
+      "subtitle": "我们欢迎各种商业机会。"
+    },
+    "curation": {
+      "title": "我们的精选流程",
+      "steps": {
+        "submit": "提交申请",
+        "submitDesc": "告诉我们您的机会。",
+        "review": "审查和验证",
+        "reviewDesc": "我们审查并验证您的公司和文件。",
+        "profile": "创建简介",
+        "profileDesc": "我们为您创建高级机会简介。",
+        "goLive": "上线",
+        "goLiveDesc": "您的机会将在我们的平台上发布。",
+        "inquiries": "接收咨询",
+        "inquiriesDesc": "与合格的国际合作伙伴建立联系。"
+      }
+    }
+  },
+  "commercial": {
+    "hero": {
+      "eyebrow": "商业条款",
+      "headline": "国际机会推广的透明套餐",
+      "subheadline": "根据您的增长目标，选择简单的列表、高级展示或合作伙伴搜索活动。"
+    },
+    "packages": {
+      "title": "商业套餐",
+      "subtitle": "选择适合您目标的套餐。所有价格以欧元为单位。",
+      "basic": "基础精选列表",
+      "premium": "高级展示",
+      "campaign": "合作伙伴搜索活动",
+      "success": "成功/介绍费",
+      "perMonth": "/月",
+      "oneTime": "一次性付款",
+      "byAgreement": "协商确定",
+      "mostPopular": "最受欢迎",
+      "getStarted": "开始",
+      "contactUs": "联系我们",
+      "legalNote": "所有套餐均受我们的使用条款约束。我们不提供法律、财务或投资建议。",
+      "features": {
+        "basic": ["标准简介页面", "咨询表格和潜在客户捕获", "标准展示位置", "基本支持"],
+        "premium": ["基础版所有功能", "特色展示位置", "改进的简介和视觉效果", "优先支持"],
+        "campaign": ["高级版所有功能", "定向活动", "精选潜在客户名单", "活动报告"],
+        "success": ["仅在合法适当的情况下", "根据价值和范围", "透明条款"]
+      }
+    },
+    "importantNotes": {
+      "title": "重要注意事项",
+      "note1": "全球伙伴市场提供营销、精选和潜在客户开发服务。我们不提供法律、财务、投资、特许经营、税务或证券建议。企业和有兴趣的合作伙伴负责自己的尽职调查、法律审查和市场特定合规。",
+      "note2": "成功费或介绍费仅应在合法适当的情况下使用，并始终在明确的书面协议下进行。"
+    }
+  },
+  "curation": {
+    "hero": {
+      "eyebrow": "精选流程",
+      "headline": "结构化的机会简介，更易于评估",
+      "subheadline": "我们结合业务审查、文档组织和清晰的合作伙伴要求，使认真咨询能够更快地推进。"
+    },
+    "whatWeCheck": "我们验证的内容",
+    "disclaimer": "免责声明",
+    "disclaimerText": "我们的审查提高了展示质量，并有助于过滤明显的垃圾邮件或不完整的机会。它不保证业绩、盈利能力、法律合规或商业成功。利益相关方应完成自己的尽职调查。"
+  },
+  "about": {
+    "eyebrow": "关于全球伙伴市场",
+    "headline": "将品牌、业务和机会与世界各地合适的合作伙伴联系起来。",
+    "body1": "全球伙伴市场专为希望以更好的方式展示国际机会的企业而设计，而不是通用目录或冷拨电话营销活动。",
+    "body2": "我们将每个机会结构化为类似投资者 deck 的清晰质量简介，涵盖合作伙伴要求、市场覆盖范围、业务模式、资质、可用文件和利益相关方的下一步行动。",
+    "focusTitle": "我们的重点",
+    "focusList": [
+      "进出口机会",
+      "分销和国家合作伙伴权利",
+      "特许经营和主特许经营机会",
+      "许可、品牌联盟和自有品牌/OEM机会"
+    ]
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "联系我们",
+      "headline": "与我们讨论您的国际机会",
+      "subheadline": "发送电子邮件或使用下面的咨询表格。"
+    }
+  },
+  "inquiry": {
+    "title": "发送合格咨询",
+    "subtitle": "告诉我们您的业务，我们将为您联系合适的人。",
+    "fields": {
+      "fullName": "全名",
+      "company": "公司",
+      "email": "电子邮件",
+      "phone": "电话/微信",
+      "country": "国家",
+      "website": "网站",
+      "partnerType": "合作伙伴类型",
+      "currentActivity": "当前业务活动",
+      "network": "网络/现有渠道",
+      "reason": "为什么您对这个机会感兴趣？",
+      "requirements": "您能否满足最低要求？"
+    },
+    "placeholders": {
+      "name": "您的姓名",
+      "company": "您的公司",
+      "email": "you@company.com",
+      "phone": "+86 100 0000 0000",
+      "countrySelect": "选择国家",
+      "website": "https://yourcompany.com",
+      "partnerTypeSelect": "选择合作伙伴类型",
+      "activity": "告诉我们您的业务",
+      "network": "您的网络或渠道",
+      "reason": "您的留言",
+      "requirementsSelect": "选择"
+    },
+    "partnerTypes": ["进口商", "分销商", "特许经营者", "投资者", "运营商"],
+    "countries": ["中国", "美国", "加拿大", "英国", "德国", "法国", "意大利", "西班牙", "葡萄牙", "荷兰", "比利时", "瑞士", "奥地利", "澳大利亚", "新西兰", "日本", "韩国", "新加坡", "印度", "巴西", "墨西哥", "阿根廷", "哥伦比亚", "智利", "秘鲁", "阿联酋", "沙特阿拉伯", "卡塔尔", "埃及", "南非", "俄罗斯", "印度尼西亚", "马来西亚", "泰国", "菲律宾", "越南", "其他"],
+    "requirements": ["是", "需要讨论", "否"],
+    "consent": "我确认已阅读并同意隐私政策，并同意将我的咨询与机会所有者分享。",
+    "submit": "发送咨询",
+    "privacyNote": "我们尊重您的隐私。无垃圾邮件。随时取消。"
+  },
+  "privacy": {
+    "title": "隐私政策",
+    "lastUpdated": "最后更新：2026年7月2日",
+    "intro": "全球伙伴市场收集通过咨询、联系和发布表格提交的信息，以便审查机会、回复咨询，并在同意的情况下与相应的机会所有者分享合格咨询。",
+    "infoTitle": "我们收集的信息",
+    "infoList": [
+      "姓名、公司、电子邮件、电话或微信号码和国家",
+      "公司网站、业务活动和合作伙伴简介",
+      "提交审查的机会详情和文件",
+      "技术分析数据，如页面浏览量和大致地区"
+    ],
+    "howTitle": "我们如何使用信息",
+    "howText": "我们使用信息来运营平台、评估发布申请、确定咨询资格、防止垃圾邮件、改进网站以及与用户沟通。",
+    "sharingTitle": "分享",
+    "sharingText": "仅在用户同意或需要提供请求的服务时，我们才与相应的机会所有者分享合格咨询的详细信息。",
+    "contactTitle": "联系",
+    "contactText": "有关隐私问题，请联系"
+  },
+  "terms": {
+    "title": "使用条款",
+    "lastUpdated": "最后更新：2026年7月2日",
+    "intro": "全球伙伴市场是商业机会的精选展示平台。使用本网站即表示您同意列表仅用于信息和业务介绍目的。",
+    "disclaimerTitle": "免责声明",
+    "disclaimerText": "我们不保证商业成功、盈利能力、融资、市场准入批准、法律合规或合作伙伴业绩。我们不提供法律、财务、投资、特许经营、税务或证券建议。用户应进行自己的尽职调查。",
+    "listingsTitle": "列表",
+    "listingsText": "我们可以拒绝、编辑、暂停或删除不完整、误导、过时或不适合平台的列表。",
+    "inquiriesTitle": "咨询",
+    "inquiriesText": "发送咨询不构成合伙关系、特许经营协议、分销协议或投资关系。",
+    "contactTitle": "联系",
+    "contactText": "有关这些条款的问题可以发送至"
+  },
+  "footer": {
+    "tagline": "将品牌、业务和机会与世界各地合适的合作伙伴联系起来。",
+    "columns": {
+      "explore": "探索",
+      "exploreLinks": {
+        "all": "所有机会",
+        "import": "进口机会",
+        "export": "出口机会",
+        "franchise": "特许经营机会",
+        "distribution": "分销权",
+        "licensing": "许可和品牌联盟"
+      },
+      "forCompanies": "企业服务",
+      "forCompaniesLinks": {
+        "list": "发布您的商机",
+        "terms": "商业条款",
+        "curation": "精选流程",
+        "howItWorks": "如何运作",
+        "faq": "常见问题"
+      },
+      "resources": "资源",
+      "resourcesLinks": {
+        "blog": "博客和见解",
+        "guides": "指南",
+        "webinars": "网络研讨会",
+        "reports": "市场报告",
+        "success": "成功案例"
+      },
+      "company": "公司",
+      "companyLinks": {
+        "about": "关于我们",
+        "contact": "联系我们",
+        "careers": "招聘",
+        "newsroom": "新闻中心"
+      },
+      "legal": "法律",
+      "legalLinks": {
+        "privacy": "隐私政策",
+        "terms": "使用条款",
+        "disclaimer": "免责声明"
+      }
+    },
+    "copyright": "版权所有。",
+    "brandBy": "De Vries Sales Consultancy 品牌。",
+    "devriesUrl": "www.devriessalesconsultancy.com"
+  },
+  "admin": {
+    "title": "管理面板布局",
+    "listings": "列表",
+    "inquiries": "咨询",
+    "applications": "申请",
+    "packages": "套餐",
+    "documents": "文档",
+    "settings": "设置",
+    "newListing": "新建列表",
+    "tableHeaders": {
+      "title": "标题",
+      "type": "类型",
+      "sector": "行业",
+      "status": "状态",
+      "inquiries": "咨询"
+    },
+    "statusOpen": "开放咨询"
+  },
+  "faq": {
+    "whatIs": {
+      "question": "什么是全球伙伴市场？",
+      "answer": "全球伙伴市场是进口、出口、分销、许可、私有品牌和特许经营机会的精选B2B展示平台。"
+    },
+    "canList": {
+      "question": "企业可以发布特许经营或分销机会吗？",
+      "answer": "是的。企业可以在审查和精选后申请发布产品、服务、特许经营、许可、私有品牌和国家合作伙伴机会。"
+    },
+    "guarantee": {
+      "question": "全球伙伴市场保证商业成功吗？",
+      "answer": "不。全球伙伴市场提供一个精选展示平台，但不保证商业成功、盈利能力或合作伙伴业绩。所有利益相关方应进行自己的尽职调查。"
+    },
+    "howInquire": {
+      "question": "如何咨询机会？",
+      "answer": "点击机会卡片上的任何查看详情按钮，查看完整简介，然后通过机会详情页面上的安全咨询表格发送合格咨询。"
+    }
+  }
+}

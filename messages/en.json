@@ -1,0 +1,377 @@
+{
+  "site": {
+    "name": "Partner Market Global",
+    "tagline": "Curated. Verified. Global.",
+    "description": "Partner Market Global is a curated B2B showcase for import, export, distribution, licensing, private label and franchise opportunities from ambitious companies looking for qualified international partners.",
+    "url": "https://www.partnermarketglobal.com",
+    "email": "listings@partnermarketglobal.com"
+  },
+  "nav": {
+    "opportunities": "Opportunities",
+    "categories": "Categories",
+    "forCompanies": "For Companies",
+    "resources": "Resources",
+    "aboutUs": "About Us",
+    "listOpportunity": "List Your Opportunity",
+    "login": "Log In"
+  },
+  "hero": {
+    "eyebrow": "Curated. Verified. Global.",
+    "headline": "Curated global business opportunities, ready for the right market partner.",
+    "subheadline": "Explore verified import, export, distribution, franchise and licensing opportunities from ambitious companies looking to expand internationally.",
+    "ctaExplore": "Explore Opportunities",
+    "ctaList": "List Your Opportunity",
+    "stats": {
+      "opportunities": "Vetted Opportunities",
+      "countries": "Countries",
+      "sectors": "Industry Sectors",
+      "partners": "Qualified Partners"
+    }
+  },
+  "featured": {
+    "title": "Featured Opportunities",
+    "viewAll": "View all opportunities →"
+  },
+  "categories": {
+    "title": "Browse by Opportunity Type",
+    "import": "Import Opportunities",
+    "export": "Export Opportunities",
+    "franchise": "Franchise Opportunities",
+    "distribution": "Distribution Rights",
+    "licensing": "Licensing & Brand Partnerships",
+    "masterFranchise": "Master Franchise Rights",
+    "countryPartner": "Country Partner Opportunities",
+    "privateLabel": "Private Label / OEM Opportunities"
+  },
+  "trust": {
+    "title": "Curated. Structured. Easier to trust.",
+    "subtitle": "We verify and structure every opportunity so you can evaluate it with confidence and connect with the right partner faster.",
+    "businessVerification": "Business Verification",
+    "businessVerificationDesc": "Company and registration checked",
+    "credentialReview": "Credential Review",
+    "credentialReviewDesc": "Licenses, certificates and credentials reviewed",
+    "opportunityAssessment": "Opportunity Assessment",
+    "opportunityAssessmentDesc": "Market potential and partner profile assessed",
+    "documentSupport": "Document Support",
+    "documentSupportDesc": "Key information available on request",
+    "secureInquiries": "Secure Inquiries",
+    "secureInquiriesDesc": "Qualified inquiries only via secure platform"
+  },
+  "cta": {
+    "headline": "Have a product, service, brand or franchise ready for new markets?",
+    "subheadline": "Showcase your opportunity to qualified international partners.",
+    "features": {
+      "global": "Reach global qualified partners",
+      "structured": "Structured & verified opportunity profile",
+      "qualified": "Qualified inquiries that convert",
+      "grow": "Grow your business internationally"
+    },
+    "ctaList": "Apply to List Your Opportunity",
+    "ctaTerms": "View Commercial Terms"
+  },
+  "opportunities": {
+    "title": "Browse curated business opportunities",
+    "subtitle": "Explore verified import, export, distribution, master franchise, licensing and private label opportunities from businesses ready to enter new markets.",
+    "filters": {
+      "all": "All",
+      "import": "Import",
+      "export": "Export",
+      "franchise": "Franchise",
+      "distribution": "Distribution",
+      "licensing": "Licensing",
+      "privateLabel": "Private Label / OEM",
+      "countryPartner": "Country Partner"
+    },
+    "viewDetails": "View Details",
+    "origin": "Origin",
+    "targetMarkets": "Target Markets"
+  },
+  "opportunityDetail": {
+    "back": "← Back to opportunities",
+    "interested": "Interested in this opportunity?",
+    "sendInquiry": "Send Qualified Inquiry",
+    "saveOpportunity": "Save Opportunity",
+    "askQuestion": "Ask a Question",
+    "secureBox": "♡ 100% Secure & Confidential\nWe respect your privacy.",
+    "quickFacts": {
+      "originCountry": "Origin Country",
+      "targetMarkets": "Target Markets",
+      "partnerType": "Partner Type",
+      "exclusivity": "Exclusivity",
+      "investmentReq": "Investment Req.",
+      "status": "Status"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "company": "Company",
+      "products": "Products",
+      "market": "Market",
+      "partnerProfile": "Partner Profile",
+      "commercial": "Commercial",
+      "territories": "Territories",
+      "more": "More"
+    },
+    "overview": "Overview",
+    "keyHighlights": "Key Highlights",
+    "companyBackground": "Company Background",
+    "productDetails": "Product / Service / Franchise Details",
+    "marketOpportunity": "Market Opportunity",
+    "idealPartner": "Ideal Partner Profile",
+    "commercialModel": "Commercial Model",
+    "territoryAvailability": "Territory Availability",
+    "documentsAvailable": "Documents Available",
+    "whyPartner": "Why Partner With Us",
+    "whyPartnerList": [
+      "Proven products with strong consumer demand",
+      "Competitive pricing and margins",
+      "Comprehensive partner support",
+      "Flexible partnership models",
+      "Long-term growth oriented"
+    ],
+    "risksNotes": "Risks & Notes"
+  },
+  "forCompanies": {
+    "hero": {
+      "eyebrow": "For Companies",
+      "headline": "Showcase your business opportunity to qualified international partners.",
+      "subheadline": "We help you reach importers, distributors, franchisees, operators and investors looking for the right opportunities.",
+      "checklist": [
+        "Curated & Verified Platform",
+        "Qualified International Reach",
+        "Structured Opportunity Profile",
+        "Serious Inquiries That Convert"
+      ]
+    },
+    "whoCanList": {
+      "title": "Who Can List?",
+      "subtitle": "We welcome a wide range of business opportunities."
+    },
+    "curation": {
+      "title": "Our Curation Process",
+      "steps": {
+        "submit": "Submit Application",
+        "submitDesc": "Tell us about your opportunity.",
+        "review": "Review & Verification",
+        "reviewDesc": "We review and verify your business and documents.",
+        "profile": "Profile Creation",
+        "profileDesc": "We build your premium opportunity profile.",
+        "goLive": "Go Live",
+        "goLiveDesc": "Your opportunity goes live on our platform.",
+        "inquiries": "Receive Inquiries",
+        "inquiriesDesc": "Connect with qualified international partners."
+      }
+    }
+  },
+  "commercial": {
+    "hero": {
+      "eyebrow": "Commercial Terms",
+      "headline": "Transparent packages for international opportunity promotion",
+      "subheadline": "Choose a simple listing, premium showcase or partner-search campaign depending on your growth goals."
+    },
+    "packages": {
+      "title": "Commercial Packages",
+      "subtitle": "Choose the package that fits your goals. All prices in EUR.",
+      "basic": "Basic Curated Listing",
+      "premium": "Premium Showcase",
+      "campaign": "Partner Search Campaign",
+      "success": "Success / Introduction Fee",
+      "perMonth": "/ month",
+      "oneTime": "One-time",
+      "byAgreement": "By agreement",
+      "mostPopular": "Most Popular",
+      "getStarted": "Get Started",
+      "contactUs": "Contact Us",
+      "legalNote": "All packages are subject to our Terms of Use. We do not provide legal, financial or investment advice.",
+      "features": {
+        "basic": ["Standard profile page", "Inquiry form & lead capture", "Standard placement", "Basic support"],
+        "premium": ["Everything in Basic", "Featured placement", "Enhanced profile & visuals", "Priority support"],
+        "campaign": ["Everything in Premium", "Targeted outreach", "Curated prospect list", "Campaign report"],
+        "success": ["Only where legally appropriate", "Based on value & scope", "Transparent terms"]
+      }
+    },
+    "importantNotes": {
+      "title": "Important Notes",
+      "note1": "Partner Market Global provides marketing, curation and lead-generation services. We do not provide legal, financial, investment, franchise, tax or securities advice. Companies and interested partners are responsible for their own due diligence, legal review and market-specific compliance.",
+      "note2": "Success or introduction fees should only be used where legally appropriate and always under a clear written agreement."
+    }
+  },
+  "curation": {
+    "hero": {
+      "eyebrow": "Curation Process",
+      "headline": "Structured opportunity profiles that are easier to evaluate",
+      "subheadline": "We combine business review, document organization and clear partner requirements so serious inquiries can move faster."
+    },
+    "whatWeCheck": "What We Check",
+    "disclaimer": "Disclaimer",
+    "disclaimerText": "Our review improves presentation quality and helps filter obvious spam or incomplete opportunities. It is not a guarantee of performance, profitability, legal compliance or commercial success. Interested parties must complete their own due diligence."
+  },
+  "about": {
+    "eyebrow": "About Partner Market Global",
+    "headline": "Connecting brands, businesses and opportunities with the right partners around the world.",
+    "body1": "Partner Market Global is designed for companies that want a better way to present international opportunities than a generic directory or cold outreach campaign.",
+    "body2": "We structure each opportunity into a clear, investor-deck-quality profile covering partner requirements, market scope, commercial model, credentials, available documents and the next step for interested parties.",
+    "focusTitle": "Our Focus",
+    "focusList": [
+      "Import and export opportunities",
+      "Distribution and country partner rights",
+      "Franchise and master franchise opportunities",
+      "Licensing, brand partnerships and private label / OEM opportunities"
+    ]
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Contact",
+      "headline": "Talk to us about your international opportunity",
+      "subheadline": "Email us or use the inquiry form below."
+    }
+  },
+  "inquiry": {
+    "title": "Send a Qualified Inquiry",
+    "subtitle": "Tell us about your business and we will connect you with the right person.",
+    "fields": {
+      "fullName": "Full Name",
+      "company": "Company",
+      "email": "Email",
+      "phone": "Phone / WhatsApp",
+      "country": "Country",
+      "website": "Website",
+      "partnerType": "Type of Partner",
+      "currentActivity": "Current Business Activity",
+      "network": "Existing Network / Channels",
+      "reason": "Why are you interested in this opportunity?",
+      "requirements": "Can you meet the minimum requirements?"
+    },
+    "placeholders": {
+      "name": "Your name",
+      "company": "Your company",
+      "email": "you@company.com",
+      "phone": "+31 555 123 4567",
+      "countrySelect": "Select country",
+      "website": "https://yourcompany.com",
+      "partnerTypeSelect": "Select partner type",
+      "activity": "Tell us about your business",
+      "network": "Your network or channels",
+      "reason": "Your message",
+      "requirementsSelect": "Select"
+    },
+    "partnerTypes": ["Importer", "Distributor", "Franchisee", "Investor", "Operator"],
+    "countries": ["Netherlands", "Indonesia", "Singapore", "United Arab Emirates", "Saudi Arabia", "United Kingdom", "Germany", "France", "United States", "Australia", "Japan", "South Korea", "India", "Other"],
+    "requirements": ["Yes", "Need to discuss", "No"],
+    "consent": "I confirm that I have read and agree to the Privacy Policy and consent to sharing my inquiry with the opportunity owner.",
+    "submit": "Submit Inquiry",
+    "privacyNote": "We respect your privacy. No spam. Unsubscribe anytime."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: 2 July 2026",
+    "intro": "Partner Market Global collects information submitted through inquiry, contact and listing forms so we can review opportunities, respond to inquiries and, where consent is given, share qualified inquiries with the relevant opportunity owner.",
+    "infoTitle": "Information We Collect",
+    "infoList": [
+      "Name, company, email, phone or WhatsApp number and country",
+      "Company website, business activity and partner profile",
+      "Opportunity details and documents submitted for review",
+      "Technical analytics data such as pages viewed and approximate region"
+    ],
+    "howTitle": "How We Use Information",
+    "howText": "We use information to operate the platform, evaluate listing applications, qualify inquiries, prevent spam, improve the website and communicate with users.",
+    "sharingTitle": "Sharing",
+    "sharingText": "We only share qualified inquiry details with the relevant opportunity owner when the user has consented or when necessary to provide the requested service.",
+    "contactTitle": "Contact",
+    "contactText": "For privacy questions, contact"
+  },
+  "terms": {
+    "title": "Terms of Use",
+    "lastUpdated": "Last updated: 2 July 2026",
+    "intro": "Partner Market Global is a curated business opportunity showcase. By using this website, you agree that listings are provided for information and business introduction purposes only.",
+    "disclaimerTitle": "Disclaimer",
+    "disclaimerText": "We do not guarantee commercial success, profitability, financing, market entry approval, legal compliance or partner performance. We do not provide legal, financial, investment, franchise, tax or securities advice. Users must conduct their own due diligence.",
+    "listingsTitle": "Listings",
+    "listingsText": "We may reject, edit, suspend or remove listings that are incomplete, misleading, outdated or unsuitable for the platform.",
+    "inquiriesTitle": "Inquiries",
+    "inquiriesText": "Submitting an inquiry does not create a partnership, franchise agreement, distribution agreement or investment relationship.",
+    "contactTitle": "Contact",
+    "contactText": "Questions about these terms can be sent to"
+  },
+  "footer": {
+    "tagline": "Connecting brands, businesses and opportunities with the right partners around the world.",
+    "columns": {
+      "explore": "Explore",
+      "exploreLinks": {
+        "all": "All Opportunities",
+        "import": "Import Opportunities",
+        "export": "Export Opportunities",
+        "franchise": "Franchise Opportunities",
+        "distribution": "Distribution Rights",
+        "licensing": "Licensing & Partnerships"
+      },
+      "forCompanies": "For Companies",
+      "forCompaniesLinks": {
+        "list": "List Your Opportunity",
+        "terms": "Commercial Terms",
+        "curation": "Curation Process",
+        "howItWorks": "How It Works",
+        "faq": "FAQ"
+      },
+      "resources": "Resources",
+      "resourcesLinks": {
+        "blog": "Blog & Insights",
+        "guides": "Guides",
+        "webinars": "Webinars",
+        "reports": "Market Reports",
+        "success": "Success Stories"
+      },
+      "company": "Company",
+      "companyLinks": {
+        "about": "About Us",
+        "contact": "Contact Us",
+        "careers": "Careers",
+        "newsroom": "Newsroom"
+      },
+      "legal": "Legal",
+      "legalLinks": {
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Use",
+        "disclaimer": "Disclaimer"
+      }
+    },
+    "copyright": "All rights reserved.",
+    "brandBy": "A De Vries Sales Consultancy brand.",
+    "devriesUrl": "www.devriessalesconsultancy.com"
+  },
+  "admin": {
+    "title": "Admin Dashboard Mockup",
+    "listings": "Listings",
+    "inquiries": "Inquiries",
+    "applications": "Applications",
+    "packages": "Packages",
+    "documents": "Documents",
+    "settings": "Settings",
+    "newListing": "New Listing",
+    "tableHeaders": {
+      "title": "Title",
+      "type": "Type",
+      "sector": "Sector",
+      "status": "Status",
+      "inquiries": "Inquiries"
+    },
+    "statusOpen": "Open for inquiries"
+  },
+  "faq": {
+    "whatIs": {
+      "question": "What is Partner Market Global?",
+      "answer": "Partner Market Global is a curated B2B showcase for import, export, distribution, licensing, private label and franchise opportunities."
+    },
+    "canList": {
+      "question": "Can companies list franchise or distribution opportunities?",
+      "answer": "Yes. Companies can apply to list product, service, franchise, licensing, private label and country partner opportunities after review and curation."
+    },
+    "guarantee": {
+      "question": "Does Partner Market Global guarantee commercial success?",
+      "answer": "No. Partner Market Global provides a curated showcase platform but does not guarantee commercial success, profitability or partner performance. All interested parties should conduct their own due diligence."
+    },
+    "howInquire": {
+      "question": "How do I inquire about an opportunity?",
+      "answer": "Click any View Details button on an opportunity card, review the full profile, and submit a qualified inquiry through the secure inquiry form on the opportunity detail page."
+    }
+  }
+}

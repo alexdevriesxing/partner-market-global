@@ -1,0 +1,70 @@
+import { getTranslations } from "next-intl/server";
+import { Footer } from "@/components/Footer";
+
+type FooterLink = [string, string];
+type FooterColumn = { title: string; links: FooterLink[] };
+
+export async function FooterWrapper() {
+  const t = await getTranslations("footer");
+
+  const columns: FooterColumn[] = [
+    {
+      title: t("columns.explore"),
+      links: [
+        [t("columns.exploreLinks.all"), "/opportunities"],
+        [t("columns.exploreLinks.import"), "/opportunities?type=import"],
+        [t("columns.exploreLinks.export"), "/opportunities?type=export"],
+        [t("columns.exploreLinks.franchise"), "/opportunities?type=franchise"],
+        [t("columns.exploreLinks.distribution"), "/opportunities?type=distribution"],
+        [t("columns.exploreLinks.licensing"), "/opportunities?type=licensing"]
+      ]
+    },
+    {
+      title: t("columns.forCompanies"),
+      links: [
+        [t("columns.forCompaniesLinks.list"), "/list-your-opportunity"],
+        [t("columns.forCompaniesLinks.terms"), "/commercial-terms"],
+        [t("columns.forCompaniesLinks.curation"), "/curation-process"],
+        [t("columns.forCompaniesLinks.howItWorks"), "/list-your-opportunity#how-it-works"],
+        [t("columns.forCompaniesLinks.faq"), "/list-your-opportunity#faq"]
+      ]
+    },
+    {
+      title: t("columns.resources"),
+      links: [
+        [t("columns.resourcesLinks.blog"), "/curation-process"],
+        [t("columns.resourcesLinks.guides"), "/curation-process"],
+        [t("columns.resourcesLinks.webinars"), "/curation-process"],
+        [t("columns.resourcesLinks.reports"), "/curation-process"],
+        [t("columns.resourcesLinks.success"), "/curation-process"]
+      ]
+    },
+    {
+      title: t("columns.company"),
+      links: [
+        [t("columns.companyLinks.about"), "/about"],
+        [t("columns.companyLinks.contact"), "/contact"],
+        [t("columns.companyLinks.careers"), "/contact"],
+        [t("columns.companyLinks.newsroom"), "/contact"]
+      ]
+    },
+    {
+      title: t("columns.legal"),
+      links: [
+        [t("columns.legalLinks.privacy"), "/privacy-policy"],
+        [t("columns.legalLinks.terms"), "/terms"],
+        [t("columns.legalLinks.disclaimer"), "/terms#disclaimer"]
+      ]
+    }
+  ];
+
+  return (
+    <Footer
+      tagline={t("tagline")}
+      columns={columns}
+      copyright={t("copyright")}
+      brandBy={t("brandBy")}
+      devriesUrl={t("devriesUrl")}
+    />
+  );
+}
