@@ -3,7 +3,7 @@ import { CTA } from "@/components/CTA";
 import { InquiryForm } from "@/components/InquiryForm";
 import { PricingCards } from "@/components/PricingCards";
 import { CategoryGrid } from "@/components/CategoryGrid";
-import { curationSteps, categories, site } from "@/lib/data";
+import { site } from "@/lib/data";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -15,6 +15,30 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     alternates: { canonical: `${site.url}/${locale}/list-your-opportunity` }
   };
 };
+
+const categoryKeys = [
+  "import", "export", "franchise", "distribution",
+  "licensing", "masterFranchise", "countryPartner", "privateLabel"
+];
+
+const categoryImages = [
+  "/assets/import-opportunities.svg",
+  "/assets/export-opportunities.svg",
+  "/assets/franchise-opportunities.svg",
+  "/assets/distribution-rights.svg",
+  "/assets/licensing-partnerships.svg",
+  "/assets/master-franchise.svg",
+  "/assets/country-partner.svg",
+  "/assets/private-label-oem.svg"
+];
+
+const curationStepKeys = [
+  { num: "1", titleKey: "submit", descKey: "submitDesc" },
+  { num: "2", titleKey: "review", descKey: "reviewDesc" },
+  { num: "3", titleKey: "profile", descKey: "profileDesc" },
+  { num: "4", titleKey: "goLive", descKey: "goLiveDesc" },
+  { num: "5", titleKey: "inquiries", descKey: "inquiriesDesc" }
+];
 
 export default async function ListOpportunityPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -46,10 +70,10 @@ export default async function ListOpportunityPage({ params }: { params: Promise<
           <p>{t('whoCanList.subtitle')}</p>
         </div>
         <div className="who-grid">
-          {categories.map((category) => (
-            <div className="who-card" key={category.title}>
-              <img src={category.image} alt="" />
-              <span>{category.title}</span>
+          {categoryKeys.map((key, index) => (
+            <div className="who-card" key={key}>
+              <img src={categoryImages[index]} alt="" aria-hidden="true" />
+              <span>{tCategories(key)}</span>
             </div>
           ))}
         </div>
@@ -60,11 +84,11 @@ export default async function ListOpportunityPage({ params }: { params: Promise<
           <h2>{t('curation.title')}</h2>
         </div>
         <div className="process-row">
-          {curationSteps.map(([num, title, text]) => (
-            <div className="process-step" key={num}>
-              <div className="process-num">{num}</div>
-              <h3>{title}</h3>
-              <p>{text}</p>
+          {curationStepKeys.map((step) => (
+            <div className="process-step" key={step.num}>
+              <div className="process-num">{step.num}</div>
+              <h3>{t(`curation.steps.${step.titleKey}`)}</h3>
+              <p>{t(`curation.steps.${step.descKey}`)}</p>
             </div>
           ))}
         </div>

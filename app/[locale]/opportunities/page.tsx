@@ -34,7 +34,7 @@ export default async function OpportunitiesPage({ params }: { params: Promise<{ 
     <>
       <section className="page-hero">
         <div>
-          <div className="eyebrow">Opportunity Showcase</div>
+          <div className="eyebrow">{t('title')}</div>
           <h1>{t('title')}</h1>
           <p>{t('subtitle')}</p>
         </div>

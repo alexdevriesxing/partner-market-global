@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { curationSteps, trustChecks, site } from "@/lib/data";
+import { site } from "@/lib/data";
 import { CTA } from "@/components/CTA";
 import { getTranslations } from "next-intl/server";
 
@@ -13,10 +13,27 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 };
 
+const curationStepKeys = [
+  { num: "1", titleKey: "submit", descKey: "submitDesc" },
+  { num: "2", titleKey: "review", descKey: "reviewDesc" },
+  { num: "3", titleKey: "profile", descKey: "profileDesc" },
+  { num: "4", titleKey: "goLive", descKey: "goLiveDesc" },
+  { num: "5", titleKey: "inquiries", descKey: "inquiriesDesc" }
+];
+
+const trustCheckKeys = [
+  { titleKey: "businessVerification", descKey: "businessVerificationDesc" },
+  { titleKey: "credentialReview", descKey: "credentialReviewDesc" },
+  { titleKey: "opportunityAssessment", descKey: "opportunityAssessmentDesc" },
+  { titleKey: "documentSupport", descKey: "documentSupportDesc" },
+  { titleKey: "secureInquiries", descKey: "secureInquiriesDesc" }
+];
+
 export default async function CurationProcessPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations('curation');
-  const tForCompanies = await getTranslations('forCompanies');
+  const tSteps = await getTranslations('forCompanies');
+  const tTrust = await getTranslations('trust');
 
   return (
     <>
@@ -31,11 +48,11 @@ export default async function CurationProcessPage({ params }: { params: Promise<
 
       <section className="content-section">
         <div className="process-row">
-          {curationSteps.map(([num, title, text]) => (
-            <div className="process-step" key={num}>
-              <div className="process-num">{num}</div>
-              <h3>{title}</h3>
-              <p>{text}</p>
+          {curationStepKeys.map((step) => (
+            <div className="process-step" key={step.num}>
+              <div className="process-num">{step.num}</div>
+              <h3>{tSteps(`curation.steps.${step.titleKey}`)}</h3>
+              <p>{tSteps(`curation.steps.${step.descKey}`)}</p>
             </div>
           ))}
         </div>
@@ -44,11 +61,11 @@ export default async function CurationProcessPage({ params }: { params: Promise<
       <section className="content-section">
         <h2>{t('whatWeCheck')}</h2>
         <div className="trust-grid">
-          {trustChecks.map(([title, text], index) => (
-            <div className="trust-card" key={title}>
+          {trustCheckKeys.map((check, index) => (
+            <div className="trust-card" key={check.titleKey}>
               <div className="trust-icon">{index + 1}</div>
-              <strong>{title}</strong>
-              <span>{text}</span>
+              <strong>{tTrust(check.titleKey)}</strong>
+              <span>{tTrust(check.descKey)}</span>
             </div>
           ))}
         </div>
