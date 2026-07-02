@@ -1,0 +1,40 @@
+# Partner Market Global
+
+Partner Market Global is a curated B2B opportunity showcase for companies seeking importers, exporters, distributors, franchisees, licensees, private label partners, OEM partners and country market partners.
+
+Canonical domain: https://www.partnermarketglobal.com
+
+## Primary pages
+
+- / — overview of the platform and featured opportunities
+- /opportunities — curated business opportunity listings
+- /opportunities/[slug] — individual opportunity profile with description, credentials, partner requirements and inquiry form
+- /list-your-opportunity — landing page for companies that want to list products, services, franchises or business opportunities
+- /commercial-terms — commercial packages and terms
+- /curation-process — review, verification and curation process
+- /privacy-policy — data collection and consent information
+- /terms — platform terms and disclaimer
+
+## What the site offers
+
+Partner Market Global helps businesses present international market opportunities in a structured, high-trust format. The platform curates and showcases opportunities but does not guarantee commercial success and does not provide legal, financial, investment, franchise, tax or securities advice.
+
+## Main audience
+
+- Importers
+- Exporters
+- Distributors
+- Franchise operators
+- Master franchisees
+- Licensees
+- Private label and OEM buyers
+- Country market partners
+- Companies seeking international expansion partners
+
+## Opportunity profile fields
+
+Each opportunity may include title, opportunity type, sector, origin country, target markets, partner type, commercial model, territory availability, investment or working capital requirement, credentials, verification badges, documents available on request, risks and notes, and an inquiry form.
+
+## Inquiry policy
+
+Qualified inquiries may be shared with the relevant opportunity owner when the inquirer has given consent.
