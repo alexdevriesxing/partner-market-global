@@ -8,6 +8,7 @@ const nextConfig = {
   poweredByHeader: false,
   compress: true,
   output: "export",
+  trailingSlash: true,
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 31536000,
