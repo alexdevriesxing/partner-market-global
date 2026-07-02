@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { opportunities, site } from "@/lib/data";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: Array<{ route: string; priority: number; changeFrequency: "daily" | "weekly" }> = [
     { route: "", priority: 1, changeFrequency: "daily" },
