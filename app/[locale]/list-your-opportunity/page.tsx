@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { CTA } from "@/components/CTA";
 import { InquiryForm } from "@/components/InquiryForm";
 import { PricingCards } from "@/components/PricingCards";
-import { CategoryGrid } from "@/components/CategoryGrid";
 import { site } from "@/lib/data";
 import { getTranslations } from "next-intl/server";
 

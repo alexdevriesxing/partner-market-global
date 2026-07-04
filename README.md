@@ -44,8 +44,9 @@ http://localhost:3000
 
 ```bash
 npm run build
-npm run start
 ```
+
+The production build is exported to `out/` for Cloudflare Pages.
 
 ## Important files
 
@@ -61,13 +62,27 @@ npm run start
 
 ## Deployment
 
-Recommended:
+Cloudflare Pages:
 
 1. Push to GitHub
-2. Connect repository to Cloudflare Pages or Vercel
-3. Set custom domain to `www.partnermarketglobal.com`
-4. Redirect root domain `partnermarketglobal.com` to `www.partnermarketglobal.com`
-5. Verify canonical URLs and sitemap after deployment
+2. Connect repository `alexdevriesxing/partner-market-global` to Cloudflare Pages project `partner-market-global`
+3. Set production branch to `master`
+4. Set build command to `npm run build`
+5. Set build output directory to `out`
+6. Set Node version to `22.14.0` or let Cloudflare read `.nvmrc`
+7. Verify `https://partner-market-global.pages.dev/`, `/en/`, `/sitemap.xml` and `/robots.txt`
+
+Direct deploy from this machine:
+
+```bash
+npm run deploy
+```
+
+Optional custom domain:
+
+1. Set custom domain to `www.partnermarketglobal.com`
+2. Redirect root domain `partnermarketglobal.com` to `www.partnermarketglobal.com`
+3. Verify canonical URLs and sitemap after deployment
 
 ## Notes
 

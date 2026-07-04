@@ -7,6 +7,8 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  trailingSlash: true,
+  output: "export",
 };
 
 export default withNextIntl(nextConfig);

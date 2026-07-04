@@ -3,16 +3,17 @@
   "version": "1.0.0",
   "private": true,
   "description": "SEO and GAIO optimized B2B opportunity marketplace website for Partner Market Global.",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "start": "next start",
-    "lint": "next lint",
+    "start": "wrangler pages dev out",
+    "lint": "eslint app components lib i18n i18n.ts next.config.mjs postcss.config.mjs tailwind.config.ts",
     "typecheck": "tsc --noEmit",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "preview": "npm run build && wrangler pages dev out",
+    "deploy": "npm run build && wrangler pages deploy out --project-name=partner-market-global --branch=master"
   },
   "dependencies": {
     "framer-motion": "^12.0.0",
@@ -22,13 +23,12 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "^1.20.1",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.4.0",
     "eslint": "^9.0.0",
-    "eslint-config-next": "^15.0.0",
+    "eslint-config-next": "^16.2.10",
     "postcss": "^8.4.0",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.6.0",

@@ -11,8 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 };
 
-export default async function AdminPage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
+export default async function AdminPage() {
   const t = await getTranslations('admin');
 
   return (

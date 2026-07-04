@@ -12,8 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 };
 
-export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
+export default async function AboutPage() {
   const t = await getTranslations('about');
 
   return (
