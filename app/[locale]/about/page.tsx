@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { site } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'about' });
-  return {
+  return pageMetadata({
+    locale,
+    path: "/about",
     title: t('eyebrow'),
     description: t('headline'),
-    alternates: { canonical: `${site.url}/${locale}/about` }
-  };
+    image: "/assets/alex-devries.jpg"
+  });
 };
 
 export default async function AboutPage() {

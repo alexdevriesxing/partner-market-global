@@ -2,16 +2,18 @@ import type { Metadata } from "next";
 import { PricingCards } from "@/components/PricingCards";
 import { CTA } from "@/components/CTA";
 import { getTranslations } from "next-intl/server";
-import { site } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'commercial' });
-  return {
+  return pageMetadata({
+    locale,
+    path: "/commercial-terms",
     title: t('hero.eyebrow'),
     description: t('hero.subheadline'),
-    alternates: { canonical: `${site.url}/${locale}/commercial-terms` }
-  };
+    image: "/assets/packages-section.webp"
+  });
 };
 
 export default async function CommercialTermsPage({ params }: { params: Promise<{ locale: string }> }) {

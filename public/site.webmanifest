@@ -2,7 +2,8 @@
   "name": "Partner Market Global",
   "short_name": "PMG",
   "description": "Curated global business opportunities for import, export, distribution, licensing and franchise partners.",
-  "start_url": "/",
+  "start_url": "/en/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#115be7",
@@ -10,7 +11,8 @@
     {
       "src": "/favicon.svg",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any"
     }
   ]
 }

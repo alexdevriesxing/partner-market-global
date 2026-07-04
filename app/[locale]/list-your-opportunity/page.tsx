@@ -2,17 +2,19 @@ import type { Metadata } from "next";
 import { CTA } from "@/components/CTA";
 import { InquiryForm } from "@/components/InquiryForm";
 import { PricingCards } from "@/components/PricingCards";
-import { site } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'forCompanies' });
-  return {
+  return pageMetadata({
+    locale,
+    path: "/list-your-opportunity",
     title: t('hero.eyebrow'),
     description: t('hero.subheadline'),
-    alternates: { canonical: `${site.url}/${locale}/list-your-opportunity` }
-  };
+    image: "/assets/companies-hero-collage.webp"
+  });
 };
 
 const categoryKeys = [

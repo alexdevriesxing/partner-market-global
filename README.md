@@ -2,7 +2,7 @@
 
 This is a complete, SEO/GAIO-optimized website starter for:
 
-**https://www.partnermarketglobal.com**
+**https://partner-market-global2.pages.dev**
 
 It is built to match the supplied mockup style closely while providing a real scalable codebase.
 
@@ -82,7 +82,8 @@ Optional custom domain:
 
 1. Set custom domain to `www.partnermarketglobal.com`
 2. Redirect root domain `partnermarketglobal.com` to `www.partnermarketglobal.com`
-3. Verify canonical URLs and sitemap after deployment
+3. Update `site.url` in `lib/data.ts` back to `https://www.partnermarketglobal.com`
+4. Verify canonical URLs, sitemap and robots.txt after deployment
 
 ## Notes
 

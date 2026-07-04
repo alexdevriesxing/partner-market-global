@@ -1,10 +1,12 @@
 import type { MetadataRoute } from "next";
-import { opportunities, site } from "@/lib/data";
+import { opportunities } from "@/lib/data";
 import { locales } from "@/i18n";
+import { canonicalUrl, localizedLanguages } from "@/lib/seo";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date("2026-07-04");
   const staticRoutes = [
     { route: "", priority: 1, changeFrequency: "daily" as const },
     { route: "/opportunities", priority: 0.9, changeFrequency: "weekly" as const },
@@ -22,19 +24,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const locale of locales) {
     for (const { route, priority, changeFrequency } of staticRoutes) {
       entries.push({
-        url: `${site.url}/${locale}${route}`,
-        lastModified: new Date("2026-07-02"),
+        url: canonicalUrl(locale, route),
+        lastModified,
         changeFrequency,
-        priority
+        priority,
+        alternates: {
+          languages: localizedLanguages(route)
+        }
       });
     }
 
     for (const opportunity of opportunities) {
       entries.push({
-        url: `${site.url}/${locale}/opportunities/${opportunity.slug}`,
-        lastModified: new Date("2026-07-02"),
+        url: canonicalUrl(locale, `/opportunities/${opportunity.slug}`),
+        lastModified,
         changeFrequency: "weekly" as const,
-        priority: 0.9
+        priority: 0.9,
+        alternates: {
+          languages: localizedLanguages(`/opportunities/${opportunity.slug}`)
+        }
       });
     }
   }

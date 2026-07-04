@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { opportunities } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'admin' });
-  return {
+  return pageMetadata({
+    locale,
+    path: "/admin",
     title: t('title'),
-    robots: { index: false, follow: false }
-  };
+    description: "Internal Partner Market Global admin dashboard.",
+    noIndex: true
+  });
 };
 
 export default async function AdminPage() {

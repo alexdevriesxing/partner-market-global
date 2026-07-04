@@ -1,6 +1,8 @@
 # Partner Market Global SEO / GAIO Strategy
 
-Domain: `https://www.partnermarketglobal.com`
+Current canonical domain: `https://partner-market-global2.pages.dev`
+
+Future custom domain target: `https://www.partnermarketglobal.com`
 
 ## Core positioning
 
@@ -26,7 +28,7 @@ Partner Market Global is a curated B2B showcase for import, export, distribution
 - Semantic headings and descriptive alt text
 - Local optimized WebP/PNG/SVG assets
 - Long-form detail page structure for entity clarity
-- `llms.txt` for AI/answer-engine context
+- `llms.txt` for non-Google AI/answer-engine context
 
 ## GAIO / AEO recommendations
 

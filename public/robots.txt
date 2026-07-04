@@ -1,6 +1,18 @@
 User-agent: *
 Allow: /
-Disallow: /admin
+Disallow: /en/admin
+Disallow: /es/admin
+Disallow: /fr/admin
+Disallow: /de/admin
+Disallow: /nl/admin
+Disallow: /it/admin
+Disallow: /pt/admin
+Disallow: /zh/admin
+Disallow: /ja/admin
+Disallow: /ko/admin
+Disallow: /ar/admin
+Disallow: /hi/admin
+Disallow: /ru/admin
 
-Sitemap: https://www.partnermarketglobal.com/sitemap.xml
-Host: https://www.partnermarketglobal.com
+Sitemap: https://partner-market-global2.pages.dev/sitemap.xml
+Host: https://partner-market-global2.pages.dev

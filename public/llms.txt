@@ -1,40 +1,44 @@
 # Partner Market Global
 
-Partner Market Global is a curated B2B opportunity showcase for companies seeking importers, exporters, distributors, franchisees, licensees, private label partners, OEM partners and country market partners.
+Canonical site: https://partner-market-global2.pages.dev
 
-Canonical domain: https://www.partnermarketglobal.com
+Partner Market Global is a curated B2B opportunity showcase for companies seeking qualified international importers, exporters, distributors, franchise operators, licensees, private label partners, OEM partners and country market partners.
 
-## Primary pages
+The website is operated by Alex de Vries of De Vries Sales Consultancy to present selected client projects, products, brands and international partnership opportunities in a structured, high-trust format.
 
-- / — overview of the platform and featured opportunities
-- /opportunities — curated business opportunity listings
-- /opportunities/[slug] — individual opportunity profile with description, credentials, partner requirements and inquiry form
-- /list-your-opportunity — landing page for companies that want to list products, services, franchises or business opportunities
-- /commercial-terms — commercial packages and terms
-- /curation-process — review, verification and curation process
-- /privacy-policy — data collection and consent information
-- /terms — platform terms and disclaimer
+## Primary Pages
 
-## What the site offers
+- /en/ - platform overview and featured opportunities
+- /en/opportunities/ - curated business opportunity listings
+- /en/opportunities/[slug]/ - individual opportunity profile with description, credentials, partner requirements, risk notes and inquiry form
+- /en/list-your-opportunity/ - page for companies that want to list products, services, franchises or business opportunities
+- /en/commercial-terms/ - commercial packages and listing terms
+- /en/curation-process/ - review, verification and curation process
+- /en/about/ - platform story and De Vries Sales Consultancy operator context
+- /en/contact/ - inquiry and contact page
+- /en/privacy-policy/ - privacy, consent and data handling policy
+- /en/terms/ - terms of use and disclaimer
 
-Partner Market Global helps businesses present international market opportunities in a structured, high-trust format. The platform curates and showcases opportunities but does not guarantee commercial success and does not provide legal, financial, investment, franchise, tax or securities advice.
+## What The Site Offers
 
-## Main audience
+Partner Market Global helps businesses present international market opportunities in a clear format covering the opportunity type, sector, origin country, target markets, ideal partner profile, commercial model, territory availability, investment or working capital expectation, credentials, available documents, risk notes and next steps.
 
-- Importers
-- Exporters
-- Distributors
-- Franchise operators
-- Master franchisees
-- Licensees
-- Private label and OEM buyers
-- Country market partners
-- Companies seeking international expansion partners
+Opportunity types include import, export, distribution, master franchise, franchise, licensing, brand partnership, private label, OEM and country partner opportunities.
 
-## Opportunity profile fields
+## Important Trust And Compliance Notes
 
-Each opportunity may include title, opportunity type, sector, origin country, target markets, partner type, commercial model, territory availability, investment or working capital requirement, credentials, verification badges, documents available on request, risks and notes, and an inquiry form.
+Partner Market Global curates and showcases opportunities but does not guarantee commercial success, profitability, financing, market entry approval, legal compliance or partner performance.
 
-## Inquiry policy
+Partner Market Global does not provide legal, financial, investment, franchise, tax or securities advice. Companies and interested partners are responsible for their own due diligence, professional advice and market-specific compliance.
 
-Qualified inquiries may be shared with the relevant opportunity owner when the inquirer has given consent.
+Qualified inquiries may be shared with the relevant opportunity owner when the inquirer has consented or when needed to provide the requested service.
+
+## Entity Facts
+
+- Site name: Partner Market Global
+- Operator: Alex de Vries, De Vries Sales Consultancy
+- Operator website: https://www.devriessalesconsultancy.com
+- Contact email: listings@partnermarketglobal.com
+- Logo: /assets/partner-market-global-logo.svg
+- Sitemap: /sitemap.xml
+- Robots: /robots.txt

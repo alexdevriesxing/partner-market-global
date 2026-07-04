@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { site } from "@/lib/data";
 import { CTA } from "@/components/CTA";
 import { getTranslations } from "next-intl/server";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'curation' });
-  return {
+  return pageMetadata({
+    locale,
+    path: "/curation-process",
     title: t('hero.eyebrow'),
     description: t('hero.subheadline'),
-    alternates: { canonical: `${site.url}/${locale}/curation-process` }
-  };
+    image: "/assets/curation-process-strip.webp"
+  });
 };
 
 const curationStepKeys = [

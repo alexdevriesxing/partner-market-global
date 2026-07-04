@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
 import { InquiryForm } from "@/components/InquiryForm";
 import { getTranslations } from "next-intl/server";
-import { site } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'contact' });
   const tSite = await getTranslations({ locale, namespace: 'site' });
-  return {
+  return pageMetadata({
+    locale,
+    path: "/contact",
     title: t('hero.eyebrow'),
     description: `${t('hero.headline')} - ${tSite('email')}`,
-    alternates: { canonical: `${site.url}/${locale}/contact` }
-  };
+    image: "/assets/companies-hero-collage.webp"
+  });
 };
 
 export default async function ContactPage() {

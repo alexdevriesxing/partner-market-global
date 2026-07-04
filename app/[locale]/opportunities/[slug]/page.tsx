@@ -5,6 +5,7 @@ import { InquiryForm } from "@/components/InquiryForm";
 import { StructuredData } from "@/components/StructuredData";
 import { getTranslations } from "next-intl/server";
 import { opportunities, site } from "@/lib/data";
+import { absoluteUrl, canonicalUrl, pageMetadata } from "@/lib/seo";
 
 type PageProps = { params: Promise<{ slug: string; locale: string }> };
 
@@ -20,17 +21,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug, locale } = await params;
   const opportunity = await getOpportunity(slug);
   if (!opportunity) return {};
-  return {
+  return pageMetadata({
+    locale,
+    path: `/opportunities/${opportunity.slug}`,
     title: opportunity.title,
     description: opportunity.summary,
-    alternates: { canonical: `${site.url}/${locale}/opportunities/${opportunity.slug}` },
-    openGraph: {
-      title: opportunity.title,
-      description: opportunity.summary,
-      url: `${site.url}/${locale}/opportunities/${opportunity.slug}`,
-      images: [{ url: opportunity.heroImage, width: 1200, height: 630, alt: opportunity.title }]
-    }
-  };
+    image: opportunity.heroImage
+  });
 }
 
 export default async function OpportunityDetailPage({ params }: PageProps) {
@@ -43,17 +40,71 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
   const offerSchema = {
     "@context": "https://schema.org",
     "@type": "Offer",
+    "@id": `${canonicalUrl(locale, `/opportunities/${opportunity.slug}`)}#offer`,
     name: opportunity.title,
     description: opportunity.summary,
+    url: canonicalUrl(locale, `/opportunities/${opportunity.slug}`),
+    image: absoluteUrl(opportunity.heroImage),
     category: opportunity.type,
-    areaServed: opportunity.targetMarkets.join(", "),
+    areaServed: opportunity.targetMarkets.map((market) => ({
+      "@type": "Place",
+      name: market
+    })),
+    availableAtOrFrom: {
+      "@type": "Place",
+      name: opportunity.originCountry
+    },
     availability: "https://schema.org/InStock",
-    url: `${site.url}/${locale}/opportunities/${opportunity.slug}`,
     seller: {
       "@type": "Organization",
+      "@id": `${site.url}/#organization`,
       name: site.name,
       url: site.url
-    }
+    },
+    itemOffered: {
+      "@type": "Service",
+      name: opportunity.title,
+      serviceType: opportunity.type,
+      category: opportunity.sector,
+      description: opportunity.description,
+      image: absoluteUrl(opportunity.heroImage),
+      areaServed: opportunity.targetMarkets.map((market) => ({
+        "@type": "Place",
+        name: market
+      }))
+    },
+    additionalProperty: [
+      { "@type": "PropertyValue", name: "Origin country", value: opportunity.originCountry },
+      { "@type": "PropertyValue", name: "Target markets", value: opportunity.targetMarkets.join(", ") },
+      { "@type": "PropertyValue", name: "Commercial model", value: opportunity.commercialModel },
+      { "@type": "PropertyValue", name: "Investment requirement", value: opportunity.investmentRequirement },
+      { "@type": "PropertyValue", name: "Status", value: opportunity.status }
+    ]
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: site.name,
+        item: canonicalUrl(locale)
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Opportunities",
+        item: canonicalUrl(locale, "/opportunities")
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: opportunity.title,
+        item: canonicalUrl(locale, `/opportunities/${opportunity.slug}`)
+      }
+    ]
   };
 
   const facts = [
@@ -67,7 +118,7 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
 
   return (
     <>
-      <StructuredData data={offerSchema} />
+      <StructuredData data={[offerSchema, breadcrumbSchema]} />
       <Link href={`/${locale}/opportunities`} className="breadcrumb">{t('back')}</Link>
       <section className="detail-shell">
         <article className="detail-main">

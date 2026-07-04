@@ -3,7 +3,7 @@
     "name": "Partner Market Global",
     "tagline": "Curated. Verified. Global.",
     "description": "Partner Market Global is a curated B2B showcase for import, export, distribution, licensing, private label and franchise opportunities from ambitious companies looking for qualified international partners.",
-    "url": "https://www.partnermarketglobal.com",
+    "url": "https://partner-market-global2.pages.dev",
     "email": "listings@partnermarketglobal.com"
   },
   "nav": {
@@ -263,8 +263,8 @@
   },
   "privacy": {
     "title": "Privacy Policy",
-    "lastUpdated": "Last updated: 2 July 2026",
-    "intro": "Partner Market Global collects information submitted through inquiry, contact and listing forms so we can review opportunities, respond to inquiries and, where consent is given, share qualified inquiries with the relevant opportunity owner.",
+    "lastUpdated": "Last updated: 4 July 2026",
+    "intro": "Partner Market Global is operated by Alex de Vries of De Vries Sales Consultancy. We collect information submitted through inquiry, contact and listing forms so we can review opportunities, respond to inquiries and, where consent is given or needed to provide the requested service, share qualified inquiries with the relevant opportunity owner.",
     "infoTitle": "Information We Collect",
     "infoList": [
       "Name, company, email, phone or WhatsApp number and country",
@@ -273,15 +273,15 @@
       "Technical analytics data such as pages viewed and approximate region"
     ],
     "howTitle": "How We Use Information",
-    "howText": "We use information to operate the platform, evaluate listing applications, qualify inquiries, prevent spam, improve the website and communicate with users.",
+    "howText": "We use information to operate the platform, evaluate listing applications, qualify inquiries, prevent spam and abuse, improve the website, maintain business records and communicate with users.",
     "sharingTitle": "Sharing",
-    "sharingText": "We only share qualified inquiry details with the relevant opportunity owner when the user has consented or when necessary to provide the requested service.",
+    "sharingText": "We share qualified inquiry details with the relevant opportunity owner or client when the user has consented or when necessary to provide the requested service. We may also use trusted service providers for hosting, security, analytics and business operations. We do not sell personal data.",
     "contactTitle": "Contact",
     "contactText": "For privacy questions, contact"
   },
   "terms": {
     "title": "Terms of Use",
-    "lastUpdated": "Last updated: 2 July 2026",
+    "lastUpdated": "Last updated: 4 July 2026",
     "intro": "Partner Market Global is a curated business opportunity showcase. By using this website, you agree that listings are provided for information and business introduction purposes only.",
     "disclaimerTitle": "Disclaimer",
     "disclaimerText": "We do not guarantee commercial success, profitability, financing, market entry approval, legal compliance or partner performance. We do not provide legal, financial, investment, franchise, tax or securities advice. Users must conduct their own due diligence.",
@@ -335,7 +335,7 @@
       }
     },
     "copyright": "All rights reserved.",
-    "brandBy": "A De Vries Sales Consultancy brand.",
+    "brandBy": "Operated by Alex de Vries of De Vries Sales Consultancy.",
     "devriesUrl": "www.devriessalesconsultancy.com"
   },
   "admin": {

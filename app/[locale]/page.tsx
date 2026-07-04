@@ -7,17 +7,17 @@ import { TrustStrip } from "@/components/TrustStrip";
 import { StructuredData } from "@/components/StructuredData";
 import { HeroSectionClient } from "@/components/HeroSectionClient";
 import { getTranslations } from "next-intl/server";
-import { opportunities, site } from "@/lib/data";
+import { opportunities } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'site' });
-  return {
+  return pageMetadata({
+    locale,
     title: t('name'),
-    description: t('description'),
-    alternates: { canonical: `${site.url}/${locale}` },
-    metadataBase: new URL(site.url),
-  };
+    description: t('description')
+  });
 }
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {

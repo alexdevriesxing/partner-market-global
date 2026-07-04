@@ -1,11 +1,18 @@
 export const site = {
   name: "Partner Market Global",
-  domain: "www.partnermarketglobal.com",
-  url: "https://www.partnermarketglobal.com",
+  domain: "partner-market-global2.pages.dev",
+  url: "https://partner-market-global2.pages.dev",
   tagline: "Curated. Verified. Global.",
   description:
     "Partner Market Global is a curated B2B showcase for import, export, distribution, licensing, private label and franchise opportunities from ambitious companies looking for qualified international partners.",
-  email: "listings@partnermarketglobal.com"
+  email: "listings@partnermarketglobal.com",
+  logo: "/assets/partner-market-global-logo.svg",
+  defaultOgImage: "/assets/homepage-hero.webp",
+  operator: {
+    name: "Alex de Vries",
+    company: "De Vries Sales Consultancy",
+    url: "https://www.devriessalesconsultancy.com"
+  }
 };
 
 export type Opportunity = {
