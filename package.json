@@ -13,7 +13,7 @@
     "lint": "eslint app components lib i18n i18n.ts next.config.mjs postcss.config.mjs tailwind.config.ts",
     "typecheck": "tsc --noEmit",
     "preview": "npm run build && wrangler pages dev out",
-    "deploy": "npm run build && wrangler pages deploy out --project-name=partner-market-global --branch=master"
+    "deploy": "npm run build && wrangler pages deploy out --project-name=partner-market-global2 --branch=master"
   },
   "dependencies": {
     "framer-motion": "^12.0.0",

@@ -65,12 +65,12 @@ The production build is exported to `out/` for Cloudflare Pages.
 Cloudflare Pages:
 
 1. Push to GitHub
-2. Connect repository `alexdevriesxing/partner-market-global` to Cloudflare Pages project `partner-market-global`
+2. Connect repository `alexdevriesxing/partner-market-global` to Cloudflare Pages project `partner-market-global2`
 3. Set production branch to `master`
 4. Set build command to `npm run build`
 5. Set build output directory to `out`
 6. Set Node version to `22.14.0` or let Cloudflare read `.nvmrc`
-7. Verify `https://partner-market-global.pages.dev/`, `/en/`, `/sitemap.xml` and `/robots.txt`
+7. Verify `https://partner-market-global2.pages.dev/`, `/en/`, `/sitemap.xml` and `/robots.txt`
 
 Direct deploy from this machine:
 
