@@ -12,7 +12,7 @@ The website is operated by Alex de Vries of De Vries Sales Consultancy to presen
 - /en/opportunities/ - curated business opportunity listings
 - /en/opportunities/[slug]/ - individual opportunity profile with description, credentials, partner requirements, risk notes and inquiry form
 - /en/list-your-opportunity/ - page for companies that want to list products, services, franchises or business opportunities
-- /en/commercial-terms/ - commercial packages and listing terms
+- /en/commercial-terms/ - commission-based commercial terms available on inquiry
 - /en/curation-process/ - review, verification and curation process
 - /en/about/ - platform story and De Vries Sales Consultancy operator context
 - /en/contact/ - inquiry and contact page
@@ -24,6 +24,8 @@ The website is operated by Alex de Vries of De Vries Sales Consultancy to presen
 Partner Market Global helps businesses present international market opportunities in a clear format covering the opportunity type, sector, origin country, target markets, ideal partner profile, commercial model, territory availability, investment or working capital expectation, credentials, available documents, risk notes and next steps.
 
 Opportunity types include import, export, distribution, master franchise, franchise, licensing, brand partnership, private label, OEM and country partner opportunities.
+
+Current featured opportunities include Ralalifood, an Indonesian retort food manufacturer seeking international distributors and private label / OEM clients; Moja Coffee Bali, an Indonesian coffee brand seeking international distributors; and Twokyo Air, a Japanese anime apparel brand seeking international distributors and retailers.
 
 ## Important Trust And Compliance Notes
 

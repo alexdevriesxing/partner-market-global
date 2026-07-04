@@ -52,6 +52,10 @@ export default async function AboutPage() {
             available and which next step a serious buyer, distributor, franchisee or
             commercial partner should take.
           </p>
+          <p>
+            For additional FMCG market notes, trade context and practical knowledge,
+            Alex also maintains the FMCG by Alex knowledge base.
+          </p>
           <a
             className="btn btn-primary"
             href="https://www.devriessalesconsultancy.com"
@@ -59,6 +63,15 @@ export default async function AboutPage() {
             rel="noopener noreferrer"
           >
             Visit De Vries Sales Consultancy
+          </a>
+          <a
+            className="btn btn-line"
+            href="https://www.fmcgbyalex.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ marginLeft: 10 }}
+          >
+            Visit FMCG by Alex
           </a>
         </div>
         <div className="about-operator-media">

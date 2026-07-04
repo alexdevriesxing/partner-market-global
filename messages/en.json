@@ -165,34 +165,34 @@
   "commercial": {
     "hero": {
       "eyebrow": "Commercial Terms",
-      "headline": "Transparent packages for international opportunity promotion",
-      "subheadline": "Choose a simple listing, premium showcase or partner-search campaign depending on your growth goals."
+      "headline": "Commercial terms are on inquiry and 100% commission based",
+      "subheadline": "Partner Market Global does not publish fixed listing packages or monthly pricing. Commission scope, trigger, territory and timing are agreed in writing before work starts."
     },
     "packages": {
-      "title": "Commercial Packages",
-      "subtitle": "Choose the package that fits your goals. All prices in EUR.",
-      "basic": "Basic Curated Listing",
-      "premium": "Premium Showcase",
-      "campaign": "Partner Search Campaign",
-      "success": "Success / Introduction Fee",
-      "perMonth": "/ month",
-      "oneTime": "One-time",
-      "byAgreement": "By agreement",
-      "mostPopular": "Most Popular",
-      "getStarted": "Get Started",
-      "contactUs": "Contact Us",
-      "legalNote": "All packages are subject to our Terms of Use. We do not provide legal, financial or investment advice.",
+      "title": "Commercial Terms On Inquiry",
+      "subtitle": "Partner Market Global works on a 100% commission-based model. The exact commission, scope and trigger are agreed in writing before representation starts.",
+      "basic": "Commission-Based Listing",
+      "premium": "Qualified Introduction",
+      "campaign": "Partner Search Support",
+      "success": "Commission Agreement",
+      "perMonth": "commission based",
+      "oneTime": "On inquiry",
+      "byAgreement": "Agreed in writing",
+      "mostPopular": "Commission Based",
+      "getStarted": "Inquire About Terms",
+      "contactUs": "Discuss Commission Terms",
+      "legalNote": "Commercial terms are provided on inquiry. Commission applies only under a written agreement that defines scope, territory, trigger, timing and any exclusions. We do not provide legal, financial or investment advice.",
       "features": {
-        "basic": ["Standard profile page", "Inquiry form & lead capture", "Standard placement", "Basic support"],
-        "premium": ["Everything in Basic", "Featured placement", "Enhanced profile & visuals", "Priority support"],
-        "campaign": ["Everything in Premium", "Targeted outreach", "Curated prospect list", "Campaign report"],
-        "success": ["Only where legally appropriate", "Based on value & scope", "Transparent terms"]
+        "basic": ["No public fixed listing package", "Commercial scope agreed before launch", "Curated opportunity profile", "Qualified inquiry handling"],
+        "premium": ["Introductions only after qualification", "Commission trigger defined in writing", "Relevant decision-maker matching", "Transparent follow-up process"],
+        "campaign": ["Targeted partner search when suitable", "Territory and opportunity scope defined", "No generic upfront package pricing", "Only where legally appropriate"],
+        "success": ["Commission percentage agreed on inquiry", "Scope and trigger defined in writing", "Transparent terms"]
       }
     },
     "importantNotes": {
       "title": "Important Notes",
-      "note1": "Partner Market Global provides marketing, curation and lead-generation services. We do not provide legal, financial, investment, franchise, tax or securities advice. Companies and interested partners are responsible for their own due diligence, legal review and market-specific compliance.",
-      "note2": "Success or introduction fees should only be used where legally appropriate and always under a clear written agreement."
+      "note1": "Partner Market Global provides marketing, curation and lead-generation services on a commission-based inquiry model. We do not provide legal, financial, investment, franchise, tax or securities advice.",
+      "note2": "Any commission percentage, payment trigger, territory, exclusions and timing must be agreed in a clear written agreement before representation or partner-search work starts."
     }
   },
   "curation": {

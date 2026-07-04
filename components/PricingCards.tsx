@@ -16,9 +16,6 @@ type PricingCardsProps = {
   subtitle?: string;
   legalNote?: string;
   mostPopular?: string;
-  perMonth?: string;
-  oneTime?: string;
-  byAgreement?: string;
   getStarted?: string;
   contactUs?: string;
 };
@@ -26,45 +23,50 @@ type PricingCardsProps = {
 export function PricingCards({
   locale = "en",
   packages,
-  title = "Commercial Packages",
-  subtitle = "Choose the package that fits your goals. All prices in EUR.",
-  legalNote = "All packages are subject to our Terms of Use. We do not provide legal, financial or investment advice.",
-  mostPopular = "Most Popular",
-  perMonth = "/ month",
-  oneTime = "One-time",
-  byAgreement = "By agreement",
-  getStarted = "Get Started",
-  contactUs = "Contact Us"
+  title = "Commercial Terms On Inquiry",
+  subtitle = "Partner Market Global works on a 100% commission-based model. The exact commission, scope and trigger are agreed in writing before representation starts.",
+  legalNote = "Commercial terms are provided on inquiry. Commission applies only under a written agreement that defines scope, territory, trigger, timing and any exclusions. We do not provide legal, financial or investment advice.",
+  mostPopular = "Commission Based",
+  getStarted = "Inquire About Terms",
+  contactUs = "Discuss Commission Terms"
 }: PricingCardsProps) {
   const defaultPackages: PricingPackage[] = [
     {
-      name: "Basic Curated Listing",
-      price: "€149",
-      recurring: `+ €49 ${perMonth}`,
-      cta: getStarted,
-      features: ["Standard profile page", "Inquiry form & lead capture", "Standard placement", "Basic support"]
+      name: "Commission-Based Listing",
+      price: "On inquiry",
+      recurring: "100% commission based",
+      cta: contactUs,
+      features: [
+        "No public fixed listing package",
+        "Commercial scope agreed before launch",
+        "Curated opportunity profile",
+        "Qualified inquiry handling"
+      ]
     },
     {
-      name: "Premium Showcase",
-      price: "€399",
-      recurring: `+ €149 ${perMonth}`,
+      name: "Qualified Introduction",
+      price: "Commission only",
+      recurring: "Based on agreed outcomes",
       popular: true,
       cta: getStarted,
-      features: ["Everything in Basic", "Featured placement", "Enhanced profile & visuals", "Priority support"]
+      features: [
+        "Introductions only after qualification",
+        "Commission trigger defined in writing",
+        "Relevant decision-maker matching",
+        "Transparent follow-up process"
+      ]
     },
     {
-      name: "Partner Search Campaign",
-      price: "€950+",
-      recurring: oneTime,
-      cta: getStarted,
-      features: ["Everything in Premium", "Targeted outreach", "Curated prospect list", "Campaign report"]
-    },
-    {
-      name: "Success / Introduction Fee",
-      price: "Custom",
-      recurring: byAgreement,
+      name: "Partner Search Support",
+      price: "On inquiry",
+      recurring: "Commission agreement required",
       cta: contactUs,
-      features: ["Only where legally appropriate", "Based on value & scope", "Transparent terms"]
+      features: [
+        "Targeted partner search when suitable",
+        "Territory and opportunity scope defined",
+        "No generic upfront package pricing",
+        "Only where legally appropriate"
+      ]
     }
   ];
 
@@ -84,7 +86,7 @@ export function PricingCards({
             <div className="price">{pkg.price}</div>
             <p>{pkg.recurring}</p>
             <ul>
-              {pkg.features.map((feature) => <li key={feature}>✓ {feature}</li>)}
+              {pkg.features.map((feature) => <li key={feature}>- {feature}</li>)}
             </ul>
             <Link className={pkg.popular ? "btn btn-orange full" : "btn btn-line full"} href={`/${locale}/list-your-opportunity#application`}>
               {pkg.cta}

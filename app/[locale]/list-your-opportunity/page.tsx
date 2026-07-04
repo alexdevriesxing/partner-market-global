@@ -47,7 +47,6 @@ export default async function ListOpportunityPage({ params }: { params: Promise<
   const tCategories = await getTranslations('categories');
   const tInquiry = await getTranslations('inquiry');
   const tCta = await getTranslations('cta');
-  const tCommercial = await getTranslations('commercial');
 
   return (
     <>
@@ -97,18 +96,7 @@ export default async function ListOpportunityPage({ params }: { params: Promise<
         </div>
       </section>
 
-      <PricingCards
-        locale={locale}
-        title={tCommercial('packages.title')}
-        subtitle={tCommercial('packages.subtitle')}
-        legalNote={tCommercial('packages.legalNote')}
-        mostPopular={tCommercial('packages.mostPopular')}
-        perMonth={tCommercial('packages.perMonth')}
-        oneTime={tCommercial('packages.oneTime')}
-        byAgreement={tCommercial('packages.byAgreement')}
-        getStarted={tCommercial('packages.getStarted')}
-        contactUs={tCommercial('packages.contactUs')}
-      />
+      <PricingCards locale={locale} />
 
       <section className="content-section" id="application">
         <InquiryForm

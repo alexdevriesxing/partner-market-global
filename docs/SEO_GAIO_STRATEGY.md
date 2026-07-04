@@ -29,6 +29,7 @@ Partner Market Global is a curated B2B showcase for import, export, distribution
 - Local optimized WebP/PNG/SVG assets
 - Long-form detail page structure for entity clarity
 - `llms.txt` for non-Google AI/answer-engine context
+- Commercial terms page states that terms are available on inquiry and are 100% commission based.
 
 ## GAIO / AEO recommendations
 

@@ -91,12 +91,14 @@ export default async function LocaleLayout({
   }
 
   const messages = (await import(`../../messages/${locale}.json`)).default;
+  const clientMessages = { ...messages };
+  delete clientMessages.commercial;
 
   return (
     <html lang={locale}>
       <body>
         <StructuredData data={siteStructuredData(locale)} />
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={clientMessages}>
           <Navigation />
           <main className="page-shell">{children}</main>
           <div className="page-shell">
