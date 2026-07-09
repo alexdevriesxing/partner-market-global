@@ -18,6 +18,7 @@ The website is operated by Alex de Vries of De Vries Sales Consultancy to presen
 - /en/contact/ - inquiry and contact page
 - /en/privacy-policy/ - privacy, consent and data handling policy
 - /en/terms/ - terms of use and disclaimer
+- /en/japan/ - JIP Japan partnership and curated Japanese opportunities hub
 
 ## What The Site Offers
 
@@ -25,7 +26,7 @@ Partner Market Global helps businesses present international market opportunitie
 
 Opportunity types include import, export, distribution, master franchise, franchise, licensing, brand partnership, private label, OEM and country partner opportunities.
 
-Current featured opportunities include Ralalifood, an Indonesian retort food manufacturer seeking international distributors and private label / OEM clients; Moja Coffee Bali, an Indonesian coffee brand seeking international distributors; and Twokyo Air, a Japanese anime apparel brand seeking international distributors and retailers.
+Current featured opportunities include Ralalifood, an Indonesian retort food manufacturer seeking international distributors and private label / OEM clients; Moja Coffee Bali, an Indonesian coffee brand seeking international distributors; and a diverse portfolio of 11 Japanese opportunities integrated from the JIP Japan package. These JIP listings include AIR TWOKYO (licensed anime apparel distribution), u technologies (Unagi restaurant master franchise), Fujichiku (Fujiaya Beef carcass distribution), Nose Shuzo (beverage distribution), Okayama Tenobe Somen (hand-stretched noodles), IMAI (leather goods retail), Field Club (FRP theme-park sculpture production), Do-Best (budget cosmetics), Ebisu Shiryo (recycled plastics sourcing), a European Blind Box toy retail introduction, and Yachiyo Mengyo (JAS/Halal thin udon EU distribution).
 
 ## Important Trust And Compliance Notes
 

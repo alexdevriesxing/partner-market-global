@@ -42,7 +42,72 @@ export type Opportunity = {
   featured: boolean;
 };
 
-export const opportunities: Opportunity[] = [
+import jipOpportunitiesRaw from "./jip-opportunities.json";
+
+interface JipRaw {
+  id: string;
+  slug: string;
+  sourcePartner: string;
+  company: string;
+  brand: string;
+  title: string;
+  category: string;
+  subCategory?: string;
+  opportunityType: string[];
+  marketRegions: string[];
+  targetPartners: string[];
+  publicSummary: string;
+  partnerProfile?: string;
+  keyStrengths: string[];
+  statusPublic?: string;
+  priority?: string;
+  privateProgressNote?: string;
+  seoKeywords?: string[];
+  imageFile: string;
+  imageAlt: string;
+  imagePath: string;
+  imageSourcePage?: string;
+  imageSourceLocalOriginal?: string;
+  isRegulated?: boolean;
+  regulatoryNote?: string;
+  ipRiskNote?: string;
+}
+
+const mappedJipOpportunities: Opportunity[] = (jipOpportunitiesRaw as unknown as JipRaw[]).map((jip) => {
+  const originCountry = jip.company === "Chinese Manufacturer Products" ? "China" : "Japan";
+  const formattedType = Array.isArray(jip.opportunityType) ? jip.opportunityType.join(" / ") : jip.opportunityType;
+  
+  return {
+    id: jip.id,
+    slug: jip.slug,
+    title: jip.title,
+    type: formattedType,
+    sector: jip.category + (jip.subCategory ? ` / ${jip.subCategory}` : ""),
+    originCountry,
+    targetMarkets: jip.marketRegions || [],
+    heroImage: `/images/opportunities/${jip.imageFile}`,
+    cardImage: `/images/opportunities/${jip.imageFile}`,
+    summary: jip.publicSummary || "",
+    description: jip.publicSummary || "",
+    companyBackground: `Company: ${jip.company}\nBrand: ${jip.brand}\n\n${jip.company} is an established company in the ${jip.category} sector, operating under the brand ${jip.brand}. Through the JIP Japan opportunity network, they are seeking qualified international partners to expand their reach.`,
+    productDetails: `The ${jip.brand} portfolio focuses on ${jip.subCategory || jip.category}. Product specifications, MOQs, certification documents, and wholesale pricing details are available upon qualification.`,
+    marketOpportunity: `${jip.brand} is targeting expansion in ${(jip.marketRegions || []).join(", ")}. This opportunity presents a strong commercial potential for partners capable of handling local distribution, retail, or operations.`,
+    partnerProfile: jip.partnerProfile || "Best fit for established partners with active networks, regulatory capabilities, and market access in the target regions.",
+    commercialModel: `Partnership Type: ${formattedType}. The specific commercial agreement, territory rights, and commission structure will be discussed upon qualified inquiry.`,
+    territoryAvailability: (jip.marketRegions || []).join(", "),
+    investmentRequirement: jip.opportunityType.includes("Master Franchise") || jip.opportunityType.includes("Franchise")
+      ? "Franchise investment and development requirements apply. Terms will be discussed during qualification."
+      : "Minimum order quantities (MOQs) or working capital requirements apply depending on the target territory. Details provided on inquiry.",
+    credentials: jip.keyStrengths || [],
+    verificationBadges: ["Client Opportunity", "JIP Japan Vetted"].concat(jip.opportunityType || []),
+    documentsAvailable: ["Company Profile", "Opportunity Brief", "Regulatory Details on Inquiry"],
+    risks: jip.regulatoryNote || jip.ipRiskNote || "Standard import duties, labeling compliance, and market-specific regulations apply. Partners should verify local compliance.",
+    status: jip.statusPublic || "Open for inquiries",
+    featured: jip.priority === "High" || jip.priority === "Medium"
+  };
+});
+
+const staticOpportunities: Opportunity[] = [
   {
     id: "opp-ralalifood-retort",
     slug: "ralalifood-indonesia-retort-food-distributors-private-label-oem",
@@ -152,6 +217,8 @@ export const opportunities: Opportunity[] = [
     featured: true
   }
 ];
+
+export const opportunities: Opportunity[] = [...staticOpportunities, ...mappedJipOpportunities];
 
 export const categories = [
   { title: "Import Opportunities", image: "/assets/import-opportunities.svg", href: "/opportunities?type=import" },

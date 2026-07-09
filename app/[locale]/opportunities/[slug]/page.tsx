@@ -135,7 +135,7 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
               <div className="quick-panel">
                 <strong>{t('interested')}</strong>
                 <p>Send a qualified inquiry to receive more information.</p>
-                <a className="btn btn-primary full" href="#inquiry">{t('sendInquiry')}</a>
+                <Link className="btn btn-primary full" href={`/${locale}/contact?oppTitle=${encodeURIComponent(opportunity.title)}&oppSlug=${opportunity.slug}&source=${opportunity.id.startsWith("jip-") ? "JIP Japan" : "General"}`}>{t('sendInquiry')}</Link>
                 <a className="btn btn-line full" href="#documents" style={{ marginTop: 8 }}>{t('saveOpportunity')}</a>
               </div>
             </div>
@@ -171,7 +171,7 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                 </ul>
               </div>
               <div className="content-card product-shot">
-                <img src="/assets/detail-product-shot.webp" alt="Product showcase" />
+                <img src={opportunity.heroImage} alt={`${opportunity.title} product showcase`} style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "12px" }} />
               </div>
             </div>
 
@@ -229,15 +229,15 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
               </div>
             </div>
 
-            <InquiryForm />
+            <InquiryForm oppTitle={opportunity.title} oppSlug={opportunity.slug} source={opportunity.id.startsWith("jip-") ? "JIP Japan" : "General"} />
           </div>
         </article>
 
         <aside className="side-panel">
           <h3>{t('interested')}</h3>
           <p>Send us a qualified inquiry to receive more information.</p>
-          <a href="#inquiry" className="btn btn-primary full">{t('sendInquiry')}</a>
-          <a href={`/${locale}/contact`} className="btn btn-line full" style={{ marginTop: 10 }}>{t('askQuestion')}</a>
+          <Link href={`/${locale}/contact?oppTitle=${encodeURIComponent(opportunity.title)}&oppSlug=${opportunity.slug}&source=${opportunity.id.startsWith("jip-") ? "JIP Japan" : "General"}`} className="btn btn-primary full">{t('sendInquiry')}</Link>
+          <Link href={`/${locale}/contact?oppTitle=${encodeURIComponent(opportunity.title)}&oppSlug=${opportunity.slug}&source=${opportunity.id.startsWith("jip-") ? "JIP Japan" : "General"}`} className="btn btn-line full" style={{ marginTop: 10 }}>{t('askQuestion')}</Link>
           <div className="secure-box">{t('secureBox')}</div>
         </aside>
       </section>

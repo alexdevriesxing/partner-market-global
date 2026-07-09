@@ -79,7 +79,20 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <Link href={`/${locale}/opportunities`}>{tFeatured('viewAll')}</Link>
         </div>
         <div className="opportunity-grid">
-          {opportunities.map((opportunity) => (
+          {opportunities.filter(o => !o.id.startsWith("jip-")).slice(0, 3).map((opportunity) => (
+            <OpportunityCard key={opportunity.id} opportunity={opportunity} locale={locale} />
+          ))}
+        </div>
+      </section>
+
+      <section className="featured-section japan-featured-home bg-soft">
+        <div className="section-top">
+          <h2>Featured Japan Opportunities</h2>
+          <Link href={`/${locale}/japan`}>Explore Japan Hub →</Link>
+        </div>
+        <p className="section-subtitle">Pre-screened Japanese commercial partnerships, distribution rights, and franchise listings from JIP Japan.</p>
+        <div className="opportunity-grid">
+          {opportunities.filter(o => o.originCountry === "Japan" && o.featured).slice(0, 3).map((opportunity) => (
             <OpportunityCard key={opportunity.id} opportunity={opportunity} locale={locale} />
           ))}
         </div>
