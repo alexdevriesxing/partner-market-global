@@ -6,12 +6,13 @@ import { OpportunityCard } from "@/components/OpportunityCard";
 import { TrustStrip } from "@/components/TrustStrip";
 import { StructuredData } from "@/components/StructuredData";
 import { HeroSectionClient } from "@/components/HeroSectionClient";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { opportunities } from "@/lib/data";
 import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'site' });
   return pageMetadata({
     locale,
@@ -58,6 +59,7 @@ const getHomeJapanTranslations = (locale: string) => {
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const tHero = await getTranslations('hero');
   const tFeatured = await getTranslations('featured');
   const tFaq = await getTranslations('faq');
@@ -65,31 +67,37 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const tTrust = await getTranslations('trust');
   const tJapanHome = getHomeJapanTranslations(locale);
 
+  const japanFeatured = opportunities.filter((o) => o.originCountry === "Japan" && o.featured);
+  const japanTopThree = japanFeatured.slice(0, 3);
+  const globalFeatured = [
+    ...opportunities.filter((o) => o.featured && o.originCountry !== "Japan"),
+    ...japanFeatured.slice(3)
+  ].slice(0, 4);
+
+  const distinctMarkets = new Set(opportunities.flatMap((o) => o.targetMarkets));
+  const distinctSectors = new Set(opportunities.map((o) => o.sector.split(" / ")[0].trim()));
+  const statValues = {
+    opportunities: `${opportunities.length}`,
+    countries: `${distinctMarkets.size}+`,
+    sectors: `${distinctSectors.size}`,
+    partners: "100%"
+  };
+
+  const faqEntries = [
+    { question: tFaq('whatIs.question'), answer: tFaq('whatIs.answer') },
+    { question: tFaq('canList.question'), answer: tFaq('canList.answer') },
+    { question: tFaq('guarantee.question'), answer: tFaq('guarantee.answer') },
+    { question: tFaq('howInquire.question'), answer: tFaq('howInquire.answer') }
+  ];
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: tFaq('whatIs.question'),
-        acceptedAnswer: { "@type": "Answer", text: tFaq('whatIs.answer') }
-      },
-      {
-        "@type": "Question",
-        name: tFaq('canList.question'),
-        acceptedAnswer: { "@type": "Answer", text: tFaq('canList.answer') }
-      },
-      {
-        "@type": "Question",
-        name: tFaq('guarantee.question'),
-        acceptedAnswer: { "@type": "Answer", text: tFaq('guarantee.answer') }
-      },
-      {
-        "@type": "Question",
-        name: tFaq('howInquire.question'),
-        acceptedAnswer: { "@type": "Answer", text: tFaq('howInquire.answer') }
-      }
-    ]
+    mainEntity: faqEntries.map(({ question, answer }) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer }
+    }))
   };
 
   return (
@@ -108,6 +116,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           sectors: tHero('stats.sectors'),
           partners: tHero('stats.partners')
         }}
+        statValues={statValues}
       />
 
       <section className="featured-section">
@@ -116,7 +125,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <Link href={`/${locale}/opportunities`}>{tFeatured('viewAll')}</Link>
         </div>
         <div className="opportunity-grid">
-          {opportunities.filter(o => !o.id.startsWith("jip-")).slice(0, 3).map((opportunity) => (
+          {globalFeatured.map((opportunity) => (
             <OpportunityCard key={opportunity.id} opportunity={opportunity} locale={locale} />
           ))}
         </div>
@@ -129,7 +138,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
         <p className="section-subtitle">{tJapanHome.subtitle}</p>
         <div className="opportunity-grid">
-          {opportunities.filter(o => o.originCountry === "Japan" && o.featured).slice(0, 3).map((opportunity) => (
+          {japanTopThree.map((opportunity) => (
             <OpportunityCard key={opportunity.id} opportunity={opportunity} locale={locale} />
           ))}
         </div>
@@ -150,6 +159,22 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         trust5={tTrust('secureInquiries')}
         trust5Desc={tTrust('secureInquiriesDesc')}
       />
+
+      <section className="faq-section home-faq bg-soft" id="faq">
+        <div className="section-heading">
+          <h2>{tFaq('title')}</h2>
+          <p>{tFaq('subtitle')}</p>
+        </div>
+        <div className="faq-grid">
+          {faqEntries.map(({ question, answer }) => (
+            <div className="faq-item" key={question}>
+              <h3>{question}</h3>
+              <p>{answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <CTA
         locale={locale}
         headline={tCta('headline')}

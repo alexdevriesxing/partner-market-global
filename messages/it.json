@@ -23,9 +23,9 @@
     "ctaList": "Pubblica la Tua Opportunità",
     "stats": {
       "opportunities": "Opportunità Verificate",
-      "countries": "Paesi",
+      "countries": "Mercati di destinazione",
       "sectors": "Settori",
-      "partners": "Partner Qualificati"
+      "partners": "Basato su commissioni"
     }
   },
   "featured": {
@@ -183,10 +183,29 @@
       "contactUs": "Contattaci",
       "legalNote": "Tutti i pacchetti sono soggetti ai nostri Termini di Utilizzo. Non forniamo consulenza legale, finanziaria o di investimento.",
       "features": {
-        "basic": ["Pagina profilo standard", "Modulo di richiesta e acquisizione lead", "Posizionamento standard", "Supporto base"],
-        "premium": ["Tutto del Base", "Posizionamento in evidenza", "Profilo e visual migliorati", "Supporto prioritario"],
-        "campaign": ["Tutto del Premium", "Azioni mirate", "Lista prospect curata", "Report campagna"],
-        "success": ["Solo quando legalmente appropriato", "In base al valore e alla portata", "Termini trasparenti"]
+        "basic": [
+          "Pagina profilo standard",
+          "Modulo di richiesta e acquisizione lead",
+          "Posizionamento standard",
+          "Supporto base"
+        ],
+        "premium": [
+          "Tutto del Base",
+          "Posizionamento in evidenza",
+          "Profilo e visual migliorati",
+          "Supporto prioritario"
+        ],
+        "campaign": [
+          "Tutto del Premium",
+          "Azioni mirate",
+          "Lista prospect curata",
+          "Report campagna"
+        ],
+        "success": [
+          "Solo quando legalmente appropriato",
+          "In base al valore e alla portata",
+          "Termini trasparenti"
+        ]
       }
     },
     "importantNotes": {
@@ -254,9 +273,59 @@
       "reason": "Il tuo messaggio",
       "requirementsSelect": "Seleziona"
     },
-    "partnerTypes": ["Importatore", "Distributore", "Affiliato", "Investitore", "Operatore"],
-    "countries": ["Italia", "Spagna", "Francia", "Germania", "Regno Unito", "Paesi Bassi", "Belgio", "Austria", "Svizzera", "Polonia", "Repubblica Ceca", "Romania", "Ungheria", "Svezia", "Norvegia", "Danimarca", "Finlandia", "Portogallo", "Stati Uniti", "Canada", "Messico", "Brasile", "Argentina", "Colombia", "Cile", "Perù", "Emirati Arabi Uniti", "Arabia Saudita", "Qatar", "Egitto", "Sudafrica", "India", "Cina", "Giappone", "Corea del Sud", "Australia", "Nuova Zelanda", "Singapore", "Altro"],
-    "requirements": ["Sì", "Devo discuterne", "No"],
+    "partnerTypes": [
+      "Importatore",
+      "Distributore",
+      "Affiliato",
+      "Investitore",
+      "Operatore"
+    ],
+    "countries": [
+      "Italia",
+      "Spagna",
+      "Francia",
+      "Germania",
+      "Regno Unito",
+      "Paesi Bassi",
+      "Belgio",
+      "Austria",
+      "Svizzera",
+      "Polonia",
+      "Repubblica Ceca",
+      "Romania",
+      "Ungheria",
+      "Svezia",
+      "Norvegia",
+      "Danimarca",
+      "Finlandia",
+      "Portogallo",
+      "Stati Uniti",
+      "Canada",
+      "Messico",
+      "Brasile",
+      "Argentina",
+      "Colombia",
+      "Cile",
+      "Perù",
+      "Emirati Arabi Uniti",
+      "Arabia Saudita",
+      "Qatar",
+      "Egitto",
+      "Sudafrica",
+      "India",
+      "Cina",
+      "Giappone",
+      "Corea del Sud",
+      "Australia",
+      "Nuova Zelanda",
+      "Singapore",
+      "Altro"
+    ],
+    "requirements": [
+      "Sì",
+      "Devo discuterne",
+      "No"
+    ],
     "consent": "Confermo di aver letto e accetto l'Informativa sulla Privacy e acconsento a condividere la mia richiesta con il proprietario dell'opportunità.",
     "submit": "Invia Richiesta",
     "privacyNote": "Rispettiamo la tua privacy. Nessuno spam. Annulla quando vuoi."
@@ -318,7 +387,8 @@
         "guides": "Guide",
         "webinars": "Webinar",
         "reports": "Report di Mercato",
-        "success": "Storie di Successo"
+        "success": "Storie di Successo",
+        "japan": "Hub opportunità Giappone"
       },
       "company": "Azienda",
       "companyLinks": {
@@ -372,6 +442,8 @@
     "howInquire": {
       "question": "Come posso richiedere informazioni su un'opportunità?",
       "answer": "Clicca su qualsiasi pulsante Vedi Dettagli su una scheda opportunità, revisa il profilo completo e invia una richiesta qualificata tramite il modulo di richiesta sicuro nella pagina dei dettagli dell'opportunità."
-    }
+    },
+    "title": "Domande frequenti",
+    "subtitle": "Risposte chiare su come funziona Partner Market Global per aziende e partner internazionali."
   }
 }

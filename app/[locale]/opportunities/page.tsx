@@ -3,12 +3,13 @@ import { CategoryGrid } from "@/components/CategoryGrid";
 import { OpportunitySearchFilter } from "@/components/OpportunitySearchFilter";
 import { CTA } from "@/components/CTA";
 import { StructuredData } from "@/components/StructuredData";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { opportunities } from "@/lib/data";
 import { absoluteUrl, canonicalUrl, pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'opportunities' });
   return pageMetadata({
     locale,
@@ -21,6 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function OpportunitiesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations('opportunities');
   const tCta = await getTranslations('cta');
 
@@ -48,9 +50,18 @@ export default async function OpportunitiesPage({ params }: { params: Promise<{ 
     }))
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: canonicalUrl(locale) },
+      { "@type": "ListItem", position: 2, name: t('title'), item: canonicalUrl(locale, "/opportunities") }
+    ]
+  };
+
   return (
     <>
-      <StructuredData data={itemListSchema} />
+      <StructuredData data={[itemListSchema, breadcrumbSchema]} />
       <section className="page-hero">
         <div>
           <div className="eyebrow">{t('title')}</div>

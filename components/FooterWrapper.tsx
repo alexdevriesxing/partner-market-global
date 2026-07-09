@@ -32,20 +32,17 @@ export async function FooterWrapper({ locale }: { locale: string }) {
     {
       title: t("columns.resources"),
       links: [
-        [t("columns.resourcesLinks.blog"), "/curation-process"],
-        [t("columns.resourcesLinks.guides"), "/curation-process"],
-        [t("columns.resourcesLinks.webinars"), "/curation-process"],
-        [t("columns.resourcesLinks.reports"), "/curation-process"],
-        [t("columns.resourcesLinks.success"), "/curation-process"]
+        [t("columns.resourcesLinks.japan"), "/japan"],
+        [t("columns.forCompaniesLinks.curation"), "/curation-process"],
+        [t("columns.forCompaniesLinks.terms"), "/commercial-terms"],
+        [t("columns.forCompaniesLinks.faq"), "/#faq"]
       ]
     },
     {
       title: t("columns.company"),
       links: [
         [t("columns.companyLinks.about"), "/about"],
-        [t("columns.companyLinks.contact"), "/contact"],
-        [t("columns.companyLinks.careers"), "/contact"],
-        [t("columns.companyLinks.newsroom"), "/contact"]
+        [t("columns.companyLinks.contact"), "/contact"]
       ]
     },
     {

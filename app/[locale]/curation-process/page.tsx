@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { CTA } from "@/components/CTA";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'curation' });
   return pageMetadata({
     locale,
@@ -33,6 +34,7 @@ const trustCheckKeys = [
 
 export default async function CurationProcessPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations('curation');
   const tSteps = await getTranslations('forCompanies');
   const tTrust = await getTranslations('trust');

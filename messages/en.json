@@ -23,9 +23,9 @@
     "ctaList": "List Your Opportunity",
     "stats": {
       "opportunities": "Vetted Opportunities",
-      "countries": "Countries",
+      "countries": "Target Markets",
       "sectors": "Industry Sectors",
-      "partners": "Qualified Partners"
+      "partners": "Commission-Based"
     }
   },
   "featured": {
@@ -183,10 +183,29 @@
       "contactUs": "Discuss Commission Terms",
       "legalNote": "Commercial terms are provided on inquiry. Commission applies only under a written agreement that defines scope, territory, trigger, timing and any exclusions. We do not provide legal, financial or investment advice.",
       "features": {
-        "basic": ["No public fixed listing package", "Commercial scope agreed before launch", "Curated opportunity profile", "Qualified inquiry handling"],
-        "premium": ["Introductions only after qualification", "Commission trigger defined in writing", "Relevant decision-maker matching", "Transparent follow-up process"],
-        "campaign": ["Targeted partner search when suitable", "Territory and opportunity scope defined", "No generic upfront package pricing", "Only where legally appropriate"],
-        "success": ["Commission percentage agreed on inquiry", "Scope and trigger defined in writing", "Transparent terms"]
+        "basic": [
+          "No public fixed listing package",
+          "Commercial scope agreed before launch",
+          "Curated opportunity profile",
+          "Qualified inquiry handling"
+        ],
+        "premium": [
+          "Introductions only after qualification",
+          "Commission trigger defined in writing",
+          "Relevant decision-maker matching",
+          "Transparent follow-up process"
+        ],
+        "campaign": [
+          "Targeted partner search when suitable",
+          "Territory and opportunity scope defined",
+          "No generic upfront package pricing",
+          "Only where legally appropriate"
+        ],
+        "success": [
+          "Commission percentage agreed on inquiry",
+          "Scope and trigger defined in writing",
+          "Transparent terms"
+        ]
       }
     },
     "importantNotes": {
@@ -254,9 +273,34 @@
       "reason": "Your message",
       "requirementsSelect": "Select"
     },
-    "partnerTypes": ["Importer", "Distributor", "Franchisee", "Investor", "Operator"],
-    "countries": ["Netherlands", "Indonesia", "Singapore", "United Arab Emirates", "Saudi Arabia", "United Kingdom", "Germany", "France", "United States", "Australia", "Japan", "South Korea", "India", "Other"],
-    "requirements": ["Yes", "Need to discuss", "No"],
+    "partnerTypes": [
+      "Importer",
+      "Distributor",
+      "Franchisee",
+      "Investor",
+      "Operator"
+    ],
+    "countries": [
+      "Netherlands",
+      "Indonesia",
+      "Singapore",
+      "United Arab Emirates",
+      "Saudi Arabia",
+      "United Kingdom",
+      "Germany",
+      "France",
+      "United States",
+      "Australia",
+      "Japan",
+      "South Korea",
+      "India",
+      "Other"
+    ],
+    "requirements": [
+      "Yes",
+      "Need to discuss",
+      "No"
+    ],
     "consent": "I confirm that I have read and agree to the Privacy Policy and consent to sharing my inquiry with the opportunity owner.",
     "submit": "Submit Inquiry",
     "privacyNote": "We respect your privacy. No spam. Unsubscribe anytime."
@@ -318,7 +362,8 @@
         "guides": "Guides",
         "webinars": "Webinars",
         "reports": "Market Reports",
-        "success": "Success Stories"
+        "success": "Success Stories",
+        "japan": "Japan Opportunity Hub"
       },
       "company": "Company",
       "companyLinks": {
@@ -372,6 +417,8 @@
     "howInquire": {
       "question": "How do I inquire about an opportunity?",
       "answer": "Click any View Details button on an opportunity card, review the full profile, and submit a qualified inquiry through the secure inquiry form on the opportunity detail page."
-    }
+    },
+    "title": "Frequently Asked Questions",
+    "subtitle": "Clear answers about how Partner Market Global works for companies and international partners."
   }
 }

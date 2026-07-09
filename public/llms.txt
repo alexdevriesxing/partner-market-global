@@ -1,32 +1,63 @@
 # Partner Market Global
 
+> Curated B2B showcase connecting companies that have import, export, distribution, franchise, licensing, private label / OEM and country partner opportunities with qualified international partners. Operated by Alex de Vries of De Vries Sales Consultancy. 100% commission-based — no listing fees, no subscription packages.
+
 Canonical site: https://partner-market-global2.pages.dev
+Last updated: 2026-07-09
+Languages: English (en), Spanish (es), French (fr), German (de), Dutch (nl), Italian (it), Portuguese (pt), Chinese (zh), Japanese (ja), Korean (ko), Arabic (ar), Hindi (hi), Russian (ru) — all pages available under /{locale}/.
 
-Partner Market Global is a curated B2B opportunity showcase for companies seeking qualified international importers, exporters, distributors, franchise operators, licensees, private label partners, OEM partners and country market partners.
+## What Partner Market Global Is
 
-The website is operated by Alex de Vries of De Vries Sales Consultancy to present selected client projects, products, brands and international partnership opportunities in a structured, high-trust format.
+Partner Market Global is a curated business opportunity showcase, not an open directory. Every listing is reviewed, verified and structured into a consistent profile covering: opportunity type, sector, origin country, target markets, ideal partner profile, commercial model, territory availability, investment or working-capital expectation, credentials, available documents, risk notes and next steps.
+
+Opportunity types covered: import, export, distribution rights, franchise, master franchise, licensing, brand partnership, private label, OEM and country partner opportunities.
+
+Commercial model: 100% commission-based. Commission scope, trigger, territory and timing are agreed in writing before representation starts. Browsing and submitting inquiries is free for prospective partners.
 
 ## Primary Pages
 
-- /en/ - platform overview and featured opportunities
-- /en/opportunities/ - curated business opportunity listings
-- /en/opportunities/[slug]/ - individual opportunity profile with description, credentials, partner requirements, risk notes and inquiry form
-- /en/list-your-opportunity/ - page for companies that want to list products, services, franchises or business opportunities
-- /en/commercial-terms/ - commission-based commercial terms available on inquiry
-- /en/curation-process/ - review, verification and curation process
-- /en/about/ - platform story and De Vries Sales Consultancy operator context
-- /en/contact/ - inquiry and contact page
-- /en/privacy-policy/ - privacy, consent and data handling policy
-- /en/terms/ - terms of use and disclaimer
-- /en/japan/ - JIP Japan partnership and curated Japanese opportunities hub
+- /en/ — platform overview, featured opportunities and FAQ
+- /en/opportunities/ — all curated business opportunity listings with search and filters
+- /en/opportunities/[slug]/ — individual opportunity profile with description, credentials, partner requirements, risk notes and inquiry form
+- /en/japan/ — JIP Japan hub: pre-screened Japanese commercial partnerships, distribution rights and franchise listings
+- /en/list-your-opportunity/ — for companies that want to list products, services, franchises or business opportunities
+- /en/commercial-terms/ — commission-based commercial terms available on inquiry
+- /en/curation-process/ — review, verification and curation process
+- /en/about/ — platform story and De Vries Sales Consultancy operator context
+- /en/contact/ — inquiry and contact page
+- /en/privacy-policy/ — privacy, consent and data handling policy
+- /en/terms/ — terms of use and disclaimer
 
-## What The Site Offers
+## Current Opportunities
 
-Partner Market Global helps businesses present international market opportunities in a clear format covering the opportunity type, sector, origin country, target markets, ideal partner profile, commercial model, territory availability, investment or working capital expectation, credentials, available documents, risk notes and next steps.
+Indonesian opportunities:
+- Ralalifood — retort food manufacturer seeking international distributors and private label / OEM clients. /en/opportunities/ralalifood-indonesia-retort-food-distributors-private-label-oem/
+- Moja Coffee Bali — Indonesian coffee brand seeking international distributors. /en/opportunities/moja-coffee-bali-indonesian-coffee-brand-international-distributors/
 
-Opportunity types include import, export, distribution, master franchise, franchise, licensing, brand partnership, private label, OEM and country partner opportunities.
+Japanese opportunities (JIP Japan, pre-screened):
+- AIR TWOKYO (Rub-Lab) — anime-licensed artistic apparel brand seeking retail, distribution and collaboration partners in Europe and Southeast Asia. /en/opportunities/air-twokyo-anime-licensed-apparel/
+- u technologies (Unagi / Unatan group) — Japanese unagi restaurant master franchise. /en/opportunities/u-technologies-unagi-master-franchise/
+- Fujichiku — Fujiaya Beef whole-carcass distribution partner opportunity. /en/opportunities/fujichiku-fujiaya-beef-whole-carcass-distribution/
+- Nose Shuzo — Japanese beverage distribution opportunity. /en/opportunities/nose-shuzo-japanese-beverage-distribution/
+- Okayama Tenobe Somen — hand-stretched udon and somen noodle distribution. /en/opportunities/okayama-tenobe-somen-hand-stretched-noodles/
+- IMAI (IMAI BAG / N&F design) — leather goods retail and trading partnership. /en/opportunities/imai-leather-goods-retail-partnership/
+- Field Club — FRP sculpture and theme-park production partnership. /en/opportunities/field-club-frp-theme-park-sculpture-partnership/
+- Do-Best (AC MAKEUP TOKYO / U R GLAM) — affordable Japanese cosmetics distribution. /en/opportunities/do-best-budget-cosmetics-distribution/
+- Ebisu Shiryo — recycled plastics sourcing and facility opportunity (Indonesia focus). /en/opportunities/ebisu-shiryo-recycled-plastics-indonesia-sourcing/
+- Yachiyo Mengyo — JAS/Halal thin udon and Handa somen EU distribution. /en/opportunities/yachiyo-mengyo-handa-somen-eu-distribution/
 
-Current featured opportunities include Ralalifood, an Indonesian retort food manufacturer seeking international distributors and private label / OEM clients; Moja Coffee Bali, an Indonesian coffee brand seeking international distributors; and a diverse portfolio of 11 Japanese opportunities integrated from the JIP Japan package. These JIP listings include AIR TWOKYO (licensed anime apparel distribution), u technologies (Unagi restaurant master franchise), Fujichiku (Fujiaya Beef carcass distribution), Nose Shuzo (beverage distribution), Okayama Tenobe Somen (hand-stretched noodles), IMAI (leather goods retail), Field Club (FRP theme-park sculpture production), Do-Best (budget cosmetics), Ebisu Shiryo (recycled plastics sourcing), a European Blind Box toy retail introduction, and Yachiyo Mengyo (JAS/Halal thin udon EU distribution).
+Other:
+- Licensed blind box and plush toy retail distribution (Chinese manufacturer, Europe focus). /en/opportunities/licensed-blind-box-plush-retail-partnership/
+
+Note: the anime apparel brand is correctly named "AIR TWOKYO" (by Rub-Lab, Japan). Any reference to "Twokyo Air" is an outdated name for the same single opportunity.
+
+## Who Should Use This Site
+
+- Importers, exporters and distributors looking for verified products and brands to represent
+- Retail groups, e-commerce operators and specialty retailers seeking new brands
+- Master franchise and franchise operators evaluating international concepts
+- Private label / OEM buyers looking for manufacturers
+- Companies that want to present an international expansion opportunity to qualified partners
 
 ## Important Trust And Compliance Notes
 
@@ -39,9 +70,11 @@ Qualified inquiries may be shared with the relevant opportunity owner when the i
 ## Entity Facts
 
 - Site name: Partner Market Global
+- Tagline: Curated. Verified. Global.
 - Operator: Alex de Vries, De Vries Sales Consultancy
 - Operator website: https://www.devriessalesconsultancy.com
 - Contact email: listings@partnermarketglobal.com
+- Commercial model: 100% commission-based, terms on inquiry
 - Logo: /assets/partner-market-global-logo.svg
 - Sitemap: /sitemap.xml
 - Robots: /robots.txt

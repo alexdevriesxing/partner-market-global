@@ -3,10 +3,11 @@ import { CTA } from "@/components/CTA";
 import { InquiryForm } from "@/components/InquiryForm";
 import { PricingCards } from "@/components/PricingCards";
 import { pageMetadata } from "@/lib/seo";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'forCompanies' });
   return pageMetadata({
     locale,
@@ -43,6 +44,7 @@ const curationStepKeys = [
 
 export default async function ListOpportunityPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations('forCompanies');
   const tCategories = await getTranslations('categories');
   const tInquiry = await getTranslations('inquiry');

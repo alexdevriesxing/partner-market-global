@@ -23,9 +23,9 @@
     "ctaList": "Ihre Chance veröffentlichen",
     "stats": {
       "opportunities": "Verifizierte Chancen",
-      "countries": "Länder",
+      "countries": "Zielmärkte",
       "sectors": "Sektoren",
-      "partners": "Qualifizierte Partner"
+      "partners": "Provisionsbasiert"
     }
   },
   "featured": {
@@ -183,10 +183,29 @@
       "contactUs": "Kontaktieren Sie uns",
       "legalNote": "Alle Pakete unterliegen unseren Nutzungsbedingungen. Wir bieten keine Rechts-, Finanz- oder Anlageberatung.",
       "features": {
-        "basic": ["Standard-Profilseite", "Anfrageformular und Lead-Erfassung", "Standard-Platzierung", "Basis-Support"],
-        "premium": ["Alles vom Basis", "Hervorgehobene Platzierung", "Verbessertes Profil und Visuals", "Prioritäts-Support"],
-        "campaign": ["Alles vom Premium", "Gezielte Aktionen", "Kuratierte Prospect-Liste", "Kampagnenbericht"],
-        "success": ["Nur wenn rechtlich angemessen", "Je nach Wert und Umfang", "Transparente Bedingungen"]
+        "basic": [
+          "Standard-Profilseite",
+          "Anfrageformular und Lead-Erfassung",
+          "Standard-Platzierung",
+          "Basis-Support"
+        ],
+        "premium": [
+          "Alles vom Basis",
+          "Hervorgehobene Platzierung",
+          "Verbessertes Profil und Visuals",
+          "Prioritäts-Support"
+        ],
+        "campaign": [
+          "Alles vom Premium",
+          "Gezielte Aktionen",
+          "Kuratierte Prospect-Liste",
+          "Kampagnenbericht"
+        ],
+        "success": [
+          "Nur wenn rechtlich angemessen",
+          "Je nach Wert und Umfang",
+          "Transparente Bedingungen"
+        ]
       }
     },
     "importantNotes": {
@@ -254,9 +273,59 @@
       "reason": "Ihre Nachricht",
       "requirementsSelect": "Auswählen"
     },
-    "partnerTypes": ["Importeur", "Distributor", "Franchisenehmer", "Investor", "Betreiber"],
-    "countries": ["Deutschland", "Österreich", "Schweiz", "Niederlande", "Belgien", "Frankreich", "Vereinigtes Königreich", "Italien", "Spanien", "Portugal", "Polen", "Tschechien", "Rumänien", "Ungarn", "Schweden", "Norwegen", "Dänemark", "Finnland", "Vereinigte Staaten", "Kanada", "Mexiko", "Brasilien", "Argentinien", "Kolumbien", "Chile", "Peru", "Vereinigte Arabische Emirate", "Saudi-Arabien", "Katar", "Ägypten", "Südafrika", "Indien", "China", "Japan", "Südkorea", "Australien", "Neuseeland", "Singapur", "Andere"],
-    "requirements": ["Ja", "Ich muss es besprechen", "Nein"],
+    "partnerTypes": [
+      "Importeur",
+      "Distributor",
+      "Franchisenehmer",
+      "Investor",
+      "Betreiber"
+    ],
+    "countries": [
+      "Deutschland",
+      "Österreich",
+      "Schweiz",
+      "Niederlande",
+      "Belgien",
+      "Frankreich",
+      "Vereinigtes Königreich",
+      "Italien",
+      "Spanien",
+      "Portugal",
+      "Polen",
+      "Tschechien",
+      "Rumänien",
+      "Ungarn",
+      "Schweden",
+      "Norwegen",
+      "Dänemark",
+      "Finnland",
+      "Vereinigte Staaten",
+      "Kanada",
+      "Mexiko",
+      "Brasilien",
+      "Argentinien",
+      "Kolumbien",
+      "Chile",
+      "Peru",
+      "Vereinigte Arabische Emirate",
+      "Saudi-Arabien",
+      "Katar",
+      "Ägypten",
+      "Südafrika",
+      "Indien",
+      "China",
+      "Japan",
+      "Südkorea",
+      "Australien",
+      "Neuseeland",
+      "Singapur",
+      "Andere"
+    ],
+    "requirements": [
+      "Ja",
+      "Ich muss es besprechen",
+      "Nein"
+    ],
     "consent": "Ich bestätige, dass ich die Datenschutzrichtlinie gelesen habe und ihr zustimme und der Weitergabe meiner Anfrage an den Inhaber der Chance zustimme.",
     "submit": "Anfrage senden",
     "privacyNote": "Wir respektieren Ihre Privatsphäre. Kein Spam. Jederzeit abbestellbar."
@@ -318,7 +387,8 @@
         "guides": "Leitfäden",
         "webinars": "Webinare",
         "reports": "Marktberichte",
-        "success": "Erfolgsgeschichten"
+        "success": "Erfolgsgeschichten",
+        "japan": "Japan-Chancen-Hub"
       },
       "company": "Unternehmen",
       "companyLinks": {
@@ -372,6 +442,8 @@
     "howInquire": {
       "question": "Wie kann ich mich über eine Chance erkundigen?",
       "answer": "Klicken Sie auf eine beliebige Schaltfläche Details anzeigen auf einer Chancenkarte, überprüfen Sie das vollständige Profil und senden Sie eine qualifizierte Anfrage über das sichere Anfrageformular auf der Detailseite der Chance."
-    }
+    },
+    "title": "Häufig gestellte Fragen",
+    "subtitle": "Klare Antworten dazu, wie Partner Market Global für Unternehmen und internationale Partner funktioniert."
   }
 }

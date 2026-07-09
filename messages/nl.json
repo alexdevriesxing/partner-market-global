@@ -23,9 +23,9 @@
     "ctaList": "Plaats Uw Kans",
     "stats": {
       "opportunities": "Geverifieerde Kansen",
-      "countries": "Landen",
+      "countries": "Doelmarkten",
       "sectors": "Sectoren",
-      "partners": "Gekwalificeerde Partners"
+      "partners": "Op commissiebasis"
     }
   },
   "featured": {
@@ -183,10 +183,29 @@
       "contactUs": "Neem Contact Op",
       "legalNote": "Alle pakketten zijn onderworpen aan onze Gebruiksvoorwaarden. We geven geen juridisch, financieel of beleggingsadvies.",
       "features": {
-        "basic": ["Standaard profielpagina", "Navraagformulier en leadcapture", "Standaard plaatsing", "Basisondersteuning"],
-        "premium": ["Alles van Basis", "Uitgelichte plaatsing", "Verbeterd profiel en visuals", "Prioriteitsondersteuning"],
-        "campaign": ["Alles van Premium", "Gerichte acties", "Gecureerde prospectlijst", "Campagnerapport"],
-        "success": ["Alleen wanneer juridisch gepast", "Afhankelijk van waarde en bereik", "Transparante voorwaarden"]
+        "basic": [
+          "Standaard profielpagina",
+          "Navraagformulier en leadcapture",
+          "Standaard plaatsing",
+          "Basisondersteuning"
+        ],
+        "premium": [
+          "Alles van Basis",
+          "Uitgelichte plaatsing",
+          "Verbeterd profiel en visuals",
+          "Prioriteitsondersteuning"
+        ],
+        "campaign": [
+          "Alles van Premium",
+          "Gerichte acties",
+          "Gecureerde prospectlijst",
+          "Campagnerapport"
+        ],
+        "success": [
+          "Alleen wanneer juridisch gepast",
+          "Afhankelijk van waarde en bereik",
+          "Transparante voorwaarden"
+        ]
       }
     },
     "importantNotes": {
@@ -254,9 +273,59 @@
       "reason": "Uw bericht",
       "requirementsSelect": "Selecteren"
     },
-    "partnerTypes": ["Importeur", "Distributor", "Franchisenemer", "Investeerder", "Exploitant"],
-    "countries": ["Nederland", "België", "Duitsland", "Frankrijk", "Verenigd Koninkrijk", "Italië", "Spanje", "Portugal", "Polen", "Tsjechië", "Roemenië", "Hongarije", "Zweden", "Noorwegen", "Denemarken", "Finland", "Oostenrijk", "Zwitserland", "Verenigde Staten", "Canada", "Mexico", "Brazilië", "Argentinië", "Colombia", "Chili", "Peru", "Verenigde Arabische Emiraten", "Saoedi-Arabië", "Qatar", "Egypte", "Zuid-Afrika", "India", "China", "Japan", "Zuid-Korea", "Australië", "Nieuw-Zeeland", "Singapore", "Andere"],
-    "requirements": ["Ja", "Ik moet het bespreken", "Nee"],
+    "partnerTypes": [
+      "Importeur",
+      "Distributor",
+      "Franchisenemer",
+      "Investeerder",
+      "Exploitant"
+    ],
+    "countries": [
+      "Nederland",
+      "België",
+      "Duitsland",
+      "Frankrijk",
+      "Verenigd Koninkrijk",
+      "Italië",
+      "Spanje",
+      "Portugal",
+      "Polen",
+      "Tsjechië",
+      "Roemenië",
+      "Hongarije",
+      "Zweden",
+      "Noorwegen",
+      "Denemarken",
+      "Finland",
+      "Oostenrijk",
+      "Zwitserland",
+      "Verenigde Staten",
+      "Canada",
+      "Mexico",
+      "Brazilië",
+      "Argentinië",
+      "Colombia",
+      "Chili",
+      "Peru",
+      "Verenigde Arabische Emiraten",
+      "Saoedi-Arabië",
+      "Qatar",
+      "Egypte",
+      "Zuid-Afrika",
+      "India",
+      "China",
+      "Japan",
+      "Zuid-Korea",
+      "Australië",
+      "Nieuw-Zeeland",
+      "Singapore",
+      "Andere"
+    ],
+    "requirements": [
+      "Ja",
+      "Ik moet het bespreken",
+      "Nee"
+    ],
     "consent": "Ik bevestig dat ik het Privacybeleid heb gelezen en ermee akkoord ga en toestemming geef om mijn navraag te delen met de eigenaar van de kans.",
     "submit": "Navraag Verzenden",
     "privacyNote": "We respecteren uw privacy. Geen spam. Op elk moment opzeggen."
@@ -318,7 +387,8 @@
         "guides": "Gidsen",
         "webinars": "Webinars",
         "reports": "Marktrapporten",
-        "success": "Succesverhalen"
+        "success": "Succesverhalen",
+        "japan": "Japan kansen-hub"
       },
       "company": "Bedrijf",
       "companyLinks": {
@@ -372,6 +442,8 @@
     "howInquire": {
       "question": "Hoe kan ik informeren naar een kans?",
       "answer": "Klik op een willekeurige knop Details Bekijken op een kanskaart, bekijk het volledige profiel en verzend een gekwalificeerde navraag via het beveiligde navraagformulier op de detailpagina van de kans."
-    }
+    },
+    "title": "Veelgestelde vragen",
+    "subtitle": "Duidelijke antwoorden over hoe Partner Market Global werkt voor bedrijven en internationale partners."
   }
 }

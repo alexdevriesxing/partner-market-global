@@ -27,6 +27,12 @@ interface HeroSectionClientProps {
     sectors: string;
     partners: string;
   };
+  statValues: {
+    opportunities: string;
+    countries: string;
+    sectors: string;
+    partners: string;
+  };
 }
 
 export function HeroSectionClient({
@@ -36,7 +42,8 @@ export function HeroSectionClient({
   subheadline,
   ctaExplore,
   ctaList,
-  stats
+  stats,
+  statValues
 }: HeroSectionClientProps) {
   return (
     <section className="hero-section">
@@ -62,10 +69,10 @@ export function HeroSectionClient({
           transition={{ duration: 0.55, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="hero-stats"
         >
-          <div className="stat"><span className="stat-icon">✓</span><span><strong>120+</strong><span>{stats.opportunities}</span></span></div>
-          <div className="stat"><span className="stat-icon">◎</span><span><strong>42+</strong><span>{stats.countries}</span></span></div>
-          <div className="stat"><span className="stat-icon">◆</span><span><strong>18+</strong><span>{stats.sectors}</span></span></div>
-          <div className="stat"><span className="stat-icon">●</span><span><strong>850+</strong><span>{stats.partners}</span></span></div>
+          <div className="stat"><span className="stat-icon">✓</span><span><strong>{statValues.opportunities}</strong><span>{stats.opportunities}</span></span></div>
+          <div className="stat"><span className="stat-icon">◎</span><span><strong>{statValues.countries}</strong><span>{stats.countries}</span></span></div>
+          <div className="stat"><span className="stat-icon">◆</span><span><strong>{statValues.sectors}</strong><span>{stats.sectors}</span></span></div>
+          <div className="stat"><span className="stat-icon">●</span><span><strong>{statValues.partners}</strong><span>{stats.partners}</span></span></div>
         </motion.div>
       </div>
       <div className="hero-visual" aria-label="Global opportunity map">

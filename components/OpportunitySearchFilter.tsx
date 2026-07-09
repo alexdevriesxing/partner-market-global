@@ -50,7 +50,7 @@ const getTranslations = (locale: string) => {
       quickImport: "輸入",
       quickExport: "輸出",
       quickFranchise: "フランチャイズ",
-      quickDistribution: "配送",
+      quickDistribution: "流通",
       quickLicensing: "ライセンス",
       quickPrivateLabel: "プライベートブランド / OEM",
       quickCountryPartner: "カントリーパートナー"

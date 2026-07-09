@@ -1,12 +1,14 @@
 "use client";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import type { Opportunity } from "@/lib/data";
 
 export function OpportunityCard({ opportunity, locale = "en" }: { opportunity: Opportunity; locale?: string }) {
+  const t = useTranslations("opportunities");
   return (
     <article className="opportunity-card">
       <div className="card-image-wrap">
-        <img src={opportunity.cardImage} alt={`${opportunity.title} hero image`} loading="lazy" />
+        <img src={opportunity.cardImage} alt={opportunity.imageAlt || `${opportunity.title} — opportunity image`} loading="lazy" />
         <span className="type-pill">{opportunity.type.split(" / ")[0]}</span>
       </div>
       <div className="card-body">
@@ -21,7 +23,7 @@ export function OpportunityCard({ opportunity, locale = "en" }: { opportunity: O
             <span className="mini-badge" key={badge}>✓ {badge}</span>
           ))}
         </div>
-        <Link className="btn btn-line full" href={`/${locale}/opportunities/${opportunity.slug}`}>View Details</Link>
+        <Link className="btn btn-line full" href={`/${locale}/opportunities/${opportunity.slug}`}>{t("viewDetails")}</Link>
       </div>
     </article>
   );

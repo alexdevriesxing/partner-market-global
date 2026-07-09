@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { PricingCards } from "@/components/PricingCards";
 import { CTA } from "@/components/CTA";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
+  setRequestLocale(locale);
   return pageMetadata({
     locale,
     path: "/commercial-terms",
@@ -17,6 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function CommercialTermsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const tCta = await getTranslations('cta');
 
   return (

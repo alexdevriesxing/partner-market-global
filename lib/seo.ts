@@ -90,7 +90,20 @@ export function siteStructuredData(locale: string) {
       logo: absoluteUrl(site.logo),
       image: absoluteUrl(site.logo),
       description: site.description,
+      slogan: site.tagline,
       email: site.email,
+      sameAs: [site.operator.url],
+      areaServed: "Worldwide",
+      knowsAbout: [
+        "import opportunities",
+        "export opportunities",
+        "international distribution rights",
+        "master franchise opportunities",
+        "brand licensing partnerships",
+        "private label and OEM sourcing",
+        "Japanese market entry and JIP Japan opportunities",
+        "international B2B partner search"
+      ],
       contactPoint: [
         {
           "@type": "ContactPoint",

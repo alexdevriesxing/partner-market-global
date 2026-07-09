@@ -23,9 +23,9 @@
     "ctaList": "Publica Tu Oportunidad",
     "stats": {
       "opportunities": "Oportunidades Verificadas",
-      "countries": "Países",
+      "countries": "Mercados objetivo",
       "sectors": "Sectores",
-      "partners": "Socios Cualificados"
+      "partners": "Basado en comisiones"
     }
   },
   "featured": {
@@ -183,10 +183,29 @@
       "contactUs": "Contáctanos",
       "legalNote": "Todos los paquetes están sujetos a nuestros Términos de Uso. No proporcionamos asesoramiento legal, financiero o de inversión.",
       "features": {
-        "basic": ["Página de perfil estándar", "Formulario de consulta y captura de clientes potenciales", "Ubicación estándar", "Soporte básico"],
-        "premium": ["Todo lo del Básico", "Ubicación destacada", "Perfil y visuales mejorados", "Soporte prioritario"],
-        "campaign": ["Todo lo del Premium", "Acciones dirigidas", "Lista de prospectos curada", "Informe de campaña"],
-        "success": ["Solo cuando sea legalmente apropiado", "Según el valor y alcance", "Términos transparentes"]
+        "basic": [
+          "Página de perfil estándar",
+          "Formulario de consulta y captura de clientes potenciales",
+          "Ubicación estándar",
+          "Soporte básico"
+        ],
+        "premium": [
+          "Todo lo del Básico",
+          "Ubicación destacada",
+          "Perfil y visuales mejorados",
+          "Soporte prioritario"
+        ],
+        "campaign": [
+          "Todo lo del Premium",
+          "Acciones dirigidas",
+          "Lista de prospectos curada",
+          "Informe de campaña"
+        ],
+        "success": [
+          "Solo cuando sea legalmente apropiado",
+          "Según el valor y alcance",
+          "Términos transparentes"
+        ]
       }
     },
     "importantNotes": {
@@ -254,9 +273,34 @@
       "reason": "Tu mensaje",
       "requirementsSelect": "Seleccionar"
     },
-    "partnerTypes": ["Importador", "Distribuidor", "Franquiciado", "Inversor", "Operador"],
-    "countries": ["España", "México", "Argentina", "Colombia", "Chile", "Perú", "Emiratos Árabes Unidos", "Arabia Saudita", "Países Bajos", "Alemania", "Francia", "Reino Unido", "Estados Unidos", "Otro"],
-    "requirements": ["Sí", "Necesito discutirlo", "No"],
+    "partnerTypes": [
+      "Importador",
+      "Distribuidor",
+      "Franquiciado",
+      "Inversor",
+      "Operador"
+    ],
+    "countries": [
+      "España",
+      "México",
+      "Argentina",
+      "Colombia",
+      "Chile",
+      "Perú",
+      "Emiratos Árabes Unidos",
+      "Arabia Saudita",
+      "Países Bajos",
+      "Alemania",
+      "Francia",
+      "Reino Unido",
+      "Estados Unidos",
+      "Otro"
+    ],
+    "requirements": [
+      "Sí",
+      "Necesito discutirlo",
+      "No"
+    ],
     "consent": "Confirmo que he leído y acepto la Política de Privacidad y consiento compartir mi consulta con el propietario de la oportunidad.",
     "submit": "Enviar Consulta",
     "privacyNote": "Respetamos tu privacidad. Sin spam. Cancela cuando quieras."
@@ -318,7 +362,8 @@
         "guides": "Guías",
         "webinars": "Seminarios Web",
         "reports": "Informes de Mercado",
-        "success": "Historias de Éxito"
+        "success": "Historias de Éxito",
+        "japan": "Hub de oportunidades de Japón"
       },
       "company": "Empresa",
       "companyLinks": {
@@ -372,6 +417,8 @@
     "howInquire": {
       "question": "¿Cómo puedo consultar sobre una oportunidad?",
       "answer": "Haz clic en cualquier botón Ver Detalles en una tarjeta de oportunidad, revisa el perfil completo y envía una consulta cualificada a través del formulario seguro de consulta en la página de detalles de la oportunidad."
-    }
+    },
+    "title": "Preguntas frecuentes",
+    "subtitle": "Respuestas claras sobre cómo funciona Partner Market Global para empresas y socios internacionales."
   }
 }

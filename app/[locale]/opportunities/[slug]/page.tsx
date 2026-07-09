@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { InquiryForm } from "@/components/InquiryForm";
 import { StructuredData } from "@/components/StructuredData";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { opportunities, site } from "@/lib/data";
 import { absoluteUrl, canonicalUrl, pageMetadata } from "@/lib/seo";
 
@@ -19,19 +19,24 @@ async function getOpportunity(slug: string) {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug, locale } = await params;
+  setRequestLocale(locale);
   const opportunity = await getOpportunity(slug);
   if (!opportunity) return {};
-  return pageMetadata({
+  const metadata = pageMetadata({
     locale,
     path: `/opportunities/${opportunity.slug}`,
     title: opportunity.title,
     description: opportunity.summary,
     image: opportunity.heroImage
   });
+  return opportunity.seoKeywords?.length
+    ? { ...metadata, keywords: opportunity.seoKeywords }
+    : metadata;
 }
 
 export default async function OpportunityDetailPage({ params }: PageProps) {
   const { slug, locale } = await params;
+  setRequestLocale(locale);
   const opportunity = await getOpportunity(slug);
   if (!opportunity) return notFound();
 
@@ -55,6 +60,12 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
       name: opportunity.originCountry
     },
     availability: "https://schema.org/InStock",
+    ...(opportunity.brand
+      ? { brand: { "@type": "Brand", name: opportunity.brand } }
+      : {}),
+    ...(opportunity.company
+      ? { offeredBy: { "@type": "Organization", name: opportunity.company } }
+      : {}),
     seller: {
       "@type": "Organization",
       "@id": `${site.url}/#organization`,
@@ -122,7 +133,7 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
       <Link href={`/${locale}/opportunities`} className="breadcrumb">{t('back')}</Link>
       <section className="detail-shell">
         <article className="detail-main">
-          <img className="detail-hero-img" src={opportunity.heroImage} alt={opportunity.title} />
+          <img className="detail-hero-img" src={opportunity.heroImage} alt={opportunity.imageAlt || opportunity.title} />
           <div className="detail-content">
             <div className="detail-title-row">
               <div>

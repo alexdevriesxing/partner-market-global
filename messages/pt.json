@@ -23,9 +23,9 @@
     "ctaList": "Publique Sua Oportunidade",
     "stats": {
       "opportunities": "Oportunidades Verificadas",
-      "countries": "Países",
+      "countries": "Mercados-alvo",
       "sectors": "Setores",
-      "partners": "Parceiros Qualificados"
+      "partners": "Baseado em comissão"
     }
   },
   "featured": {
@@ -183,10 +183,29 @@
       "contactUs": "Contate-nos",
       "legalNote": "Todos os pacotes estão sujeitos aos nossos Termos de Uso. Não fornecemos aconselhamento jurídico, financeiro ou de investimento.",
       "features": {
-        "basic": ["Página de perfil padrão", "Formulário de consulta e captura de leads", "Posicionamento padrão", "Suporte básico"],
-        "premium": ["Tudo do Básico", "Posicionamento em destaque", "Perfil e visuais melhorados", "Suporte prioritário"],
-        "campaign": ["Tudo do Premium", "Ações direcionadas", "Lista de prospects curada", "Relatório de campanha"],
-        "success": ["Apenas quando legalmente apropriado", "De acordo com o valor e escopo", "Termos transparentes"]
+        "basic": [
+          "Página de perfil padrão",
+          "Formulário de consulta e captura de leads",
+          "Posicionamento padrão",
+          "Suporte básico"
+        ],
+        "premium": [
+          "Tudo do Básico",
+          "Posicionamento em destaque",
+          "Perfil e visuais melhorados",
+          "Suporte prioritário"
+        ],
+        "campaign": [
+          "Tudo do Premium",
+          "Ações direcionadas",
+          "Lista de prospects curada",
+          "Relatório de campanha"
+        ],
+        "success": [
+          "Apenas quando legalmente apropriado",
+          "De acordo com o valor e escopo",
+          "Termos transparentes"
+        ]
       }
     },
     "importantNotes": {
@@ -254,9 +273,59 @@
       "reason": "Sua mensagem",
       "requirementsSelect": "Selecionar"
     },
-    "partnerTypes": ["Importador", "Distribuidor", "Franqueado", "Investidor", "Operador"],
-    "countries": ["Brasil", "Portugal", "Espanha", "França", "Alemanha", "Reino Unido", "Itália", "Países Baixos", "Bélgica", "Áustria", "Suíça", "Polônia", "República Tcheca", "Romênia", "Hungria", "Suécia", "Noruega", "Dinamarca", "Finlândia", "Estados Unidos", "Canadá", "México", "Argentina", "Colômbia", "Chile", "Peru", "Emirados Árabes Unidos", "Arábia Saudita", "Qatar", "Egito", "África do Sul", "Índia", "China", "Japão", "Coreia do Sul", "Austrália", "Nova Zelândia", "Singapura", "Outro"],
-    "requirements": ["Sim", "Preciso discutir", "Não"],
+    "partnerTypes": [
+      "Importador",
+      "Distribuidor",
+      "Franqueado",
+      "Investidor",
+      "Operador"
+    ],
+    "countries": [
+      "Brasil",
+      "Portugal",
+      "Espanha",
+      "França",
+      "Alemanha",
+      "Reino Unido",
+      "Itália",
+      "Países Baixos",
+      "Bélgica",
+      "Áustria",
+      "Suíça",
+      "Polônia",
+      "República Tcheca",
+      "Romênia",
+      "Hungria",
+      "Suécia",
+      "Noruega",
+      "Dinamarca",
+      "Finlândia",
+      "Estados Unidos",
+      "Canadá",
+      "México",
+      "Argentina",
+      "Colômbia",
+      "Chile",
+      "Peru",
+      "Emirados Árabes Unidos",
+      "Arábia Saudita",
+      "Qatar",
+      "Egito",
+      "África do Sul",
+      "Índia",
+      "China",
+      "Japão",
+      "Coreia do Sul",
+      "Austrália",
+      "Nova Zelândia",
+      "Singapura",
+      "Outro"
+    ],
+    "requirements": [
+      "Sim",
+      "Preciso discutir",
+      "Não"
+    ],
     "consent": "Confirmo que li e aceito a Política de Privacidade e consinto compartilhar minha consulta com o proprietário da oportunidade.",
     "submit": "Enviar Consulta",
     "privacyNote": "Respeitamos sua privacidade. Sem spam. Cancele quando quiser."
@@ -318,7 +387,8 @@
         "guides": "Guias",
         "webinars": "Webinars",
         "reports": "Relatórios de Mercado",
-        "success": "Histórias de Sucesso"
+        "success": "Histórias de Sucesso",
+        "japan": "Hub de oportunidades do Japão"
       },
       "company": "Empresa",
       "companyLinks": {
@@ -372,6 +442,8 @@
     "howInquire": {
       "question": "Como posso consultar sobre uma oportunidade?",
       "answer": "Clique em qualquer botão Ver Detalhes em um cartão de oportunidade, revise o perfil completo e envie uma consulta qualificada através do formulário de consulta seguro na página de detalhes da oportunidade."
-    }
+    },
+    "title": "Perguntas frequentes",
+    "subtitle": "Respostas claras sobre como o Partner Market Global funciona para empresas e parceiros internacionais."
   }
 }

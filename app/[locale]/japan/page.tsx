@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { OpportunitySearchFilter } from "@/components/OpportunitySearchFilter";
 import { CTA } from "@/components/CTA";
 import { StructuredData } from "@/components/StructuredData";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { opportunities } from "@/lib/data";
 import { pageMetadata, canonicalUrl } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
+  setRequestLocale(locale);
   return pageMetadata({
     locale,
     path: "/japan",
@@ -49,7 +50,7 @@ const getJapanLandingTranslations = (locale: string) => {
     ja: {
       eyebrow: "JIP Japan アライアンス",
       title: "日本ビジネス・パートナーシップ提携ハブ",
-      subtitle: "実績ある日本ブランド of 厳選された提携案件と、国際的な投資家、販売代理店、フランチャイジーをつなぐ。",
+      subtitle: "実績ある日本ブランドの厳選された提携案件と、国際的な投資家、販売代理店、フランチャイジーをつなぎます。",
       introHeadline: "厳選された日本の商業プロジェクト",
       introBody1: "パートナーマーケットグローバル上のJIP Japan（日本投資・提携）展示場へようこそ。私たちは、プレミアム食品・飲料、化粧品・美容、消費財、高度製造業に至るまで、選りすぐりの日本ブランドを代表しています。",
       introBody2: "すべての案件は、海外進出の可能性、貿易の準備状況、明確な取引条件について事前に審査されています。企業オーナーと緊密に連携し、お客様からのお問い合わせが決定権を持つ担当者に直接届くようにしています。",
@@ -79,6 +80,7 @@ const getJapanLandingTranslations = (locale: string) => {
 
 export default async function JapanLandingPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = getJapanLandingTranslations(locale);
   const tCta = await getTranslations('cta');
 

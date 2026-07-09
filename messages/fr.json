@@ -23,9 +23,9 @@
     "ctaList": "Déposer une Opportunité",
     "stats": {
       "opportunities": "Opportunités Vérifiées",
-      "countries": "Pays",
+      "countries": "Marchés cibles",
       "sectors": "Secteurs",
-      "partners": "Partenaires Qualifiés"
+      "partners": "À la commission"
     }
   },
   "featured": {
@@ -183,10 +183,29 @@
       "contactUs": "Nous Contacter",
       "legalNote": "Tous les forfaits sont soumis à nos Conditions d'Utilisation. Nous ne fournissons pas de conseils juridiques, financiers ou d'investissement.",
       "features": {
-        "basic": ["Page de profil standard", "Formulaire de demande et capture de leads", "Placement standard", "Support basique"],
-        "premium": ["Tout du Basique", "Placement en vedette", "Profil et visuels améliorés", "Support prioritaire"],
-        "campaign": ["Tout du Premium", "Prospection ciblée", "Liste de prospects curatée", "Rapport de campagne"],
-        "success": ["Uniquement là où c'est légalement approprié", "Basé sur la valeur et la portée", "Conditions transparentes"]
+        "basic": [
+          "Page de profil standard",
+          "Formulaire de demande et capture de leads",
+          "Placement standard",
+          "Support basique"
+        ],
+        "premium": [
+          "Tout du Basique",
+          "Placement en vedette",
+          "Profil et visuels améliorés",
+          "Support prioritaire"
+        ],
+        "campaign": [
+          "Tout du Premium",
+          "Prospection ciblée",
+          "Liste de prospects curatée",
+          "Rapport de campagne"
+        ],
+        "success": [
+          "Uniquement là où c'est légalement approprié",
+          "Basé sur la valeur et la portée",
+          "Conditions transparentes"
+        ]
       }
     },
     "importantNotes": {
@@ -254,9 +273,34 @@
       "reason": "Votre message",
       "requirementsSelect": "Sélectionner"
     },
-    "partnerTypes": ["Importateur", "Distributeur", "Franchisé", "Investisseur", "Opérateur"],
-    "countries": ["France", "Belgique", "Suisse", "Canada", "Maroc", "Tunisie", "Sénégal", "Émirats Arabes Unis", "Arabie Saoudite", "Pays-Bas", "Allemagne", "Royaume-Uni", "États-Unis", "Autre"],
-    "requirements": ["Oui", "À discuter", "Non"],
+    "partnerTypes": [
+      "Importateur",
+      "Distributeur",
+      "Franchisé",
+      "Investisseur",
+      "Opérateur"
+    ],
+    "countries": [
+      "France",
+      "Belgique",
+      "Suisse",
+      "Canada",
+      "Maroc",
+      "Tunisie",
+      "Sénégal",
+      "Émirats Arabes Unis",
+      "Arabie Saoudite",
+      "Pays-Bas",
+      "Allemagne",
+      "Royaume-Uni",
+      "États-Unis",
+      "Autre"
+    ],
+    "requirements": [
+      "Oui",
+      "À discuter",
+      "Non"
+    ],
     "consent": "Je confirme avoir lu et accepté la Politique de Confidentialité et consentir au partage de ma demande avec le propriétaire de l'opportunité.",
     "submit": "Soumettre la Demande",
     "privacyNote": "Nous respectons votre vie privée. Pas de spam. Désabonnement à tout moment."
@@ -318,7 +362,8 @@
         "guides": "Guides",
         "webinars": "Webinaires",
         "reports": "Rapports de Marché",
-        "success": "Histoires de Succès"
+        "success": "Histoires de Succès",
+        "japan": "Hub des opportunités du Japon"
       },
       "company": "Entreprise",
       "companyLinks": {
@@ -372,6 +417,8 @@
     "howInquire": {
       "question": "Comment puis-je poser une question sur une opportunité?",
       "answer": "Cliquez sur n'importe quel bouton Voir les Détails sur une fiche d'opportunité, examinez le profil complet et soumettez une demande qualifiée via le formulaire de demande sécurisé sur la page de détails de l'opportunité."
-    }
+    },
+    "title": "Questions fréquentes",
+    "subtitle": "Des réponses claires sur le fonctionnement de Partner Market Global pour les entreprises et les partenaires internationaux."
   }
 }

@@ -40,6 +40,10 @@ export type Opportunity = {
   risks: string;
   status: string;
   featured: boolean;
+  brand?: string;
+  company?: string;
+  seoKeywords?: string[];
+  imageAlt?: string;
 };
 
 import jipOpportunitiesRaw from "./jip-opportunities.json";
@@ -103,7 +107,11 @@ const mappedJipOpportunities: Opportunity[] = (jipOpportunitiesRaw as unknown as
     documentsAvailable: ["Company Profile", "Opportunity Brief", "Regulatory Details on Inquiry"],
     risks: jip.regulatoryNote || jip.ipRiskNote || "Standard import duties, labeling compliance, and market-specific regulations apply. Partners should verify local compliance.",
     status: jip.statusPublic || "Open for inquiries",
-    featured: jip.priority === "High" || jip.priority === "Medium"
+    featured: jip.priority === "High" || jip.priority === "Medium",
+    brand: jip.brand,
+    company: jip.company,
+    seoKeywords: jip.seoKeywords,
+    imageAlt: jip.imageAlt
   };
 });
 
@@ -180,42 +188,6 @@ const staticOpportunities: Opportunity[] = [
     status: "Open for inquiries",
     featured: true
   },
-  {
-    id: "opp-twokyo-air",
-    slug: "twokyo-air-japanese-anime-apparel-brand-international-distributors-retailers",
-    title: "Twokyo Air Japanese Anime Apparel Brand Seeking International Distributors and Retailers",
-    type: "Distribution / Retail",
-    sector: "Fashion / Anime Apparel",
-    originCountry: "Japan",
-    targetMarkets: ["Global", "Europe", "North America", "Asia"],
-    heroImage: "/assets/opportunity-card-beauty.webp",
-    cardImage: "/assets/opportunity-card-beauty.webp",
-    summary:
-      "Japanese anime apparel brand looking for international distributors and retailers.",
-    description:
-      "Twokyo Air is a Japanese anime apparel brand seeking international distributors and retailers that can introduce the brand to suitable fashion, anime, streetwear and pop-culture channels.",
-    companyBackground:
-      "The opportunity is presented for a Japanese anime apparel brand with international retail and distribution ambitions.",
-    productDetails:
-      "The opportunity can include anime-inspired apparel and brand merchandise. Line sheets, product details, lookbooks, sizing, wholesale terms and brand materials are available after qualification.",
-    marketOpportunity:
-      "Anime, Japanese pop culture and streetwear audiences create opportunities for retailers and distributors that understand fandom-led apparel and online community-driven merchandising.",
-    partnerProfile:
-      "Ideal partners are fashion distributors, streetwear retailers, anime and comic retailers, pop-culture stores, e-commerce operators and regional retail groups.",
-    commercialModel:
-      "Wholesale distribution and retail partnership models are available on inquiry. Territory, exclusivity, order volumes and commission terms are agreed case by case.",
-    territoryAvailability:
-      "Open for selected international territories and retail channels after qualification.",
-    investmentRequirement:
-      "Minimum order quantity, wholesale pricing, launch stock and retail support are discussed after inquiry.",
-    credentials: ["Client opportunity submitted", "Brand materials available on request", "Distributor and retailer inquiries welcome"],
-    verificationBadges: ["Client Opportunity", "Anime Apparel", "Retail Ready"],
-    documentsAvailable: ["Brand profile", "Product line overview", "Wholesale terms on inquiry", "Retail materials on request"],
-    risks:
-      "Retail partners must review import duties, sizing, product compliance, IP and licensing considerations, channel fit and local consumer demand.",
-    status: "Open for inquiries",
-    featured: true
-  }
 ];
 
 export const opportunities: Opportunity[] = [...staticOpportunities, ...mappedJipOpportunities];
