@@ -33,6 +33,7 @@ const getJapanLandingTranslations = (locale: string) => {
       keyPoint3Title: "Structured Terms",
       keyPoint3Desc: "Exclusivity rights, MOQs, certification compliance, and commercial models are structured upfront for clear evaluation.",
       faqTitle: "Frequently Asked Questions",
+      faqSectionSubtitle: "Learn more about the JIP Japan partnership and evaluation process.",
       faqQ1: "What is JIP Japan?",
       faqA1: "JIP Japan (Japan Investment & Partnership) is a specialized B2B opportunity package on Partner Market Global. It showcases high-potential business opportunities from Japanese brands seeking international distributors, retail buyers, master franchisees, or joint-venture partners.",
       faqQ2: "Are the opportunities on this page pre-qualified?",
@@ -41,12 +42,14 @@ const getJapanLandingTranslations = (locale: string) => {
       faqA3: "Click the 'Send Inquiry' button on any opportunity page. This will take you to our secure contact flow. Please fill in the details of your company, your active market channels, and your experience. Hidden fields will tag your inquiry with the opportunity details and route it directly to the owner.",
       faqQ4: "Is there any cost to browse or submit inquiries?",
       faqA4: "No. Browsing opportunities and submitting inquiries is completely free for prospective international partners. Commercial commission agreements are established directly with the listing companies before they are published.",
-      ctaTitle: "Ready to partner with Japanese innovators?"
+      ctaTitle: "Ready to partner with Japanese innovators?",
+      activeListingsTitle: "Active Japan Opportunity Listings",
+      activeListingsSubtitle: "Filter, search, and sort the active pre-screened Japanese business listings."
     },
     ja: {
       eyebrow: "JIP Japan アライアンス",
       title: "日本ビジネス・パートナーシップ提携ハブ",
-      subtitle: "実績ある日本ブランドの厳選された提携案件と、国際的な投資家、販売代理店、フランチャイジーをつなぐ。",
+      subtitle: "実績ある日本ブランド of 厳選された提携案件と、国際的な投資家、販売代理店、フランチャイジーをつなぐ。",
       introHeadline: "厳選された日本の商業プロジェクト",
       introBody1: "パートナーマーケットグローバル上のJIP Japan（日本投資・提携）展示場へようこそ。私たちは、プレミアム食品・飲料、化粧品・美容、消費財、高度製造業に至るまで、選りすぐりの日本ブランドを代表しています。",
       introBody2: "すべての案件は、海外進出の可能性、貿易の準備状況、明確な取引条件について事前に審査されています。企業オーナーと緊密に連携し、お客様からのお問い合わせが決定権を持つ担当者に直接届くようにしています。",
@@ -57,6 +60,7 @@ const getJapanLandingTranslations = (locale: string) => {
       keyPoint3Title: "構造化された条件",
       keyPoint3Desc: "独占権、最小注文数量（MOQ）、各種認証への適合、商業モデルなど、事前に構造化された情報でスムーズに評価できます。",
       faqTitle: "よくある質問",
+      faqSectionSubtitle: "JIP Japanパートナーシップと審査プロセスについての詳細はこちら。",
       faqQ1: "JIP Japanとは何ですか？",
       faqA1: "JIP Japan（日本投資パートナーシップ）は、パートナーマーケットグローバル内の特別なB2B機会パッケージです。海外のディストリビューター、小売バイヤー、マスターフランチャイジー、またはジョイントベンチャーパートナーを求める日本企業の可能性の高いビジネス案件を紹介しています。",
       faqQ2: "掲載されている案件は事前審査されていますか？",
@@ -65,7 +69,9 @@ const getJapanLandingTranslations = (locale: string) => {
       faqA3: "各案件詳細ページの「問い合わせを送信」ボタンをクリックしてください。これにより、安全な問い合わせフォームへ移動します。貴社情報、主な販売チャネル、および実績をご記入ください。非表示フィールドが自動的に案件詳細をタグ付けし、オーナーへルーティングします。",
       faqQ4: "閲覧や問い合わせに費用はかかりますか？",
       faqA4: "いいえ。潜在的な海外パートナー様による案件の閲覧やお問い合わせの送信は、すべて無料です。商業的な手数料等の契約は、掲載前に企業側との間で直接結ばれています。",
-      ctaTitle: "日本のイノベーターと提携する準備はできましたか？"
+      ctaTitle: "日本のイノベーターと提携する準備はできましたか？",
+      activeListingsTitle: "稼働中の日本ビジネス機会案件一覧",
+      activeListingsSubtitle: "事前審査済みの日本の提携案件をフィルタ、検索、並べ替えで絞り込めます。"
     }
   };
   return trans[locale] || trans.en;
@@ -166,8 +172,8 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
       {/* Pre-filtered Interactive Search & Grid */}
       <section className="japan-grid-section">
         <div className="section-top text-center">
-          <h2>Active Japan Opportunity Listings</h2>
-          <p>Filter, search, and sort the active pre-screened Japanese business listings.</p>
+          <h2>{t.activeListingsTitle}</h2>
+          <p>{t.activeListingsSubtitle}</p>
         </div>
         <OpportunitySearchFilter initialOpportunities={japanOpportunities} locale={locale} />
       </section>
@@ -176,7 +182,7 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
       <section className="faq-section bg-soft">
         <div className="section-heading">
           <h2>{t.faqTitle}</h2>
-          <p>Learn more about the JIP Japan partnership and evaluation process.</p>
+          <p>{t.faqSectionSubtitle}</p>
         </div>
         <div className="faq-grid">
           <div className="faq-item">

@@ -20,6 +20,42 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   });
 }
 
+const getHomeJapanTranslations = (locale: string) => {
+  const trans: Record<string, Record<string, string>> = {
+    en: {
+      title: "Featured Japan Opportunities",
+      viewAll: "Explore Japan Hub →",
+      subtitle: "Pre-screened Japanese commercial partnerships, distribution rights, and franchise listings from JIP Japan."
+    },
+    ja: {
+      title: "注目の日本ビジネス機会",
+      viewAll: "日本の案件ハブを見る →",
+      subtitle: "JIP Japanアライアンスから届いた、事前審査済みの日本の商業提携、販売代理権、フランチャイズ案件。"
+    },
+    es: {
+      title: "Oportunidades destacadas de Japón",
+      viewAll: "Explorar el hub de Japón →",
+      subtitle: "Asociaciones comerciales, derechos de distribución y franquicias pre-vettadas de JIP Japón."
+    },
+    de: {
+      title: "Hervorgehobene Möglichkeiten aus Japan",
+      viewAll: "Japan-Hub erkunden →",
+      subtitle: "Vorab geprüfte japanische Handelspartnerschaften, Vertriebsrechte und Franchise-Angebote von JIP Japan."
+    },
+    fr: {
+      title: "Opportunités japonaises en vedette",
+      viewAll: "Explorer le hub du Japon →",
+      subtitle: "Partenariats commerciaux, droits de distribution et franchises pré-sélectionnés de JIP Japon."
+    },
+    nl: {
+      title: "Uitgelichte kansen uit Japan",
+      viewAll: "Ontdek de Japan Hub →",
+      subtitle: "Vooraf gescreende Japanse commerciële samenwerkingen, distributierechten en franchise-aanbiedingen van JIP Japan."
+    }
+  };
+  return trans[locale] || trans.en;
+};
+
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const tHero = await getTranslations('hero');
@@ -27,6 +63,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const tFaq = await getTranslations('faq');
   const tCta = await getTranslations('cta');
   const tTrust = await getTranslations('trust');
+  const tJapanHome = getHomeJapanTranslations(locale);
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -87,10 +124,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       <section className="featured-section japan-featured-home bg-soft">
         <div className="section-top">
-          <h2>Featured Japan Opportunities</h2>
-          <Link href={`/${locale}/japan`}>Explore Japan Hub →</Link>
+          <h2>{tJapanHome.title}</h2>
+          <Link href={`/${locale}/japan`}>{tJapanHome.viewAll}</Link>
         </div>
-        <p className="section-subtitle">Pre-screened Japanese commercial partnerships, distribution rights, and franchise listings from JIP Japan.</p>
+        <p className="section-subtitle">{tJapanHome.subtitle}</p>
         <div className="opportunity-grid">
           {opportunities.filter(o => o.originCountry === "Japan" && o.featured).slice(0, 3).map((opportunity) => (
             <OpportunityCard key={opportunity.id} opportunity={opportunity} locale={locale} />
