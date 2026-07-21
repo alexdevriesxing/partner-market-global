@@ -9,6 +9,11 @@ const nextConfig = {
   compress: true,
   trailingSlash: true,
   output: "export",
+  experimental: {
+    staticGenerationMaxConcurrency: 1,
+    workerThreads: false,
+    cpus: 1
+  }
 };
 
 export default withNextIntl(nextConfig);

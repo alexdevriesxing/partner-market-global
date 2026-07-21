@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     path: "/contact",
     title: t('hero.eyebrow'),
     description: `${t('hero.headline')} - ${tSite('email')}`,
-    image: "/assets/companies-hero-collage.webp"
+    image: "/assets/companies-hero-collage.png"
   });
 };
 
@@ -30,7 +30,7 @@ export default async function ContactPage() {
           <h1>{tContact('hero.headline')}</h1>
           <p>{tContact('hero.subheadline')} {tSite('email')}</p>
         </div>
-        <img src="/assets/companies-hero-collage.webp" alt="Business meeting and trade visuals" />
+        <img src="/assets/companies-hero-collage.png" alt="Business meeting and trade visuals" />
       </section>
       <section className="content-section">
         <InquiryForm title={tInquiry('title')} />

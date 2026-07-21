@@ -76,7 +76,7 @@ export function HeroSectionClient({
         </motion.div>
       </div>
       <div className="hero-visual" aria-label="Global opportunity map">
-        <img className="world-map" src="/assets/hero-map-section.webp" alt="Global market map with opportunity cards" />
+        <img className="world-map" src="/assets/hero-map-section.png" alt="Global market map with opportunity cards" />
         <motion.div
           className="float-card one"
           animate={floatVariants.animate}

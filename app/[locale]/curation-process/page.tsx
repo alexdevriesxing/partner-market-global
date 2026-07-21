@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     path: "/curation-process",
     title: t('hero.eyebrow'),
     description: t('hero.subheadline'),
-    image: "/assets/curation-process-strip.webp"
+    image: "/assets/curation-process-strip.png"
   });
 };
 
@@ -48,7 +48,7 @@ export default async function CurationProcessPage({ params }: { params: Promise<
           <h1>{t('hero.headline')}</h1>
           <p>{t('hero.subheadline')}</p>
         </div>
-        <img src="/assets/curation-process-strip.webp" alt="Five-step curation process" />
+        <img src="/assets/curation-process-strip.png" alt="Five-step curation process" />
       </section>
 
       <section className="content-section">

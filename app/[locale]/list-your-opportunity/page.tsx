@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     path: "/list-your-opportunity",
     title: t('hero.eyebrow'),
     description: t('hero.subheadline'),
-    image: "/assets/companies-hero-collage.webp"
+    image: "/assets/companies-hero-collage.png"
   });
 };
 
@@ -64,7 +64,7 @@ export default async function ListOpportunityPage({ params }: { params: Promise<
           </ul>
         </div>
         <div className="companies-visual">
-          <img src="/assets/companies-hero-collage.webp" alt="International business partners and logistics visuals" />
+          <img src="/assets/companies-hero-collage.png" alt="International business partners and logistics visuals" />
         </div>
       </section>
 

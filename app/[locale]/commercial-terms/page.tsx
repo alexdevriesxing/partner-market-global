@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     path: "/commercial-terms",
     title: "Commission-Based Commercial Terms",
     description: "Commercial terms are provided on inquiry and are 100% commission based.",
-    image: "/assets/packages-section.webp"
+    image: "/assets/packages-section.png"
   });
 };
 
@@ -32,7 +32,7 @@ export default async function CommercialTermsPage({ params }: { params: Promise<
             Commission scope, trigger, territory and timing are agreed in writing before work starts.
           </p>
         </div>
-        <img src="/assets/packages-section.webp" alt="Partner Market Global commission-based commercial terms" />
+        <img src="/assets/packages-section.png" alt="Partner Market Global commission-based commercial terms" />
       </section>
       <PricingCards locale={locale} />
       <section className="content-section">

@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     path: "/opportunities",
     title: t('title'),
     description: t('subtitle'),
-    image: "/assets/featured-opportunities-strip.webp"
+    image: "/assets/featured-opportunities-strip.png"
   });
 };
 
@@ -68,7 +68,7 @@ export default async function OpportunitiesPage({ params }: { params: Promise<{ 
           <h1>{t('title')}</h1>
           <p>{t('subtitle')}</p>
         </div>
-        <img src="/assets/featured-opportunities-strip.webp" alt="Featured opportunity cards" />
+        <img src="/assets/featured-opportunities-strip.png" alt="Featured opportunity cards" />
       </section>
 
       <OpportunitySearchFilter initialOpportunities={opportunities} locale={locale} />
