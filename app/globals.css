@@ -585,7 +585,7 @@ h1, h2, h3 { text-wrap: balance; }
   margin-top: 22px;
 }
 .content-card h2, .content-card h3 { margin-top: 0; letter-spacing: -.02em; }
-.content-card p, .content-card li { color: var(--muted); line-height: 1.7; font-size: 14px; }
+.content-card p, .content-card li { color: var(--muted); line-height: 1.7; font-size: 14px; white-space: pre-line; }
 .product-shot {
   display: flex; align-items: center; justify-content: center;
   background: linear-gradient(180deg, #f7faff, #fff);
