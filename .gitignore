@@ -46,3 +46,7 @@ next-env.d.ts
 .wrangler
 .dev.vars*
 !.dev.vars.example
+
+# temp downloaded files
+logo-main JIP.png
+*.zip

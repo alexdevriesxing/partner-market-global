@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { OpportunitySearchFilter } from "@/components/OpportunitySearchFilter";
+import { OpportunityCard } from "@/components/OpportunityCard";
 import { CTA } from "@/components/CTA";
 import { StructuredData } from "@/components/StructuredData";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -86,6 +88,8 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
 
   // Filter only Japanese opportunities
   const japanOpportunities = opportunities.filter((o) => o.originCountry === "Japan");
+  const nittohOpp = opportunities.find((o) => o.slug === "nittoh-japanese-dollies-utility-carts-distribution");
+  const ichibanOpp = opportunities.find((o) => o.slug === "ichiban-ken-indonesia-master-franchise");
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -153,6 +157,43 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
             <h2>{t.introHeadline}</h2>
             <p className="lead">{t.introBody1}</p>
             <p>{t.introBody2}</p>
+            <div style={{ marginTop: "24px", padding: "16px", backgroundColor: "var(--card-bg, #fff)", borderRadius: "8px", borderLeft: "3px solid var(--primary)", boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}>
+              <strong style={{ fontSize: "0.95rem", color: "var(--foreground)" }}>
+                {locale === "ja" ? "注目の新規提携案件：" : "Featured New Opportunities:"}
+              </strong>
+              <ul style={{ paddingLeft: "18px", marginTop: "8px", fontSize: "0.9rem", lineHeight: "1.5" }}>
+                <li style={{ marginBottom: "6px" }}>
+                  {locale === "ja" ? (
+                    <>
+                      <Link href={`/${locale}/opportunities/nittoh-japanese-dollies-utility-carts-distribution`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
+                        Nittoh 台車・ユーティリティカート流通・ホテル提携
+                      </Link>：小売、Eコマース、ホスピタリティ部門向けの、日本製の連結積重ね可能な高品質プラスチック台車および業務用カート。
+                    </>
+                  ) : (
+                    <>
+                      <Link href={`/${locale}/opportunities/nittoh-japanese-dollies-utility-carts-distribution`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
+                        Nittoh Dolly & Utility Cart Distribution Opportunity
+                      </Link>: Premium Japanese interlocking flat dollies and professional carts for retail, e-commerce, and hotel buyers.
+                    </>
+                  )}
+                </li>
+                <li>
+                  {locale === "ja" ? (
+                    <>
+                      <Link href={`/${locale}/opportunities/ichiban-ken-indonesia-master-franchise`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
+                        Ichiban-ken ラーメン インドネシア・マスターフランチャイズ
+                      </Link>：東南アジアでの展開実績を持つ、成熟した本格とんこつラーメンブランドの国内代理店・複数店展開パートナー募集。
+                    </>
+                  ) : (
+                    <>
+                      <Link href={`/${locale}/opportunities/ichiban-ken-indonesia-master-franchise`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
+                        Ichiban-ken Ramen Master Franchise Opportunity
+                      </Link>: Indonesian multi-unit rollout and country partner rights for an established Japanese tonkotsu restaurant brand.
+                    </>
+                  )}
+                </li>
+              </ul>
+            </div>
           </div>
           <div className="intro-checklist">
             <div className="check-card">
@@ -170,6 +211,27 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
           </div>
         </div>
       </section>
+
+      {/* Latest Japanese Opportunities */}
+      {(nittohOpp || ichibanOpp) && (
+        <section className="japan-grid-section bg-soft" style={{ paddingTop: "48px", paddingBottom: "48px", borderBottom: "1px solid var(--border)", borderTop: "1px solid var(--border)" }}>
+          <div className="section-top text-center" style={{ marginBottom: "32px" }}>
+            <span className="eyebrow" style={{ color: "var(--primary)", fontWeight: "600", letterSpacing: "0.05em" }}>NEW RELEASES</span>
+            <h2>{locale === "ja" ? "最新の日本提携案件" : "Latest Japanese Opportunities"}</h2>
+            <p style={{ maxWidth: "600px", margin: "8px auto 0 auto" }}>
+              {locale === "ja" 
+                ? "JIP Japanアライアンスを通じて最近追加された、実証済みの日本のビジネス機会。" 
+                : "Recently added B2B opportunities introduced through the JIP Japan alliance."}
+            </p>
+          </div>
+          <div className="container" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
+            <div className="opportunity-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "24px" }}>
+              {nittohOpp && <OpportunityCard opportunity={nittohOpp} locale={locale} />}
+              {ichibanOpp && <OpportunityCard opportunity={ichibanOpp} locale={locale} />}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Pre-filtered Interactive Search & Grid */}
       <section className="japan-grid-section">

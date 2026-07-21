@@ -1,7 +1,8 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { Suspense, useState } from "react";
+import { Suspense, useState, useEffect } from "react";
+import { opportunities } from "@/lib/data";
 
 type InquiryFormProps = {
   oppTitle?: string;
@@ -79,6 +80,55 @@ function InquiryFormClient({
   const oppSlug = searchParams.get("oppSlug") || propsOppSlug || "";
   const source = searchParams.get("source") || propsSource || "";
 
+  const isNittoh = oppSlug === "nittoh-japanese-dollies-utility-carts-distribution";
+  const isIchiban = oppSlug === "ichiban-ken-indonesia-master-franchise";
+
+  const opportunity = opportunities.find(o => o.slug === oppSlug);
+  const originCountry = opportunity?.originCountry || "";
+  const targetMarkets = opportunity?.targetMarkets?.join(", ") || "";
+  const category = opportunity?.sector || "";
+
+  const [referrer, setReferrer] = useState("");
+  const [utms, setUtms] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const ref = document.referrer || "Direct";
+      const params = new URLSearchParams(window.location.search);
+      const utmObj: Record<string, string> = {};
+      params.forEach((val, key) => {
+        if (key.toLowerCase().startsWith("utm_")) {
+          utmObj[key] = val;
+        }
+      });
+      setTimeout(() => {
+        setReferrer(ref);
+        setUtms(utmObj);
+      }, 0);
+    }
+  }, []);
+
+  const [nittohFields, setNittohFields] = useState({
+    coveredTerritory: "",
+    servedChannels: "",
+    comparableProducts: "",
+    approachableCustomers: "",
+    hasWarehousing: "",
+    interestAreas: "",
+    initialLaunchScope: ""
+  });
+
+  const [ichibanFields, setIchibanFields] = useState({
+    operatingCities: "",
+    restaurantCount: "",
+    portfolioBrands: "",
+    porkExperience: "",
+    locationsAccess: "",
+    rolloutScope: "",
+    demonstratedFunding: "",
+    whySuitable: ""
+  });
+
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -120,11 +170,38 @@ function InquiryFormClient({
     body += `- Existing Network: ${formData.network}\n`;
     body += `- Reason for Interest: ${formData.reason}\n`;
     body += `- Meet Minimum Requirements: ${formData.requirements}\n\n`;
-    if (oppSlug) {
-      body += `Opportunity Slug: ${oppSlug}\n`;
+
+    if (isNittoh) {
+      body += `Nittoh Specific Answers:\n`;
+      body += `- Which country/territory do you cover?: ${nittohFields.coveredTerritory}\n`;
+      body += `- Which sales channels do you currently serve?: ${nittohFields.servedChannels}\n`;
+      body += `- Do you import or distribute comparable products?: ${nittohFields.comparableProducts}\n`;
+      body += `- Which customer groups could you approach?: ${nittohFields.approachableCustomers}\n`;
+      body += `- Do you have warehousing and fulfilment capability?: ${nittohFields.hasWarehousing}\n`;
+      body += `- Are you interested in retail, distribution, e-commerce or hotel procurement?: ${nittohFields.interestAreas}\n`;
+      body += `- What initial launch scope are you considering?: ${nittohFields.initialLaunchScope}\n\n`;
+    } else if (isIchiban) {
+      body += `Ichiban-ken Specific Answers:\n`;
+      body += `- Which Indonesian cities do you currently operate in?: ${ichibanFields.operatingCities}\n`;
+      body += `- How many restaurants do you operate?: ${ichibanFields.restaurantCount}\n`;
+      body += `- Which cuisines and brands are in your portfolio?: ${ichibanFields.portfolioBrands}\n`;
+      body += `- Do you have experience operating pork-based or non-halal concepts?: ${ichibanFields.porkExperience}\n`;
+      body += `- What type of locations can you access?: ${ichibanFields.locationsAccess}\n`;
+      body += `- What rollout scope are you considering?: ${ichibanFields.rolloutScope}\n`;
+      body += `- Can you demonstrate funding and an operating team?: ${ichibanFields.demonstratedFunding}\n`;
+      body += `- Why is Ichiban-ken suitable for your portfolio?: ${ichibanFields.whySuitable}\n\n`;
     }
-    if (source) {
-      body += `Source: ${source}\n`;
+
+    body += `Opportunity & Inquiry Context:\n`;
+    body += `- Opportunity ID: ${opportunity?.id || "N/A"}\n`;
+    body += `- Slug: ${oppSlug || "N/A"}\n`;
+    body += `- Category: ${category || "N/A"}\n`;
+    body += `- Origin Country: ${originCountry || "N/A"}\n`;
+    body += `- Target Market: ${targetMarkets || "N/A"}\n`;
+    body += `- Source Partner: ${source || "JIP Japan"}\n`;
+    body += `- Referring Page: ${referrer}\n`;
+    if (Object.keys(utms).length > 0) {
+      body += `- UTM Parameters: ${JSON.stringify(utms)}\n`;
     }
     body += `\nRegards,\n${formData.name}`;
 
@@ -263,12 +340,38 @@ function InquiryFormClient({
             onChange={(e) => setFormData({ ...formData, partnerType: e.target.value })}
           >
             <option value="">{partnerTypeDefault}</option>
-            <option value="Importer">Importer</option>
-            <option value="Distributor">Distributor</option>
-            <option value="Franchisee">Franchisee</option>
-            <option value="Investor">Investor</option>
-            <option value="Operator">Operator</option>
-            <option value="Retailer">Retailer / Buyer</option>
+            {isNittoh ? (
+              <>
+                <option value="Importer">Importer</option>
+                <option value="Distributor">Distributor</option>
+                <option value="Wholesaler">Wholesaler</option>
+                <option value="Retailer / Buyer">Retailer / Buyer</option>
+                <option value="E-commerce Partner">E-commerce Partner</option>
+                <option value="Tool Distributor">Tool Distributor</option>
+                <option value="Hotel Procurement / HORECA Buyer">Hotel Procurement / HORECA Buyer</option>
+                <option value="Commercial Equipment Supplier">Commercial Equipment Supplier</option>
+                <option value="Other Strategic Partner">Other Strategic Partner</option>
+              </>
+            ) : isIchiban ? (
+              <>
+                <option value="Master Franchisee">Master Franchisee</option>
+                <option value="Multi-unit F&B Operator">Multi-unit F&B Operator</option>
+                <option value="Restaurant Group">Restaurant Group</option>
+                <option value="Investor-Operator">Investor-Operator</option>
+                <option value="Hospitality Group">Hospitality Group</option>
+                <option value="Property and Restaurant Partner">Property and Restaurant Partner</option>
+                <option value="Strategic Joint-Venture Partner">Strategic Joint-Venture Partner</option>
+              </>
+            ) : (
+              <>
+                <option value="Importer">Importer</option>
+                <option value="Distributor">Distributor</option>
+                <option value="Franchisee">Franchisee</option>
+                <option value="Investor">Investor</option>
+                <option value="Operator">Operator</option>
+                <option value="Retailer">Retailer / Buyer</option>
+              </>
+            )}
           </select>
         </label>
         <label>
@@ -315,6 +418,91 @@ function InquiryFormClient({
             <option value="No">{noOption}</option>
           </select>
         </label>
+
+        {isNittoh && (
+          <div className="custom-qualifying-fields span-2" style={{ gridColumn: "span 2", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginTop: "16px", borderTop: "1px solid var(--border)", paddingTop: "24px" }}>
+            <h3 className="span-2" style={{ gridColumn: "span 2", fontSize: "1.1rem", fontWeight: "600", color: "var(--foreground)", marginBottom: "4px" }}>Nittoh Partner Qualification Questions</h3>
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              Which country or territory do you cover? *
+              <input type="text" required value={nittohFields.coveredTerritory} onChange={(e) => setNittohFields({...nittohFields, coveredTerritory: e.target.value})} placeholder="e.g. Germany, United Kingdom, USA" style={{ width: "100%", marginTop: "6px" }} />
+            </label>
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              Which sales channels do you currently serve? *
+              <input type="text" required value={nittohFields.servedChannels} onChange={(e) => setNittohFields({...nittohFields, servedChannels: e.target.value})} placeholder="e.g. DIY, tools retail, e-commerce, hotel supply" style={{ width: "100%", marginTop: "6px" }} />
+            </label>
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              Do you import or distribute comparable products? *
+              <input type="text" required value={nittohFields.comparableProducts} onChange={(e) => setNittohFields({...nittohFields, comparableProducts: e.target.value})} placeholder="e.g. Yes, we distribute plastic moving crates and carts" style={{ width: "100%", marginTop: "6px" }} />
+            </label>
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              Which customer groups could you approach? *
+              <input type="text" required value={nittohFields.approachableCustomers} onChange={(e) => setNittohFields({...nittohFields, approachableCustomers: e.target.value})} placeholder="e.g. major retail chains, luxury hotel operators" style={{ width: "100%", marginTop: "6px" }} />
+            </label>
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              Do you have warehousing and fulfilment capability? *
+              <select required value={nittohFields.hasWarehousing} onChange={(e) => setNittohFields({...nittohFields, hasWarehousing: e.target.value})} style={{ width: "100%", marginTop: "6px" }}>
+                <option value="">Select option</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </label>
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              Are you interested in retail, distribution, e-commerce or hotel procurement? *
+              <input type="text" required value={nittohFields.interestAreas} onChange={(e) => setNittohFields({...nittohFields, interestAreas: e.target.value})} placeholder="e.g. Retail distribution and HORECA procurement" style={{ width: "100%", marginTop: "6px" }} />
+            </label>
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              What initial launch scope are you considering? *
+              <input type="text" required value={nittohFields.initialLaunchScope} onChange={(e) => setNittohFields({...nittohFields, initialLaunchScope: e.target.value})} placeholder="e.g. Nationwide wholesale distribution" style={{ width: "100%", marginTop: "6px" }} />
+            </label>
+          </div>
+        )}
+
+        {isIchiban && (
+          <div className="custom-qualifying-fields span-2" style={{ gridColumn: "span 2", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginTop: "16px", borderTop: "1px solid var(--border)", paddingTop: "24px" }}>
+            <h3 className="span-2" style={{ gridColumn: "span 2", fontSize: "1.1rem", fontWeight: "600", color: "var(--foreground)", marginBottom: "4px" }}>Ichiban-ken Franchise Qualification Questions</h3>
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              Which Indonesian cities do you currently operate in? *
+              <input type="text" required value={ichibanFields.operatingCities} onChange={(e) => setIchibanFields({...ichibanFields, operatingCities: e.target.value})} placeholder="e.g. Jakarta, Surabaya, Bali" style={{ width: "100%", marginTop: "6px" }} />
+            </label>
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              How many restaurants do you operate? *
+              <input type="text" required value={ichibanFields.restaurantCount} onChange={(e) => setIchibanFields({...ichibanFields, restaurantCount: e.target.value})} placeholder="e.g. 10 outlets across 3 brands" style={{ width: "100%", marginTop: "6px" }} />
+            </label>
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              Which cuisines and brands are in your portfolio? *
+              <input type="text" required value={ichibanFields.portfolioBrands} onChange={(e) => setIchibanFields({...ichibanFields, portfolioBrands: e.target.value})} placeholder="e.g. Japanese ramen, Western cafes" style={{ width: "100%", marginTop: "6px" }} />
+            </label>
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              Do you have experience operating pork-based or non-halal concepts? *
+              <select required value={ichibanFields.porkExperience} onChange={(e) => setIchibanFields({...ichibanFields, porkExperience: e.target.value})} style={{ width: "100%", marginTop: "6px" }}>
+                <option value="">Select option</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </label>
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              What type of locations can you access? *
+              <input type="text" required value={ichibanFields.locationsAccess} onChange={(e) => setIchibanFields({...ichibanFields, locationsAccess: e.target.value})} placeholder="e.g. Premium shopping malls, lifestyle hubs" style={{ width: "100%", marginTop: "6px" }} />
+            </label>
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              What rollout scope are you considering? *
+              <input type="text" required value={ichibanFields.rolloutScope} onChange={(e) => setIchibanFields({...ichibanFields, rolloutScope: e.target.value})} placeholder="e.g. 5 stores in the first 3 years" style={{ width: "100%", marginTop: "6px" }} />
+            </label>
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              Can you demonstrate funding and an operating team? *
+              <select required value={ichibanFields.demonstratedFunding} onChange={(e) => setIchibanFields({...ichibanFields, demonstratedFunding: e.target.value})} style={{ width: "100%", marginTop: "6px" }}>
+                <option value="">Select option</option>
+                <option value="Yes, both">Yes, both funding and active team</option>
+                <option value="Funding only">Funding only (need operations partner)</option>
+                <option value="Operating team only">Operating team only (need financing)</option>
+              </select>
+            </label>
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              Why is Ichiban-ken suitable for your portfolio? *
+              <textarea required value={ichibanFields.whySuitable} onChange={(e) => setIchibanFields({...ichibanFields, whySuitable: e.target.value})} placeholder="Explain your alignment and strategic fit..." style={{ width: "100%", marginTop: "6px", minHeight: "80px" }} />
+            </label>
+          </div>
+        )}
       </div>
       <label className="consent">
         <input

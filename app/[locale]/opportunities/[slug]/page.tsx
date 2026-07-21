@@ -122,7 +122,7 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
     [t('quickFacts.originCountry'), opportunity.originCountry],
     [t('quickFacts.targetMarkets'), opportunity.targetMarkets.join(", ")],
     [t('quickFacts.partnerType'), "Importer, Distributor, Franchisee, Operator"],
-    [t('quickFacts.exclusivity'), "Possible by territory"],
+    [t('quickFacts.exclusivity'), opportunity.exclusivity || "Possible by territory"],
     [t('quickFacts.investmentReq'), opportunity.investmentRequirement],
     [t('quickFacts.status'), opportunity.status]
   ];
@@ -180,9 +180,38 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                 <ul>
                   {opportunity.credentials.map((item) => <li key={item}>✓ {item}</li>)}
                 </ul>
+
+                {opportunity.slug === "nittoh-japanese-dollies-utility-carts-distribution" && (
+                  <div className="track-record-panel" style={{ marginTop: 24, padding: 16, backgroundColor: "var(--card-bg, #ffffff)", borderRadius: 8, borderLeft: "4px solid #0056b3", boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}>
+                    <h4 style={{ margin: "0 0 10px 0", fontSize: "1rem", fontWeight: "600" }}>Partner-Provided Commercial Track Record</h4>
+                    <ul style={{ listStyleType: "none", paddingLeft: 0, margin: 0, fontSize: "0.95rem" }}>
+                      <li style={{ marginBottom: 8 }}>📊 Nittoh supplies store-fixture dollies to Seven-Eleven locations throughout Japan, representing approximately 40,000 units per year.</li>
+                      <li style={{ marginBottom: 8 }}>📊 Shipments of approximately 30,000 units per month to MUJI.</li>
+                      <li style={{ marginBottom: 8 }}>📊 Shipments of approximately 10,000 units per month to major distribution and e-commerce channels including ASKUL and MonotaRO.</li>
+                      <li style={{ marginBottom: 8 }}>📊 Nittoh holds a leading Japanese market position in household and office dollies.</li>
+                    </ul>
+                    <p style={{ margin: "12px 0 0 0", fontSize: "0.85rem", fontStyle: "italic", color: "#666" }}>
+                      Customer references, market-position statements and shipment figures were supplied by the opportunity owner and remain subject to confirmation during commercial due diligence.
+                    </p>
+                  </div>
+                )}
+
+                {opportunity.slug === "ichiban-ken-indonesia-master-franchise" && (
+                  <div className="track-record-panel" style={{ marginTop: 24, padding: 16, backgroundColor: "var(--card-bg, #ffffff)", borderRadius: 8, borderLeft: "4px solid #d9534f", boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}>
+                    <h4 style={{ margin: "0 0 10px 0", fontSize: "1rem", fontWeight: "600" }}>Partner-Provided Regional Track Record</h4>
+                    <ul style={{ listStyleType: "none", paddingLeft: 0, margin: 0, fontSize: "0.95rem" }}>
+                      <li style={{ marginBottom: 8 }}>🍜 The brand currently operates ten restaurants in Vietnam.</li>
+                      <li style={{ marginBottom: 8 }}>🍜 Franchise expansion into Thailand and the Philippines.</li>
+                      <li style={{ marginBottom: 8 }}>🍜 Supporting operating data, store lists and franchise documents should be requested during qualification.</li>
+                    </ul>
+                    <p style={{ margin: "12px 0 0 0", fontSize: "0.85rem", fontStyle: "italic", color: "#666" }}>
+                      Regional store and franchise-network information was supplied by the opportunity owner and remains subject to confirmation during due diligence.
+                    </p>
+                  </div>
+                )}
               </div>
               <div className="content-card product-shot">
-                <img src={opportunity.heroImage} alt={`${opportunity.title} product showcase`} style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "12px" }} />
+                <img src={opportunity.cardImage} alt={`${opportunity.title} product showcase`} style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "12px" }} />
               </div>
             </div>
 

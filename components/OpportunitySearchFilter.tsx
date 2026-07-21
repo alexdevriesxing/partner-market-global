@@ -163,9 +163,9 @@ export function OpportunitySearchFilter({ initialOpportunities, locale }: Props)
     const set = new Set<string>();
     initialOpportunities.forEach((o) => {
       if (o.sector) {
-        // Grab the root sector before " / "
-        const root = o.sector.split(" / ")[0].trim();
-        set.add(root);
+        o.sector.split(" / ").forEach((s) => {
+          set.add(s.trim());
+        });
       }
     });
     return Array.from(set).sort();
@@ -226,7 +226,7 @@ export function OpportunitySearchFilter({ initialOpportunities, locale }: Props)
 
     // Dropdown filters
     if (selectedSector) {
-      result = result.filter((o) => o.sector?.startsWith(selectedSector));
+      result = result.filter((o) => o.sector?.includes(selectedSector));
     }
     if (selectedCountry) {
       result = result.filter((o) => o.originCountry === selectedCountry);

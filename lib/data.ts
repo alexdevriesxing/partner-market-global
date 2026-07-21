@@ -44,6 +44,7 @@ export type Opportunity = {
   company?: string;
   seoKeywords?: string[];
   imageAlt?: string;
+  exclusivity?: string;
 };
 
 import jipOpportunitiesRaw from "./jip-opportunities.json";
@@ -68,6 +69,7 @@ interface JipRaw {
   privateProgressNote?: string;
   seoKeywords?: string[];
   imageFile: string;
+  heroImageFile?: string;
   imageAlt: string;
   imagePath: string;
   imageSourcePage?: string;
@@ -75,12 +77,103 @@ interface JipRaw {
   isRegulated?: boolean;
   regulatoryNote?: string;
   ipRiskNote?: string;
+  exclusivity?: string;
 }
 
 const mappedJipOpportunities: Opportunity[] = (jipOpportunitiesRaw as unknown as JipRaw[]).map((jip) => {
   const originCountry = jip.company === "Chinese Manufacturer Products" ? "China" : "Japan";
   const formattedType = Array.isArray(jip.opportunityType) ? jip.opportunityType.join(" / ") : jip.opportunityType;
-  
+
+  if (jip.slug === "nittoh-japanese-dollies-utility-carts-distribution") {
+    return {
+      id: jip.id,
+      slug: jip.slug,
+      title: jip.title,
+      type: formattedType,
+      sector: jip.category + (jip.subCategory ? ` / ${jip.subCategory}` : ""),
+      originCountry,
+      targetMarkets: jip.marketRegions || [],
+      heroImage: `/images/opportunities/${jip.heroImageFile || jip.imageFile}`,
+      cardImage: `/images/opportunities/${jip.imageFile}`,
+      summary: jip.publicSummary || "",
+      description: "Nittoh Co., Ltd. is an established Japanese manufacturer seeking qualified international partners for its range of commercial and household dollies, utility carts and interlocking flat platforms.\n\nThe company is particularly interested in developing international business in the retail, home-improvement, tool-distribution, e-commerce and hotel sectors.\n\nIts proposed product range includes plastic interlocking flat dollies that can be connected and stacked for efficient transport and storage, together with premium carts suitable for professional, commercial and luxury-hotel environments.\n\nNittoh combines product planning, research and development, engineering, plastic moulding, manufacturing, quality control and shipping within an integrated production system. This enables the company to develop functional products while maintaining control over design, cost, quality and production consistency.",
+      companyBackground: "Company: Nittoh Co., Ltd. / NITTO Co., Ltd.\nEstablished: 1953\nHeadquarters: Kasugai City, Aichi Prefecture, Japan\nPartner-provided annual revenue: Approximately JPY 7 billion\nBusiness activities: Industrial machinery components, amusement-machine component assembly, plastic product planning and manufacturing, household products, dollies and utility carts.\n\nOfficial website: https://www.nittoh.com\n\n(Annual revenue figure was provided by the opportunity owner.)",
+      productDetails: "Plastic interlocking flat dollies:\n- Modular platforms that can be connected for larger loads.\n- Stackable or nestable storage potential depending on the model.\n- Suitable for retail stock movement, offices, workshops, warehouses and household use.\n- Designed around practical mobility, handling and space efficiency.\n\nCommercial and hotel carts:\n- Professional carts for hotel, retail and commercial environments.\n- Potential use as operational equipment or premium store fixtures.\n- Suitable for hospitality procurement discussions.\n- Product configuration and design options subject to model availability.",
+      marketOpportunity: "International retailers, hotels, offices, warehouses and e-commerce buyers increasingly require mobility products that combine compact storage, reliable handling, practical design and professional presentation.\n\nNittoh offers potential partners access to an established Japanese manufacturer with experience serving demanding domestic retail and commercial channels.\n\nThe opportunity is particularly relevant to partners that can:\n- Import and warehouse commercial products.\n- Sell into retail or professional channels.\n- Present technical and commercial product information locally.\n- Manage product compliance and labelling.\n- Develop B2B sales to hospitality or institutional buyers.\n- Support e-commerce fulfilment and after-sales communication.\n- Build a sustainable territory development plan.",
+      partnerProfile: jip.partnerProfile || "",
+      commercialModel: "Potential structures may include:\n- National or regional distribution.\n- Wholesale supply.\n- Retail purchasing.\n- E-commerce distribution.\n- Hotel or hospitality procurement.\n- Commercial project supply.\n- Non-exclusive market testing followed by broader territory discussions.\n\nPricing, samples, minimum orders, product availability, delivery arrangements, branding, support and possible exclusivity will be discussed after partner qualification.",
+      territoryAvailability: "Selected international markets",
+      investmentRequirement: "Initial samples, order volumes, landed-cost calculations, product selection and market-launch requirements will be discussed with qualified partners. No minimum order or investment amount is published until confirmed.",
+      credentials: jip.keyStrengths || [],
+      verificationBadges: ["Client Opportunity", "JIP Japan Vetted", "Distribution Opportunity", "Retail & HORECA"],
+      documentsAvailable: [
+        "Company profile",
+        "Product catalogue",
+        "Product specifications",
+        "Opportunity brief",
+        "Approved product photography",
+        "Export and packaging information",
+        "Commercial terms on request",
+        "Customer references subject to approval",
+        "Samples subject to discussion"
+      ],
+      risks: "Product specifications and load ratings must be confirmed by model. Local product standards, safety requirements and labelling must be assessed. Freight economics may vary significantly by product dimensions and order quantity. Import duties, product liability and warranty arrangements differ by market. Customer references and shipment figures require confirmation. Territory rights and exclusivity are not guaranteed. Prospective partners should validate landed costs before committing to a launch. Approved image and trademark usage must be agreed.",
+      status: jip.statusPublic || "Active outreach",
+      featured: true,
+      brand: jip.brand,
+      company: jip.company,
+      seoKeywords: jip.seoKeywords,
+      imageAlt: jip.imageAlt,
+      exclusivity: "Subject to discussion by territory"
+    };
+  }
+
+  if (jip.slug === "ichiban-ken-indonesia-master-franchise") {
+    return {
+      id: jip.id,
+      slug: jip.slug,
+      title: jip.title,
+      type: formattedType,
+      sector: jip.category + (jip.subCategory ? ` / ${jip.subCategory}` : ""),
+      originCountry,
+      targetMarkets: jip.marketRegions || [],
+      heroImage: `/images/opportunities/${jip.heroImageFile || jip.imageFile}`,
+      cardImage: `/images/opportunities/${jip.imageFile}`,
+      summary: jip.publicSummary || "",
+      description: "Best More Co., Ltd., operator of the Japanese ramen brand Ichiban-ken, is seeking a qualified Indonesian franchise partner to introduce and develop the concept in Indonesia.\n\nIchiban-ken specializes in matured tonkotsu ramen built around a rich, creamy pork-bone soup with a comparatively smooth finish and limited strong odour. This positioning can give the concept broader appeal than tonkotsu formats that rely primarily on an extremely heavy or intensely aromatic broth.\n\nThe brand’s offer extends beyond ramen. Popular complementary dishes such as yakimeshi fried rice and champon-style noodles can support a broader dining occasion, higher menu variety and stronger differentiation within the Japanese casual-dining category.\n\nThe opportunity is intended for an experienced Indonesian F&B operator capable of launching, localizing and scaling a Japanese restaurant concept while preserving core brand and food-quality standards.",
+      companyBackground: "Company: Best More Co., Ltd.\nBrand: Ichiban-ken\nBusiness: Operation and development of Japanese ramen restaurants\nOrigin: Japan\nTarget territory: Indonesia\n\nOfficial website: https://ichibanken.jp/\n\n(Information and store counts were supplied by the brand owner.)",
+      productDetails: "Core ramen proposition:\n- Matured tonkotsu ramen made from pork-bone broth, specialist noodles and a carefully developed flavour profile.\n- Richness and creaminess with a smoother finish and reduced overpowering odour.\n- Broad customer accessibility and authentic Japanese restaurant presentation.\n\nBroader menu proposition:\n- Tonkotsu ramen, yakimeshi Japanese fried rice, champon-style mixed noodles, and side dishes.\n- Potential for menu variety across different dining occasions.\n\n(Note: The concept is pork-based and is not halal.)",
+      marketOpportunity: "Indonesia has a large and sophisticated urban foodservice market with established consumer interest in Japanese cuisine. The opportunity is presented as a targeted non-halal Japanese restaurant proposition rather than a mass-market halal concept.\n\nPotential location formats may include:\n- Premium and upper-mid-market shopping malls.\n- Lifestyle centres.\n- High-footfall urban restaurant districts.\n- Mixed-use developments.\n- Standalone locations in major cities.\n- Food-and-beverage clusters with established Japanese concepts.",
+      partnerProfile: jip.partnerProfile || "",
+      commercialModel: "The anticipated structure is a master-franchise, area-development or comparable country-partner agreement for Indonesia.\n\nCommercial discussions may cover territory rights, initial franchise fees, per-store fees, royalties, marketing contributions, opening and design standards, required development schedules, training support, approved ingredients supply, local sourcing permissions, quality control, and menu localization.",
+      territoryAvailability: "Indonesia",
+      investmentRequirement: "Franchise, restaurant-development and multi-unit rollout investment will be required. Franchise fees, royalties, opening budgets, development commitments and territory terms will be disclosed to qualified candidates. No estimated figures are published until confirmed.",
+      credentials: jip.keyStrengths || [],
+      verificationBadges: ["Client Opportunity", "JIP Japan Vetted", "Master Franchise", "Indonesia Opportunity", "Restaurant Rollout"],
+      documentsAvailable: [
+        "Company and brand profile",
+        "Franchise opportunity brief",
+        "Restaurant concept presentation",
+        "Menu overview",
+        "Existing-market information",
+        "Store-format guidance",
+        "Franchise requirements",
+        "Commercial terms after qualification",
+        "Training and operational support information",
+        "Supply-chain requirements",
+        "Approved brand and restaurant imagery"
+      ],
+      risks: "The core concept is based on pork-bone tonkotsu broth and must not be marketed as halal or pork-free. Target-customer segmentation is critical in Indonesia. Local foodservice, import, employment, tax and franchise regulations require professional review. Ingredient sourcing and recipe consistency must be confirmed. Store investment and rollout commitments have not yet been published. Regional store-count claims require confirmation. Territory rights depend on franchisor approval and contract negotiation. Site economics must be tested before committing to multi-unit rollout.",
+      status: jip.statusPublic || "Active outreach",
+      featured: true,
+      brand: jip.brand,
+      company: jip.company,
+      seoKeywords: jip.seoKeywords,
+      imageAlt: jip.imageAlt,
+      exclusivity: "Potential master-franchise or territory rights are subject to qualification and contract negotiation."
+    };
+  }
+
   return {
     id: jip.id,
     slug: jip.slug,
@@ -89,7 +182,7 @@ const mappedJipOpportunities: Opportunity[] = (jipOpportunitiesRaw as unknown as
     sector: jip.category + (jip.subCategory ? ` / ${jip.subCategory}` : ""),
     originCountry,
     targetMarkets: jip.marketRegions || [],
-    heroImage: `/images/opportunities/${jip.imageFile}`,
+    heroImage: `/images/opportunities/${jip.heroImageFile || jip.imageFile}`,
     cardImage: `/images/opportunities/${jip.imageFile}`,
     summary: jip.publicSummary || "",
     description: jip.publicSummary || "",
@@ -111,7 +204,8 @@ const mappedJipOpportunities: Opportunity[] = (jipOpportunitiesRaw as unknown as
     brand: jip.brand,
     company: jip.company,
     seoKeywords: jip.seoKeywords,
-    imageAlt: jip.imageAlt
+    imageAlt: jip.imageAlt,
+    exclusivity: jip.exclusivity || "Possible by territory"
   };
 });
 
@@ -150,7 +244,8 @@ const staticOpportunities: Opportunity[] = [
     risks:
       "Food import regulations, labelling, certification, shelf-life validation, local registration and distributor compliance must be reviewed per target market.",
     status: "Open for inquiries",
-    featured: true
+    featured: true,
+    exclusivity: "Possible by territory"
   },
   {
     id: "opp-moja-coffee-bali",
@@ -186,7 +281,8 @@ const staticOpportunities: Opportunity[] = [
     risks:
       "Food import rules, coffee labelling, shelf-life, customs requirements and local channel economics must be reviewed by each distributor.",
     status: "Open for inquiries",
-    featured: true
+    featured: true,
+    exclusivity: "Possible by territory"
   },
 ];
 

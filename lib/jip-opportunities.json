@@ -48,7 +48,8 @@
     "imageAlt": "AIR TWOKYO anime licensed apparel product image for international distribution opportunity",
     "imagePath": "/images/opportunities/air-twokyo-anime-licensed-apparel.jpg",
     "imageSourcePage": "https://airtwokyo.com/products/the-final-season-t-2ep-69",
-    "imageSourceLocalOriginal": "images/real_online/air-twokyo-anime-licensed-apparel.webp"
+    "imageSourceLocalOriginal": "images/real_online/air-twokyo-anime-licensed-apparel.webp",
+    "heroImageFile": "air-twokyo-anime-licensed-apparel-hero.png"
   },
   {
     "id": "jip-u-technologies-unagi",
@@ -97,7 +98,8 @@
     "imageAlt": "Japanese unagi rice bowl image for restaurant master franchise opportunity",
     "imagePath": "/images/opportunities/u-technologies-unagi-master-franchise.jpg",
     "imageSourcePage": "https://tabelog.com/osaka/A2701/A270106/27144368/",
-    "imageSourceLocalOriginal": "images/real_online/u-technologies-unagi-master-franchise.jpg"
+    "imageSourceLocalOriginal": "images/real_online/u-technologies-unagi-master-franchise.jpg",
+    "heroImageFile": "u-technologies-unagi-master-franchise-hero.png"
   },
   {
     "id": "jip-fujichiku-fujiaya-beef",
@@ -146,7 +148,8 @@
     "imageAlt": "Fujichiku premium Japanese beef image for Fujiaya Beef distribution opportunity",
     "imagePath": "/images/opportunities/fujichiku-fujiaya-beef-whole-carcass-distribution.jpg",
     "imageSourcePage": "https://www.fujichiku.jp/",
-    "imageSourceLocalOriginal": "images/real_online/fujichiku-fujiaya-beef-whole-carcass-distribution.jpg"
+    "imageSourceLocalOriginal": "images/real_online/fujichiku-fujiaya-beef-whole-carcass-distribution.jpg",
+    "heroImageFile": "fujichiku-fujiaya-beef-whole-carcass-distribution-hero.png"
   },
   {
     "id": "jip-nose-shuzo-beverage",
@@ -194,7 +197,8 @@
     "imageAlt": "Nose Shuzo Japanese beverage product image for distribution opportunity",
     "imagePath": "/images/opportunities/nose-shuzo-japanese-beverage-distribution.jpg",
     "imageSourcePage": "https://nosemizu.com/en/products.html",
-    "imageSourceLocalOriginal": "images/real_online/nose-shuzo-japanese-beverage-distribution.jpg"
+    "imageSourceLocalOriginal": "images/real_online/nose-shuzo-japanese-beverage-distribution.jpg",
+    "heroImageFile": "nose-shuzo-japanese-beverage-distribution-hero.png"
   },
   {
     "id": "jip-okayama-tenobe-somen",
@@ -247,7 +251,8 @@
     "imageAlt": "Okayama Tenobe Somen hand-stretched noodle product image for distribution opportunity",
     "imagePath": "/images/opportunities/okayama-tenobe-somen-hand-stretched-noodles.jpg",
     "imageSourcePage": "https://www.okate.co.jp/",
-    "imageSourceLocalOriginal": "images/real_online/okayama-tenobe-somen-hand-stretched-noodles.webp"
+    "imageSourceLocalOriginal": "images/real_online/okayama-tenobe-somen-hand-stretched-noodles.webp",
+    "heroImageFile": "okayama-tenobe-somen-hand-stretched-noodles-hero.png"
   },
   {
     "id": "jip-imai-leather-goods",
@@ -296,7 +301,8 @@
     "imageAlt": "IMAI leather goods product image for retail and trading partnership opportunity",
     "imagePath": "/images/opportunities/imai-leather-goods-retail-partnership.jpg",
     "imageSourcePage": "https://imaibag.shop/",
-    "imageSourceLocalOriginal": "images/real_online/imai-leather-goods-retail-partnership.webp"
+    "imageSourceLocalOriginal": "images/real_online/imai-leather-goods-retail-partnership.webp",
+    "heroImageFile": "imai-leather-goods-retail-partnership-hero.png"
   },
   {
     "id": "jip-field-club-frp-sculptures",
@@ -344,7 +350,8 @@
     "imageAlt": "Field Club FRP sculpture installation image for theme park production partnership",
     "imagePath": "/images/opportunities/field-club-frp-theme-park-sculpture-partnership.jpg",
     "imageSourcePage": "https://fieldclub.co.jp/works/%E3%83%A1%E3%83%83%E3%83%88%E3%83%A9%E3%82%A4%E3%83%95%E3%83%89%E3%83%BC%E3%83%A0-%E3%83%A9%E3%82%A4%E3%82%AA%E3%83%B3-%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7/",
-    "imageSourceLocalOriginal": "images/real_online/field-club-frp-theme-park-sculpture-partnership.jpeg"
+    "imageSourceLocalOriginal": "images/real_online/field-club-frp-theme-park-sculpture-partnership.jpeg",
+    "heroImageFile": "field-club-frp-theme-park-sculpture-partnership-hero.png"
   },
   {
     "id": "jip-dobest-cosmetics",
@@ -397,7 +404,8 @@
     "imageAlt": "Do-Best AC MAKEUP TOKYO cosmetic product image for distribution opportunity",
     "imagePath": "/images/opportunities/do-best-budget-cosmetics-distribution.jpg",
     "imageSourcePage": "https://acmakeuptokyo.com/product/1377/",
-    "imageSourceLocalOriginal": "images/real_online/do-best-budget-cosmetics-distribution.jpg"
+    "imageSourceLocalOriginal": "images/real_online/do-best-budget-cosmetics-distribution.jpg",
+    "heroImageFile": "do-best-budget-cosmetics-distribution-hero.png"
   },
   {
     "id": "jip-ebisu-shiryo-recycled-plastics",
@@ -446,7 +454,8 @@
     "imageAlt": "Ebisu Shiryo recycling and circular economy image for recycled plastics sourcing opportunity",
     "imagePath": "/images/opportunities/ebisu-shiryo-recycled-plastics-indonesia-sourcing.jpg",
     "imageSourcePage": "https://ebisu-eco.co.jp/",
-    "imageSourceLocalOriginal": "images/real_online/ebisu-shiryo-recycled-plastics-indonesia-sourcing.png"
+    "imageSourceLocalOriginal": "images/real_online/ebisu-shiryo-recycled-plastics-indonesia-sourcing.png",
+    "heroImageFile": "ebisu-shiryo-recycled-plastics-indonesia-sourcing-hero.png"
   },
   {
     "id": "jip-chinese-blind-box-plush",
@@ -550,5 +559,135 @@
     "imagePath": "/images/opportunities/yachiyo-mengyo-handa-somen-eu-distribution.jpg",
     "imageSourcePage": "https://tenobemen.com/",
     "imageSourceLocalOriginal": "images/real_online/yachiyo-mengyo-handa-somen-eu-distribution.png"
+  },
+  {
+    "id": "jip-nittoh-dollies",
+    "slug": "nittoh-japanese-dollies-utility-carts-distribution",
+    "sourcePartner": "JIP Japan",
+    "company": "Nittoh Co., Ltd.",
+    "brand": "Nittoh",
+    "title": "Nittoh Japanese Dolly & Utility Cart Distribution, Retail and Hotel Partnership Opportunity",
+    "category": "Consumer Products",
+    "subCategory": "Industrial",
+    "opportunityType": [
+      "Distribution",
+      "Retail Partnership",
+      "Wholesale Distribution",
+      "E-commerce",
+      "HORECA",
+      "Hotel Procurement",
+      "Importer Partnership",
+      "Distribution Opportunity",
+      "Retail & HORECA"
+    ],
+    "marketRegions": [
+      "Selected international markets"
+    ],
+    "targetPartners": [
+      "Importer",
+      "Distributor",
+      "Tool wholesaler",
+      "Home-improvement or DIY retail group",
+      "Retail chain",
+      "E-commerce retailer",
+      "Online tool distributor",
+      "Hotel procurement organization",
+      "Luxury-hotel operator",
+      "Commercial-equipment supplier",
+      "Logistics-equipment distributor",
+      "Buying group"
+    ],
+    "publicSummary": "Established Japanese manufacturer Nittoh is seeking qualified international distributors, wholesalers, retailers, e-commerce partners and hotel-sector buyers for its interlocking flat dollies and professional utility carts.",
+    "partnerProfile": "The strongest candidates will be established organizations with existing access to DIY, tool, retail or office-supply channels; relationships with hotel groups or hospitality procurement teams; experience importing Japanese or Asian manufactured products; warehousing and local fulfilment capability; and willingness to invest in samples and launch inventory.",
+    "keyStrengths": [
+      "Established Japanese manufacturer with a history dating to 1953.",
+      "Strong domestic position in professional, household and office dollies.",
+      "Interlocking flat-dolly designs developed for efficient handling, connection and storage.",
+      "Product options for retail operations, warehouses, offices, homes and hotels.",
+      "Integrated capabilities from product development through production and shipping.",
+      "Commercial track record with major Japanese convenience-store, retail and office-supply channels.",
+      "Suitable for distributors, retailers, e-commerce sellers and institutional buyers.",
+      "Potential for territory-based commercial partnerships, subject to evaluation."
+    ],
+    "statusPublic": "Active outreach",
+    "priority": "High",
+    "seoKeywords": [
+      "Japanese dolly manufacturer",
+      "utility cart distributor",
+      "interlocking flat dolly",
+      "Japanese commercial carts",
+      "hotel cart supplier",
+      "DIY retail distribution",
+      "tool wholesaler opportunity",
+      "Japanese industrial products",
+      "Nittoh Japan",
+      "retail equipment distributor"
+    ],
+    "imageFile": "nittoh-japanese-dollies-utility-carts-distribution.png",
+    "heroImageFile": "nittoh-japanese-dollies-utility-carts-distribution-hero.png",
+    "imageAlt": "Nittoh Japanese interlocking flat dollies and professional utility carts for international distribution.",
+    "imagePath": "/images/opportunities/nittoh-japanese-dollies-utility-carts-distribution.png"
+  },
+  {
+    "id": "jip-ichiban-ramen",
+    "slug": "ichiban-ken-indonesia-master-franchise",
+    "sourcePartner": "JIP Japan",
+    "company": "Best More Co., Ltd.",
+    "brand": "Ichiban-ken",
+    "title": "Ichiban-ken Japanese Ramen Master Franchise Opportunity for Indonesia",
+    "category": "Food & Beverage",
+    "subCategory": "Foodservice",
+    "opportunityType": [
+      "Franchise",
+      "Restaurant Rollout",
+      "Foodservice Partnership",
+      "Country Partner",
+      "Multi-unit Operator",
+      "Master Franchise",
+      "Indonesia Opportunity"
+    ],
+    "marketRegions": [
+      "Indonesia"
+    ],
+    "targetPartners": [
+      "Indonesian master franchisee",
+      "Multi-unit restaurant operator",
+      "Established F&B group",
+      "Hospitality group",
+      "Restaurant investor-operator",
+      "Mall-based restaurant operator",
+      "Foodservice company",
+      "Strategic joint-venture partner",
+      "Property group with operating capability"
+    ],
+    "publicSummary": "Japanese tonkotsu ramen brand Ichiban-ken is seeking a qualified Indonesian master franchisee or experienced multi-unit restaurant operator to develop the concept in Indonesia.",
+    "partnerProfile": "Qualified candidates should preferably have experience operating multiple restaurants, knowledge of Indonesia's Japanese dining segment, a strong local management team, site-selection and lease-negotiation capability, and adequate capital for launch and phased expansion.",
+    "keyStrengths": [
+      "Established Japanese tonkotsu ramen concept.",
+      "Smooth, creamy soup profile with a clean finish.",
+      "Designed to appeal to a broad customer base.",
+      "Menu extends beyond ramen into fried rice, champon and complementary dishes.",
+      "Potential suitability for malls, lifestyle centres and urban restaurant locations.",
+      "Existing Southeast Asian operating experience reported by the opportunity owner.",
+      "Clear Indonesian master-franchise and multi-unit rollout opportunity.",
+      "Support and commercial structure to be discussed with qualified candidates."
+    ],
+    "statusPublic": "Active outreach",
+    "priority": "High",
+    "seoKeywords": [
+      "Japanese ramen franchise Indonesia",
+      "Indonesia master franchise opportunity",
+      "tonkotsu ramen franchise",
+      "Japanese restaurant franchise",
+      "Ichiban-ken franchise",
+      "Indonesian F&B operator",
+      "ramen restaurant investment",
+      "Japanese foodservice opportunity",
+      "multi-unit restaurant franchise"
+    ],
+    "imageFile": "ichiban-ken-indonesia-master-franchise.png",
+    "heroImageFile": "ichiban-ken-indonesia-master-franchise-hero.png",
+    "imageAlt": "Ichiban-ken Japanese tonkotsu ramen restaurant master franchise opportunity for Indonesia.",
+    "imagePath": "/images/opportunities/ichiban-ken-indonesia-master-franchise.png"
   }
 ]
