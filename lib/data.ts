@@ -45,6 +45,7 @@ export type Opportunity = {
   seoKeywords?: string[];
   imageAlt?: string;
   exclusivity?: string;
+  sourcePartner?: string;
 };
 
 import jipOpportunitiesRaw from "./jip-opportunities.json";
@@ -83,6 +84,81 @@ interface JipRaw {
 const mappedJipOpportunities: Opportunity[] = (jipOpportunitiesRaw as unknown as JipRaw[]).map((jip) => {
   const originCountry = jip.company === "Chinese Manufacturer Products" ? "China" : "Japan";
   const formattedType = Array.isArray(jip.opportunityType) ? jip.opportunityType.join(" / ") : jip.opportunityType;
+
+  if (jip.slug === "yachiyo-mengyo-handa-somen-eu-distribution") {
+    return {
+      id: jip.id,
+      slug: jip.slug,
+      sourcePartner: jip.sourcePartner || "JIP Japan",
+      title: "Yachiyo Mengyo Organic Handa Somen & Thin Udon EU Distribution Opportunity",
+      type: formattedType,
+      sector: jip.category + (jip.subCategory ? ` / ${jip.subCategory}` : ""),
+      originCountry: "Japan",
+      targetMarkets: jip.marketRegions || ["European Union", "France", "Spain", "Other qualified EU markets"],
+      heroImage: "/images/opportunities/yachiyo/yachiyo-hero-noodles.webp",
+      cardImage: "/images/opportunities/yachiyo-mengyo-handa-somen-eu-distribution.jpg",
+      summary: "Japanese noodle manufacturer Yachiyo Mengyo is seeking EU importers, distributors, retail buyers and foodservice partners for its hand-stretched Handa Somen and thin udon made with carefully selected Japanese ingredients, including Organic and Halal-certified products.",
+      description: "Yachiyo Mengyo Co., Ltd. is seeking qualified European importers, distributors, retailers and foodservice partners to expand the EU presence of its traditional hand-stretched Handa Somen and thin udon noodles. Its portfolio combines regional Japanese noodle-making heritage with carefully selected domestic ingredients and certification-led international positioning.\n\nHaving established initial export and commercial exposure in France and Spain, Yachiyo Mengyo is now focused on developing sustainable, long-term sales channels across the European Union.",
+      companyBackground: "Company: Yachiyo Mengyo Co., Ltd. (Soraniwa Group)\nEstablished: 2014\nHeadquarters: Tokushima Prefecture, Japan\nBusiness: Noodle manufacturing\nOfficial website: https://tenobemen.com\nIntroduced through: Japan Industrial Promotion Inc. / JIP Japan",
+      productDetails: "Handa Somen & Thin Udon Lineup:\n- Handa Soumen Yachiyo: Traditional hand-stretched Handa Somen using Hokkaido wheat, Naruto Tokushima sea salt, and domestic rice bran oil.\n- Organic Yachiyo: Organic Handa Somen made with 100% organic Hokkaido wheat and additive-free formulation.\n- Handa Hosoudon (Thin Udon): Thin udon format combining udon-like bite with versatile preparation options.\n- Frozen Handa Somen Noodles Yachiyo: Frozen format designed for convenient foodservice and restaurant applications.\n\nCertifications & Standards: Organic JAS, ISO 22000, Halal Certification, and Vegan-compatible recipes.",
+      marketOpportunity: "European demand for authentic Japanese cuisine, organic specialty items, Halal products, and high-quality plant-based noodles creates strong growth opportunities across retail, HORECA, and e-commerce.\n\nWith existing commercial testing in France and Spain, Yachiyo Mengyo provides EU distributors with a unique, high-margin Japanese food line with clear certification differentiation.",
+      partnerProfile: "Best suited to EU food importers, national and regional distributors, Japanese and Asian food wholesalers, organic-food distributors, Halal-product distributors, premium supermarket buyers, Japanese specialty retailers, foodservice and HORECA distributors, restaurant supply companies, e-commerce importers, and confirmed private-label buyers.",
+      commercialModel: "Importer, distributor, wholesale, retail, HORECA, and e-commerce partnership models.\n\nMOQ, wholesale pricing, lead times, territory availability, exclusivity rights, logistics, and promotional support will be discussed after partner qualification.",
+      territoryAvailability: "European Union (France and Spain currently served as test markets; open for broader EU territory development). Exclusivity potentially available by territory subject to qualification.",
+      investmentRequirement: "Minimum order quantities (MOQs), landed cost calculations, and initial inventory requirements will be discussed upon qualified inquiry. Available upon qualified inquiry.",
+      credentials: [
+        "Traditional hand-stretched Handa Somen",
+        "Approximately 300 years of regional noodle heritage",
+        "Distinctive thickness and firm, chewy texture",
+        "Smooth \"nodogoshi\" eating experience",
+        "Japanese ingredient positioning",
+        "Organic JAS certification",
+        "ISO 22000 certification as supplied in the project brief",
+        "Halal certification",
+        "Vegan-compatible recipes",
+        "Existing France and Spain export experience",
+        "Retail, HORECA and e-commerce applications"
+      ],
+      verificationBadges: [
+        "Client Opportunity",
+        "JIP Japan Vetted",
+        "EU Distribution",
+        "Organic",
+        "Halal",
+        "Vegan Compatible",
+        "Retail",
+        "HORECA",
+        "E-commerce"
+      ],
+      documentsAvailable: [
+        "Company presentation",
+        "Product catalogue",
+        "Product specifications",
+        "Ingredient information",
+        "Certification documentation",
+        "Export and regulatory documentation",
+        "Packaging information",
+        "Wholesale and MOQ details"
+      ],
+      risks: "EU and national food-import requirements apply. Product labels, allergens, nutritional declarations and language requirements must be verified per market. Organic and Halal claims must match the exact certified SKU and certification scope. Importers must verify duties, customs classification and food-safety documentation. Exclusivity and territory rights are subject to contract.",
+      status: "Active opportunity / EU channel expansion",
+      featured: true,
+      brand: "Handa Somen / Thin Udon Yachiyo",
+      company: "Yachiyo Mengyo Co., Ltd.",
+      seoKeywords: [
+        "Japanese noodle distributor Europe",
+        "Handa Somen EU distributor",
+        "Japanese thin udon importer",
+        "Organic Japanese noodles wholesale",
+        "Halal Japanese noodles Europe",
+        "Yachiyo Mengyo distributor",
+        "Tokushima noodle manufacturer",
+        "Japanese food import opportunity"
+      ],
+      imageAlt: "Yachiyo Mengyo Organic Handa Somen noodle dish with traditional Japanese chopsticks and dipping sauce",
+      exclusivity: "Potentially available by territory, subject to qualification and commercial agreement"
+    };
+  }
 
   if (jip.slug === "nittoh-japanese-dollies-utility-carts-distribution") {
     return {
@@ -124,7 +200,8 @@ const mappedJipOpportunities: Opportunity[] = (jipOpportunitiesRaw as unknown as
       company: jip.company,
       seoKeywords: jip.seoKeywords,
       imageAlt: jip.imageAlt,
-      exclusivity: "Subject to discussion by territory"
+      exclusivity: "Subject to discussion by territory",
+      sourcePartner: jip.sourcePartner || "JIP Japan"
     };
   }
 
@@ -132,6 +209,7 @@ const mappedJipOpportunities: Opportunity[] = (jipOpportunitiesRaw as unknown as
     return {
       id: jip.id,
       slug: jip.slug,
+      sourcePartner: jip.sourcePartner || "JIP Japan",
       title: jip.title,
       type: formattedType,
       sector: jip.category + (jip.subCategory ? ` / ${jip.subCategory}` : ""),
@@ -177,6 +255,7 @@ const mappedJipOpportunities: Opportunity[] = (jipOpportunitiesRaw as unknown as
   return {
     id: jip.id,
     slug: jip.slug,
+    sourcePartner: jip.sourcePartner || "JIP Japan",
     title: jip.title,
     type: formattedType,
     sector: jip.category + (jip.subCategory ? ` / ${jip.subCategory}` : ""),

@@ -22,6 +22,7 @@ export async function FooterWrapper({ locale }: { locale: string }) {
     {
       title: t("columns.forCompanies"),
       links: [
+        ["Submit an Opportunity", "/submit-opportunity"],
         [t("columns.forCompaniesLinks.list"), "/list-your-opportunity"],
         [t("columns.forCompaniesLinks.terms"), "/commercial-terms"],
         [t("columns.forCompaniesLinks.curation"), "/curation-process"],

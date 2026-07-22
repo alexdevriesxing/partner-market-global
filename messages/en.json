@@ -13,6 +13,7 @@
     "resources": "Resources",
     "aboutUs": "About Us",
     "listOpportunity": "List Your Opportunity",
+    "submitOpportunity": "Submit an Opportunity",
     "login": "Log In"
   },
   "hero": {
@@ -420,5 +421,31 @@
     },
     "title": "Frequently Asked Questions",
     "subtitle": "Clear answers about how Partner Market Global works for companies and international partners."
+  },
+  "submitOpportunity": {
+    "title": "Submit a Business Opportunity",
+    "metaTitle": "Submit a Business Opportunity | Partner Market Global",
+    "metaDescription": "Submit your product, service, distribution, investment or partnership opportunity to Partner Market Global for review.",
+    "introHeadline": "Submit a Business Opportunity",
+    "introBody": "Do you represent a company looking for distributors, importers, retailers, investors, licensees, franchise partners, customers or strategic partners? Tell us briefly about the opportunity and upload any relevant pictures or documents. Partner Market Global will review the submission and contact you if we need further information.",
+    "confidentialNote": "Please do not submit confidential information that you are not authorised to share.",
+    "steps": {
+      "step1": "Step 1: The Opportunity",
+      "step2": "Step 2: Pictures & Information",
+      "step3": "Step 3: Contact Details"
+    },
+    "buttons": {
+      "next": "Next Step →",
+      "back": "← Previous Step",
+      "submit": "Submit Opportunity",
+      "submitting": "Submitting...",
+      "home": "Return to Homepage",
+      "browse": "Browse Opportunities"
+    },
+    "success": {
+      "title": "Thank You for Your Submission",
+      "subtitle": "Your opportunity has been sent to Partner Market Global for review. We will contact you if we require additional information.",
+      "referenceLabel": "Your submission reference is:"
+    }
   }
 }

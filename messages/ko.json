@@ -12,7 +12,8 @@
     "forCompanies": "기업 안내",
     "resources": "리소스",
     "aboutUs": "회사 소개",
-    "listOpportunity": "기회 등록하기",
+    "listOpportunity": "기회 등록",
+    "submitOpportunity": "기회 제출",
     "login": "로그인"
   },
   "hero": {

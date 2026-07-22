@@ -22,7 +22,7 @@ export function CTA({
   feature2 = "Structured & verified opportunity profile",
   feature3 = "Qualified inquiries that convert",
   feature4 = "Grow your business internationally",
-  ctaList = "Apply to List Your Opportunity",
+  ctaList = "Submit an Opportunity",
   ctaTerms = "View Commercial Terms"
 }: CTAProps) {
   return (
@@ -38,7 +38,7 @@ export function CTA({
         <span>✣ {feature4}</span>
       </div>
       <div className="cta-actions">
-        <Link className="btn btn-orange" href={`/${locale}/list-your-opportunity`}>{ctaList}</Link>
+        <Link className="btn btn-orange" href={`/${locale}/submit-opportunity`}>{ctaList}</Link>
         <Link className="btn btn-dark-outline" href={`/${locale}/commercial-terms`}>{ctaTerms}</Link>
       </div>
     </section>

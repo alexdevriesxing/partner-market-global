@@ -86,8 +86,8 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
   const t = getJapanLandingTranslations(locale);
   const tCta = await getTranslations('cta');
 
-  // Filter only Japanese opportunities
   const japanOpportunities = opportunities.filter((o) => o.originCountry === "Japan");
+  const yachiyoOpp = opportunities.find((o) => o.slug === "yachiyo-mengyo-handa-somen-eu-distribution");
   const nittohOpp = opportunities.find((o) => o.slug === "nittoh-japanese-dollies-utility-carts-distribution");
   const ichibanOpp = opportunities.find((o) => o.slug === "ichiban-ken-indonesia-master-franchise");
 
@@ -165,6 +165,21 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
                 <li style={{ marginBottom: "6px" }}>
                   {locale === "ja" ? (
                     <>
+                      <Link href={`/${locale}/opportunities/yachiyo-mengyo-handa-somen-eu-distribution`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
+                        八千代麺業 オーガニック半田そうめん・細うどん EU総代理店・販売権
+                      </Link>：JASオーガニック・ハラール・ヴィーガン対応、厳選された国産原料使用の手延べそうめん・細うどんのEU市場展開。
+                    </>
+                  ) : (
+                    <>
+                      <Link href={`/${locale}/opportunities/yachiyo-mengyo-handa-somen-eu-distribution`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
+                        Yachiyo Mengyo Organic Handa Somen & Thin Udon EU Distribution
+                      </Link>: Organic & Halal-certified Japanese hand-stretched noodles for EU importers, distributors, retail, and HORECA.
+                    </>
+                  )}
+                </li>
+                <li style={{ marginBottom: "6px" }}>
+                  {locale === "ja" ? (
+                    <>
                       <Link href={`/${locale}/opportunities/nittoh-japanese-dollies-utility-carts-distribution`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
                         Nittoh 台車・ユーティリティカート流通・ホテル提携
                       </Link>：小売、Eコマース、ホスピタリティ部門向けの、日本製の連結積重ね可能な高品質プラスチック台車および業務用カート。
@@ -213,7 +228,7 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
       </section>
 
       {/* Latest Japanese Opportunities */}
-      {(nittohOpp || ichibanOpp) && (
+      {(yachiyoOpp || nittohOpp || ichibanOpp) && (
         <section className="japan-grid-section bg-soft" style={{ paddingTop: "48px", paddingBottom: "48px", borderBottom: "1px solid var(--border)", borderTop: "1px solid var(--border)" }}>
           <div className="section-top text-center" style={{ marginBottom: "32px" }}>
             <span className="eyebrow" style={{ color: "var(--primary)", fontWeight: "600", letterSpacing: "0.05em" }}>NEW RELEASES</span>
@@ -226,6 +241,7 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
           </div>
           <div className="container" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
             <div className="opportunity-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "24px" }}>
+              {yachiyoOpp && <OpportunityCard opportunity={yachiyoOpp} locale={locale} />}
               {nittohOpp && <OpportunityCard opportunity={nittohOpp} locale={locale} />}
               {ichibanOpp && <OpportunityCard opportunity={ichibanOpp} locale={locale} />}
             </div>

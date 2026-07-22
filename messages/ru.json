@@ -12,7 +12,8 @@
     "forCompanies": "Для Компаний",
     "resources": "Ресурсы",
     "aboutUs": "О Нас",
-    "listOpportunity": "Разместить Возможность",
+    "listOpportunity": "Разместить предложение",
+    "submitOpportunity": "Отправить предложение",
     "login": "Войти"
   },
   "hero": {

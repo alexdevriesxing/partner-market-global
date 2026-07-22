@@ -66,7 +66,7 @@ export function Header({ nav }: { nav: NavItem[] }) {
           )}
         </div>
         <Link href={`/${locale}/admin`} className="btn btn-ghost">Log In</Link>
-        <Link href={`/${locale}/list-your-opportunity`} className="btn btn-primary">List Your Opportunity</Link>
+        <Link href={`/${locale}/submit-opportunity`} className="btn btn-primary">Submit Opportunity</Link>
       </div>
 
       <button
@@ -92,8 +92,8 @@ export function Header({ nav }: { nav: NavItem[] }) {
               </Link>
             ))}
             <Link href={`/${locale}/admin`} className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Log In</Link>
-            <Link href={`/${locale}/list-your-opportunity`} className="btn btn-primary full mobile-cta" onClick={() => setMobileOpen(false)}>
-              List Your Opportunity
+            <Link href={`/${locale}/submit-opportunity`} className="btn btn-primary full mobile-cta" onClick={() => setMobileOpen(false)}>
+              Submit Opportunity
             </Link>
           </nav>
           <div className="mobile-lang-section">

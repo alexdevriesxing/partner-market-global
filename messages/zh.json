@@ -12,7 +12,8 @@
     "forCompanies": "企业服务",
     "resources": "资源",
     "aboutUs": "关于我们",
-    "listOpportunity": "发布您的商机",
+    "listOpportunity": "发布商机",
+    "submitOpportunity": "提交商机",
     "login": "登录"
   },
   "hero": {

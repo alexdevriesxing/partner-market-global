@@ -3,6 +3,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { opportunities } from "@/lib/data";
 import { pageMetadata } from "@/lib/seo";
 
+import { AdminDashboardClient } from "./AdminDashboardClient";
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -16,47 +18,30 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   });
 };
 
-export default async function AdminPage() {
+export default async function AdminPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations('admin');
 
   return (
-    <section className="admin-shell">
-      <aside className="admin-sidebar">
-        <a>{t('listings')}</a>
-        <a>{t('inquiries')}</a>
-        <a>{t('applications')}</a>
-        <a>{t('packages')}</a>
-        <a>{t('documents')}</a>
-        <a>{t('settings')}</a>
-      </aside>
-      <div className="admin-main">
-        <div className="section-top" style={{ margin: 0, marginBottom: 20 }}>
-          <h1>{t('listings')}</h1>
-          <button className="btn btn-primary">{t('newListing')}</button>
-        </div>
-        <table className="admin-table">
-          <thead>
-            <tr>
-              <th>{t('tableHeaders.title')}</th>
-              <th>{t('tableHeaders.type')}</th>
-              <th>{t('tableHeaders.sector')}</th>
-              <th>{t('tableHeaders.status')}</th>
-              <th>{t('tableHeaders.inquiries')}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {opportunities.map((opportunity, index) => (
-              <tr key={opportunity.id}>
-                <td>{opportunity.title}</td>
-                <td>{opportunity.type}</td>
-                <td>{opportunity.sector}</td>
-                <td><span className="status">{t('statusOpen')}</span></td>
-                <td>{12 + index * 3}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
+    <AdminDashboardClient
+      opportunities={opportunities.map(o => ({
+        id: o.id,
+        title: o.title,
+        type: o.type,
+        sector: o.sector,
+        originCountry: o.originCountry
+      }))}
+      tListings={t('listings')}
+      tNewListing={t('newListing')}
+      tInquiries={t('inquiries')}
+      tApplications={t('applications')}
+      tTitleHeader={t('tableHeaders.title')}
+      tTypeHeader={t('tableHeaders.type')}
+      tSectorHeader={t('tableHeaders.sector')}
+      tStatusHeader={t('tableHeaders.status')}
+      tInquiriesHeader={t('tableHeaders.inquiries')}
+      tStatusOpen={t('statusOpen')}
+    />
   );
 }

@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/opportunities", priority: 0.9, changeFrequency: "weekly" as const },
     { route: "/japan", priority: 0.9, changeFrequency: "weekly" as const },
     { route: "/list-your-opportunity", priority: 0.8, changeFrequency: "weekly" as const },
+    { route: "/submit-opportunity", priority: 0.8, changeFrequency: "weekly" as const },
     { route: "/commercial-terms", priority: 0.8, changeFrequency: "weekly" as const },
     { route: "/curation-process", priority: 0.7, changeFrequency: "weekly" as const },
     { route: "/about", priority: 0.7, changeFrequency: "weekly" as const },

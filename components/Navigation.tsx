@@ -6,7 +6,7 @@ export async function Navigation() {
 
   const nav = [
     { label: t("opportunities"), href: "/opportunities" },
-    { label: t("categories"), href: "/opportunities#categories" },
+    { label: t("submitOpportunity"), href: "/submit-opportunity" },
     { label: t("forCompanies"), href: "/list-your-opportunity" },
     { label: t("resources"), href: "/curation-process" },
     { label: t("aboutUs"), href: "/about" }
