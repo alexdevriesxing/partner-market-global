@@ -67,12 +67,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const tTrust = await getTranslations('trust');
   const tJapanHome = getHomeJapanTranslations(locale);
 
-  const japanFeatured = opportunities.filter((o) => o.originCountry === "Japan" && o.featured);
+  const yachiyoOpp = opportunities.find((o) => o.slug === "yachiyo-mengyo-handa-somen-eu-distribution");
+  const otherJapan = opportunities.filter((o) => o.originCountry === "Japan" && o.featured && o.slug !== "yachiyo-mengyo-handa-somen-eu-distribution");
+  const japanFeatured = yachiyoOpp ? [yachiyoOpp, ...otherJapan] : opportunities.filter((o) => o.originCountry === "Japan" && o.featured);
   const japanTopThree = japanFeatured.slice(0, 3);
-  const globalFeatured = [
-    ...opportunities.filter((o) => o.featured && o.originCountry !== "Japan"),
-    ...japanFeatured.slice(3)
-  ].slice(0, 4);
+  
+  const nonJapanFeatured = opportunities.filter((o) => o.featured && o.originCountry !== "Japan");
+  const globalFeatured = yachiyoOpp
+    ? [yachiyoOpp, ...nonJapanFeatured, ...otherJapan].slice(0, 4)
+    : [...nonJapanFeatured, ...japanFeatured].slice(0, 4);
 
   const distinctMarkets = new Set(opportunities.flatMap((o) => o.targetMarkets));
   const distinctSectors = new Set(opportunities.map((o) => o.sector.split(" / ")[0].trim()));
