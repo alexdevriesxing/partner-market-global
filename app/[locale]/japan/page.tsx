@@ -90,6 +90,7 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
   const yachiyoOpp = opportunities.find((o) => o.slug === "yachiyo-mengyo-handa-somen-eu-distribution");
   const nittohOpp = opportunities.find((o) => o.slug === "nittoh-japanese-dollies-utility-carts-distribution");
   const ichibanOpp = opportunities.find((o) => o.slug === "ichiban-ken-indonesia-master-franchise");
+  const ebaraOpp = opportunities.find((o) => o.slug === "ebara-foods-indonesia-distribution-noodle-partnership");
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -192,7 +193,7 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
                     </>
                   )}
                 </li>
-                <li>
+                <li style={{ marginBottom: "6px" }}>
                   {locale === "ja" ? (
                     <>
                       <Link href={`/${locale}/opportunities/ichiban-ken-indonesia-master-franchise`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
@@ -204,6 +205,21 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
                       <Link href={`/${locale}/opportunities/ichiban-ken-indonesia-master-franchise`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
                         Ichiban-ken Ramen Master Franchise Opportunity
                       </Link>: Indonesian multi-unit rollout and country partner rights for an established Japanese tonkotsu restaurant brand.
+                    </>
+                  )}
+                </li>
+                <li>
+                  {locale === "ja" ? (
+                    <>
+                      <Link href={`/${locale}/opportunities/ebara-foods-indonesia-distribution-noodle-partnership`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
+                        Ebara Foods インドネシア業務用スープ・製麺・戦略的提携
+                      </Link>：エバラ食品グループ（EBARA SINGAPORE）による、バリ島を中心とした業務用ラーメンスープ・製麺原料ディストリビューターおよびM&A・事業提携機会。
+                    </>
+                  ) : (
+                    <>
+                      <Link href={`/${locale}/opportunities/ebara-foods-indonesia-distribution-noodle-partnership`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
+                        Ebara Foods Indonesia Foodservice & Noodle Partnership
+                      </Link>: Professional ramen soup bases, noodle manufacturing ingredients, B2B distribution, and M&A opportunities in Bali and Indonesia for Ebara Foods Group.
                     </>
                   )}
                 </li>
@@ -228,7 +244,7 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
       </section>
 
       {/* Latest Japanese Opportunities */}
-      {(yachiyoOpp || nittohOpp || ichibanOpp) && (
+      {(ebaraOpp || yachiyoOpp || nittohOpp || ichibanOpp) && (
         <section className="japan-grid-section bg-soft" style={{ paddingTop: "48px", paddingBottom: "48px", borderBottom: "1px solid var(--border)", borderTop: "1px solid var(--border)" }}>
           <div className="section-top text-center" style={{ marginBottom: "32px" }}>
             <span className="eyebrow" style={{ color: "var(--primary)", fontWeight: "600", letterSpacing: "0.05em" }}>NEW RELEASES</span>
@@ -241,6 +257,7 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
           </div>
           <div className="container" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
             <div className="opportunity-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "24px" }}>
+              {ebaraOpp && <OpportunityCard opportunity={ebaraOpp} locale={locale} />}
               {yachiyoOpp && <OpportunityCard opportunity={yachiyoOpp} locale={locale} />}
               {nittohOpp && <OpportunityCard opportunity={nittohOpp} locale={locale} />}
               {ichibanOpp && <OpportunityCard opportunity={ichibanOpp} locale={locale} />}

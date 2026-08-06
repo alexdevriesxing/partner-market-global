@@ -252,6 +252,73 @@ const mappedJipOpportunities: Opportunity[] = (jipOpportunitiesRaw as unknown as
     };
   }
 
+  if (jip.slug === "ebara-foods-indonesia-distribution-noodle-partnership") {
+    return {
+      id: jip.id,
+      slug: jip.slug,
+      sourcePartner: jip.sourcePartner || "JIP Japan",
+      title: jip.title,
+      type: formattedType,
+      sector: jip.category + (jip.subCategory ? ` / ${jip.subCategory}` : ""),
+      originCountry: "Japan",
+      targetMarkets: ["Indonesia", "Bali", "Jakarta", "Surabaya"],
+      heroImage: `/images/opportunities/${jip.heroImageFile || jip.imageFile}`,
+      cardImage: `/images/opportunities/${jip.imageFile}`,
+      summary: "EBARA SINGAPORE PTE. LTD., part of Japan’s Ebara Foods Group, is seeking Indonesian foodservice distributors, ramen-ingredient wholesalers, trading companies and noodle manufacturers, with Bali as the initial priority market.",
+      description: "EBARA SINGAPORE PTE. LTD., part of the established Japanese seasoning manufacturer Ebara Foods Group, is seeking qualified partners to expand its professional foodservice ingredient business in Indonesia.\n\nThe opportunity is aimed at locally connected B2B distributors, specialist wholesalers, trading companies and noodle manufacturers capable of developing Ebara products as an important core line rather than placing them passively within a large general catalogue.\n\nBali is the initial priority market, followed by selected opportunities elsewhere in Indonesia. Ebara is also open to discussing broader strategic alliances and potential acquisition or M&A opportunities with suitable local businesses.",
+      companyBackground: "Ebara Foods Industry, Inc. is a Japanese food manufacturer established in 1958. The group produces and sells seasonings and has a long operating history in sauces, soup products and professional foodservice solutions.\n\nEBARA SINGAPORE PTE. LTD. was established to provide products and services suited to local Southeast Asian markets, promote Japanese sauce and seasoning culture and support the continued expansion of the Ebara brand within the region.\n\nThe group also operates EBARA FOODS MALAYSIA SDN. BHD., supporting its broader presence in Southeast Asia.",
+      productDetails: "Proposed Combined Professional Ramen & Noodle-Production Solution:\n\nRamen Soup Solutions:\n- Tori Paitan-style soup\n- Miso ramen soup\n- Tonkotsu-style soup\n- Vegetable or plant-forward ramen soup\n- Other professional Japanese soup bases subject to availability\n\nNoodle-Production Ingredients:\n- Kansui or alkaline noodle agents\n- Ingredients supporting ramen-noodle texture and consistency\n- Soup thickeners and texture-management ingredients\n\nComplementary Professional Foodservice Seasonings:\n\n(Final product availability, formulations, pack sizes, ingredients, certifications, halal status, pricing and minimum order quantities will be confirmed during partner qualification.)",
+      marketOpportunity: "Outside Indonesia’s largest distribution centres, reliable access to fresh or frozen specialist ramen noodles can be limited. As a result, some ramen operators produce noodles themselves or source them through smaller local manufacturers.\n\nThis creates an opportunity to connect professional noodle production with compatible soup bases and supporting ingredients. The proposition can help a local distributor or manufacturer offer restaurant customers a more coherent ramen solution instead of selling individual ingredients in isolation.\n\nBali is especially relevant because it has a concentrated hospitality and restaurant sector, a substantial Japanese and international dining presence, independent restaurants that value specialist technical support, local operators supplying several restaurant customers, and a practical environment for testing a focused B2B route to market.",
+      partnerProfile: "Priority target partners include:\n1. Specialist B2B & Foodservice Distributors with strong HORECA relationships, active sales coverage, and market-development resources. (MASUYA is explicitly excluded as an active partner).\n2. Ramen-Ingredient Wholesalers supplying ramen outlets, izakayas, hotels, and central kitchens.\n3. Noodle Manufacturers seeking to expand SKU ranges and bundle noodles with soup bases.\n4. Local Trading Companies with Japanese-Indonesian networks and regulatory/import knowledge.\n5. Strategic Investment or M&A Candidates interested in evaluating exploratory partnership, investment, or acquisition.",
+      commercialModel: "Potential structures include non-exclusive distribution, territory-based distribution, specialist foodservice wholesaling, trading-company representation, noodle-manufacturing partnerships, co-developed ramen solutions, product bundling, strategic alliances, minority/majority investment, or acquisition subject to evaluation.\n\nTerritory rights, exclusivity, pricing, minimum orders, product selection, and performance expectations will be discussed with qualified candidates.",
+      territoryAvailability: "Indonesia (Priority territory: Bali. Secondary territories: Jakarta, Surabaya, and other commercially relevant Indonesian cities).",
+      investmentRequirement: "Working capital, local sales capability, warehousing and market-development resources may be required depending on partnership type. Terms agreed during qualification.",
+      credentials: jip.keyStrengths || [
+        "Established Japanese food-seasoning group",
+        "Southeast Asian operating presence through Ebara Singapore",
+        "Malaysian group entity also in operation",
+        "Dedicated professional foodservice opportunity",
+        "Priority launch focus on Bali",
+        "Combination of soup bases and noodle-production ingredients",
+        "Opportunity to create a specialist ramen-supply proposition",
+        "Suitable for distributors that can provide active technical and commercial selling",
+        "Potential partnerships with local noodle manufacturers",
+        "Potential strategic investment, acquisition or M&A discussions",
+        "Opportunity to expand into additional Indonesian territories after market validation"
+      ],
+      verificationBadges: [
+        "Client Opportunity",
+        "JIP Japan Vetted",
+        "Indonesia",
+        "Foodservice Distribution",
+        "Noodle Manufacturing",
+        "Strategic Partnership",
+        "M&A Potential"
+      ],
+      documentsAvailable: [
+        "Company profile",
+        "Product portfolio",
+        "Professional foodservice catalogue",
+        "Product specifications",
+        "Ingredient and allergen information",
+        "Certification information",
+        "Sample and trial information",
+        "Commercial opportunity brief",
+        "Territory discussion document",
+        "Strategic partnership or M&A discussion materials, where applicable",
+        "Regulatory information on inquiry"
+      ],
+      risks: "Product registration and import requirements may apply. Halal status must be assessed SKU by SKU. Non-halal products may require separate handling and communication. Cold-chain capability may be needed for certain partner-developed noodle products. Restaurant trials may be required before commercial rollout. Final product range depends on local compliance and availability. Commercial rights are subject to negotiation. M&A discussions are exploratory and require full due diligence. No commercial success, volume or profitability is guaranteed. Interested parties must perform their own legal, financial and commercial assessment.",
+      status: "Active outreach",
+      featured: true,
+      brand: jip.brand,
+      company: jip.company,
+      seoKeywords: jip.seoKeywords,
+      imageAlt: jip.imageAlt,
+      exclusivity: "Subject to territory, partner capability and commercial negotiation"
+    };
+  }
+
   return {
     id: jip.id,
     slug: jip.slug,

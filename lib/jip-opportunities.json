@@ -708,5 +708,69 @@
     "heroImageFile": "ichiban-ken-indonesia-master-franchise-hero.png",
     "imageAlt": "Ichiban-ken Japanese tonkotsu ramen restaurant master franchise opportunity for Indonesia.",
     "imagePath": "/images/opportunities/ichiban-ken-indonesia-master-franchise.png"
+  },
+  {
+    "id": "jip-ebara-foods-indonesia",
+    "slug": "ebara-foods-indonesia-distribution-noodle-partnership",
+    "sourcePartner": "JIP Japan",
+    "company": "EBARA SINGAPORE PTE. LTD.",
+    "brand": "Ebara Foods Group",
+    "title": "Ebara Foods Indonesia Foodservice Distribution, Noodle Manufacturing & Strategic Partnership Opportunity",
+    "category": "Food & Beverage",
+    "subCategory": "Seasonings / Foodservice Ingredients / Japanese Cuisine / Ramen Ingredients",
+    "opportunityType": [
+      "Distribution",
+      "Foodservice Distribution",
+      "B2B Wholesale",
+      "Trading Partnership",
+      "Noodle Manufacturing Partnership",
+      "Product-Line Expansion",
+      "Strategic Alliance",
+      "Potential Acquisition / M&A"
+    ],
+    "marketRegions": [
+      "Indonesia",
+      "Bali",
+      "Jakarta",
+      "Surabaya"
+    ],
+    "targetPartners": [
+      "Indonesian foodservice distributors",
+      "Ramen-ingredient wholesalers",
+      "Noodle manufacturers",
+      "Local trading companies",
+      "Strategic investment or M&A candidates"
+    ],
+    "publicSummary": "EBARA SINGAPORE PTE. LTD., part of Japan’s Ebara Foods Group, is seeking Indonesian foodservice distributors, ramen-ingredient wholesalers, trading companies and noodle manufacturers, with Bali as the initial priority market.",
+    "partnerProfile": "Best suited to locally connected B2B distributors, specialist wholesalers, trading companies, and noodle manufacturers capable of actively developing Ebara products as a core line. MASUYA is explicitly excluded from outreach.",
+    "keyStrengths": [
+      "Established Japanese food-seasoning group (Ebara Foods Industry established 1958)",
+      "Southeast Asian operating presence through Ebara Singapore & Ebara Foods Malaysia",
+      "Dedicated professional foodservice opportunity",
+      "Priority launch focus on Bali",
+      "Combination of soup bases and noodle-production ingredients",
+      "Opportunity to create a specialist ramen-supply proposition",
+      "Suitable for distributors providing active technical and commercial selling",
+      "Potential partnerships with local noodle manufacturers",
+      "Potential strategic investment, acquisition or M&A discussions",
+      "Opportunity to expand into additional Indonesian territories after market validation"
+    ],
+    "statusPublic": "Active outreach",
+    "priority": "High",
+    "seoKeywords": [
+      "Ebara Foods Indonesia distributor",
+      "Japanese seasoning distributor Indonesia",
+      "ramen ingredient distributor Indonesia",
+      "Bali foodservice distributor",
+      "noodle manufacturer Indonesia",
+      "ramen soup supplier Indonesia",
+      "Japanese food ingredients Bali",
+      "foodservice investment Indonesia",
+      "noodle manufacturer acquisition Indonesia"
+    ],
+    "imageFile": "ebara-foods-indonesia-distribution-noodle-partnership.jpg",
+    "heroImageFile": "ebara-foods-indonesia-distribution-noodle-partnership-hero.jpg",
+    "imageAlt": "Ebara Foods Indonesia ramen ingredient, noodle manufacturing and foodservice distribution opportunity.",
+    "imagePath": "/images/opportunities/ebara-foods-indonesia-distribution-noodle-partnership.jpg"
   }
 ]

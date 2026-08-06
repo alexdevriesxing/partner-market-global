@@ -214,6 +214,18 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                     </p>
                   </div>
                 )}
+
+                {opportunity.slug === "ebara-foods-indonesia-distribution-noodle-partnership" && (
+                  <div className="track-record-panel" style={{ marginTop: 24, padding: 16, backgroundColor: "var(--card-bg, #ffffff)", borderRadius: 8, borderLeft: "4px solid #0f766e", boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}>
+                    <h4 style={{ margin: "0 0 10px 0", fontSize: "1rem", fontWeight: "600" }}>Ebara Foods Group Key Information</h4>
+                    <ul style={{ listStyleType: "none", paddingLeft: 0, margin: 0, fontSize: "0.95rem" }}>
+                      <li style={{ marginBottom: 8 }}>🏢 <strong>Established 1958:</strong> Ebara Foods Industry, Inc. is a leading Japanese seasoning and sauce manufacturer.</li>
+                      <li style={{ marginBottom: 8 }}>🌏 <strong>Regional Operations:</strong> Managed through EBARA SINGAPORE PTE. LTD. and EBARA FOODS MALAYSIA SDN. BHD.</li>
+                      <li style={{ marginBottom: 8 }}>📍 <strong>Priority Launch Market:</strong> Bali B2B foodservice network & specialist ramen-supply proposition.</li>
+                      <li style={{ marginBottom: 8 }}>⚠️ <strong>Exclusion Note:</strong> MASUYA is an active Ebara partner and is strictly excluded from partner search outreach.</li>
+                    </ul>
+                  </div>
+                )}
               </div>
               <div className="content-card product-shot">
                 <img src={opportunity.cardImage} alt={`${opportunity.title} product showcase`} style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "12px" }} />
@@ -391,6 +403,185 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                   <p style={{ marginTop: 12, fontSize: "0.8rem", fontStyle: "italic", color: "#64748b" }}>
                     Note: The above recipes illustrate serving inspiration and menu applications. The noodles themselves are vegan-compatible, while finished dishes depend on ingredients chosen by the restaurant or consumer.
                   </p>
+                </div>
+              </>
+            )}
+
+            {/* Custom Rich Sections for Ebara Foods */}
+            {opportunity.slug === "ebara-foods-indonesia-distribution-noodle-partnership" && (
+              <>
+                {/* PROPOSED PRODUCT SOLUTION */}
+                <div className="content-card" style={{ marginTop: 24 }}>
+                  <h2>Proposed Product Solution</h2>
+                  <p style={{ lineHeight: 1.6, marginBottom: 16, color: "#475569" }}>
+                    The opportunity is presented as a combined professional ramen and noodle-production solution, giving prospective partners a complete proposition for restaurants that currently manufacture noodles or prepare soup components in-house.
+                  </p>
+
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20 }}>
+                    <div style={{ padding: 16, border: "1px solid var(--border, #e2e8f0)", borderRadius: 8, backgroundColor: "var(--card-bg, #fff)" }}>
+                      <h3 style={{ marginTop: 0, fontSize: "1.05rem", color: "#0f766e" }}>🍜 Ramen Soup Solutions</h3>
+                      <ul style={{ paddingLeft: 20, margin: 0, fontSize: "0.9rem", color: "#334155" }}>
+                        <li style={{ marginBottom: 6 }}>Tori Paitan-style chicken soup base</li>
+                        <li style={{ marginBottom: 6 }}>Rich Miso ramen soup base</li>
+                        <li style={{ marginBottom: 6 }}>Tonkotsu-style pork bone soup base</li>
+                        <li style={{ marginBottom: 6 }}>Vegetable & plant-forward ramen soup bases</li>
+                        <li>Other professional Japanese soup bases (subject to availability)</li>
+                      </ul>
+                    </div>
+
+                    <div style={{ padding: 16, border: "1px solid var(--border, #e2e8f0)", borderRadius: 8, backgroundColor: "var(--card-bg, #fff)" }}>
+                      <h3 style={{ marginTop: 0, fontSize: "1.05rem", color: "#0f766e" }}>🌾 Noodle-Production Ingredients</h3>
+                      <ul style={{ paddingLeft: 20, margin: 0, fontSize: "0.9rem", color: "#334155" }}>
+                        <li style={{ marginBottom: 6 }}>Kansui (alkaline noodle agents)</li>
+                        <li style={{ marginBottom: 6 }}>Texture & chewiness enhancement agents</li>
+                        <li style={{ marginBottom: 6 }}>Soup thickeners & viscosity solutions</li>
+                        <li>Consistency & shelf-life management ingredients</li>
+                      </ul>
+                    </div>
+
+                    <div style={{ padding: 16, border: "1px solid var(--border, #e2e8f0)", borderRadius: 8, backgroundColor: "var(--card-bg, #fff)" }}>
+                      <h3 style={{ marginTop: 0, fontSize: "1.05rem", color: "#0f766e" }}>🧪 Foodservice Seasonings</h3>
+                      <ul style={{ paddingLeft: 20, margin: 0, fontSize: "0.9rem", color: "#334155" }}>
+                        <li style={{ marginBottom: 6 }}>Professional Japanese culinary sauces</li>
+                        <li style={{ marginBottom: 6 }}>Dashi and tare seasoning bases</li>
+                        <li style={{ marginBottom: 6 }}>Menu customization & chef support items</li>
+                        <li>Technical recipe guidance and dosage support</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <p style={{ marginTop: 16, fontSize: "0.85rem", fontStyle: "italic", color: "#64748b" }}>
+                    Note: Final product availability, formulations, pack sizes, ingredients, certifications, halal status, pricing and minimum order quantities will be confirmed during partner qualification. Product eligibility may differ by formulation and route to market.
+                  </p>
+                </div>
+
+                {/* MARKET RATIONALE & BALI PRIORITY */}
+                <div className="content-card" style={{ marginTop: 24 }}>
+                  <h2>Market Rationale & Bali Launch Priority</h2>
+                  <p style={{ lineHeight: 1.6, marginBottom: 14 }}>
+                    Outside Indonesia’s largest distribution hubs, reliable access to fresh or frozen specialist ramen noodles can be limited. Consequently, many ramen operators produce noodles themselves or source them through local micro-manufacturers.
+                  </p>
+                  <p style={{ lineHeight: 1.6, marginBottom: 16 }}>
+                    This gap creates a strategic opportunity to connect professional noodle production with compatible soup bases and texture agents. A local distributor or manufacturer can offer restaurants a coherent ramen solution rather than selling individual ingredients in isolation.
+                  </p>
+
+                  <h3 style={{ fontSize: "1.1rem", marginBottom: 12 }}>Why Bali is the Initial Priority Market:</h3>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16 }}>
+                    <div style={{ padding: 14, backgroundColor: "var(--soft-bg, #f8fafc)", borderRadius: 8, borderLeft: "3px solid #0f766e" }}>
+                      <strong>Concentrated Hospitality Sector:</strong> High density of hotels, resorts, izakayas, and independent dining venues.
+                    </div>
+                    <div style={{ padding: 14, backgroundColor: "var(--soft-bg, #f8fafc)", borderRadius: 8, borderLeft: "3px solid #0f766e" }}>
+                      <strong>International & Japanese Dining:</strong> Strong consumer and tourist demand for authentic Japanese culinary experiences.
+                    </div>
+                    <div style={{ padding: 14, backgroundColor: "var(--soft-bg, #f8fafc)", borderRadius: 8, borderLeft: "3px solid #0f766e" }}>
+                      <strong>Technical Selling Fit:</strong> Independent chefs and local manufacturers value specialist technical application support.
+                    </div>
+                    <div style={{ padding: 14, backgroundColor: "var(--soft-bg, #f8fafc)", borderRadius: 8, borderLeft: "3px solid #0f766e" }}>
+                      <strong>Ideal B2B Testbed:</strong> Practical environment to validate the commercial model before expanding to Java and other islands.
+                    </div>
+                  </div>
+                </div>
+
+                {/* PRIORITY TARGET PARTNERS */}
+                <div className="content-card" style={{ marginTop: 24 }}>
+                  <h2>Priority Target Partners</h2>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 16, marginTop: 16 }}>
+                    <div style={{ padding: 16, border: "1px solid var(--border, #e2e8f0)", borderRadius: 8 }}>
+                      <h4 style={{ margin: "0 0 6px 0", fontSize: "1rem" }}>1. Specialist B2B & Foodservice Distributors</h4>
+                      <p style={{ margin: 0, fontSize: "0.9rem", color: "#475569" }}>
+                        Indonesian distributors with active HORECA/Japanese restaurant coverage, warehousing, and willingness to actively sell Ebara as a core line. <em style={{ color: "#b91c1c" }}>Note: MASUYA is an active partner and is explicitly excluded from outreach.</em>
+                      </p>
+                    </div>
+
+                    <div style={{ padding: 16, border: "1px solid var(--border, #e2e8f0)", borderRadius: 8 }}>
+                      <h4 style={{ margin: "0 0 6px 0", fontSize: "1rem" }}>2. Ramen-Ingredient Wholesalers</h4>
+                      <p style={{ margin: 0, fontSize: "0.9rem", color: "#475569" }}>
+                        Wholesalers supplying ramen shops, izakayas, hotels, resorts, central kitchens, and specialty Japanese food accounts.
+                      </p>
+                    </div>
+
+                    <div style={{ padding: 16, border: "1px solid var(--border, #e2e8f0)", borderRadius: 8 }}>
+                      <h4 style={{ margin: "0 0 6px 0", fontSize: "1rem" }}>3. Noodle Manufacturers</h4>
+                      <p style={{ margin: 0, fontSize: "0.9rem", color: "#475569" }}>
+                        Fresh, chilled, or frozen noodle producers seeking to expand SKU ranges, introduce kansui & texture solutions, and offer bundled noodle-and-soup packages to restaurant clients.
+                      </p>
+                    </div>
+
+                    <div style={{ padding: 16, border: "1px solid var(--border, #e2e8f0)", borderRadius: 8 }}>
+                      <h4 style={{ margin: "0 0 6px 0", fontSize: "1rem" }}>4. Local Trading Companies</h4>
+                      <p style={{ margin: 0, fontSize: "0.9rem", color: "#475569" }}>
+                        Commercial trading firms with strong Japanese-Indonesian networks, food import compliance expertise, and established distribution routes.
+                      </p>
+                    </div>
+
+                    <div style={{ padding: 16, border: "1px solid var(--border, #e2e8f0)", borderRadius: 8 }}>
+                      <h4 style={{ margin: "0 0 6px 0", fontSize: "1rem" }}>5. Strategic Investment or M&A Candidates</h4>
+                      <p style={{ margin: 0, fontSize: "0.9rem", color: "#475569" }}>
+                        Ebara is open to evaluating suitable Indonesian foodservice distributors, ramen specialists, or noodle manufacturers for strategic alliances, minority/majority investment, or acquisition. All M&A discussions are exploratory and subject to strategic fit, valuation, and due diligence.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ILLUSTRATIVE BALI PARTNER MODEL */}
+                <div className="content-card" style={{ marginTop: 24 }}>
+                  <h2>Illustrative Bali Partner Model</h2>
+                  <div style={{ padding: 16, backgroundColor: "var(--soft-bg, #f8fafc)", borderRadius: 8, borderLeft: "4px solid #0f766e" }}>
+                    <p style={{ lineHeight: 1.6, margin: 0, fontSize: "0.95rem" }}>
+                      A suitable example would be a Bali-based ramen operator or local noodle producer that supplies noodles to a network of independent restaurants. Such a partner could combine its locally produced noodles with Ebara soup bases, kansui, and supporting seasonings to offer restaurant customers a complete ramen solution.
+                    </p>
+                    <ul style={{ marginTop: 12, paddingLeft: 20, fontSize: "0.9rem", color: "#334155" }}>
+                      <li>Manufacture or supply noodles locally while offering compatible Ebara soup bases.</li>
+                      <li>Supply complete ingredient bundles to independent restaurants across Bali.</li>
+                      <li>Provide menu development, dosage guidance, and recipe standardization.</li>
+                      <li>Build recurring B2B restaurant relationships and reduce reliance on Java imports.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* PHASED MARKET-ENTRY APPROACH */}
+                <div className="content-card" style={{ marginTop: 24 }}>
+                  <h2>Phased Market-Entry Approach</h2>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 14, marginTop: 16 }}>
+                    <div style={{ padding: 14, border: "1px solid var(--border, #e2e8f0)", borderRadius: 8, textAlign: "center" }}>
+                      <span style={{ fontSize: "1.2rem", fontWeight: "700", color: "#0f766e" }}>Phase 1</span>
+                      <h4 style={{ margin: "6px 0 4px 0", fontSize: "0.95rem" }}>Bali Partner Identification</h4>
+                      <p style={{ fontSize: "0.8rem", color: "#64748b", margin: 0 }}>Identify B2B distributors, noodle makers, and trading firms with Bali coverage.</p>
+                    </div>
+                    <div style={{ padding: 14, border: "1px solid var(--border, #e2e8f0)", borderRadius: 8, textAlign: "center" }}>
+                      <span style={{ fontSize: "1.2rem", fontWeight: "700", color: "#0f766e" }}>Phase 2</span>
+                      <h4 style={{ margin: "6px 0 4px 0", fontSize: "0.95rem" }}>Product Validation</h4>
+                      <p style={{ fontSize: "0.8rem", color: "#64748b", margin: 0 }}>Select initial range, conduct restaurant trials, validate product fit and BPOM scope.</p>
+                    </div>
+                    <div style={{ padding: 14, border: "1px solid var(--border, #e2e8f0)", borderRadius: 8, textAlign: "center" }}>
+                      <span style={{ fontSize: "1.2rem", fontWeight: "700", color: "#0f766e" }}>Phase 3</span>
+                      <h4 style={{ margin: "6px 0 4px 0", fontSize: "0.95rem" }}>Focused Launch</h4>
+                      <p style={{ fontSize: "0.8rem", color: "#64748b", margin: 0 }}>Commercial rollout across izakayas, hotels, restaurant groups, and noodle clients.</p>
+                    </div>
+                    <div style={{ padding: 14, border: "1px solid var(--border, #e2e8f0)", borderRadius: 8, textAlign: "center" }}>
+                      <span style={{ fontSize: "1.2rem", fontWeight: "700", color: "#0f766e" }}>Phase 4</span>
+                      <h4 style={{ margin: "6px 0 4px 0", fontSize: "0.95rem" }}>Territory Expansion</h4>
+                      <p style={{ fontSize: "0.8rem", color: "#64748b", margin: 0 }}>Extend into Jakarta, Surabaya, and key Indonesian urban markets.</p>
+                    </div>
+                    <div style={{ padding: 14, border: "1px solid var(--border, #e2e8f0)", borderRadius: 8, textAlign: "center" }}>
+                      <span style={{ fontSize: "1.2rem", fontWeight: "700", color: "#0f766e" }}>Phase 5</span>
+                      <h4 style={{ margin: "6px 0 4px 0", fontSize: "0.95rem" }}>Strategic Cooperation</h4>
+                      <p style={{ fontSize: "0.8rem", color: "#64748b", margin: 0 }}>Evaluate joint ventures, localized manufacturing, or acquisition discussions.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* REGULATORY AND HALAL CONSIDERATIONS */}
+                <div className="content-card" style={{ marginTop: 24 }}>
+                  <h2>Regulatory & Compliance Information</h2>
+                  <p style={{ lineHeight: 1.6, fontSize: "0.95rem", color: "#334155" }}>
+                    Product registration, import requirements, ingredient declarations, halal obligations, non-halal handling, labelling and distribution requirements must be reviewed for each product and channel before commercial launch. Bali may provide a practical initial market for selected foodservice products, but all activities remain subject to applicable Indonesian regulations and professional legal and regulatory advice.
+                  </p>
+                  <ul style={{ paddingLeft: 20, fontSize: "0.9rem", color: "#475569", marginTop: 10 }}>
+                    <li style={{ marginBottom: 6 }}>Halal and non-halal SKUs must be clearly identified and segregated in handling.</li>
+                    <li style={{ marginBottom: 6 }}>Claims must be supported by valid official certification per SKU.</li>
+                    <li>BPOM import clearance, customs classification, and labelling compliance must be verified during partner qualification.</li>
+                  </ul>
                 </div>
               </>
             )}
