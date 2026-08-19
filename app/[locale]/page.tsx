@@ -67,14 +67,18 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const tTrust = await getTranslations('trust');
   const tJapanHome = getHomeJapanTranslations(locale);
 
+  const sonicOpp = opportunities.find((o) => o.slug === "sonic-friends-europe-2027");
   const yachiyoOpp = opportunities.find((o) => o.slug === "yachiyo-mengyo-handa-somen-eu-distribution");
-  const otherJapan = opportunities.filter((o) => o.originCountry === "Japan" && o.featured && o.slug !== "yachiyo-mengyo-handa-somen-eu-distribution");
-  const japanFeatured = yachiyoOpp ? [yachiyoOpp, ...otherJapan] : opportunities.filter((o) => o.originCountry === "Japan" && o.featured);
+  const otherJapan = opportunities.filter((o) => o.originCountry === "Japan" && o.featured && o.slug !== "sonic-friends-europe-2027" && o.slug !== "yachiyo-mengyo-handa-somen-eu-distribution");
+  
+  const japanFeatured = sonicOpp
+    ? [sonicOpp, ...(yachiyoOpp ? [yachiyoOpp] : []), ...otherJapan]
+    : opportunities.filter((o) => o.originCountry === "Japan" && o.featured);
   const japanTopThree = japanFeatured.slice(0, 3);
   
   const nonJapanFeatured = opportunities.filter((o) => o.featured && o.originCountry !== "Japan");
-  const globalFeatured = yachiyoOpp
-    ? [yachiyoOpp, ...nonJapanFeatured, ...otherJapan].slice(0, 4)
+  const globalFeatured = sonicOpp
+    ? [sonicOpp, ...(yachiyoOpp ? [yachiyoOpp] : []), ...nonJapanFeatured, ...otherJapan].slice(0, 4)
     : [...nonJapanFeatured, ...japanFeatured].slice(0, 4);
 
   const distinctMarkets = new Set(opportunities.flatMap((o) => o.targetMarkets));

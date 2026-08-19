@@ -506,7 +506,12 @@ const staticOpportunities: Opportunity[] = [
   },
 ];
 
-export const opportunities: Opportunity[] = [...staticOpportunities, ...mappedJipOpportunities];
+const sonicOpp = mappedJipOpportunities.find((o) => o.slug === "sonic-friends-europe-2027");
+const otherMappedJip = mappedJipOpportunities.filter((o) => o.slug !== "sonic-friends-europe-2027");
+
+export const opportunities: Opportunity[] = sonicOpp
+  ? [sonicOpp, ...staticOpportunities, ...otherMappedJip]
+  : [...staticOpportunities, ...mappedJipOpportunities];
 
 export const categories = [
   { title: "Import Opportunities", image: "/assets/import-opportunities.svg", href: "/opportunities?type=import" },

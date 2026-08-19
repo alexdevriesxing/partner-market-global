@@ -263,6 +263,8 @@ export function OpportunitySearchFilter({ initialOpportunities, locale }: Props)
         return (b.title || "").localeCompare(a.title || "");
       }
       // default: featured first, then fallback to id
+      if (a.slug === "sonic-friends-europe-2027") return -1;
+      if (b.slug === "sonic-friends-europe-2027") return 1;
       if (a.featured && !b.featured) return -1;
       if (!a.featured && b.featured) return 1;
       return (a.id || "").localeCompare(b.id || "");

@@ -87,6 +87,7 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
   const tCta = await getTranslations('cta');
 
   const japanOpportunities = opportunities.filter((o) => o.originCountry === "Japan");
+  const sonicOpp = opportunities.find((o) => o.slug === "sonic-friends-europe-2027");
   const yachiyoOpp = opportunities.find((o) => o.slug === "yachiyo-mengyo-handa-somen-eu-distribution");
   const nittohOpp = opportunities.find((o) => o.slug === "nittoh-japanese-dollies-utility-carts-distribution");
   const ichibanOpp = opportunities.find((o) => o.slug === "ichiban-ken-indonesia-master-franchise");
@@ -166,6 +167,21 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
                 <li style={{ marginBottom: "6px" }}>
                   {locale === "ja" ? (
                     <>
+                      <Link href={`/${locale}/opportunities/sonic-friends-europe-2027`} style={{ fontWeight: "700", textDecoration: "underline", color: "var(--primary)" }}>
+                        SONIC &amp; FRIENDS 欧州リテール・流通・卸売パートナーシップ 2027
+                      </Link>：セガ発の新規キャラクターシリーズ。2027年春の欧州映画公開ウィンドウに合わせたぬいぐるみ・マスコット・サンリオコラボ商品の欧州展開。
+                    </>
+                  ) : (
+                    <>
+                      <Link href={`/${locale}/opportunities/sonic-friends-europe-2027`} style={{ fontWeight: "700", textDecoration: "underline", color: "var(--primary)" }}>
+                        SONIC &amp; FRIENDS — European Retail &amp; Distribution Opportunity 2027
+                      </Link>: Official SEGA character merchandise positioned around the major 2027 European movie release window and concert tour.
+                    </>
+                  )}
+                </li>
+                <li style={{ marginBottom: "6px" }}>
+                  {locale === "ja" ? (
+                    <>
                       <Link href={`/${locale}/opportunities/yachiyo-mengyo-handa-somen-eu-distribution`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
                         八千代麺業 オーガニック半田そうめん・細うどん EU総代理店・販売権
                       </Link>：JASオーガニック・ハラール・ヴィーガン対応、厳選された国産原料使用の手延べそうめん・細うどんのEU市場展開。
@@ -173,8 +189,8 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
                   ) : (
                     <>
                       <Link href={`/${locale}/opportunities/yachiyo-mengyo-handa-somen-eu-distribution`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
-                        Yachiyo Mengyo Organic Handa Somen & Thin Udon EU Distribution
-                      </Link>: Organic & Halal-certified Japanese hand-stretched noodles for EU importers, distributors, retail, and HORECA.
+                        Yachiyo Mengyo Organic Handa Somen &amp; Thin Udon EU Distribution
+                      </Link>: Organic &amp; Halal-certified Japanese hand-stretched noodles for EU importers, distributors, retail, and HORECA.
                     </>
                   )}
                 </li>
@@ -188,7 +204,7 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
                   ) : (
                     <>
                       <Link href={`/${locale}/opportunities/nittoh-japanese-dollies-utility-carts-distribution`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
-                        Nittoh Dolly & Utility Cart Distribution Opportunity
+                        Nittoh Dolly &amp; Utility Cart Distribution Opportunity
                       </Link>: Premium Japanese interlocking flat dollies and professional carts for retail, e-commerce, and hotel buyers.
                     </>
                   )}
@@ -213,13 +229,13 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
                     <>
                       <Link href={`/${locale}/opportunities/ebara-foods-indonesia-distribution-noodle-partnership`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
                         Ebara Foods インドネシア業務用スープ・製麺・戦略的提携
-                      </Link>：エバラ食品グループ（EBARA SINGAPORE）による、バリ島を中心とした業務用ラーメンスープ・製麺原料ディストリビューターおよびM&A・事業提携機会。
+                      </Link>：エバラ食品グループ（EBARA SINGAPORE）による、バリ島を中心とした業務用ラーメンスープ・製麺原料ディストリビューターおよびM&amp;A・事業提携機会。
                     </>
                   ) : (
                     <>
                       <Link href={`/${locale}/opportunities/ebara-foods-indonesia-distribution-noodle-partnership`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
-                        Ebara Foods Indonesia Foodservice & Noodle Partnership
-                      </Link>: Professional ramen soup bases, noodle manufacturing ingredients, B2B distribution, and M&A opportunities in Bali and Indonesia for Ebara Foods Group.
+                        Ebara Foods Indonesia Foodservice &amp; Noodle Partnership
+                      </Link>: Professional ramen soup bases, noodle manufacturing ingredients, B2B distribution, and M&amp;A opportunities in Bali and Indonesia for Ebara Foods Group.
                     </>
                   )}
                 </li>
@@ -244,7 +260,7 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
       </section>
 
       {/* Latest Japanese Opportunities */}
-      {(ebaraOpp || yachiyoOpp || nittohOpp || ichibanOpp) && (
+      {(sonicOpp || ebaraOpp || yachiyoOpp || nittohOpp || ichibanOpp) && (
         <section className="japan-grid-section bg-soft" style={{ paddingTop: "48px", paddingBottom: "48px", borderBottom: "1px solid var(--border)", borderTop: "1px solid var(--border)" }}>
           <div className="section-top text-center" style={{ marginBottom: "32px" }}>
             <span className="eyebrow" style={{ color: "var(--primary)", fontWeight: "600", letterSpacing: "0.05em" }}>NEW RELEASES</span>
@@ -257,6 +273,7 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
           </div>
           <div className="container" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
             <div className="opportunity-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "24px" }}>
+              {sonicOpp && <OpportunityCard opportunity={sonicOpp} locale={locale} />}
               {ebaraOpp && <OpportunityCard opportunity={ebaraOpp} locale={locale} />}
               {yachiyoOpp && <OpportunityCard opportunity={yachiyoOpp} locale={locale} />}
               {nittohOpp && <OpportunityCard opportunity={nittohOpp} locale={locale} />}
