@@ -1,80 +1,136 @@
 # Partner Market Global
 
-> Curated B2B showcase connecting companies that have import, export, distribution, franchise, licensing, private label / OEM and country partner opportunities with qualified international partners. Operated by Alex de Vries of De Vries Sales Consultancy. 100% commission-based — no listing fees, no subscription packages.
+> Curated B2B showcase connecting companies that have import, export, distribution, franchise, licensing, private label / OEM, and country partner opportunities with qualified international partners. Operated by Alex de Vries of De Vries Sales Consultancy. 100% commission-based — no listing fees, no upfront subscription packages.
 
-Canonical site: https://partner-market-global2.pages.dev
-Last updated: 2026-07-09
-Languages: English (en), Spanish (es), French (fr), German (de), Dutch (nl), Italian (it), Portuguese (pt), Chinese (zh), Japanese (ja), Korean (ko), Arabic (ar), Hindi (hi), Russian (ru) — all pages available under /{locale}/.
+Canonical site: https://www.partnermarketglobal.com
+Official contact: info@partnermarketglobal.com
+Last updated: 2026-08-19
+Languages: English (en), Spanish (es), French (fr), German (de), Dutch (nl), Italian (it), Portuguese (pt), Chinese (zh), Japanese (ja), Korean (ko), Arabic (ar), Hindi (hi), Russian (ru) — all routes available under /{locale}/.
 
 ## What Partner Market Global Is
 
-Partner Market Global is a curated business opportunity showcase, not an open directory. Every listing is reviewed, verified and structured into a consistent profile covering: opportunity type, sector, origin country, target markets, ideal partner profile, commercial model, territory availability, investment or working-capital expectation, credentials, available documents, risk notes and next steps.
+Partner Market Global is a curated commercial opportunity showcase, not an unverified open directory. Every listing is reviewed, verified and structured into a consistent commercial profile covering: opportunity type, sector, origin country, target markets, ideal partner profile, commercial model, territory availability, investment/working-capital expectations, credentials, available documents, risk notes, and structured qualification workflows.
 
-Opportunity types covered: import, export, distribution rights, franchise, master franchise, licensing, brand partnership, private label, OEM and country partner opportunities.
+Opportunity types covered:
+- Import Opportunities: https://www.partnermarketglobal.com/en/import-opportunities/
+- Export Opportunities: https://www.partnermarketglobal.com/en/export-opportunities/
+- Distribution Rights: https://www.partnermarketglobal.com/en/distribution-rights/
+- Franchise Opportunities: https://www.partnermarketglobal.com/en/franchise-opportunities/
+- Master Franchise Rights: https://www.partnermarketglobal.com/en/master-franchise-opportunities/
+- Licensing Opportunities: https://www.partnermarketglobal.com/en/licensing-opportunities/
+- Private Label / OEM Opportunities: https://www.partnermarketglobal.com/en/private-label-oem-opportunities/
+- Country Partner Opportunities: https://www.partnermarketglobal.com/en/country-partner-opportunities/
 
-Commercial model: 100% commission-based. Commission scope, trigger, territory and timing are agreed in writing before representation starts. Browsing and submitting inquiries is free for prospective partners.
+Commercial model: 100% commission-based. Commission scope, trigger, territory, and timing are agreed in writing before representation starts. Browsing and submitting qualified inquiries is free for prospective international partners.
 
-## Primary Pages
+## Primary Routes & Hubs
 
-- /en/ — platform overview, featured opportunities and FAQ
-- /en/opportunities/ — all curated business opportunity listings with search and filters
-- /en/opportunities/[slug]/ — individual opportunity profile with description, credentials, partner requirements, risk notes and inquiry form
-- /en/japan/ — JIP Japan hub: pre-screened Japanese commercial partnerships, distribution rights and franchise listings
-- /en/list-your-opportunity/ — for companies that want to list products, services, franchises or business opportunities
+- /en/ — platform overview, featured global opportunities, and FAQ
+- /en/opportunities/ — all curated business opportunity listings with multi-attribute search and filters
+- /en/opportunities/[slug]/ — individual opportunity profile with description, credentials, partner requirements, risk notes, and server-side inquiry qualification form
+- /en/japan/ — JIP Japan hub: pre-screened Japanese commercial partnerships, distribution rights, and franchise listings
+- /en/list-your-opportunity/ — for companies seeking international distributors, retail listings, franchisees, or commercial partners
+- /en/submit-opportunity/ — multi-step opportunity submission portal
 - /en/commercial-terms/ — commission-based commercial terms available on inquiry
-- /en/curation-process/ — review, verification and curation process
+- /en/curation-process/ — review, verification, and curation methodology
 - /en/about/ — platform story and De Vries Sales Consultancy operator context
-- /en/contact/ — inquiry and contact page
-- /en/privacy-policy/ — privacy, consent and data handling policy
-- /en/terms/ — terms of use and disclaimer
+- /en/contact/ — official inquiry and contact portal
+- /en/privacy-policy/ — privacy, consent, and GDPR-compliant data handling policy
+- /en/terms/ — terms of use and commercial disclaimers
 
-## Current Opportunities
+## Active Featured Commercial Opportunities
 
-Indonesian opportunities:
-- Ralalifood — retort food manufacturer seeking international distributors and private label / OEM clients. /en/opportunities/ralalifood-indonesia-retort-food-distributors-private-label-oem/
-- Moja Coffee Bali — Indonesian coffee brand seeking international distributors. /en/opportunities/moja-coffee-bali-indonesian-coffee-brand-international-distributors/
+### 1. SEGA / Japan Industrial Promotion Inc. — SONIC & FRIENDS European Retail & Distribution Opportunity 2027
+- **Slug**: `sonic-friends-europe-2027`
+- **URL**: https://www.partnermarketglobal.com/en/opportunities/sonic-friends-europe-2027/
+- **Sector**: Toys & Licensed Merchandise / Character Goods & Gaming Pop Culture
+- **Category**: Distribution / Retail / Wholesale / Import
+- **Origin**: Japan (SEGA Corporation licensed IP / Japan Industrial Promotion Inc.)
+- **Target Markets**: Europe, United Kingdom, France, Germany, Spain, Belgium, Italy, Portugal
+- **Key Details**: SEGA's approachable kawaii-aesthetic character merchandise collection (mascots, plush, cushions, Sanrio collab). Strategically positioned for the major March–April 2027 European movie premiere window and Sonic 35th Anniversary live tour. January 2027 Shenzhen FOB warehouse availability.
 
-Japanese opportunities (JIP Japan, pre-screened):
-- AIR TWOKYO (Rub-Lab) — anime-licensed artistic apparel brand seeking retail, distribution and collaboration partners in Europe and Southeast Asia. /en/opportunities/air-twokyo-anime-licensed-apparel/
-- u technologies (Unagi / Unatan group) — Japanese unagi restaurant master franchise. /en/opportunities/u-technologies-unagi-master-franchise/
-- Fujichiku — Fujiaya Beef whole-carcass distribution partner opportunity. /en/opportunities/fujichiku-fujiaya-beef-whole-carcass-distribution/
-- Nose Shuzo — Japanese beverage distribution opportunity. /en/opportunities/nose-shuzo-japanese-beverage-distribution/
-- Okayama Tenobe Somen — hand-stretched udon and somen noodle distribution. /en/opportunities/okayama-tenobe-somen-hand-stretched-noodles/
-- IMAI (IMAI BAG / N&F design) — leather goods retail and trading partnership. /en/opportunities/imai-leather-goods-retail-partnership/
-- Field Club — FRP sculpture and theme-park production partnership. /en/opportunities/field-club-frp-theme-park-sculpture-partnership/
-- Do-Best (AC MAKEUP TOKYO / U R GLAM) — affordable Japanese cosmetics distribution. /en/opportunities/do-best-budget-cosmetics-distribution/
-- Ebisu Shiryo — recycled plastics sourcing and facility opportunity (Indonesia focus). /en/opportunities/ebisu-shiryo-recycled-plastics-indonesia-sourcing/
-- Yachiyo Mengyo — JAS/Halal thin udon and Handa somen EU distribution. /en/opportunities/yachiyo-mengyo-handa-somen-eu-distribution/
+### 2. Ebara Foods Industry / Ebara Singapore — Indonesia Foodservice & Noodle Partnership
+- **Slug**: `ebara-foods-indonesia-distribution-noodle-partnership`
+- **URL**: https://www.partnermarketglobal.com/en/opportunities/ebara-foods-indonesia-distribution-noodle-partnership/
+- **Sector**: Food & Beverage / Foodservice Seasonings & Noodle Manufacturing
+- **Origin**: Japan / Singapore
+- **Target Markets**: Indonesia (Priority: Bali, Jakarta, Surabaya)
+- **Key Details**: Ramen soup solutions (Tori Paitan, Tonkotsu, Miso), noodle manufacturing ingredients, B2B foodservice distribution, and strategic investment/M&A exploration.
 
-Other:
-- Licensed blind box and plush toy retail distribution (Chinese manufacturer, Europe focus). /en/opportunities/licensed-blind-box-plush-retail-partnership/
+### 3. Yachiyo Mengyo — Organic Handa Somen & Thin Udon EU Distribution
+- **Slug**: `yachiyo-mengyo-handa-somen-eu-distribution`
+- **URL**: https://www.partnermarketglobal.com/en/opportunities/yachiyo-mengyo-handa-somen-eu-distribution/
+- **Sector**: Food & Beverage / Organic & Specialty Noodles
+- **Origin**: Tokushima Prefecture, Japan
+- **Target Markets**: European Union (France, Spain, Germany, Benelux, Italy)
+- **Key Details**: Traditional hand-stretched 300-year heritage Handa Somen and thin udon with Organic JAS, ISO 22000, and Halal certifications for EU retail, Asian specialty, and HORECA distributors.
 
-Note: the anime apparel brand is correctly named "AIR TWOKYO" (by Rub-Lab, Japan). Any reference to "Twokyo Air" is an outdated name for the same single opportunity.
+### 4. Nittoh Co., Ltd. — Japanese Dolly & Utility Cart Distribution
+- **Slug**: `nittoh-japanese-dollies-utility-carts-distribution`
+- **URL**: https://www.partnermarketglobal.com/en/opportunities/nittoh-japanese-dollies-utility-carts-distribution/
+- **Sector**: Industrial & Household Goods / Material Handling & Utility Carts
+- **Origin**: Aichi Prefecture, Japan
+- **Target Markets**: Global, Europe, North America, Southeast Asia
+- **Key Details**: High-precision interlocking flat dollies and luxury hotel/commercial utility carts from established JPY 7B revenue Japanese manufacturer.
 
-## Who Should Use This Site
+### 5. Ichiban-ken — Authentic Tonkotsu Ramen Master Franchise Indonesia
+- **Slug**: `ichiban-ken-indonesia-master-franchise`
+- **URL**: https://www.partnermarketglobal.com/en/opportunities/ichiban-ken-indonesia-master-franchise/
+- **Sector**: Food & Beverage / Japanese Restaurant & Ramen Concepts
+- **Origin**: Japan
+- **Target Markets**: Indonesia (Jakarta, Bali, Surabaya, Medan, Bandung)
+- **Key Details**: Established Japanese ramen franchise group offering country master franchise and multi-unit restaurant development rights.
 
-- Importers, exporters and distributors looking for verified products and brands to represent
-- Retail groups, e-commerce operators and specialty retailers seeking new brands
-- Master franchise and franchise operators evaluating international concepts
-- Private label / OEM buyers looking for manufacturers
-- Companies that want to present an international expansion opportunity to qualified partners
+### 6. AIR TWOKYO (Rub-Lab) — Anime-Licensed Apparel Distribution & Retail
+- **Slug**: `air-twokyo-anime-licensed-apparel`
+- **URL**: https://www.partnermarketglobal.com/en/opportunities/air-twokyo-anime-licensed-apparel/
+- **Sector**: Fashion & Apparel / Licensed Anime Merchandise
+- **Origin**: Tokyo, Japan
+- **Target Markets**: Global, Europe, North America, Southeast Asia
+- **Key Details**: High-concept artistic apparel collections created under official license from major Japanese anime and gaming franchises.
 
-## Important Trust And Compliance Notes
+### 7. Ralalifood — Retort Food Manufacturer OEM / Private Label & Distribution
+- **Slug**: `ralalifood-indonesia-retort-food-distributors-private-label-oem`
+- **URL**: https://www.partnermarketglobal.com/en/opportunities/ralalifood-indonesia-retort-food-distributors-private-label-oem/
+- **Sector**: Food & Beverage / Retort Foods
+- **Origin**: Indonesia
+- **Target Markets**: Global, Middle East, Europe, ASEAN
+- **Key Details**: Ambient shelf-stable retort pouch meals, Indonesian culinary specialties, private-label OEM manufacturing for retail chains and distributors.
 
-Partner Market Global curates and showcases opportunities but does not guarantee commercial success, profitability, financing, market entry approval, legal compliance or partner performance.
+### 8. Moja Coffee Bali — Specialty Indonesian Coffee Brand International Distribution
+- **Slug**: `moja-coffee-bali-indonesian-coffee-brand-international-distributors`
+- **URL**: https://www.partnermarketglobal.com/en/opportunities/moja-coffee-bali-indonesian-coffee-brand-international-distributors/
+- **Sector**: Food & Beverage / Specialty Coffee
+- **Origin**: Bali, Indonesia
+- **Target Markets**: Europe, East Asia, Middle East, North America
+- **Key Details**: Single-origin Kintamani Arabica and specialty roasted coffee beans seeking international retail and HORECA distributors.
 
-Partner Market Global does not provide legal, financial, investment, franchise, tax or securities advice. Companies and interested partners are responsible for their own due diligence, professional advice and market-specific compliance.
+### 9. Additional JIP Japan Portfolio Opportunities
+- **u technologies (Unatan Group)** — Japanese Unagi Restaurant Master Franchise (`u-technologies-unagi-master-franchise`)
+- **Fujichiku** — Fujiaya Wagyu Beef Whole-Carcass Distribution (`fujichiku-fujiaya-beef-whole-carcass-distribution`)
+- **Nose Shuzo** — Japanese Craft Beverage & Tonic Water Distribution (`nose-shuzo-japanese-beverage-distribution`)
+- **Okayama Tenobe Somen** — Traditional Hand-Stretched Noodle Distribution (`okayama-tenobe-somen-hand-stretched-noodles`)
+- **IMAI (IMAI BAG / N&F design)** — Japanese Handcrafted Leather Goods Retail & Trading (`imai-leather-goods-retail-partnership`)
+- **Field Club** — FRP Sculpture & Theme-Park Architectural Production (`field-club-frp-theme-park-sculpture-partnership`)
+- **Do-Best (AC MAKEUP TOKYO / U R GLAM)** — Japanese Color Cosmetics Wholesale (`do-best-budget-cosmetics-distribution`)
+- **Ebisu Shiryo** — Recycled Plastics Sourcing & Processing Facility (`ebisu-shiryo-recycled-plastics-indonesia-sourcing`)
+- **Licensed Blind Box & Plush Toy Retail Distribution** (`licensed-blind-box-plush-retail-partnership`)
 
-Qualified inquiries may be shared with the relevant opportunity owner when the inquirer has consented or when needed to provide the requested service.
+## Who Should Use Partner Market Global
 
-## Entity Facts
+- **Importers, Wholesalers & Distributors**: Sourcing pre-vetted international brands with exclusive territory potential.
+- **National Retail Chains & Department Stores**: Direct access to manufacturers for consumer goods, toys, food, and lifestyle products.
+- **Multi-Unit Operators & Franchisees**: Evaluating proven Japanese and Asian restaurant and service concepts.
+- **Private Label & OEM Buyers**: Connecting with audited manufacturing facilities.
+- **Brand Owners & Principals**: Appointing qualified representation across Europe, Southeast Asia, and global markets.
 
-- Site name: Partner Market Global
-- Tagline: Curated. Verified. Global.
-- Operator: Alex de Vries, De Vries Sales Consultancy
-- Operator website: https://www.devriessalesconsultancy.com
-- Contact email: listings@partnermarketglobal.com
-- Commercial model: 100% commission-based, terms on inquiry
-- Logo: /assets/partner-market-global-logo.svg
-- Sitemap: /sitemap.xml
-- Robots: /robots.txt
+## Entity & Commercial Summary
+
+- **Platform Name**: Partner Market Global
+- **Tagline**: Curated. Verified. Global.
+- **Production URL**: https://www.partnermarketglobal.com
+- **Official Email**: info@partnermarketglobal.com
+- **Operator**: Alex de Vries / De Vries Sales Consultancy (https://www.devriessalesconsultancy.com)
+- **Commercial Structure**: Commission-based upon agreed transaction outcomes.
+- **Sitemap**: https://www.partnermarketglobal.com/sitemap.xml
+- **Robots**: https://www.partnermarketglobal.com/robots.txt

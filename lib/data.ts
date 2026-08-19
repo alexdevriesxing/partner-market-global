@@ -1,11 +1,11 @@
 export const site = {
   name: "Partner Market Global",
-  domain: "partner-market-global2.pages.dev",
-  url: "https://partner-market-global2.pages.dev",
+  domain: "www.partnermarketglobal.com",
+  url: "https://www.partnermarketglobal.com",
   tagline: "Curated. Verified. Global.",
   description:
     "Partner Market Global is a curated B2B showcase for import, export, distribution, licensing, private label and franchise opportunities from ambitious companies looking for qualified international partners.",
-  email: "listings@partnermarketglobal.com",
+  email: "info@partnermarketglobal.com",
   logo: "/assets/partner-market-global-logo.svg",
   defaultOgImage: "/assets/homepage-hero.webp",
   operator: {
@@ -514,14 +514,14 @@ export const opportunities: Opportunity[] = sonicOpp
   : [...staticOpportunities, ...mappedJipOpportunities];
 
 export const categories = [
-  { title: "Import Opportunities", image: "/assets/import-opportunities.svg", href: "/opportunities?type=import" },
-  { title: "Export Opportunities", image: "/assets/export-opportunities.svg", href: "/opportunities?type=export" },
-  { title: "Franchise Opportunities", image: "/assets/franchise-opportunities.svg", href: "/opportunities?type=franchise" },
-  { title: "Distribution Rights", image: "/assets/distribution-rights.svg", href: "/opportunities?type=distribution" },
-  { title: "Licensing & Brand Partnerships", image: "/assets/licensing-partnerships.svg", href: "/opportunities?type=licensing" },
-  { title: "Master Franchise Rights", image: "/assets/master-franchise.svg", href: "/opportunities?type=master-franchise" },
-  { title: "Country Partner Opportunities", image: "/assets/country-partner.svg", href: "/opportunities?type=country-partner" },
-  { title: "Private Label / OEM Opportunities", image: "/assets/private-label-oem.svg", href: "/opportunities?type=oem" }
+  { title: "Import Opportunities", image: "/assets/import-opportunities.svg", href: "/import-opportunities" },
+  { title: "Export Opportunities", image: "/assets/export-opportunities.svg", href: "/export-opportunities" },
+  { title: "Franchise Opportunities", image: "/assets/franchise-opportunities.svg", href: "/franchise-opportunities" },
+  { title: "Distribution Rights", image: "/assets/distribution-rights.svg", href: "/distribution-rights" },
+  { title: "Licensing & Brand Partnerships", image: "/assets/licensing-partnerships.svg", href: "/licensing-opportunities" },
+  { title: "Master Franchise Rights", image: "/assets/master-franchise.svg", href: "/master-franchise-opportunities" },
+  { title: "Country Partner Opportunities", image: "/assets/country-partner.svg", href: "/country-partner-opportunities" },
+  { title: "Private Label / OEM Opportunities", image: "/assets/private-label-oem.svg", href: "/private-label-oem-opportunities" }
 ];
 
 export const trustChecks = [

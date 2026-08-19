@@ -170,6 +170,10 @@ function InquiryFormClient({
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [referenceId, setReferenceId] = useState("");
+  const [honeypot, setHoneypot] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -205,8 +209,10 @@ function InquiryFormClient({
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (honeypot) return; // Silent rejection for bot submissions
+    setSubmitError("");
 
     if (isSonic) {
       if (!sonicFields.firstName || !sonicFields.lastName || !formData.company || !formData.email || !formData.phone || !formData.country || !formData.consent) {
@@ -225,8 +231,8 @@ function InquiryFormClient({
       return;
     }
 
-    const emailTo = "alex@devriessalesconsultancy.com";
-    
+    setIsSubmitting(true);
+
     // Compute lead score & signals for Sonic
     let leadScore = 10;
     const prioritySignals: string[] = [];
@@ -277,16 +283,11 @@ function InquiryFormClient({
 
     const priorityRating = leadScore >= 45 ? "HIGH PRIORITY" : leadScore >= 25 ? "MEDIUM PRIORITY" : "STANDARD";
 
-    // Store structured lead in CRM / LocalStorage
-    const structuredLead = {
-      id: `lead_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`,
-      timestamp: new Date().toISOString(),
-      source: "PartnerMarketGlobal website",
+    const payload = {
       opportunity: oppTitle || (isSonic ? "SONIC & FRIENDS Europe 2027" : "General Opportunity"),
       oppSlug: oppSlug || "general",
       brand: isSonic ? "SONIC & FRIENDS" : opportunity?.brand || "N/A",
       principal: isSonic ? "Japan Industrial Promotion Inc. (Daiki Fukaura)" : source || "JIP Japan",
-      industry: isSonic ? "licensed merchandise / toys" : category || "General",
       contactName: isSonic ? `${sonicFields.firstName} ${sonicFields.lastName}`.trim() : formData.name,
       jobTitle: sonicFields.jobTitle || "Buyer / Decision Maker",
       company: formData.company,
@@ -295,165 +296,87 @@ function InquiryFormClient({
       country: formData.country,
       website: formData.website || "",
       companyType: isSonic ? sonicFields.companyType : formData.partnerType,
+      activity: formData.activity,
+      network: formData.network,
+      reason: isSonic ? sonicFields.requests.join(", ") : formData.reason,
+      requirements: formData.requirements,
       leadScore,
       priorityRating,
       prioritySignals,
       sonicDetails: isSonic ? sonicFields : undefined,
-      requestedInfo: isSonic ? sonicFields.requests.join(", ") : formData.reason,
+      nittohDetails: isNittoh ? nittohFields : undefined,
+      ichibanDetails: isIchiban ? ichibanFields : undefined,
+      ebaraDetails: isEbara ? ebaraFields : undefined,
       utmData: utms,
       referrer
     };
 
-    if (typeof window !== "undefined") {
-      try {
-        const storedLeads = JSON.parse(localStorage.getItem("pmg_opportunity_leads") || "[]");
-        storedLeads.unshift(structuredLead);
-        localStorage.setItem("pmg_opportunity_leads", JSON.stringify(storedLeads));
-      } catch (err) {
-        console.error("Failed to store lead in localStorage", err);
+    try {
+      const res = await fetch("/api/inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to submit inquiry. Please try again.");
       }
-    }
 
-    const subject = isSonic
-      ? `[SONIC & FRIENDS 2027 ${priorityRating}] ${formData.company} (${sonicFields.companyType || "Buyer"}) - ${formData.country}`
-      : oppTitle 
-      ? `Inquiry: ${oppTitle}` 
-      : "General Inquiry - Partner Market Global";
-    
-    let body = `Hello Alex & Japan Industrial Promotion Team,\n\n`;
-    if (isSonic) {
-      body += `A qualified commercial inquiry has been submitted for:\n`;
-      body += `SONIC & FRIENDS — European Retail & Distribution Opportunity 2027\n`;
-      body += `Principal: Japan Industrial Promotion Inc. (Daiki Fukaura)\n`;
-      body += `Lead Priority: ${priorityRating} (Score: ${leadScore}/100)\n`;
-      if (prioritySignals.length > 0) {
-        body += `High Priority Signals: ${prioritySignals.join(" | ")}\n`;
+      const returnedRef = data.referenceId || `PMG-INQ-${Date.now()}`;
+      setReferenceId(returnedRef);
+
+      // Local storage cache for admin overview
+      if (typeof window !== "undefined") {
+        try {
+          const storedLeads = JSON.parse(localStorage.getItem("pmg_opportunity_leads") || "[]");
+          storedLeads.unshift({
+            id: returnedRef,
+            timestamp: new Date().toISOString(),
+            source: "PartnerMarketGlobal website",
+            industry: isSonic ? "licensed merchandise / toys" : category || "General",
+            ...payload
+          });
+          localStorage.setItem("pmg_opportunity_leads", JSON.stringify(storedLeads));
+        } catch (err) {
+          console.warn("Storage warning:", err);
+        }
       }
-      body += `\n=== BUYER CONTACT INFORMATION ===\n`;
-      body += `- Name: ${sonicFields.firstName} ${sonicFields.lastName}\n`;
-      body += `- Job Title: ${sonicFields.jobTitle || "N/A"}\n`;
-      body += `- Company: ${formData.company}\n`;
-      body += `- Business Email: ${formData.email}\n`;
-      body += `- Phone / WhatsApp: ${formData.phone}\n`;
-      body += `- Country / Region: ${formData.country}\n`;
-      body += `- Website: ${formData.website || "N/A"}\n`;
-      body += `- Company Type: ${sonicFields.companyType || "Retailer / Buyer"}\n\n`;
 
-      body += `=== PRODUCT LINE INTERESTS ===\n`;
-      body += `- Selected Lines: ${sonicFields.interests.length > 0 ? sonicFields.interests.join(", ") : "Full Assortment"}\n\n`;
-
-      body += `=== MARKET & OPERATIONAL CAPACITY ===\n`;
-      body += `- Countries Covered: ${sonicFields.countriesCovered || formData.country}\n`;
-      body += `- Number of Stores: ${sonicFields.storeCount || "N/A"}\n`;
-      body += `- Annual Purchasing Volume: ${sonicFields.annualPurchasingVolume || "To discuss"}\n`;
-      body += `- Existing Licensed Portfolio: ${sonicFields.licensedPortfolio || "N/A"}\n`;
-      body += `- Intended Retail Channels: ${sonicFields.intendedChannels || "N/A"}\n\n`;
-
-      body += `=== SPECIFIC BUYER REQUESTS ===\n`;
-      body += `- Requested Actions: ${sonicFields.requests.length > 0 ? sonicFields.requests.join(", ") : "Buyer Pack & Pricing"}\n`;
-      if (sonicFields.message) {
-        body += `- Buyer Message / Notes: ${sonicFields.message}\n`;
+      if (isSonic) {
+        setFormData((prev) => ({ ...prev, name: `${sonicFields.firstName} ${sonicFields.lastName}`.trim() }));
       }
-      body += `\n`;
-    } else {
-      body += `I am writing to inquire about the opportunity: ${oppTitle || "General Inquiry"}.\n\n`;
-      body += `My details:\n`;
-      body += `- Name: ${formData.name}\n`;
-      body += `- Company: ${formData.company}\n`;
-      body += `- Email: ${formData.email}\n`;
-      body += `- Phone: ${formData.phone}\n`;
-      body += `- Country: ${formData.country}\n`;
-      body += `- Website: ${formData.website || "N/A"}\n`;
-      body += `- Partner Type: ${formData.partnerType}\n`;
-      body += `- Current Business Activity: ${formData.activity}\n`;
-      body += `- Existing Network: ${formData.network}\n`;
-      body += `- Reason for Interest: ${formData.reason}\n`;
-      body += `- Meet Minimum Requirements: ${formData.requirements}\n\n`;
+      setSubmitted(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err: any) {
+      console.error("Inquiry submission error:", err);
+      setSubmitError(err.message || "An unexpected error occurred. Please try again or contact info@partnermarketglobal.com directly.");
+    } finally {
+      setIsSubmitting(false);
     }
-
-    if (isNittoh) {
-      body += `Nittoh Specific Answers:\n`;
-      body += `- Which country/territory do you cover?: ${nittohFields.coveredTerritory}\n`;
-      body += `- Which sales channels do you currently serve?: ${nittohFields.servedChannels}\n`;
-      body += `- Do you import or distribute comparable products?: ${nittohFields.comparableProducts}\n`;
-      body += `- Which customer groups could you approach?: ${nittohFields.approachableCustomers}\n`;
-      body += `- Do you have warehousing and fulfilment capability?: ${nittohFields.hasWarehousing}\n`;
-      body += `- Are you interested in retail, distribution, e-commerce or hotel procurement?: ${nittohFields.interestAreas}\n`;
-      body += `- What initial launch scope are you considering?: ${nittohFields.initialLaunchScope}\n\n`;
-    } else if (isIchiban) {
-      body += `Ichiban-ken Specific Answers:\n`;
-      body += `- Which Indonesian cities do you currently operate in?: ${ichibanFields.operatingCities}\n`;
-      body += `- How many restaurants do you operate?: ${ichibanFields.restaurantCount}\n`;
-      body += `- Which cuisines and brands are in your portfolio?: ${ichibanFields.portfolioBrands}\n`;
-      body += `- Do you have experience operating pork-based or non-halal concepts?: ${ichibanFields.porkExperience}\n`;
-      body += `- What type of locations can you access?: ${ichibanFields.locationsAccess}\n`;
-      body += `- What rollout scope are you considering?: ${ichibanFields.rolloutScope}\n`;
-      body += `- Can you demonstrate funding and an operating team?: ${ichibanFields.demonstratedFunding}\n`;
-      body += `- Why is Ichiban-ken suitable for your portfolio?: ${ichibanFields.whySuitable}\n\n`;
-    } else if (isEbara) {
-      body += `Ebara Foods Specific Answers:\n`;
-      body += `- Confirmed NOT MASUYA: ${ebaraFields.notMasuyaConfirmed ? "Yes" : "No"}\n`;
-      body += `- Headquarters Location: ${ebaraFields.hqLocation}\n`;
-      body += `- Indonesian Territories Covered: ${ebaraFields.indonesianTerritories}\n`;
-      body += `- Bali Presence / Coverage: ${ebaraFields.baliPresence}\n`;
-      body += `- Foodservice Customers Count & Type: ${ebaraFields.foodserviceCustomers}\n`;
-      body += `- Japanese Restaurant & Ramen Network: ${ebaraFields.ramenNetwork}\n`;
-      body += `- Distribution Channels: ${ebaraFields.distributionChannels}\n`;
-      body += `- Warehousing Capabilities: ${ebaraFields.warehousingCapability}\n`;
-      body += `- Cold-Chain Capability: ${ebaraFields.coldChainCapability}\n`;
-      body += `- Import Licences & BPOM Experience: ${ebaraFields.importLicencesBPOM}\n`;
-      body += `- Existing Noodle Production: ${ebaraFields.existingNoodleProduction}\n`;
-      if (ebaraFields.monthlyNoodleCapacity) {
-        body += `- Monthly Noodle Production Capacity: ${ebaraFields.monthlyNoodleCapacity}\n`;
-      }
-      body += `- Product Development & Application Support: ${ebaraFields.productDevCapability}\n`;
-      body += `- Current Brands Represented: ${ebaraFields.currentBrands}\n`;
-      body += `- Primary Interest (Distribution / Manufacturing / Strategic Alliance / M&A): ${ebaraFields.interestType}\n`;
-      if (ebaraFields.ownershipValuationInterest) {
-        body += `- Strategic Investment / M&A Details: ${ebaraFields.ownershipValuationInterest}\n`;
-      }
-      body += `- Approximate Annual Revenue Band: ${ebaraFields.annualRevenueBand}\n`;
-      body += `- Why Suitable: ${ebaraFields.whySuitable}\n`;
-      body += `- Proposed Route-to-Market Plan: ${ebaraFields.proposedRtmPlan}\n`;
-      body += `- Ability to Fund Inventory & Market Development: ${ebaraFields.abilityToFundInventory}\n\n`;
-    }
-
-    body += `Opportunity & Routing Context:\n`;
-    body += `- Opportunity ID: ${opportunity?.id || "N/A"}\n`;
-    body += `- Slug: ${oppSlug || "N/A"}\n`;
-    body += `- Category: ${category || "N/A"}\n`;
-    body += `- Origin Country: ${originCountry || "N/A"}\n`;
-    body += `- Target Market: ${targetMarkets || "N/A"}\n`;
-    body += `- Source Partner: ${source || "Japan Industrial Promotion Inc."}\n`;
-    body += `- Referring Page: ${referrer}\n`;
-    if (Object.keys(utms).length > 0) {
-      body += `- UTM Parameters: ${JSON.stringify(utms)}\n`;
-    }
-    body += `\nRegards,\n${isSonic ? `${sonicFields.firstName} ${sonicFields.lastName}` : formData.name}`;
-
-    const mailtoUrl = `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    window.location.href = mailtoUrl;
-    if (isSonic) {
-      setFormData((prev) => ({ ...prev, name: `${sonicFields.firstName} ${sonicFields.lastName}`.trim() }));
-    }
-    setSubmitted(true);
   };
 
   if (submitted) {
     return (
-      <div className="inquiry-success-card">
-        <span className="success-icon">✓</span>
-        <h2>Inquiry Submitted Successfully</h2>
-        <p>Thank you, <strong>{formData.name}</strong>. Your inquiry has been routed to the opportunity owner.</p>
+      <div className="inquiry-success-card" style={{ maxWidth: 700, margin: "40px auto", textAlign: "center", padding: "40px 24px", background: "#ffffff", borderRadius: "12px", border: "1px solid #e2e8f0", boxShadow: "0 4px 12px rgba(0,0,0,0.05)" }}>
+        <div style={{ width: 64, height: 64, borderRadius: "50%", background: "#ecfdf5", color: "#059669", fontSize: "32px", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>✓</div>
+        <h2 style={{ fontSize: "1.75rem", color: "#0f172a", marginBottom: "12px" }}>Inquiry Submitted Successfully</h2>
+        <div style={{ display: "inline-block", background: "#f1f5f9", padding: "6px 16px", borderRadius: "20px", fontSize: "0.9rem", fontWeight: "600", color: "#334155", marginBottom: "20px" }}>
+          Reference: <span style={{ fontFamily: "monospace", color: "#0f766e" }}>{referenceId}</span>
+        </div>
+        <p style={{ fontSize: "1.05rem", color: "#475569", lineHeight: "1.6", maxWidth: "560px", margin: "0 auto 24px" }}>
+          Thank you, <strong>{isSonic ? `${sonicFields.firstName} ${sonicFields.lastName}` : formData.name}</strong>. Your commercial inquiry has been registered server-side and routed to Partner Market Global (<strong>info@partnermarketglobal.com</strong>) and the opportunity principal.
+        </p>
         {oppTitle && (
-          <div className="success-opp-box">
-            <span>Opportunity:</span>
-            <strong>{oppTitle}</strong>
-            {source && <span className="source-tag">{source}</span>}
+          <div className="success-opp-box" style={{ background: "#f8fafc", padding: "16px 20px", borderRadius: "8px", border: "1px solid #e2e8f0", textAlign: "left", margin: "0 auto 24px", maxWidth: "560px" }}>
+            <span style={{ fontSize: "0.85rem", color: "#64748b", display: "block", textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: "600" }}>Opportunity</span>
+            <strong style={{ fontSize: "1.05rem", color: "#0f172a" }}>{oppTitle}</strong>
+            {source && <span className="source-tag" style={{ display: "inline-block", marginLeft: "10px", fontSize: "0.75rem", background: "#e0f2fe", color: "#0369a1", padding: "2px 8px", borderRadius: "4px" }}>{source}</span>}
           </div>
         )}
-        <p className="success-footer">Our team will review your qualifications and contact you within 1-2 business days.</p>
+        <p style={{ fontSize: "0.9rem", color: "#64748b", borderTop: "1px solid #e2e8f0", paddingTop: "18px", maxWidth: "560px", margin: "0 auto" }}>
+          Our team is reviewing your profile and qualifications. A representative will contact you at <strong>{formData.email}</strong> within 1–2 business days.
+        </p>
       </div>
     );
   }
@@ -1092,6 +1015,24 @@ function InquiryFormClient({
           </div>
         )}
       </div>
+      {/* Anti-spam honeypot */}
+      <input
+        type="text"
+        name="hp_website"
+        value={honeypot}
+        onChange={(e) => setHoneypot(e.target.value)}
+        style={{ display: "none", position: "absolute", left: "-9999px" }}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+      />
+
+      {submitError && (
+        <div style={{ backgroundColor: "#fef2f2", border: "1px solid #f87171", borderRadius: "8px", padding: "12px 16px", color: "#991b1b", fontSize: "0.9rem", marginBottom: "16px" }}>
+          ⚠️ {submitError}
+        </div>
+      )}
+
       <label className="consent">
         <input
           type="checkbox"
@@ -1101,8 +1042,8 @@ function InquiryFormClient({
         />
         {" "}{consentText}
       </label>
-      <button className="btn btn-primary form-submit" type="submit">
-        {isSonic ? "Request Buyer Information" : submitLabel}
+      <button className="btn btn-primary form-submit" type="submit" disabled={isSubmitting} style={{ opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? "not-allowed" : "pointer" }}>
+        {isSubmitting ? "Submitting Inquiry..." : (isSonic ? "Request Buyer Information" : submitLabel)}
       </button>
       <p className="form-disclaimer">{disclaimer}</p>
     </form>

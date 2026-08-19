@@ -1,8 +1,8 @@
 # Partner Market Global SEO / GAIO Strategy
 
-Current canonical domain: `https://partner-market-global2.pages.dev`
-
-Future custom domain target: `https://www.partnermarketglobal.com`
+Current canonical production domain: `https://www.partnermarketglobal.com`
+Production email: `info@partnermarketglobal.com`
+Cloudflare Pages deployment project: `partner-market-global2`
 
 ## Core positioning
 

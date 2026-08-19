@@ -299,98 +299,76 @@ export function SubmitOpportunityForm({ locale = "en" }: { locale?: string }) {
   };
 
   // Final Form Submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (honeypot) return; // Silent rejection for bot submissions
 
     if (!validateStep3()) return;
 
     setIsSubmitting(true);
-
-    // Generate unique reference number: PMG-YYYYMMDD-XXXX
-    const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, "");
-    const randomHex = Math.random().toString(36).substring(2, 6).toUpperCase();
-    const refCode = `PMG-${dateStr}-${randomHex}`;
+    setErrors({});
 
     // Target markets rule: if empty, default to "Worldwide"
     const finalTargetMarkets = targetCountries.length > 0 ? targetCountries : ["Worldwide"];
     const finalLookingFor = lookingFor.map(o => (o === "Other" && otherLookingFor ? `Other (${otherLookingFor})` : o));
 
-    const emailTo = "alex@devriessalesconsultancy.com";
-    const emailSubject = `New Partner Market Global Opportunity: ${title} [${refCode}]`;
+    const payload = {
+      title,
+      company,
+      website: website || "",
+      originCountry,
+      opportunityType: opportunityType || "Distribution / Commercial",
+      lookingFor: finalLookingFor,
+      targetCountries: finalTargetMarkets,
+      description,
+      trackRecord: trackRecord || "",
+      additionalInfo: additionalInfo || "",
+      contactName,
+      jobTitle: jobTitle || "",
+      contactCompany: contactCompany || company,
+      email,
+      phone: phone || "",
+      contactCountry: contactCountry || originCountry,
+      preferredContact: preferredContact || "Email",
+      referringOrg: referringOrg || "",
+      images: images.map(i => ({ name: i.name, size: i.size, type: i.type })),
+      documents: documents.map(d => ({ name: d.name, size: d.size, type: d.type }))
+    };
 
-    let body = `NEW PARTNER MARKET GLOBAL OPPORTUNITY\n\n`;
-    body += `Submission reference: ${refCode}\n`;
-    body += `Submitted: ${new Date().toUTCString()}\n\n`;
-    body += `OPPORTUNITY\n`;
-    body += `Opportunity title: ${title}\n`;
-    body += `Company or brand: ${company}\n`;
-    body += `Company website: ${website || "Not provided"}\n`;
-    body += `Country of origin: ${originCountry}\n`;
-    body += `Opportunity type: ${opportunityType || "Not specified"}\n`;
-    body += `Looking for: ${finalLookingFor.join(", ")}\n`;
-    body += `Target countries: ${finalTargetMarkets.join(", ")}\n`;
-    body += `Description:\n${description}\n\n`;
-    body += `Current markets or track record: ${trackRecord || "Not provided"}\n`;
-    body += `Additional information: ${additionalInfo || "Not provided"}\n\n`;
-    body += `CONTACT\n`;
-    body += `Name: ${contactName}\n`;
-    body += `Job title: ${jobTitle || "Not provided"}\n`;
-    body += `Company: ${contactCompany}\n`;
-    body += `Email: ${email}\n`;
-    body += `Telephone or WhatsApp: ${phone || "Not provided"}\n`;
-    body += `Country: ${contactCountry}\n`;
-    body += `Preferred contact method: ${preferredContact || "Not specified"}\n`;
-    body += `Referring organisation: ${referringOrg || "Not provided"}\n\n`;
-    body += `FILES\n`;
-    body += `Images: ${images.length > 0 ? images.map(i => i.name).join(", ") : "None"}\n`;
-    body += `Documents: ${documents.length > 0 ? documents.map(d => d.name).join(", ") : "None"}\n\n`;
-    body += `PERMISSION\n`;
-    body += `Submission permission accepted: Yes\n`;
-
-    // Persist submission securely in localStorage architecture
     try {
-      const existing = JSON.parse(localStorage.getItem("pmg_opportunity_submissions") || "[]");
-      const record = {
-        refCode,
-        date: new Date().toISOString(),
-        title,
-        company,
-        website,
-        originCountry,
-        description,
-        lookingFor: finalLookingFor,
-        targetCountries: finalTargetMarkets,
-        opportunityType,
-        trackRecord,
-        additionalInfo,
-        contactName,
-        jobTitle,
-        contactCompany,
-        email,
-        phone,
-        contactCountry,
-        preferredContact,
-        referringOrg,
-        images: images.map(i => i.name),
-        documents: documents.map(d => d.name),
-        status: "New"
-      };
-      existing.unshift(record);
-      localStorage.setItem("pmg_opportunity_submissions", JSON.stringify(existing));
-    } catch {
-      // Local storage fallback
-    }
+      const res = await fetch("/api/submit-opportunity", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
 
-    // Trigger mailto fallback for alex@devriessalesconsultancy.com
-    const mailtoUrl = `mailto:${emailTo}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(body)}`;
-    
-    setTimeout(() => {
-      window.location.href = mailtoUrl;
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to submit opportunity. Please check required fields and try again.");
+      }
+
+      const refCode = data.referenceId || `PMG-SUB-${Date.now()}`;
+
+      // Local storage cache
+      try {
+        const existing = JSON.parse(localStorage.getItem("pmg_opportunity_submissions") || "[]");
+        existing.unshift({
+          refCode,
+          date: new Date().toISOString(),
+          ...payload,
+          status: "New"
+        });
+        localStorage.setItem("pmg_opportunity_submissions", JSON.stringify(existing));
+      } catch {}
+
       setIsSubmitting(false);
       setSubmittedRef(refCode);
       window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 600);
+    } catch (err: any) {
+      console.error("Opportunity submit error:", err);
+      setIsSubmitting(false);
+      setErrors({ form: err.message || "An unexpected error occurred. Please try again or email info@partnermarketglobal.com directly." });
+    }
   };
 
   if (submittedRef) {

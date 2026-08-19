@@ -1,8 +1,8 @@
-# Partner Market Global — Full Website Code Package
+# Partner Market Global — Full Production Website
 
-This is a complete, SEO/GAIO-optimized website starter for:
-
-**https://partner-market-global2.pages.dev**
+Production Website: **https://www.partnermarketglobal.com**  
+Cloudflare Pages Project: `partner-market-global2`  
+Official Email: `info@partnermarketglobal.com`
 
 It is built to match the supplied mockup style closely while providing a real scalable codebase.
 

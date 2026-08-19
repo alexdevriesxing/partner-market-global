@@ -1,14 +1,19 @@
-# Cloudflare Pages static asset caching
+# Cloudflare Pages Security and Static Asset Headers
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   X-Frame-Options: SAMEORIGIN
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; frame-src 'self' https://challenges.cloudflare.com; connect-src 'self' https:;
 
 /_next/static/*
   Cache-Control: public,max-age=31536000,immutable
 
 /assets/*
+  Cache-Control: public,max-age=31536000,immutable
+
+/images/*
   Cache-Control: public,max-age=31536000,immutable
 
 /favicon.svg
