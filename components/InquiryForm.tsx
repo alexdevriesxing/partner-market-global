@@ -83,6 +83,7 @@ function InquiryFormClient({
   const isNittoh = oppSlug === "nittoh-japanese-dollies-utility-carts-distribution";
   const isIchiban = oppSlug === "ichiban-ken-indonesia-master-franchise";
   const isEbara = oppSlug === "ebara-foods-indonesia-distribution-noodle-partnership";
+  const isSonic = oppSlug === "sonic-friends-europe-2027";
 
   const opportunity = opportunities.find(o => o.slug === oppSlug);
   const originCountry = opportunity?.originCountry || "";
@@ -108,6 +109,21 @@ function InquiryFormClient({
       }, 0);
     }
   }, []);
+
+  const [sonicFields, setSonicFields] = useState({
+    firstName: "",
+    lastName: "",
+    jobTitle: "",
+    companyType: "",
+    interests: [] as string[],
+    countriesCovered: "",
+    storeCount: "",
+    annualPurchasingVolume: "",
+    licensedPortfolio: "",
+    intendedChannels: "",
+    requests: [] as string[],
+    message: ""
+  });
 
   const [nittohFields, setNittohFields] = useState({
     coveredTerritory: "",
@@ -169,11 +185,39 @@ function InquiryFormClient({
     consent: false
   });
 
+  const handleInterestToggle = (item: string) => {
+    setSonicFields((prev) => {
+      const exists = prev.interests.includes(item);
+      return {
+        ...prev,
+        interests: exists ? prev.interests.filter((i) => i !== item) : [...prev.interests, item]
+      };
+    });
+  };
+
+  const handleRequestToggle = (item: string) => {
+    setSonicFields((prev) => {
+      const exists = prev.requests.includes(item);
+      return {
+        ...prev,
+        requests: exists ? prev.requests.filter((i) => i !== item) : [...prev.requests, item]
+      };
+    });
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.company || !formData.email || !formData.phone || !formData.consent) {
-      alert("Please fill in all required fields and accept the consent checkbox.");
-      return;
+
+    if (isSonic) {
+      if (!sonicFields.firstName || !sonicFields.lastName || !formData.company || !formData.email || !formData.phone || !formData.country || !formData.consent) {
+        alert("Please fill in all required contact information and accept the privacy consent checkbox.");
+        return;
+      }
+    } else {
+      if (!formData.name || !formData.company || !formData.email || !formData.phone || !formData.consent) {
+        alert("Please fill in all required fields and accept the consent checkbox.");
+        return;
+      }
     }
 
     if (isEbara && !ebaraFields.notMasuyaConfirmed) {
@@ -182,23 +226,150 @@ function InquiryFormClient({
     }
 
     const emailTo = "alex@devriessalesconsultancy.com";
-    const subject = oppTitle 
+    
+    // Compute lead score & signals for Sonic
+    let leadScore = 10;
+    const prioritySignals: string[] = [];
+    if (isSonic) {
+      const cType = sonicFields.companyType || formData.partnerType;
+      if (["National Retail Chain", "Toy Retailer", "Gaming Retailer", "Department Store"].includes(cType)) {
+        leadScore += 20;
+        prioritySignals.push(`National Retail / Major Chain (${cType})`);
+      } else if (["Distributor", "Wholesaler", "Importer"].includes(cType)) {
+        leadScore += 20;
+        prioritySignals.push(`Wholesale / Distribution Partner (${cType})`);
+      } else if (["Specialist Retailer", "Pop Culture Stores", "E-commerce", "Gift Retailer"].includes(cType)) {
+        leadScore += 15;
+        prioritySignals.push(`Specialist Buyer (${cType})`);
+      }
+
+      if (["26–50 stores", "50+ stores", "Wholesale distribution network"].includes(sonicFields.storeCount)) {
+        leadScore += 25;
+        prioritySignals.push(`High Store Count (${sonicFields.storeCount})`);
+      } else if (["11–25 stores"].includes(sonicFields.storeCount)) {
+        leadScore += 15;
+        prioritySignals.push(`Multi-unit Retailer (${sonicFields.storeCount})`);
+      }
+
+      if (sonicFields.countriesCovered && (sonicFields.countriesCovered.includes(",") || sonicFields.countriesCovered.toLowerCase().includes("europe") || sonicFields.countriesCovered.toLowerCase().includes("uk") || sonicFields.countriesCovered.toLowerCase().includes("germany") || sonicFields.countriesCovered.toLowerCase().includes("france") || sonicFields.countriesCovered.toLowerCase().includes("spain"))) {
+        leadScore += 15;
+        prioritySignals.push("Multi-Country European Coverage");
+      }
+
+      if (sonicFields.licensedPortfolio.trim().length > 3) {
+        leadScore += 15;
+        prioritySignals.push("Existing Licensed Portfolio");
+      }
+
+      if (sonicFields.requests.includes("Arrange meeting") || sonicFields.requests.includes("Discuss distribution")) {
+        leadScore += 15;
+        prioritySignals.push("Meeting / Distribution Request");
+      }
+      if (sonicFields.requests.includes("Request samples")) {
+        leadScore += 10;
+        prioritySignals.push("Sample Pack Request");
+      }
+      if (sonicFields.interests.includes("Full Commercial Range") || sonicFields.interests.length >= 3) {
+        leadScore += 10;
+        prioritySignals.push("Broad Range Interest");
+      }
+    }
+
+    const priorityRating = leadScore >= 45 ? "HIGH PRIORITY" : leadScore >= 25 ? "MEDIUM PRIORITY" : "STANDARD";
+
+    // Store structured lead in CRM / LocalStorage
+    const structuredLead = {
+      id: `lead_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`,
+      timestamp: new Date().toISOString(),
+      source: "PartnerMarketGlobal website",
+      opportunity: oppTitle || (isSonic ? "SONIC & FRIENDS Europe 2027" : "General Opportunity"),
+      oppSlug: oppSlug || "general",
+      brand: isSonic ? "SONIC & FRIENDS" : opportunity?.brand || "N/A",
+      principal: isSonic ? "Japan Industrial Promotion Inc. (Daiki Fukaura)" : source || "JIP Japan",
+      industry: isSonic ? "licensed merchandise / toys" : category || "General",
+      contactName: isSonic ? `${sonicFields.firstName} ${sonicFields.lastName}`.trim() : formData.name,
+      jobTitle: sonicFields.jobTitle || "Buyer / Decision Maker",
+      company: formData.company,
+      email: formData.email,
+      phone: formData.phone,
+      country: formData.country,
+      website: formData.website || "",
+      companyType: isSonic ? sonicFields.companyType : formData.partnerType,
+      leadScore,
+      priorityRating,
+      prioritySignals,
+      sonicDetails: isSonic ? sonicFields : undefined,
+      requestedInfo: isSonic ? sonicFields.requests.join(", ") : formData.reason,
+      utmData: utms,
+      referrer
+    };
+
+    if (typeof window !== "undefined") {
+      try {
+        const storedLeads = JSON.parse(localStorage.getItem("pmg_opportunity_leads") || "[]");
+        storedLeads.unshift(structuredLead);
+        localStorage.setItem("pmg_opportunity_leads", JSON.stringify(storedLeads));
+      } catch (err) {
+        console.error("Failed to store lead in localStorage", err);
+      }
+    }
+
+    const subject = isSonic
+      ? `[SONIC & FRIENDS 2027 ${priorityRating}] ${formData.company} (${sonicFields.companyType || "Buyer"}) - ${formData.country}`
+      : oppTitle 
       ? `Inquiry: ${oppTitle}` 
       : "General Inquiry - Partner Market Global";
     
-    let body = `Hello Alex,\n\nI am writing to inquire about the opportunity: ${oppTitle || "General Inquiry"}.\n\n`;
-    body += `My details:\n`;
-    body += `- Name: ${formData.name}\n`;
-    body += `- Company: ${formData.company}\n`;
-    body += `- Email: ${formData.email}\n`;
-    body += `- Phone: ${formData.phone}\n`;
-    body += `- Country: ${formData.country}\n`;
-    body += `- Website: ${formData.website || "N/A"}\n`;
-    body += `- Partner Type: ${formData.partnerType}\n`;
-    body += `- Current Business Activity: ${formData.activity}\n`;
-    body += `- Existing Network: ${formData.network}\n`;
-    body += `- Reason for Interest: ${formData.reason}\n`;
-    body += `- Meet Minimum Requirements: ${formData.requirements}\n\n`;
+    let body = `Hello Alex & Japan Industrial Promotion Team,\n\n`;
+    if (isSonic) {
+      body += `A qualified commercial inquiry has been submitted for:\n`;
+      body += `SONIC & FRIENDS — European Retail & Distribution Opportunity 2027\n`;
+      body += `Principal: Japan Industrial Promotion Inc. (Daiki Fukaura)\n`;
+      body += `Lead Priority: ${priorityRating} (Score: ${leadScore}/100)\n`;
+      if (prioritySignals.length > 0) {
+        body += `High Priority Signals: ${prioritySignals.join(" | ")}\n`;
+      }
+      body += `\n=== BUYER CONTACT INFORMATION ===\n`;
+      body += `- Name: ${sonicFields.firstName} ${sonicFields.lastName}\n`;
+      body += `- Job Title: ${sonicFields.jobTitle || "N/A"}\n`;
+      body += `- Company: ${formData.company}\n`;
+      body += `- Business Email: ${formData.email}\n`;
+      body += `- Phone / WhatsApp: ${formData.phone}\n`;
+      body += `- Country / Region: ${formData.country}\n`;
+      body += `- Website: ${formData.website || "N/A"}\n`;
+      body += `- Company Type: ${sonicFields.companyType || "Retailer / Buyer"}\n\n`;
+
+      body += `=== PRODUCT LINE INTERESTS ===\n`;
+      body += `- Selected Lines: ${sonicFields.interests.length > 0 ? sonicFields.interests.join(", ") : "Full Assortment"}\n\n`;
+
+      body += `=== MARKET & OPERATIONAL CAPACITY ===\n`;
+      body += `- Countries Covered: ${sonicFields.countriesCovered || formData.country}\n`;
+      body += `- Number of Stores: ${sonicFields.storeCount || "N/A"}\n`;
+      body += `- Annual Purchasing Volume: ${sonicFields.annualPurchasingVolume || "To discuss"}\n`;
+      body += `- Existing Licensed Portfolio: ${sonicFields.licensedPortfolio || "N/A"}\n`;
+      body += `- Intended Retail Channels: ${sonicFields.intendedChannels || "N/A"}\n\n`;
+
+      body += `=== SPECIFIC BUYER REQUESTS ===\n`;
+      body += `- Requested Actions: ${sonicFields.requests.length > 0 ? sonicFields.requests.join(", ") : "Buyer Pack & Pricing"}\n`;
+      if (sonicFields.message) {
+        body += `- Buyer Message / Notes: ${sonicFields.message}\n`;
+      }
+      body += `\n`;
+    } else {
+      body += `I am writing to inquire about the opportunity: ${oppTitle || "General Inquiry"}.\n\n`;
+      body += `My details:\n`;
+      body += `- Name: ${formData.name}\n`;
+      body += `- Company: ${formData.company}\n`;
+      body += `- Email: ${formData.email}\n`;
+      body += `- Phone: ${formData.phone}\n`;
+      body += `- Country: ${formData.country}\n`;
+      body += `- Website: ${formData.website || "N/A"}\n`;
+      body += `- Partner Type: ${formData.partnerType}\n`;
+      body += `- Current Business Activity: ${formData.activity}\n`;
+      body += `- Existing Network: ${formData.network}\n`;
+      body += `- Reason for Interest: ${formData.reason}\n`;
+      body += `- Meet Minimum Requirements: ${formData.requirements}\n\n`;
+    }
 
     if (isNittoh) {
       body += `Nittoh Specific Answers:\n`;
@@ -247,22 +418,25 @@ function InquiryFormClient({
       body += `- Ability to Fund Inventory & Market Development: ${ebaraFields.abilityToFundInventory}\n\n`;
     }
 
-    body += `Opportunity & Inquiry Context:\n`;
+    body += `Opportunity & Routing Context:\n`;
     body += `- Opportunity ID: ${opportunity?.id || "N/A"}\n`;
     body += `- Slug: ${oppSlug || "N/A"}\n`;
     body += `- Category: ${category || "N/A"}\n`;
     body += `- Origin Country: ${originCountry || "N/A"}\n`;
     body += `- Target Market: ${targetMarkets || "N/A"}\n`;
-    body += `- Source Partner: ${source || "JIP Japan"}\n`;
+    body += `- Source Partner: ${source || "Japan Industrial Promotion Inc."}\n`;
     body += `- Referring Page: ${referrer}\n`;
     if (Object.keys(utms).length > 0) {
       body += `- UTM Parameters: ${JSON.stringify(utms)}\n`;
     }
-    body += `\nRegards,\n${formData.name}`;
+    body += `\nRegards,\n${isSonic ? `${sonicFields.firstName} ${sonicFields.lastName}` : formData.name}`;
 
     const mailtoUrl = `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
     window.location.href = mailtoUrl;
+    if (isSonic) {
+      setFormData((prev) => ({ ...prev, name: `${sonicFields.firstName} ${sonicFields.lastName}`.trim() }));
+    }
     setSubmitted(true);
   };
 
@@ -386,103 +560,310 @@ function InquiryFormClient({
             onChange={(e) => setFormData({ ...formData, website: e.target.value })}
           />
         </label>
-        <label>
-          {partnerTypeLabel}
-          <select
-            name="partnerType"
-            required
-            value={formData.partnerType}
-            onChange={(e) => setFormData({ ...formData, partnerType: e.target.value })}
-          >
-            <option value="">{partnerTypeDefault}</option>
-            {isNittoh ? (
-              <>
-                <option value="Importer">Importer</option>
-                <option value="Distributor">Distributor</option>
-                <option value="Wholesaler">Wholesaler</option>
-                <option value="Retailer / Buyer">Retailer / Buyer</option>
-                <option value="E-commerce Partner">E-commerce Partner</option>
-                <option value="Tool Distributor">Tool Distributor</option>
-                <option value="Hotel Procurement / HORECA Buyer">Hotel Procurement / HORECA Buyer</option>
-                <option value="Commercial Equipment Supplier">Commercial Equipment Supplier</option>
-                <option value="Other Strategic Partner">Other Strategic Partner</option>
-              </>
-            ) : isIchiban ? (
-              <>
-                <option value="Master Franchisee">Master Franchisee</option>
-                <option value="Multi-unit F&B Operator">Multi-unit F&B Operator</option>
-                <option value="Restaurant Group">Restaurant Group</option>
-                <option value="Investor-Operator">Investor-Operator</option>
-                <option value="Hospitality Group">Hospitality Group</option>
-                <option value="Property and Restaurant Partner">Property and Restaurant Partner</option>
-                <option value="Strategic Joint-Venture Partner">Strategic Joint-Venture Partner</option>
-              </>
-            ) : isEbara ? (
-              <>
-                <option value="Foodservice Distributor">Foodservice Distributor</option>
-                <option value="Ramen Ingredient Wholesaler">Ramen Ingredient Wholesaler</option>
-                <option value="Noodle Manufacturer">Noodle Manufacturer</option>
-                <option value="Local Trading Company">Local Trading Company</option>
-                <option value="Strategic Investment or M&A">Strategic Investment or M&A</option>
-                <option value="B2B Wholesaler">B2B Wholesaler</option>
-                <option value="Other Strategic Partner">Other Strategic Partner</option>
-              </>
-            ) : (
-              <>
-                <option value="Importer">Importer</option>
-                <option value="Distributor">Distributor</option>
-                <option value="Franchisee">Franchisee</option>
-                <option value="Investor">Investor</option>
-                <option value="Operator">Operator</option>
-                <option value="Retailer">Retailer / Buyer</option>
-              </>
-            )}
-          </select>
-        </label>
-        <label>
-          {activityLabel}
-          <input
-            name="activity"
-            required
-            placeholder={activityPlaceholder}
-            value={formData.activity}
-            onChange={(e) => setFormData({ ...formData, activity: e.target.value })}
-          />
-        </label>
-        <label className="span-2">
-          {networkLabel}
-          <input
-            name="network"
-            required
-            placeholder={networkPlaceholder}
-            value={formData.network}
-            onChange={(e) => setFormData({ ...formData, network: e.target.value })}
-          />
-        </label>
-        <label className="span-2">
-          {reasonLabel}
-          <textarea
-            name="reason"
-            required
-            placeholder={reasonPlaceholder}
-            value={formData.reason}
-            onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
-          />
-        </label>
-        <label className="span-2">
-          {requirementsLabel}
-          <select
-            name="requirements"
-            required
-            value={formData.requirements}
-            onChange={(e) => setFormData({ ...formData, requirements: e.target.value })}
-          >
-            <option value="">{requirementsDefault}</option>
-            <option value="Yes">{yesOption}</option>
-            <option value="Need to discuss">{discussOption}</option>
-            <option value="No">{noOption}</option>
-          </select>
-        </label>
+        {!isSonic && (
+          <>
+            <label>
+              {partnerTypeLabel}
+              <select
+                name="partnerType"
+                required
+                value={formData.partnerType}
+                onChange={(e) => setFormData({ ...formData, partnerType: e.target.value })}
+              >
+                <option value="">{partnerTypeDefault}</option>
+                {isNittoh ? (
+                  <>
+                    <option value="Importer">Importer</option>
+                    <option value="Distributor">Distributor</option>
+                    <option value="Wholesaler">Wholesaler</option>
+                    <option value="Retailer / Buyer">Retailer / Buyer</option>
+                    <option value="E-commerce Partner">E-commerce Partner</option>
+                    <option value="Tool Distributor">Tool Distributor</option>
+                    <option value="Hotel Procurement / HORECA Buyer">Hotel Procurement / HORECA Buyer</option>
+                    <option value="Commercial Equipment Supplier">Commercial Equipment Supplier</option>
+                    <option value="Other Strategic Partner">Other Strategic Partner</option>
+                  </>
+                ) : isIchiban ? (
+                  <>
+                    <option value="Master Franchisee">Master Franchisee</option>
+                    <option value="Multi-unit F&B Operator">Multi-unit F&B Operator</option>
+                    <option value="Restaurant Group">Restaurant Group</option>
+                    <option value="Investor-Operator">Investor-Operator</option>
+                    <option value="Hospitality Group">Hospitality Group</option>
+                    <option value="Property and Restaurant Partner">Property and Restaurant Partner</option>
+                    <option value="Strategic Joint-Venture Partner">Strategic Joint-Venture Partner</option>
+                  </>
+                ) : isEbara ? (
+                  <>
+                    <option value="Foodservice Distributor">Foodservice Distributor</option>
+                    <option value="Ramen Ingredient Wholesaler">Ramen Ingredient Wholesaler</option>
+                    <option value="Noodle Manufacturer">Noodle Manufacturer</option>
+                    <option value="Local Trading Company">Local Trading Company</option>
+                    <option value="Strategic Investment or M&A">Strategic Investment or M&A</option>
+                    <option value="B2B Wholesaler">B2B Wholesaler</option>
+                    <option value="Other Strategic Partner">Other Strategic Partner</option>
+                  </>
+                ) : (
+                  <>
+                    <option value="Importer">Importer</option>
+                    <option value="Distributor">Distributor</option>
+                    <option value="Franchisee">Franchisee</option>
+                    <option value="Investor">Investor</option>
+                    <option value="Operator">Operator</option>
+                    <option value="Retailer">Retailer / Buyer</option>
+                  </>
+                )}
+              </select>
+            </label>
+            <label>
+              {activityLabel}
+              <input
+                name="activity"
+                required
+                placeholder={activityPlaceholder}
+                value={formData.activity}
+                onChange={(e) => setFormData({ ...formData, activity: e.target.value })}
+              />
+            </label>
+            <label className="span-2">
+              {networkLabel}
+              <input
+                name="network"
+                required
+                placeholder={networkPlaceholder}
+                value={formData.network}
+                onChange={(e) => setFormData({ ...formData, network: e.target.value })}
+              />
+            </label>
+            <label className="span-2">
+              {reasonLabel}
+              <textarea
+                name="reason"
+                required
+                placeholder={reasonPlaceholder}
+                value={formData.reason}
+                onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
+              />
+            </label>
+            <label className="span-2">
+              {requirementsLabel}
+              <select
+                name="requirements"
+                required
+                value={formData.requirements}
+                onChange={(e) => setFormData({ ...formData, requirements: e.target.value })}
+              >
+                <option value="">{requirementsDefault}</option>
+                <option value="Yes">{yesOption}</option>
+                <option value="Need to discuss">{discussOption}</option>
+                <option value="No">{noOption}</option>
+              </select>
+            </label>
+          </>
+        )}
+
+        {isSonic && (
+          <div className="custom-qualifying-fields span-2" style={{ gridColumn: "span 2", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginTop: "16px", borderTop: "2px solid #0056b3", paddingTop: "24px" }}>
+            <div className="span-2" style={{ gridColumn: "span 2", background: "#f0f7ff", border: "1px solid #bfdbfe", padding: "16px", borderRadius: "8px" }}>
+              <h3 style={{ margin: "0 0 6px 0", fontSize: "1.15rem", fontWeight: "700", color: "#1e3a8a" }}>
+                SONIC &amp; FRIENDS European Buyer Qualification &amp; Commercial Request
+              </h3>
+              <p style={{ margin: 0, fontSize: "0.88rem", color: "#1e40af" }}>
+                Direct qualification for European retailers, distributors, wholesalers and specialty buyers. Gated commercial terms and wholesale line sheets will be provided upon verified submission.
+              </p>
+            </div>
+
+            {/* Contact Details */}
+            <label>
+              First Name *
+              <input
+                type="text"
+                required
+                value={sonicFields.firstName}
+                onChange={(e) => setSonicFields({ ...sonicFields, firstName: e.target.value })}
+                placeholder="First name"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+
+            <label>
+              Last Name *
+              <input
+                type="text"
+                required
+                value={sonicFields.lastName}
+                onChange={(e) => setSonicFields({ ...sonicFields, lastName: e.target.value })}
+                placeholder="Last name"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+
+            <label>
+              Job Title / Role *
+              <input
+                type="text"
+                required
+                value={sonicFields.jobTitle}
+                onChange={(e) => setSonicFields({ ...sonicFields, jobTitle: e.target.value })}
+                placeholder="e.g. Senior Buyer / Head of Merchandising / Commercial Director"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+
+            <label>
+              Company Type / Business Model *
+              <select
+                required
+                value={sonicFields.companyType}
+                onChange={(e) => setSonicFields({ ...sonicFields, companyType: e.target.value })}
+                style={{ width: "100%", marginTop: "6px" }}
+              >
+                <option value="">Select company type</option>
+                <option value="National Retail Chain">National Retail Chain</option>
+                <option value="Toy Retailer">Toy Retailer / Superstore</option>
+                <option value="Gaming Retailer">Gaming / Entertainment Retailer</option>
+                <option value="Specialist Retailer">Specialist / Pop Culture Retailer</option>
+                <option value="Gift Retailer">Gift / Lifestyle Retailer</option>
+                <option value="Department Store">Department Store</option>
+                <option value="Distributor">Distributor / Master Importer</option>
+                <option value="Wholesaler">Wholesaler / B2B Trader</option>
+                <option value="E-commerce">E-commerce / Marketplace Operator</option>
+                <option value="Other">Other Sales Channel</option>
+              </select>
+            </label>
+
+            {/* Product Interest Multiselect */}
+            <div className="span-2" style={{ gridColumn: "span 2", background: "#f8fafc", padding: "16px", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
+              <strong style={{ display: "block", marginBottom: "8px", fontSize: "0.95rem" }}>
+                Product Lines of Commercial Interest (Select all that apply):
+              </strong>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "8px" }}>
+                {[
+                  "SONIC & FRIENDS Mascots (140-160 mm)",
+                  "SONIC & FRIENDS Plush — Medium (240 mm)",
+                  "SONIC & FRIENDS Cushion — Sonic",
+                  "SONIC & FRIENDS Plush — Large Sonic (400 mm)",
+                  "SONIC & FRIENDS Sleeping Sonic (350 mm)",
+                  "SONIC & FRIENDS × Sanrio characters",
+                  "Full Commercial Assortment",
+                  "Territory Distribution Rights / Market Representation",
+                  "National Retail Listing",
+                  "Sample Evaluation Pack",
+                  "Wholesale Price & Margin Schedules"
+                ].map((item) => (
+                  <label key={item} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.85rem", cursor: "pointer", margin: 0 }}>
+                    <input
+                      type="checkbox"
+                      checked={sonicFields.interests.includes(item)}
+                      onChange={() => handleInterestToggle(item)}
+                    />
+                    <span>{item}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Market Scope */}
+            <label>
+              European Territories / Countries Covered *
+              <input
+                type="text"
+                required
+                value={sonicFields.countriesCovered}
+                onChange={(e) => setSonicFields({ ...sonicFields, countriesCovered: e.target.value })}
+                placeholder="e.g. UK, Germany, France, Benelux, Spain, Pan-European"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+
+            <label>
+              Number of Retail Stores / Outlets
+              <select
+                value={sonicFields.storeCount}
+                onChange={(e) => setSonicFields({ ...sonicFields, storeCount: e.target.value })}
+                style={{ width: "100%", marginTop: "6px" }}
+              >
+                <option value="">Select store count</option>
+                <option value="Single flagship / 1 store">Single store / Boutique</option>
+                <option value="2–10 stores">2–10 stores</option>
+                <option value="11–25 stores">11–25 stores</option>
+                <option value="26–50 stores">26–50 stores</option>
+                <option value="50+ stores">50+ national / regional stores</option>
+                <option value="Pure online / E-commerce">Pure online / E-commerce</option>
+                <option value="Wholesale distribution network">Wholesale distribution network</option>
+              </select>
+            </label>
+
+            <label>
+              Approximate Annual Purchasing Volume (Licensed / Toys)
+              <input
+                type="text"
+                value={sonicFields.annualPurchasingVolume}
+                onChange={(e) => setSonicFields({ ...sonicFields, annualPurchasingVolume: e.target.value })}
+                placeholder="e.g. €100k–€500k / €500k–€2M / 10,000+ units"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+
+            <label>
+              Existing Licensed Character / Toy Portfolio
+              <input
+                type="text"
+                value={sonicFields.licensedPortfolio}
+                onChange={(e) => setSonicFields({ ...sonicFields, licensedPortfolio: e.target.value })}
+                placeholder="e.g. Gaming plush, anime merchandise, Japanese collectibles"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              Intended Retail &amp; Sales Channels
+              <input
+                type="text"
+                value={sonicFields.intendedChannels}
+                onChange={(e) => setSonicFields({ ...sonicFields, intendedChannels: e.target.value })}
+                placeholder="e.g. Physical high-street stores, shopping mall flagships, direct webshop, B2B wholesale"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+
+            {/* Request Checkboxes */}
+            <div className="span-2" style={{ gridColumn: "span 2", background: "#f0fdf4", padding: "16px", borderRadius: "8px", border: "1px solid #bbf7d0" }}>
+              <strong style={{ display: "block", marginBottom: "8px", fontSize: "0.95rem", color: "#166534" }}>
+                What information would you like to receive?
+              </strong>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "8px" }}>
+                {[
+                  "Request wholesale catalogue & specs",
+                  "Request pricing & MOQ schedules",
+                  "Request product samples",
+                  "Discuss distribution agreement",
+                  "Arrange discovery meeting",
+                  "Request logistics & carton packaging data"
+                ].map((item) => (
+                  <label key={item} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.85rem", cursor: "pointer", margin: 0, color: "#14532d" }}>
+                    <input
+                      type="checkbox"
+                      checked={sonicFields.requests.includes(item)}
+                      onChange={() => handleRequestToggle(item)}
+                    />
+                    <span>{item}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              Additional Commercial Notes or Specific Inquiries
+              <textarea
+                value={sonicFields.message}
+                onChange={(e) => setSonicFields({ ...sonicFields, message: e.target.value })}
+                placeholder="Please include any specific timing constraints, target launch dates, or commercial queries..."
+                style={{ width: "100%", marginTop: "6px", minHeight: "80px" }}
+              />
+            </label>
+          </div>
+        )}
 
         {isNittoh && (
           <div className="custom-qualifying-fields span-2" style={{ gridColumn: "span 2", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginTop: "16px", borderTop: "1px solid var(--border)", paddingTop: "24px" }}>
@@ -721,7 +1102,7 @@ function InquiryFormClient({
         {" "}{consentText}
       </label>
       <button className="btn btn-primary form-submit" type="submit">
-        {submitLabel}
+        {isSonic ? "Request Buyer Information" : submitLabel}
       </button>
       <p className="form-disclaimer">{disclaimer}</p>
     </form>

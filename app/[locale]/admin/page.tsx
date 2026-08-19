@@ -27,10 +27,19 @@ export default async function AdminPage({ params }: { params: Promise<{ locale: 
     <AdminDashboardClient
       opportunities={opportunities.map(o => ({
         id: o.id,
+        slug: o.slug,
         title: o.title,
         type: o.type,
         sector: o.sector,
-        originCountry: o.originCountry
+        originCountry: o.originCountry,
+        targetMarkets: o.targetMarkets,
+        status: o.status,
+        brand: o.brand,
+        company: o.company,
+        investmentRequirement: o.investmentRequirement,
+        documentsAvailable: o.documentsAvailable,
+        sourcePartner: o.sourcePartner,
+        featured: o.featured
       }))}
       tListings={t('listings')}
       tNewListing={t('newListing')}

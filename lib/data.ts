@@ -85,6 +85,80 @@ const mappedJipOpportunities: Opportunity[] = (jipOpportunitiesRaw as unknown as
   const originCountry = jip.company === "Chinese Manufacturer Products" ? "China" : "Japan";
   const formattedType = Array.isArray(jip.opportunityType) ? jip.opportunityType.join(" / ") : jip.opportunityType;
 
+  if (jip.slug === "sonic-friends-europe-2027") {
+    return {
+      id: jip.id,
+      slug: jip.slug,
+      sourcePartner: jip.sourcePartner || "Japan Industrial Promotion Inc.",
+      title: "SONIC & FRIENDS — European Retail & Distribution Opportunity",
+      type: "Distribution / Retail / Wholesale / Import",
+      sector: "Toys & Licensed Merchandise / Character Goods & Gaming Pop Culture",
+      originCountry: "Japan",
+      targetMarkets: ["Europe", "United Kingdom", "France", "Germany", "Spain", "Belgium", "Italy", "Portugal"],
+      heroImage: "/images/opportunities/sonic-friends-europe-2027-hero.webp",
+      cardImage: "/images/opportunities/sonic-friends-europe-2027.webp",
+      summary: "SEGA introduces a new character merchandise collection bringing Sonic and his friends to life in an exceptionally cute, approachable visual style. PartnerMarketGlobal is working with Japan Industrial Promotion to identify qualified European retail and distribution partners for the 2027 launch.",
+      description: "SONIC & FRIENDS is a character series created by SEGA that reimagines Sonic and his companions through a softer, highly stylized and exceptionally cute design. The collection expands the merchandising potential of Sonic beyond the franchise's traditional audience, appealing to existing Sonic fans, gamers, collectors, children, families, female consumers, kawaii/character-goods consumers, gift buyers, and lifestyle shoppers.\n\nStrategically timed for the March–April 2027 European consumer attention window surrounding the major Sonic movie theatrical launch and Sonic 35th Anniversary live tour, product availability from Shenzhen warehouse is scheduled for January 2027 based on production orders placed around early September 2026.",
+      companyBackground: "Principal Representative: Japan Industrial Promotion Inc. (Daiki Fukaura)\nBrand Owner: SEGA Corporation\nCategory: Official Licensed Character Merchandise\nFacilitated by: PartnerMarketGlobal European Market Development",
+      productDetails: "The SONIC & FRIENDS Core Range includes:\n- SONIC & FRIENDS Mascot (140–160 mm): Sonic, Tails, Knuckles, Amy, Shadow, Rouge, Silver, Chao, Dr. Eggman (48 pcs/carton)\n- SONIC & FRIENDS Plush (Medium, 240 mm): Sonic, Tails, Amy, Shadow (12 pcs/carton)\n- SONIC & FRIENDS Cushion — Sonic (W300×H250×D150 mm, 24 pcs/carton)\n- SONIC & FRIENDS Plush — Large Sonic (W280×H400×D200 mm, 6 pcs/carton)\n- SONIC & FRIENDS Sleeping Sonic (W350×H200×D150 mm, 12 pcs/carton)\n\nAdditional Collaborative Line: SONIC & FRIENDS × Sanrio characters (strap figures, Fuwa Fuwa figures, mascot plush, and medium plush featuring Hello Kitty, Cinnamoroll, Kuromi, My Melody, Hangyodon, and Pompompurin).",
+      marketOpportunity: "European demand for licensed entertainment merchandise and Japanese character goods is at an all-time high. With the Sonic movie franchise surpassing $1 Billion+ in global box office revenue (UK $26.3M, Germany $22.8M, France $13.6M, Spain $6.4M), the March 2027 European theatrical premiere across Belgium, Germany, Italy, Portugal, Spain, UK, and France creates a massive consumer demand wave for retailers and distributors.",
+      partnerProfile: "Best suited to European national retail chains, toy buyers, gaming merchandise buyers, licensed merchandise buyers, character-goods buyers, gift buyers, distributors, wholesalers, importers, specialist retailers, entertainment retailers, pop-culture stores, department stores, and online retailers across the UK, France, Germany, Spain, Benelux, Italy, and Portugal.",
+      commercialModel: "Wholesale distribution, national retail listings, and importer agreements on a Shenzhen FOB commercial basis. Standard MOQs are approximately 3,000 pieces per SKU for core lines. Gated access to confidential wholesale price lists, carton specs, and SRP data upon qualified inquiry.",
+      territoryAvailability: "Europe (Priority outreach: United Kingdom, France, Germany, Spain, Belgium, Italy, Portugal; open for pan-European distribution discussions).",
+      investmentRequirement: "Shenzhen FOB basis; core line MOQs typically ~3,000 pcs per SKU. Detailed wholesale pricing, volume discount structures, carton dimensions, and logistics terms available upon partner qualification.",
+      credentials: [
+        "Official SEGA Character IP with 30+ Years Global Legacy",
+        "$1 Billion+ Worldwide Sonic Theatrical Box Office Validation",
+        "2027 European Movie Release Window Alignment (March 17–24, 2027)",
+        "Approachable Kawaii Aesthetic Expanding Beyond Hardcore Gamers",
+        "Shenzhen FOB Commercial Logistics with January 2027 Warehouse Availability",
+        "Sonic 35th Anniversary European Live Concert Tour (Brussels & Paris)",
+        "Complete Assortment: Mascots, Medium Plush, Large Plush, Cushions & Sleeping Plush",
+        "Complementary SONIC & FRIENDS × Sanrio Collaboration Range",
+        "Facilitated Directly via Japan Industrial Promotion Inc."
+      ],
+      verificationBadges: [
+        "Client Opportunity",
+        "JIP Japan Vetted",
+        "SEGA Licensed IP",
+        "2027 Movie Window",
+        "Retail Chains",
+        "Distribution",
+        "Wholesale",
+        "Time Sensitive"
+      ],
+      documentsAvailable: [
+        "Brand Presentation & Concept Deck",
+        "Core Line Product Catalogue & Specifications",
+        "Sanrio Collaboration Line Overview",
+        "Shenzhen FOB Logistics & Packaging Specifications",
+        "Gated Wholesale Pricing & MOQ Schedule (On Qualified Inquiry)",
+        "Movie & Tour Activation Calendar"
+      ],
+      risks: "Third-party intellectual property is owned by SEGA and respective partners. Wholesale pricing and internal line sheets are confidential and provided only to qualified buyers. Commercial orders require timely placement to meet January 2027 Shenzhen FOB production schedules in advance of the March 2027 European theatrical release. Standard European toy safety (CE / UKCA compliance), import duties, and customs clearances apply.",
+      status: "Active Opportunity — 2027 Retail Window",
+      featured: true,
+      brand: "SONIC & FRIENDS / SEGA",
+      company: "Japan Industrial Promotion Inc.",
+      seoKeywords: [
+        "Sonic merchandise distributor Europe",
+        "Sonic plush wholesale",
+        "SONIC & FRIENDS wholesale",
+        "Sonic toys Europe",
+        "SEGA merchandise Europe",
+        "licensed character merchandise distributor",
+        "Sonic retail opportunity",
+        "Japanese character merchandise",
+        "Sonic plush distributor",
+        "Sonic wholesale Europe",
+        "Sonic movie merchandise 2027",
+        "SEGA Sonic retailer Europe"
+      ],
+      imageAlt: "SONIC & FRIENDS European Retail & Distribution Opportunity 2027 official SEGA merchandise",
+      exclusivity: "Territory or channel distribution agreements discussed on qualified inquiry"
+    };
+  }
+
   if (jip.slug === "yachiyo-mengyo-handa-somen-eu-distribution") {
     return {
       id: jip.id,

@@ -26,10 +26,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const metadata = pageMetadata({
     locale,
     path: `/opportunities/${opportunity.slug}`,
-    title: opportunity.slug === "yachiyo-mengyo-handa-somen-eu-distribution"
+    title: opportunity.slug === "sonic-friends-europe-2027"
+      ? "SONIC & FRIENDS European Distribution & Retail Opportunity | PartnerMarketGlobal"
+      : opportunity.slug === "yachiyo-mengyo-handa-somen-eu-distribution"
       ? "Yachiyo Mengyo Handa Somen EU Distribution | Partner Market Global"
       : opportunity.title,
-    description: opportunity.summary,
+    description: opportunity.slug === "sonic-friends-europe-2027"
+      ? "European retailers, distributors and wholesalers can enquire about the new SONIC & FRIENDS merchandise range from Japan for the 2027 Sonic retail window."
+      : opportunity.summary,
     image: opportunity.heroImage
   });
   return opportunity.seoKeywords?.length
@@ -231,6 +235,518 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                 <img src={opportunity.cardImage} alt={`${opportunity.title} product showcase`} style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "12px" }} />
               </div>
             </div>
+
+            {/* Custom Rich Sections for SONIC & FRIENDS */}
+            {opportunity.slug === "sonic-friends-europe-2027" && (
+              <>
+                {/* 1. HERO B2B OVERVIEW & QUICK ACTIONS */}
+                <div className="content-card" style={{ marginTop: 24, background: "linear-gradient(135deg, #0b1e36 0%, #173b6c 50%, #0056b3 100%)", color: "#ffffff", padding: "28px", borderRadius: "14px", border: "1px solid rgba(255,255,255,0.15)", boxShadow: "0 8px 24px rgba(0,0,0,0.15)" }}>
+                  <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 16, marginBottom: 16 }}>
+                    <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                      <span style={{ background: "#ffcc00", color: "#000", padding: "4px 10px", borderRadius: 6, fontWeight: 800, fontSize: "0.8rem", letterSpacing: "0.5px" }}>⭐ NEW OPPORTUNITY</span>
+                      <span style={{ background: "rgba(255,255,255,0.2)", color: "#fff", padding: "4px 10px", borderRadius: 6, fontWeight: 700, fontSize: "0.8rem" }}>🎬 2027 RETAIL WINDOW</span>
+                      <span style={{ background: "#ef4444", color: "#fff", padding: "4px 10px", borderRadius: 6, fontWeight: 700, fontSize: "0.8rem" }}>⏳ TIME SENSITIVE (SEPT 2026 ORDER CUT-OFF)</span>
+                    </div>
+                    <div style={{ fontSize: "0.85rem", opacity: 0.9 }}>
+                      Principal: <strong>Japan Industrial Promotion Inc.</strong> (Daiki Fukaura)
+                    </div>
+                  </div>
+
+                  <h2 style={{ color: "#ffffff", fontSize: "1.8rem", margin: "0 0 10px 0", fontWeight: 800, letterSpacing: "-0.5px" }}>
+                    SONIC &amp; FRIENDS — A New Retail Opportunity for Europe
+                  </h2>
+                  <p style={{ fontSize: "1.05rem", lineHeight: 1.6, margin: "0 0 20px 0", color: "rgba(255,255,255,0.92)", maxWidth: "850px" }}>
+                    SEGA introduces a new character merchandise collection bringing Sonic and his companions to life in an exceptionally cute, approachable visual style. PartnerMarketGlobal is working in direct cooperation with Japan Industrial Promotion to identify qualified European retail and distribution partners for the 2027 commercial launch.
+                  </p>
+
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 8 }}>
+                    <a href="#inquiry" className="btn btn-primary" style={{ background: "#ffcc00", color: "#000", border: "none", fontWeight: 700, padding: "10px 20px" }}>
+                      📥 Request Buyer Information
+                    </a>
+                    <a href="#inquiry" className="btn btn-line" style={{ color: "#ffffff", borderColor: "rgba(255,255,255,0.6)", padding: "10px 20px" }}>
+                      🤝 Discuss Distribution
+                    </a>
+                    <a href="#core-range" className="btn btn-line" style={{ color: "#ffffff", borderColor: "rgba(255,255,255,0.6)", padding: "10px 20px" }}>
+                      🧸 View Product Range
+                    </a>
+                  </div>
+                </div>
+
+                {/* 2. ABOUT THE CONCEPT */}
+                <div className="content-card" id="about-concept" style={{ marginTop: 24 }}>
+                  <h2>About SONIC &amp; FRIENDS: A Cute, Approachable Character Evolution</h2>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, alignItems: "center", marginTop: 16 }}>
+                    <div>
+                      <p style={{ lineHeight: 1.6, marginBottom: 12 }}>
+                        <strong>SONIC &amp; FRIENDS</strong> is a character series created by <strong>SEGA</strong> that reimagines Sonic and his companions through a softer, highly stylized and exceptionally cute design aesthetic.
+                      </p>
+                      <p style={{ lineHeight: 1.6, marginBottom: 12 }}>
+                        The collection substantially expands the merchandising potential of the Sonic brand far beyond the franchise&apos;s traditional core gaming audience. Its approachable, kawaii character treatment unlocks multi-demographic retail appeal:
+                      </p>
+                      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 10, marginTop: 14 }}>
+                        <div style={{ padding: 10, background: "var(--soft-bg, #f8fafc)", borderRadius: 8, border: "1px solid #e2e8f0" }}>
+                          🎮 <strong>Existing Sonic Fans &amp; Gamers</strong>
+                        </div>
+                        <div style={{ padding: 10, background: "var(--soft-bg, #f8fafc)", borderRadius: 8, border: "1px solid #e2e8f0" }}>
+                          🧸 <strong>Plush &amp; Character Collectors</strong>
+                        </div>
+                        <div style={{ padding: 10, background: "var(--soft-bg, #f8fafc)", borderRadius: 8, border: "1px solid #e2e8f0" }}>
+                          👨‍👩‍👧‍👦 <strong>Children &amp; Family Shoppers</strong>
+                        </div>
+                        <div style={{ padding: 10, background: "var(--soft-bg, #f8fafc)", borderRadius: 8, border: "1px solid #e2e8f0" }}>
+                          🎀 <strong>Female &amp; Kawaii Consumers</strong>
+                        </div>
+                        <div style={{ padding: 10, background: "var(--soft-bg, #f8fafc)", borderRadius: 8, border: "1px solid #e2e8f0" }}>
+                          🎁 <strong>Gift Buyers &amp; Lifestyle Stores</strong>
+                        </div>
+                        <div style={{ padding: 10, background: "var(--soft-bg, #f8fafc)", borderRadius: 8, border: "1px solid #e2e8f0" }}>
+                          🏬 <strong>Department &amp; Specialty Chains</strong>
+                        </div>
+                      </div>
+                      <p style={{ lineHeight: 1.6, marginTop: 14, fontSize: "0.95rem", color: "#475569" }}>
+                        The commercial proposition is significantly broader than traditional video-game merchandise, offering higher impulse buy rates and broader shelf placement opportunities.
+                      </p>
+                    </div>
+                    <div style={{ textAlign: "center" }}>
+                      <img
+                        src="/images/opportunities/sonic-friends/sonic-friends-group-art.png"
+                        alt="SONIC & FRIENDS character lineup group art official SEGA"
+                        style={{ width: "100%", maxHeight: "300px", objectFit: "contain", borderRadius: 12 }}
+                        loading="lazy"
+                      />
+                      <span style={{ fontSize: "0.8rem", color: "#64748b", display: "block", marginTop: 8 }}>Official SEGA SONIC &amp; FRIENDS Character Aesthetic</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. BRAND CONTEXT & COMMERCIAL PROOF POINTS */}
+                <div className="content-card" id="brand-context" style={{ marginTop: 24 }}>
+                  <h2>More Than Three Decades of Sonic &amp; $1 Billion+ Box Office</h2>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, alignItems: "start", marginTop: 16 }}>
+                    <div>
+                      <p style={{ lineHeight: 1.6, marginBottom: 14 }}>
+                        Created by <strong>SEGA</strong> in 1991, Sonic the Hedgehog has evolved from gaming&apos;s most recognizable mascot into a multi-generational entertainment powerhouse spanning video games, feature films, animation, music tours, and consumer products.
+                      </p>
+                      <div style={{ padding: 16, backgroundColor: "#eff6ff", borderRadius: 10, borderLeft: "4px solid #0056b3", marginBottom: 14 }}>
+                        <h4 style={{ margin: "0 0 6px 0", color: "#1e3a8a", fontSize: "1.1rem" }}>🌟 $1 Billion+ Worldwide Box Office</h4>
+                        <p style={{ margin: 0, fontSize: "0.9rem", color: "#1e40af", lineHeight: 1.5 }}>
+                          Produced by Paramount Pictures in collaboration with SEGA, the Sonic movie franchise has grossed over <strong>$1 Billion worldwide</strong>, ranking among the highest-grossing video game movie adaptations of all time.
+                        </p>
+                      </div>
+                      <p style={{ fontSize: "0.9rem", color: "#64748b" }}>
+                        The combination of massive theatrical awareness and 35 years of franchise affinity provides proven European retail sell-through potential.
+                      </p>
+                    </div>
+
+                    <div style={{ background: "var(--soft-bg, #f8fafc)", padding: 18, borderRadius: 10, border: "1px solid #e2e8f0" }}>
+                      <h4 style={{ margin: "0 0 12px 0", fontSize: "1rem", color: "#0f172a" }}>Sonic Movie Theatrical Performance in Key European Markets</h4>
+                      <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.9rem" }}>
+                        <thead>
+                          <tr style={{ borderBottom: "2px solid #cbd5e1", textAlign: "left" }}>
+                            <th style={{ padding: "8px 6px" }}>Country</th>
+                            <th style={{ padding: "8px 6px" }}>Movie 1</th>
+                            <th style={{ padding: "8px 6px" }}>Movie 2</th>
+                            <th style={{ padding: "8px 6px" }}>Growth</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr style={{ borderBottom: "1px solid #e2e8f0" }}>
+                            <td style={{ padding: "8px 6px" }}>🇬🇧 <strong>United Kingdom</strong></td>
+                            <td style={{ padding: "8px 6px" }}>$22.3M</td>
+                            <td style={{ padding: "8px 6px", fontWeight: 700, color: "#0f766e" }}>$26.3M</td>
+                            <td style={{ padding: "8px 6px", color: "#16a34a" }}>+18%</td>
+                          </tr>
+                          <tr style={{ borderBottom: "1px solid #e2e8f0" }}>
+                            <td style={{ padding: "8px 6px" }}>🇩🇪 <strong>Germany</strong></td>
+                            <td style={{ padding: "8px 6px" }}>$7.7M</td>
+                            <td style={{ padding: "8px 6px", fontWeight: 700, color: "#0f766e" }}>$22.8M</td>
+                            <td style={{ padding: "8px 6px", color: "#16a34a" }}>+196%</td>
+                          </tr>
+                          <tr style={{ borderBottom: "1px solid #e2e8f0" }}>
+                            <td style={{ padding: "8px 6px" }}>🇫🇷 <strong>France</strong></td>
+                            <td style={{ padding: "8px 6px" }}>$13.2M</td>
+                            <td style={{ padding: "8px 6px", fontWeight: 700, color: "#0f766e" }}>$13.6M</td>
+                            <td style={{ padding: "8px 6px", color: "#16a34a" }}>+3%</td>
+                          </tr>
+                          <tr>
+                            <td style={{ padding: "8px 6px" }}>🇪🇸 <strong>Spain</strong></td>
+                            <td style={{ padding: "8px 6px" }}>$4.8M</td>
+                            <td style={{ padding: "8px 6px", fontWeight: 700, color: "#0f766e" }}>$6.4M</td>
+                            <td style={{ padding: "8px 6px", color: "#16a34a" }}>+33%</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div style={{ marginTop: 10, fontSize: "0.8rem", color: "#64748b", fontStyle: "italic" }}>
+                        Data source: Official theatrical box office tracking.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4. 2027 EUROPEAN MOVIE RETAIL WINDOW */}
+                <div className="content-card" id="movie-window" style={{ marginTop: 24, border: "2px solid #3b82f6", background: "#f0f7ff" }}>
+                  <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
+                    <div>
+                      <h2 style={{ margin: "0 0 6px 0", color: "#1e40af" }}>A Major European Retail Window: March–April 2027</h2>
+                      <p style={{ margin: 0, fontSize: "0.95rem", color: "#334155" }}>
+                        Official European theatrical release dates for the new Sonic movie create an unprecedented retail attention surge:
+                      </p>
+                    </div>
+                    <span style={{ background: "#2563eb", color: "#fff", padding: "6px 14px", borderRadius: 8, fontWeight: 700, fontSize: "0.85rem" }}>
+                      🎬 THEATRICAL SCHEDULE
+                    </span>
+                  </div>
+
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: 10, marginTop: 16 }}>
+                    <div style={{ padding: 12, background: "#ffffff", borderRadius: 8, textAlign: "center", border: "1px solid #bfdbfe", boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}>
+                      <span style={{ fontSize: "1.3rem" }}>🇧🇪</span>
+                      <strong style={{ display: "block", fontSize: "0.85rem", marginTop: 4 }}>Belgium</strong>
+                      <span style={{ fontSize: "0.9rem", color: "#2563eb", fontWeight: 700 }}>March 17, 2027</span>
+                    </div>
+                    <div style={{ padding: 12, background: "#ffffff", borderRadius: 8, textAlign: "center", border: "1px solid #bfdbfe", boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}>
+                      <span style={{ fontSize: "1.3rem" }}>🇩🇪</span>
+                      <strong style={{ display: "block", fontSize: "0.85rem", marginTop: 4 }}>Germany</strong>
+                      <span style={{ fontSize: "0.9rem", color: "#2563eb", fontWeight: 700 }}>March 18, 2027</span>
+                    </div>
+                    <div style={{ padding: 12, background: "#ffffff", borderRadius: 8, textAlign: "center", border: "1px solid #bfdbfe", boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}>
+                      <span style={{ fontSize: "1.3rem" }}>🇮🇹</span>
+                      <strong style={{ display: "block", fontSize: "0.85rem", marginTop: 4 }}>Italy</strong>
+                      <span style={{ fontSize: "0.9rem", color: "#2563eb", fontWeight: 700 }}>March 18, 2027</span>
+                    </div>
+                    <div style={{ padding: 12, background: "#ffffff", borderRadius: 8, textAlign: "center", border: "1px solid #bfdbfe", boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}>
+                      <span style={{ fontSize: "1.3rem" }}>🇵🇹</span>
+                      <strong style={{ display: "block", fontSize: "0.85rem", marginTop: 4 }}>Portugal</strong>
+                      <span style={{ fontSize: "0.9rem", color: "#2563eb", fontWeight: 700 }}>March 18, 2027</span>
+                    </div>
+                    <div style={{ padding: 12, background: "#ffffff", borderRadius: 8, textAlign: "center", border: "1px solid #bfdbfe", boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}>
+                      <span style={{ fontSize: "1.3rem" }}>🇪🇸</span>
+                      <strong style={{ display: "block", fontSize: "0.85rem", marginTop: 4 }}>Spain</strong>
+                      <span style={{ fontSize: "0.9rem", color: "#2563eb", fontWeight: 700 }}>March 19, 2027</span>
+                    </div>
+                    <div style={{ padding: 12, background: "#ffffff", borderRadius: 8, textAlign: "center", border: "1px solid #bfdbfe", boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}>
+                      <span style={{ fontSize: "1.3rem" }}>🇬🇧</span>
+                      <strong style={{ display: "block", fontSize: "0.85rem", marginTop: 4 }}>United Kingdom</strong>
+                      <span style={{ fontSize: "0.9rem", color: "#2563eb", fontWeight: 700 }}>March 19, 2027</span>
+                    </div>
+                    <div style={{ padding: 12, background: "#ffffff", borderRadius: 8, textAlign: "center", border: "1px solid #bfdbfe", boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}>
+                      <span style={{ fontSize: "1.3rem" }}>🇫🇷</span>
+                      <strong style={{ display: "block", fontSize: "0.85rem", marginTop: 4 }}>France</strong>
+                      <span style={{ fontSize: "0.9rem", color: "#2563eb", fontWeight: 700 }}>March 24, 2027</span>
+                    </div>
+                  </div>
+
+                  <div style={{ marginTop: 16, padding: 14, background: "#ffffff", borderRadius: 8, borderLeft: "4px solid #2563eb" }}>
+                    <p style={{ margin: 0, fontSize: "0.92rem", lineHeight: 1.6, color: "#1e293b" }}>
+                      <strong>Strategic Retail Alignment:</strong> With product availability scheduled ahead of the European theatrical launch period (January 2027 Shenzhen FOB arrival / European availability March–April 2027), retailers have a distinct commercial opportunity to position SONIC &amp; FRIENDS merchandise alongside renewed consumer attention surrounding the Sonic franchise.
+                    </p>
+                  </div>
+
+                  <div style={{ marginTop: 12, display: "flex", alignItems: "center", gap: 10, fontSize: "0.85rem", color: "#475569" }}>
+                    <span>🎵 <strong>Supporting Tour Visibility:</strong> Sonic 35th Anniversary &quot;Sonic Live in Concert&quot; tour in Brussels (ING Arena, Feb 24, 2027) &amp; Paris (Le Grand Rex, Feb 28, 2027).</span>
+                  </div>
+                </div>
+
+                {/* 5. CORE PRODUCT RANGE */}
+                <div className="content-card" id="core-range" style={{ marginTop: 24 }}>
+                  <h2>Core Product Range: SONIC &amp; FRIENDS</h2>
+                  <p style={{ color: "#64748b", marginTop: 4 }}>
+                    High-quality, officially licensed plush and collectible assortment manufactured to premium Japanese retail specifications.
+                  </p>
+
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20, marginTop: 18 }}>
+                    {/* Item 1: Mascot Plush */}
+                    <div style={{ border: "1px solid #e2e8f0", borderRadius: 10, padding: 16, background: "#ffffff", display: "flex", flexDirection: "column" }}>
+                      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", justifyContent: "center", padding: "10px 0", background: "#f8fafc", borderRadius: 8 }}>
+                        <img src="/images/opportunities/sonic-friends/sonic-friends-mascot-sonic.webp" alt="Sonic Mascot Plush" style={{ height: "64px", objectFit: "contain" }} />
+                        <img src="/images/opportunities/sonic-friends/sonic-friends-mascot-tails.webp" alt="Tails Mascot Plush" style={{ height: "64px", objectFit: "contain" }} />
+                        <img src="/images/opportunities/sonic-friends/sonic-friends-mascot-knuckles.webp" alt="Knuckles Mascot Plush" style={{ height: "64px", objectFit: "contain" }} />
+                        <img src="/images/opportunities/sonic-friends/sonic-friends-mascot-amy.webp" alt="Amy Mascot Plush" style={{ height: "64px", objectFit: "contain" }} />
+                        <img src="/images/opportunities/sonic-friends/sonic-friends-mascot-shadow.webp" alt="Shadow Mascot Plush" style={{ height: "64px", objectFit: "contain" }} />
+                        <img src="/images/opportunities/sonic-friends/sonic-friends-mascot-rouge.webp" alt="Rouge Mascot Plush" style={{ height: "64px", objectFit: "contain" }} />
+                        <img src="/images/opportunities/sonic-friends/sonic-friends-mascot-silver.webp" alt="Silver Mascot Plush" style={{ height: "64px", objectFit: "contain" }} />
+                        <img src="/images/opportunities/sonic-friends/sonic-friends-mascot-chao.webp" alt="Chao Mascot Plush" style={{ height: "64px", objectFit: "contain" }} />
+                        <img src="/images/opportunities/sonic-friends/sonic-friends-mascot-dr-eggman.webp" alt="Dr Eggman Mascot Plush" style={{ height: "64px", objectFit: "contain" }} />
+                      </div>
+                      <h4 style={{ margin: "14px 0 6px 0", fontSize: "1.05rem" }}>SONIC &amp; FRIENDS Mascot Plush</h4>
+                      <p style={{ fontSize: "0.85rem", color: "#64748b", margin: "0 0 10px 0" }}>
+                        Compact mascot plush with ball-chain attachment suited to bags, backpacks, gifting, impulse checkout, and character display merchandising.
+                      </p>
+                      <ul style={{ paddingLeft: 18, margin: "0 0 12px 0", fontSize: "0.85rem", color: "#334155" }}>
+                        <li><strong>9 Characters:</strong> Sonic, Tails, Knuckles, Amy, Shadow, Rouge, Silver, Chao, Dr. Eggman</li>
+                        <li><strong>Size:</strong> Approx. 140–160 mm depending on character (W50–60 × H130–160 × D40–50 mm)</li>
+                        <li><strong>Master Carton:</strong> 48 pcs (W540 × H240 × D300 mm)</li>
+                      </ul>
+                      <div style={{ marginTop: "auto", paddingTop: 10, borderTop: "1px dashed #e2e8f0", fontSize: "0.85rem", color: "#0f766e", fontWeight: 600 }}>
+                        🔒 Wholesale pricing available on qualified inquiry
+                      </div>
+                    </div>
+
+                    {/* Item 2: Medium Plush */}
+                    <div style={{ border: "1px solid #e2e8f0", borderRadius: 10, padding: 16, background: "#ffffff", display: "flex", flexDirection: "column" }}>
+                      <div style={{ display: "flex", gap: 10, justifyContent: "center", padding: "10px 0", background: "#f8fafc", borderRadius: 8 }}>
+                        <img src="/images/opportunities/sonic-friends/sonic-friends-plush-m-sonic.webp" alt="Sonic Medium Plush" style={{ height: "70px", objectFit: "contain" }} />
+                        <img src="/images/opportunities/sonic-friends/sonic-friends-plush-m-tails.webp" alt="Tails Medium Plush" style={{ height: "70px", objectFit: "contain" }} />
+                        <img src="/images/opportunities/sonic-friends/sonic-friends-plush-m-amy.webp" alt="Amy Medium Plush" style={{ height: "70px", objectFit: "contain" }} />
+                        <img src="/images/opportunities/sonic-friends/sonic-friends-plush-m-shadow.webp" alt="Shadow Medium Plush" style={{ height: "70px", objectFit: "contain" }} />
+                      </div>
+                      <h4 style={{ margin: "14px 0 6px 0", fontSize: "1.05rem" }}>SONIC &amp; FRIENDS Plush — Medium (240 mm)</h4>
+                      <p style={{ fontSize: "0.85rem", color: "#64748b", margin: "0 0 10px 0" }}>
+                        Standard-size character plush crafted with ultra-soft fabrics. Ideal for retail shelves, bedrooms, character collections, and lifestyle stores.
+                      </p>
+                      <ul style={{ paddingLeft: 18, margin: "0 0 12px 0", fontSize: "0.85rem", color: "#334155" }}>
+                        <li><strong>Core Characters:</strong> Sonic, Tails, Amy, Shadow</li>
+                        <li><strong>Size:</strong> W160 × H240 × D150 mm</li>
+                        <li><strong>Master Carton:</strong> 12 pcs (W560 × H540 × D310 mm)</li>
+                      </ul>
+                      <div style={{ marginTop: "auto", paddingTop: 10, borderTop: "1px dashed #e2e8f0", fontSize: "0.85rem", color: "#0f766e", fontWeight: 600 }}>
+                        🔒 Wholesale pricing available on qualified inquiry
+                      </div>
+                    </div>
+
+                    {/* Item 3: Cushion Sonic */}
+                    <div style={{ border: "1px solid #e2e8f0", borderRadius: 10, padding: 16, background: "#ffffff", display: "flex", flexDirection: "column" }}>
+                      <div style={{ textAlign: "center", padding: "10px 0", background: "#f8fafc", borderRadius: 8 }}>
+                        <img src="/images/opportunities/sonic-friends/sonic-friends-cushion-sonic.webp" alt="Sonic Character Cushion" style={{ height: "70px", objectFit: "contain" }} />
+                      </div>
+                      <h4 style={{ margin: "14px 0 6px 0", fontSize: "1.05rem" }}>SONIC &amp; FRIENDS Cushion — Sonic</h4>
+                      <p style={{ fontSize: "0.85rem", color: "#64748b", margin: "0 0 10px 0" }}>
+                        Soft die-cut Sonic character cushion designed for home décor, gifting, bedrooms, gaming chairs, and lifestyle merchandising.
+                      </p>
+                      <ul style={{ paddingLeft: 18, margin: "0 0 12px 0", fontSize: "0.85rem", color: "#334155" }}>
+                        <li><strong>Format:</strong> Die-cut plush face cushion</li>
+                        <li><strong>Size:</strong> W300 × H250 × D150 mm</li>
+                        <li><strong>Master Carton:</strong> 24 pcs (W550 × H460 × D550 mm)</li>
+                      </ul>
+                      <div style={{ marginTop: "auto", paddingTop: 10, borderTop: "1px dashed #e2e8f0", fontSize: "0.85rem", color: "#0f766e", fontWeight: 600 }}>
+                        🔒 Wholesale pricing available on qualified inquiry
+                      </div>
+                    </div>
+
+                    {/* Item 4: Large Sonic Plush */}
+                    <div style={{ border: "1px solid #e2e8f0", borderRadius: 10, padding: 16, background: "#ffffff", display: "flex", flexDirection: "column" }}>
+                      <div style={{ textAlign: "center", padding: "10px 0", background: "#f8fafc", borderRadius: 8 }}>
+                        <img src="/images/opportunities/sonic-friends/sonic-friends-plush-l-sonic.webp" alt="Large Sonic Plush" style={{ height: "70px", objectFit: "contain" }} />
+                      </div>
+                      <h4 style={{ margin: "14px 0 6px 0", fontSize: "1.05rem" }}>SONIC &amp; FRIENDS Plush — Large Sonic (400 mm)</h4>
+                      <p style={{ fontSize: "0.85rem", color: "#64748b", margin: "0 0 10px 0" }}>
+                        Large-format flagship Sonic plush intended to deliver powerful shelf presence and serve as a visual focal point in retail window displays.
+                      </p>
+                      <ul style={{ paddingLeft: 18, margin: "0 0 12px 0", fontSize: "0.85rem", color: "#334155" }}>
+                        <li><strong>Format:</strong> Large statement plush</li>
+                        <li><strong>Size:</strong> W280 × H400 × D200 mm</li>
+                        <li><strong>Master Carton:</strong> 6 pcs (W750 × H480 × D360 mm)</li>
+                      </ul>
+                      <div style={{ marginTop: "auto", paddingTop: 10, borderTop: "1px dashed #e2e8f0", fontSize: "0.85rem", color: "#0f766e", fontWeight: 600 }}>
+                        🔒 Wholesale pricing available on qualified inquiry
+                      </div>
+                    </div>
+
+                    {/* Item 5: Sleeping Sonic */}
+                    <div style={{ border: "1px solid #e2e8f0", borderRadius: 10, padding: 16, background: "#ffffff", display: "flex", flexDirection: "column" }}>
+                      <div style={{ textAlign: "center", padding: "10px 0", background: "#f8fafc", borderRadius: 8 }}>
+                        <img src="/images/opportunities/sonic-friends/sonic-friends-plush-sonic-sleeping.webp" alt="Sleeping Sonic Plush" style={{ height: "70px", objectFit: "contain" }} />
+                      </div>
+                      <h4 style={{ margin: "14px 0 6px 0", fontSize: "1.05rem" }}>SONIC &amp; FRIENDS Sleeping Sonic (350 mm)</h4>
+                      <p style={{ fontSize: "0.85rem", color: "#64748b", margin: "0 0 10px 0" }}>
+                        Adorable lying-down Sonic plush with a soft, peaceful lifestyle and comforting gift positioning.
+                      </p>
+                      <ul style={{ paddingLeft: 18, margin: "0 0 12px 0", fontSize: "0.85rem", color: "#334155" }}>
+                        <li><strong>Format:</strong> Lying-down / Sleeping plush</li>
+                        <li><strong>Size:</strong> W350 × H200 × D150 mm</li>
+                        <li><strong>Master Carton:</strong> 12 pcs (W720 × H560 × D270 mm)</li>
+                      </ul>
+                      <div style={{ marginTop: "auto", paddingTop: 10, borderTop: "1px dashed #e2e8f0", fontSize: "0.85rem", color: "#0f766e", fontWeight: 600 }}>
+                        🔒 Wholesale pricing available on qualified inquiry
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 6. SANRIO COLLABORATION RANGE */}
+                <div className="content-card" id="sanrio-collab" style={{ marginTop: 24, background: "#fffdfa", border: "1px solid #fed7aa" }}>
+                  <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
+                    <div>
+                      <h2 style={{ margin: "0 0 6px 0", color: "#9a3412" }}>Additional Character Collaborations: SONIC &amp; FRIENDS × Sanrio characters</h2>
+                      <p style={{ margin: 0, fontSize: "0.95rem", color: "#7c2d12" }}>
+                        Exclusive collaborative character lineup pairing iconic SEGA and Sanrio characters in collectible formats.
+                      </p>
+                    </div>
+                    <span style={{ background: "#ea580c", color: "#fff", padding: "4px 12px", borderRadius: 6, fontWeight: 700, fontSize: "0.8rem" }}>
+                      SPECIAL COLLABORATION
+                    </span>
+                  </div>
+
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 14, marginTop: 16 }}>
+                    <div style={{ padding: 12, background: "#ffffff", borderRadius: 8, border: "1px solid #ffedd5" }}>
+                      <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 8 }}>
+                        <img src="/images/opportunities/sonic-friends/sonic-sanrio-strap-figure-box.webp" alt="Strap Figure Box" style={{ height: "48px" }} />
+                        <div>
+                          <strong style={{ fontSize: "0.9rem", display: "block" }}>Strap Figure Blind Box</strong>
+                          <span style={{ fontSize: "0.8rem", color: "#64748b" }}>6 pcs/box · 72 pcs/carton</span>
+                        </div>
+                      </div>
+                      <p style={{ fontSize: "0.8rem", color: "#475569", margin: 0 }}>Collectible miniature strap figures in countertop display format.</p>
+                    </div>
+
+                    <div style={{ padding: 12, background: "#ffffff", borderRadius: 8, border: "1px solid #ffedd5" }}>
+                      <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 8 }}>
+                        <img src="/images/opportunities/sonic-friends/sonic-sanrio-fuwa-fuwa-relax-box.webp" alt="Fuwa Fuwa Figure Box" style={{ height: "48px" }} />
+                        <div>
+                          <strong style={{ fontSize: "0.9rem", display: "block" }}>Fuwa Fuwa Flocked Figures</strong>
+                          <span style={{ fontSize: "0.8rem", color: "#64748b" }}>Relax &amp; Enjoy Editions · Blind Box</span>
+                        </div>
+                      </div>
+                      <p style={{ fontSize: "0.8rem", color: "#475569", margin: 0 }}>Soft velvety flocking texture for premium tactile collectability.</p>
+                    </div>
+
+                    <div style={{ padding: 12, background: "#ffffff", borderRadius: 8, border: "1px solid #ffedd5" }}>
+                      <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 8 }}>
+                        <img src="/images/opportunities/sonic-friends/sonic-sanrio-mascot-sonic-hellokitty.webp" alt="Sanrio Mascot Plush" style={{ height: "48px" }} />
+                        <div>
+                          <strong style={{ fontSize: "0.9rem", display: "block" }}>Sanrio Collab Mascots (80 mm)</strong>
+                          <span style={{ fontSize: "0.8rem", color: "#64748b" }}>6 Character Pairings · 48 pcs/carton</span>
+                        </div>
+                      </div>
+                      <p style={{ fontSize: "0.8rem", color: "#475569", margin: 0 }}>Sonic × Hello Kitty, Tails × Cinnamoroll, Shadow × Hangyodon, Knuckles × Kuromi, Eggman × PompomPurin, Amy × My Melody.</p>
+                    </div>
+
+                    <div style={{ padding: 12, background: "#ffffff", borderRadius: 8, border: "1px solid #ffedd5" }}>
+                      <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 8 }}>
+                        <img src="/images/opportunities/sonic-friends/sonic-sanrio-plush-m-sonic-hellokitty.webp" alt="Sanrio Medium Plush" style={{ height: "48px" }} />
+                        <div>
+                          <strong style={{ fontSize: "0.9rem", display: "block" }}>Sanrio Collab Medium Plush (240 mm)</strong>
+                          <span style={{ fontSize: "0.8rem", color: "#64748b" }}>6 Character Pairings · 48 pcs/carton</span>
+                        </div>
+                      </div>
+                      <p style={{ fontSize: "0.8rem", color: "#475569", margin: 0 }}>Full-size collaborative plush products suited to gift &amp; lifestyle retail.</p>
+                    </div>
+                  </div>
+
+                  <div style={{ marginTop: 14, padding: 12, background: "#fff7ed", borderRadius: 8, fontSize: "0.85rem", color: "#9a3412" }}>
+                    Additional collaborative character merchandise is also available for selected buyers. Contact PartnerMarketGlobal for the current buyer catalogue, volume options, and commercial availability.
+                  </div>
+                </div>
+
+                {/* 7. INDICATIVE COMMERCIAL STRUCTURE & GATING NOTICE */}
+                <div className="content-card" id="commercial-structure" style={{ marginTop: 24 }}>
+                  <h2>Indicative Commercial Structure</h2>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 18, marginTop: 16 }}>
+                    <div style={{ padding: 16, background: "var(--soft-bg, #f8fafc)", borderRadius: 8, borderLeft: "4px solid var(--primary, #0f766e)" }}>
+                      <h4 style={{ margin: "0 0 6px 0", fontSize: "1rem" }}>📦 Estimated Product Availability</h4>
+                      <p style={{ margin: 0, fontSize: "0.9rem", color: "#334155" }}>
+                        January 2027 warehouse readiness in Shenzhen for European ocean/air transit, timing retail shelves for March–April 2027.
+                      </p>
+                    </div>
+
+                    <div style={{ padding: 16, background: "var(--soft-bg, #f8fafc)", borderRadius: 8, borderLeft: "4px solid var(--primary, #0f766e)" }}>
+                      <h4 style={{ margin: "0 0 6px 0", fontSize: "1rem" }}>🚢 Commercial Logistics Basis</h4>
+                      <p style={{ margin: 0, fontSize: "0.9rem", color: "#334155" }}>
+                        Shenzhen FOB terms. Standard master carton specifications and consolidated shipping documentation provided.
+                      </p>
+                    </div>
+
+                    <div style={{ padding: 16, background: "var(--soft-bg, #f8fafc)", borderRadius: 8, borderLeft: "4px solid var(--primary, #0f766e)" }}>
+                      <h4 style={{ margin: "0 0 6px 0", fontSize: "1rem" }}>📊 Minimum Order Quantities (MOQ)</h4>
+                      <p style={{ margin: 0, fontSize: "0.9rem", color: "#334155" }}>
+                        Commonly listed at approximately 3,000 pieces per SKU for the core plush lineup. Channel and assortment options subject to discussion.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div style={{ marginTop: 20, padding: 18, backgroundColor: "#fef2f2", borderRadius: 10, border: "1px solid #fca5a5" }}>
+                    <div style={{ display: "flex", gap: 12, alignItems: "start" }}>
+                      <span style={{ fontSize: "1.5rem" }}>🔒</span>
+                      <div>
+                        <h4 style={{ margin: "0 0 4px 0", color: "#991b1b", fontSize: "1.05rem" }}>
+                          Confidential Commercial Information Notice
+                        </h4>
+                        <p style={{ margin: 0, fontSize: "0.9rem", color: "#7f1d1d", lineHeight: 1.5 }}>
+                          Detailed wholesale pricing, SRP guidelines, confidential line sheets, carton dimensions, and contractual terms are available to qualified retail and distribution partners upon request. Please submit a qualified inquiry below to receive the official buyer pack.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 8. PRODUCTION & COMMERCIAL TIMELINE */}
+                <div className="content-card" id="timeline" style={{ marginTop: 24 }}>
+                  <h2>Production &amp; Commercial Timeline</h2>
+                  <div style={{ position: "relative", marginTop: 20, paddingLeft: 24, borderLeft: "3px solid #0056b3" }}>
+                    <div style={{ marginBottom: 20, position: "relative" }}>
+                      <div style={{ position: "absolute", left: -31, top: 2, width: 14, height: 14, borderRadius: "50%", background: "#0056b3", border: "3px solid #ffffff" }}></div>
+                      <strong style={{ fontSize: "0.95rem", color: "#0056b3" }}>August 2026</strong>
+                      <p style={{ margin: "4px 0 0 0", fontSize: "0.9rem", color: "#334155" }}>European retailer and distributor qualification and initial outreach.</p>
+                    </div>
+
+                    <div style={{ marginBottom: 20, position: "relative" }}>
+                      <div style={{ position: "absolute", left: -31, top: 2, width: 14, height: 14, borderRadius: "50%", background: "#ef4444", border: "3px solid #ffffff" }}></div>
+                      <strong style={{ fontSize: "0.95rem", color: "#dc2626" }}>Early September 2026 (Target Order Window)</strong>
+                      <p style={{ margin: "4px 0 0 0", fontSize: "0.9rem", color: "#334155" }}>Target order cut-off window for current production planning and manufacturing allocation.</p>
+                    </div>
+
+                    <div style={{ marginBottom: 20, position: "relative" }}>
+                      <div style={{ position: "absolute", left: -31, top: 2, width: 14, height: 14, borderRadius: "50%", background: "#0056b3", border: "3px solid #ffffff" }}></div>
+                      <strong style={{ fontSize: "0.95rem", color: "#0056b3" }}>January 2027</strong>
+                      <p style={{ margin: "4px 0 0 0", fontSize: "0.9rem", color: "#334155" }}>Estimated Shenzhen warehouse availability and export logistics dispatch.</p>
+                    </div>
+
+                    <div style={{ marginBottom: 20, position: "relative" }}>
+                      <div style={{ position: "absolute", left: -31, top: 2, width: 14, height: 14, borderRadius: "50%", background: "#0056b3", border: "3px solid #ffffff" }}></div>
+                      <strong style={{ fontSize: "0.95rem", color: "#0056b3" }}>February 2027</strong>
+                      <p style={{ margin: "4px 0 0 0", fontSize: "0.9rem", color: "#334155" }}>Sonic 35th Anniversary European live concert events begin in Brussels (Feb 24) and Paris (Feb 28).</p>
+                    </div>
+
+                    <div style={{ marginBottom: 20, position: "relative" }}>
+                      <div style={{ position: "absolute", left: -31, top: 2, width: 14, height: 14, borderRadius: "50%", background: "#16a34a", border: "3px solid #ffffff" }}></div>
+                      <strong style={{ fontSize: "0.95rem", color: "#15803d" }}>March 17–24, 2027</strong>
+                      <p style={{ margin: "4px 0 0 0", fontSize: "0.9rem", color: "#334155" }}>Major European Sonic movie theatrical release window across Belgium, Germany, Italy, Portugal, Spain, UK, and France.</p>
+                    </div>
+
+                    <div style={{ position: "relative" }}>
+                      <div style={{ position: "absolute", left: -31, top: 2, width: 14, height: 14, borderRadius: "50%", background: "#16a34a", border: "3px solid #ffffff" }}></div>
+                      <strong style={{ fontSize: "0.95rem", color: "#15803d" }}>March–April 2027</strong>
+                      <p style={{ margin: "4px 0 0 0", fontSize: "0.9rem", color: "#334155" }}>Target European in-store and e-commerce retail activation period during peak consumer window.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 9. WE ARE LOOKING FOR PARTNERS */}
+                <div className="content-card" id="target-partners" style={{ marginTop: 24 }}>
+                  <h2>We Are Looking for Partners</h2>
+                  <p style={{ lineHeight: 1.6, color: "#334155" }}>
+                    PartnerMarketGlobal, in cooperation with Japan Industrial Promotion Inc., is actively seeking discussions with qualified European trade partners:
+                  </p>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 12, marginTop: 12 }}>
+                    <div style={{ padding: 12, background: "var(--soft-bg, #f8fafc)", borderRadius: 8 }}>🏬 <strong>European National Retail Chains</strong></div>
+                    <div style={{ padding: 12, background: "var(--soft-bg, #f8fafc)", borderRadius: 8 }}>🧸 <strong>Toy Retailers &amp; Superstores</strong></div>
+                    <div style={{ padding: 12, background: "var(--soft-bg, #f8fafc)", borderRadius: 8 }}>🎮 <strong>Gaming &amp; Entertainment Specialists</strong></div>
+                    <div style={{ padding: 12, background: "var(--soft-bg, #f8fafc)", borderRadius: 8 }}>🎌 <strong>Pop-Culture &amp; Character-Goods Stores</strong></div>
+                    <div style={{ padding: 12, background: "var(--soft-bg, #f8fafc)", borderRadius: 8 }}>🎁 <strong>Gift &amp; Department Stores</strong></div>
+                    <div style={{ padding: 12, background: "var(--soft-bg, #f8fafc)", borderRadius: 8 }}>🌐 <strong>E-commerce &amp; Marketplace Operators</strong></div>
+                    <div style={{ padding: 12, background: "var(--soft-bg, #f8fafc)", borderRadius: 8 }}>🚚 <strong>Licensed Merchandise Distributors</strong></div>
+                    <div style={{ padding: 12, background: "var(--soft-bg, #f8fafc)", borderRadius: 8 }}>📦 <strong>Importers &amp; Regional Wholesalers</strong></div>
+                  </div>
+                  <div style={{ marginTop: 16, padding: 14, background: "#f0fdf4", borderRadius: 8, borderLeft: "4px solid #16a34a" }}>
+                    <strong style={{ color: "#166534" }}>Interested in SONIC &amp; FRIENDS for your territory?</strong>
+                    <p style={{ margin: "4px 0 0 0", fontSize: "0.9rem", color: "#15803d" }}>
+                      Request the buyer presentation, wholesale catalogue, and commercial terms via the dedicated buyer qualification form below.
+                    </p>
+                  </div>
+                </div>
+
+                {/* 10. REPRESENTATION & IP LEGAL NOTICE */}
+                <div className="content-card" style={{ marginTop: 24, background: "#f8fafc", border: "1px solid #e2e8f0" }}>
+                  <h3 style={{ margin: "0 0 8px 0", fontSize: "1rem" }}>Representation &amp; Facilitation</h3>
+                  <p style={{ fontSize: "0.85rem", color: "#64748b", lineHeight: 1.5, margin: "0 0 12px 0" }}>
+                    European market development facilitated by <strong>PartnerMarketGlobal</strong> on behalf of <strong>Japan Industrial Promotion Inc.</strong> (Principal contact: Daiki Fukaura). Inquiries are reviewed and routed securely through our qualified buyer introduction process.
+                  </p>
+                  <h3 style={{ margin: "12px 0 8px 0", fontSize: "1rem" }}>Intellectual Property &amp; Legal Notice</h3>
+                  <p style={{ fontSize: "0.8rem", color: "#94a3b8", lineHeight: 1.5, margin: 0 }}>
+                    © SEGA. SONIC THE HEDGEHOG and SONIC &amp; FRIENDS are registered trademarks or trademarks of SEGA CORPORATION. © 2027 SANRIO CO., LTD. Hello Kitty, Cinnamoroll, Kuromi, My Melody, Hangyodon, and Pompompurin are trademarks of SANRIO CO., LTD. Sonic Movie properties © Paramount Pictures Corporation. PartnerMarketGlobal provides independent commercial facilitation and does not claim ownership or licensing rights to third-party intellectual property.
+                  </p>
+                </div>
+              </>
+            )}
 
             {/* Custom Rich Sections for Yachiyo Mengyo */}
             {opportunity.slug === "yachiyo-mengyo-handa-somen-eu-distribution" && (

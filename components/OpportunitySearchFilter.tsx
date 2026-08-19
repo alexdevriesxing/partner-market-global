@@ -217,10 +217,14 @@ export function OpportunitySearchFilter({ initialOpportunities, locale }: Props)
           o.title?.toLowerCase().includes(q) ||
           o.summary?.toLowerCase().includes(q) ||
           o.description?.toLowerCase().includes(q) ||
+          o.brand?.toLowerCase().includes(q) ||
+          o.company?.toLowerCase().includes(q) ||
           o.originCountry?.toLowerCase().includes(q) ||
+          o.targetMarkets?.some((m) => m.toLowerCase().includes(q)) ||
           o.sector?.toLowerCase().includes(q) ||
           o.type?.toLowerCase().includes(q) ||
-          o.companyBackground?.toLowerCase().includes(q)
+          o.companyBackground?.toLowerCase().includes(q) ||
+          o.seoKeywords?.some((k) => k.toLowerCase().includes(q))
       );
     }
 
