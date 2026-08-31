@@ -6,6 +6,7 @@ import { OpportunityCard } from "@/components/OpportunityCard";
 import { TrustStrip } from "@/components/TrustStrip";
 import { StructuredData } from "@/components/StructuredData";
 import { HeroSectionClient } from "@/components/HeroSectionClient";
+import { FeaturedJapaneseHero } from "@/components/FeaturedJapaneseHero";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { opportunities } from "@/lib/data";
 import { pageMetadata } from "@/lib/seo";
@@ -67,19 +68,27 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const tTrust = await getTranslations('trust');
   const tJapanHome = getHomeJapanTranslations(locale);
 
+  const tsubameOpp = opportunities.find((o) => o.slug === "premium-japanese-tsubame-drinkware");
   const sonicOpp = opportunities.find((o) => o.slug === "sonic-friends-europe-2027");
   const yachiyoOpp = opportunities.find((o) => o.slug === "yachiyo-mengyo-handa-somen-eu-distribution");
-  const otherJapan = opportunities.filter((o) => o.originCountry === "Japan" && o.featured && o.slug !== "sonic-friends-europe-2027" && o.slug !== "yachiyo-mengyo-handa-somen-eu-distribution");
+  const otherJapan = opportunities.filter((o) => o.originCountry === "Japan" && o.featured && o.slug !== "premium-japanese-tsubame-drinkware" && o.slug !== "sonic-friends-europe-2027" && o.slug !== "yachiyo-mengyo-handa-somen-eu-distribution");
   
-  const japanFeatured = sonicOpp
-    ? [sonicOpp, ...(yachiyoOpp ? [yachiyoOpp] : []), ...otherJapan]
-    : opportunities.filter((o) => o.originCountry === "Japan" && o.featured);
+  const japanFeatured = [
+    ...(tsubameOpp ? [tsubameOpp] : []),
+    ...(sonicOpp ? [sonicOpp] : []),
+    ...(yachiyoOpp ? [yachiyoOpp] : []),
+    ...otherJapan
+  ];
   const japanTopThree = japanFeatured.slice(0, 3);
   
   const nonJapanFeatured = opportunities.filter((o) => o.featured && o.originCountry !== "Japan");
-  const globalFeatured = sonicOpp
-    ? [sonicOpp, ...(yachiyoOpp ? [yachiyoOpp] : []), ...nonJapanFeatured, ...otherJapan].slice(0, 4)
-    : [...nonJapanFeatured, ...japanFeatured].slice(0, 4);
+  const globalFeatured = [
+    ...(tsubameOpp ? [tsubameOpp] : []),
+    ...(sonicOpp ? [sonicOpp] : []),
+    ...(yachiyoOpp ? [yachiyoOpp] : []),
+    ...nonJapanFeatured,
+    ...otherJapan
+  ].slice(0, 4);
 
   const distinctMarkets = new Set(opportunities.flatMap((o) => o.targetMarkets));
   const distinctSectors = new Set(opportunities.map((o) => o.sector.split(" / ")[0].trim()));
@@ -110,6 +119,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <>
       <StructuredData data={faqSchema} />
+      <FeaturedJapaneseHero locale={locale} />
       <HeroSectionClient
         locale={locale}
         tagline={tHero('eyebrow')}

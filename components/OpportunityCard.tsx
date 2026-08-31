@@ -9,12 +9,18 @@ export function OpportunityCard({ opportunity, locale = "en" }: { opportunity: O
   const t = useTranslations("opportunities");
   const isJip = opportunity.sourcePartner === "JIP Japan" || opportunity.sourcePartner === "Japan Industrial Promotion Inc." || opportunity.id.startsWith("jip-");
   const isSonic = opportunity.slug === "sonic-friends-europe-2027";
+  const isTsubame = opportunity.slug === "premium-japanese-tsubame-drinkware";
 
   return (
     <article className="opportunity-card">
       <div className="card-image-wrap">
         <img src={opportunity.cardImage} alt={opportunity.imageAlt || `${opportunity.title} — opportunity image`} loading="lazy" />
         <span className="type-pill">{opportunity.type.split(" / ")[0]}</span>
+        {isTsubame && (
+          <span style={{ position: "absolute", top: 10, left: 10, background: "linear-gradient(135deg, #d4af37, #f59e0b)", color: "#000", fontWeight: 800, fontSize: "0.75rem", padding: "3.5px 9px", borderRadius: 4, zIndex: 2, boxShadow: "0 2px 6px rgba(0,0,0,0.3)" }}>
+            ⭐ FEATURED
+          </span>
+        )}
         {isSonic && (
           <span style={{ position: "absolute", top: 10, left: 10, background: "#ffcc00", color: "#000", fontWeight: 800, fontSize: "0.75rem", padding: "3px 8px", borderRadius: 4, zIndex: 2, boxShadow: "0 2px 4px rgba(0,0,0,0.2)" }}>
             ⭐ NEW

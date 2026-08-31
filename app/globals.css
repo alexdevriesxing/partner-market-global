@@ -1332,6 +1332,534 @@ h1, h2, h3 { text-wrap: balance; }
   font-style: italic;
 }
 
+/* ==========================================================================
+   Featured Japanese Opportunity - Tsubame Hero Showcase
+   ========================================================================== */
+.featured-hero-tsubame {
+  margin: 18px 0 32px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #0b1329 0%, #0d1b38 50%, #091024 100%);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  box-shadow: 0 20px 48px rgba(8, 20, 48, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-hero-tsubame::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.tsubame-hero-inner {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr;
+  gap: 36px;
+  align-items: center;
+  padding: 38px 42px;
+}
+
+.tsubame-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tsubame-top-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tsubame-eyebrow {
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #e2b755;
+}
+
+.tsubame-badge-new {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, #d4af37, #f59e0b);
+  color: #0b1329;
+  padding: 3px 10px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.35);
+}
+
+.tsubame-title {
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.tsubame-title span {
+  background: linear-gradient(135deg, #ffd782 0%, #e6b850 60%, #fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tsubame-description {
+  font-size: 0.96rem;
+  line-height: 1.62;
+  color: #cbd5e1;
+  margin: 0;
+  max-width: 620px;
+}
+
+.tsubame-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 4px;
+}
+
+.tsubame-chip {
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+}
+
+.tsubame-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.btn-tsubame-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  background: linear-gradient(135deg, #e6b850 0%, #cf9c34 100%);
+  color: #0b1329;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+  transition: all 0.2s ease;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-tsubame-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
+  background: linear-gradient(135deg, #f0c568 0%, #dba73f 100%);
+  color: #0b1329;
+}
+
+.btn-tsubame-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-tsubame-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+}
+
+.tsubame-tertiary {
+  margin-top: 2px;
+}
+
+.tsubame-tertiary-link {
+  font-size: 0.88rem;
+  color: #e2b755;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.15s ease, transform 0.15s ease;
+  text-decoration: none;
+}
+
+.tsubame-tertiary-link:hover {
+  color: #ffe08a;
+  transform: translateX(3px);
+}
+
+.tsubame-hero-media {
+  position: relative;
+}
+
+.tsubame-image-card {
+  display: block;
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+  background: #000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tsubame-image-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 42px rgba(212, 175, 55, 0.25);
+}
+
+.tsubame-hero-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.tsubame-image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 16px;
+  background: linear-gradient(180deg, transparent 0%, rgba(6, 12, 28, 0.85) 40%, rgba(6, 12, 28, 0.96) 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.caption-tag {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffd782;
+}
+
+.caption-sub {
+  font-size: 0.76rem;
+  color: #cbd5e1;
+}
+
+/* ==========================================================================
+   Tsubame Opportunity Detail Page Sections
+   ========================================================================== */
+.tsubame-prompt-banner {
+  background: linear-gradient(135deg, #0b1329 0%, #1e293b 100%);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 12px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 20px 0;
+  color: #f8fafc;
+}
+
+.tsubame-prompt-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.tsubame-prompt-btn {
+  background: linear-gradient(135deg, #d4af37, #f59e0b);
+  color: #0b1329;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.tsubame-prompt-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+  color: #000;
+}
+
+.tsubame-stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.tsubame-stat-box {
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 10px;
+  padding: 18px 16px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.tsubame-stat-val {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0b1329;
+  display: block;
+}
+
+.tsubame-stat-label {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin-top: 4px;
+  display: block;
+  font-weight: 500;
+}
+
+.tsubame-collections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 22px;
+  margin-top: 20px;
+}
+
+.tsubame-collection-card {
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tsubame-collection-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.tsubame-collection-img-wrap {
+  width: 100%;
+  height: 210px;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.tsubame-collection-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.tsubame-collection-card:hover .tsubame-collection-img {
+  transform: scale(1.03);
+}
+
+.tsubame-collection-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.tsubame-collection-num {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #b45309;
+  margin-bottom: 4px;
+}
+
+.tsubame-collection-body h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.18rem;
+  color: #0f172a;
+}
+
+.tsubame-collection-headline {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #0f766e;
+  margin: 0 0 8px 0;
+}
+
+.tsubame-collection-body p {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.58;
+  margin: 0 0 14px 0;
+  flex-grow: 1;
+}
+
+.tsubame-collection-specs {
+  font-size: 0.82rem;
+  background: var(--soft-bg, #f8fafc);
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  margin-bottom: 14px;
+}
+
+.tsubame-oem-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0f766e;
+  text-decoration: none;
+}
+
+.tsubame-oem-cta:hover {
+  text-decoration: underline;
+}
+
+.tsubame-partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.tsubame-partner-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1e293b;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.tsubame-partner-chip span {
+  font-size: 1.1rem;
+}
+
+.tsubame-usecases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.tsubame-usecase-card {
+  padding: 18px;
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.tsubame-usecase-card h4 {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tsubame-usecase-card p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.55;
+}
+
+.tsubame-catalogs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.tsubame-catalog-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px;
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.tsubame-catalog-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.tsubame-pdf-badge {
+  background: #fee2e2;
+  color: #dc2626;
+  font-weight: 800;
+  font-size: 0.72rem;
+  padding: 3px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+
+.tsubame-catalog-header h4 {
+  margin: 0 0 4px 0;
+  font-size: 0.98rem;
+  color: #0f172a;
+}
+
+.tsubame-catalog-header p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.btn-catalog-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: var(--soft-bg, #f1f5f9);
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.btn-catalog-download:hover {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
 @media (max-width: 1180px) {
   .site-header { grid-template-columns: 1fr auto auto; }
   .main-nav { display: none; }

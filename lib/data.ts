@@ -506,12 +506,90 @@ const staticOpportunities: Opportunity[] = [
   },
 ];
 
+export const tsubameDrinkwareOpportunity: Opportunity = {
+  id: "jip-tsubame-drinkware",
+  slug: "premium-japanese-tsubame-drinkware",
+  title: "Premium Japanese Tsubame Drinkware",
+  type: "Distribution / Import / Retail / HORECA / Corporate Gifting / OEM",
+  sector: "Consumer Products / Drinkware / Giftware",
+  originCountry: "Japan",
+  targetMarkets: ["International", "Europe", "North America", "Asia-Pacific", "Middle East"],
+  heroImage: "/images/opportunities/tsubame/tsubame-hero.webp",
+  cardImage: "/images/opportunities/tsubame/tsubame-card.webp",
+  summary: "Japanese-made premium stainless-steel drinkware combining Tsubame craftsmanship with distinctive blue, gold, copper and Mt. Fuji-inspired collections. International distribution, retail, hospitality, gifting and OEM partners sought.",
+  description: "PartnerMarketGlobal is presenting an opportunity for international distributors, importers, retailers, hospitality suppliers, gifting companies and specialist partners interested in premium Japanese drinkware produced in Tsubame, Niigata — one of Japan's renowned metalworking centres.\n\nThe collection combines centuries of Japanese metalworking craftsmanship with highly distinctive premium finishes and presentation, creating potential across consumer retail, hospitality, gifting, design-led stores and premium online channels.\n\nFrom high-grade 18-8 stainless steel tumblers and luxurious 24K gold-plated interior vessels to the striking antique silver blue Ginkobi Ao range, iconic Mt. Fuji sake cups, pure copper beer tumblers, and custom OEM personalization, this portfolio represents authentic Japanese manufacturing excellence.",
+  companyBackground: "Manufacturer: Tamahashi Corporation (Tamahashi Co., Ltd.)\nLocation: 4549-6 Kodaka, Tsubame-shi, Niigata 959-1241, Japan\nHeritage: Tsubame City trace its origins to wakugi (traditional hand-forged nails) of the Edo Period (approx. 400 years ago). Expanding from hammered copperware to files and modern precision metal tableware, Tsubame is Japan's No. 1 center for metal tableware manufacturing.\nCertified Origin: Products carry the official 'Made in TSUBAME' certification mark.\nFacilitated by: PartnerMarketGlobal International Market Development.",
+  productDetails: "The portfolio comprises six distinctive product collections:\n- Tsubame Artisan Tumblers: 18-8 stainless steel double-walled and single-walled tumblers and lock glasses featuring traditional finishing techniques, including Yamanaka Urushi lacquer collaboration.\n- Ginkobi Ao Collection: 18-8 stainless steel with an antique silver-plated metallic blue finish, including guisake cups (100ml), small tumblers (300ml), large tumblers (440ml), cheers tumblers (380ml), and double-walled ice pails.\n- The Luxury of Gold: 18-8 stainless steel vessels featuring 24K gold plated interior surfaces (guinomi sake cups, 300ml and 440ml tumblers, tears tumblers, and ice pails).\n- Mt. Fuji Cold Sake Cups: Mirror-finished stainless steel cups with sandblasted snowy summits, available in inner 24K gold-plated (FM-102) and stainless steel (FM-100) editions.\n- Kagayaki Copper & Sakura Collection: Pure copper beer tumblers and sake ware with tin-plated interiors, silver plating, gold plating, and antique silver finishes in paulownia gift boxes (kiribako), alongside satin Sakura-patterned tumblers.\n- OEM & Personalization: Commemorative items and original branded goods with name engraving (laser engraving on metal and silkscreen printing for lacquered finishes).",
+  marketOpportunity: "International retail buyers, high-end department stores, hospitality procurement teams, corporate gifting specialists, and luxury e-commerce platforms increasingly demand authentic Japanese craft products that merge centuries of heritage with modern usability.\n\nTsubame-made metalware commands strong international prestige for its material purity, thermal efficiency, and refined aesthetics. This opportunity provides commercial partners with direct access to an established Japanese manufacturer offering high-margin gifting propositions and customizable OEM projects.",
+  partnerProfile: "Best suited to national distributors, premium consumer goods importers, luxury department stores, lifestyle retailers, Japanese specialty stores, hotel and hospitality suppliers, sake and beverage specialists, corporate gifting agencies, duty-free operators, museum design stores, and private-label / OEM buyers.",
+  commercialModel: "International distribution, wholesale supply, retail purchasing, hospitality procurement, corporate gifting contracts, and OEM / private-label manufacturing. Contact PartnerMarketGlobal for commercial terms and market availability.",
+  territoryAvailability: "International markets (Selected territories and regional exclusive channels open for qualified commercial partners).",
+  investmentRequirement: "Export packaging, carton quantities (typically 12–48 pieces per carton), minimum order quantities (MOQs), landed cost calculations, and sample availability provided upon qualified inquiry.",
+  credentials: [
+    "Manufactured in Tsubame City, Niigata Prefecture, Japan",
+    "400 Years of Regional Metalworking Heritage",
+    "Certified 'Made in TSUBAME' Quality Mark",
+    "18-8 High-Grade Stainless Steel & Pure Copper Construction",
+    "Inner 24K Gold Plated Luxury Drinkware Ranges",
+    "Signature Antique Silver Plated Blue Finish (Ginkobi Ao)",
+    "Mount Fuji Guinomi Cold Sake Cup Series",
+    "Paulownia Wooden Presentation Gift Boxes (Kiribako)",
+    "OEM & Custom Name Engraving / Personalization Available"
+  ],
+  verificationBadges: [
+    "Featured Opportunity",
+    "Client Opportunity",
+    "Made in Tsubame",
+    "OEM & Personalization",
+    "B2B Distribution",
+    "Retail & HORECA"
+  ],
+  documentsAvailable: [
+    "Tsubame Tumbler Collection Catalogue (PDF)",
+    "Ginkobi Ao Blue Collection Catalogue (PDF)",
+    "The Luxury of Gold Catalogue (PDF)",
+    "Mt. Fuji Sake Cup Catalogue (PDF)",
+    "OEM & Personalization Guidelines",
+    "Packaging & Master Carton Specifications",
+    "Commercial Export Terms (On Qualified Inquiry)"
+  ],
+  risks: "Laser engraving suitability depends on the specific base material and finish (silkscreen printing required for lacquered finishes). Import duties, customs classification, freight economics, and regional food-contact compliance must be reviewed per destination market. Territory terms and production lead times require formal agreement with the manufacturer.",
+  status: "Active Opportunity — Worldwide Partner Outreach",
+  featured: true,
+  brand: "Tsubame Drinkware / Tamahashi",
+  company: "Tamahashi Corporation",
+  sourcePartner: "JIP Japan",
+  seoKeywords: [
+    "Japanese drinkware distributor",
+    "Japanese drinkware wholesale",
+    "Tsubame stainless steel",
+    "Tsubame tumbler",
+    "Japanese sake cups wholesale",
+    "Japanese giftware distributor",
+    "premium Japanese giftware",
+    "Japanese corporate gifts",
+    "Japanese stainless steel tumblers",
+    "Japanese homeware distributor",
+    "Japanese products importer",
+    "Japanese hospitality products",
+    "Japanese OEM gifts",
+    "Made in Japan drinkware",
+    "Niigata metalware",
+    "Tsubame Japan metalwork"
+  ],
+  imageAlt: "Premium Japanese Tsubame stainless steel, gold-finished and blue artisan drinkware",
+  exclusivity: "Territory or channel distribution agreements discussed on qualified inquiry"
+};
+
 const sonicOpp = mappedJipOpportunities.find((o) => o.slug === "sonic-friends-europe-2027");
 const otherMappedJip = mappedJipOpportunities.filter((o) => o.slug !== "sonic-friends-europe-2027");
 
-export const opportunities: Opportunity[] = sonicOpp
-  ? [sonicOpp, ...staticOpportunities, ...otherMappedJip]
-  : [...staticOpportunities, ...mappedJipOpportunities];
+export const opportunities: Opportunity[] = [
+  tsubameDrinkwareOpportunity,
+  ...(sonicOpp
+    ? [sonicOpp, ...staticOpportunities, ...otherMappedJip]
+    : [...staticOpportunities, ...mappedJipOpportunities])
+];
 
 export const categories = [
   { title: "Import Opportunities", image: "/assets/import-opportunities.svg", href: "/import-opportunities" },

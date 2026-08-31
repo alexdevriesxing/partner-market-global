@@ -26,12 +26,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const metadata = pageMetadata({
     locale,
     path: `/opportunities/${opportunity.slug}`,
-    title: opportunity.slug === "sonic-friends-europe-2027"
+    title: opportunity.slug === "premium-japanese-tsubame-drinkware"
+      ? "Premium Japanese Tsubame Drinkware Distribution Opportunity | PartnerMarketGlobal"
+      : opportunity.slug === "sonic-friends-europe-2027"
       ? "SONIC & FRIENDS European Distribution & Retail Opportunity | PartnerMarketGlobal"
       : opportunity.slug === "yachiyo-mengyo-handa-somen-eu-distribution"
       ? "Yachiyo Mengyo Handa Somen EU Distribution | Partner Market Global"
       : opportunity.title,
-    description: opportunity.slug === "sonic-friends-europe-2027"
+    description: opportunity.slug === "premium-japanese-tsubame-drinkware"
+      ? "Explore an international distribution opportunity for premium Japanese drinkware crafted in Tsubame, Niigata, including stainless-steel tumblers, sake cups, gold, blue and specialty collections."
+      : opportunity.slug === "sonic-friends-europe-2027"
       ? "European retailers, distributors and wholesalers can enquire about the new SONIC & FRIENDS merchandise range from Japan for the 2027 Sonic retail window."
       : opportunity.summary,
     image: opportunity.heroImage
@@ -235,6 +239,345 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                 <img src={opportunity.cardImage} alt={`${opportunity.title} product showcase`} style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "12px" }} />
               </div>
             </div>
+
+            {/* Custom Rich Sections for Premium Japanese Tsubame Drinkware */}
+            {opportunity.slug === "premium-japanese-tsubame-drinkware" && (
+              <>
+                {/* 1. TOP PROMPT BANNER */}
+                <div className="tsubame-prompt-banner">
+                  <div>
+                    <span className="tsubame-prompt-text">Interested in representing these products in your market?</span>
+                    <p style={{ margin: "4px 0 0 0", fontSize: "0.88rem", opacity: 0.9 }}>
+                      Connect with PartnerMarketGlobal for international distribution, wholesale lines, and OEM personalization.
+                    </p>
+                  </div>
+                  <a href="#inquiry" className="tsubame-prompt-btn">Request Partnership Information</a>
+                </div>
+
+                {/* 2. STORYTELLING: MADE IN TSUBAME, JAPAN */}
+                <div className="content-card" id="why-tsubame" style={{ marginTop: 24 }}>
+                  <h2>Made in Tsubame, Japan</h2>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, alignItems: "center", marginTop: 16 }}>
+                    <div>
+                      <p style={{ lineHeight: 1.6, marginBottom: 14, color: "#334155" }}>
+                        Located in Niigata Prefecture, <strong>Tsubame City</strong> is globally recognized as Japan&apos;s premier center for precision metalworking. The city&apos;s metalworking heritage traces back approximately <strong>400 years</strong> to the early Edo Period, beginning with traditional hand-forged Japanese nails (<em>wakugi</em>) and expanding through hammered copperware, files, and modern precision metalware.
+                      </p>
+                      <p style={{ lineHeight: 1.6, marginBottom: 14, color: "#334155" }}>
+                        Today, Tsubame is Japan&apos;s No. 1 supplier of Western-style metal tableware. Combining time-honored artisan techniques with modern metallurgical engineering, Tsubame manufacturers produce drinking vessels cherished for their thermal efficiency, tactile comfort, and refined beauty. Products are officially certified with the prestigious <strong>&quot;Made in TSUBAME&quot;</strong> quality mark.
+                      </p>
+                    </div>
+                    <div>
+                      <img
+                        src="/images/opportunities/tsubame/tsubame-craftsmanship.webp"
+                        alt="Tsubame master artisan metalworking and finishing"
+                        style={{ width: "100%", height: "auto", borderRadius: 12, objectFit: "cover" }}
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="tsubame-stats-row">
+                    <div className="tsubame-stat-box">
+                      <span className="tsubame-stat-val">400 Years</span>
+                      <span className="tsubame-stat-label">Metalworking Heritage</span>
+                    </div>
+                    <div className="tsubame-stat-box">
+                      <span className="tsubame-stat-val">Made in Japan</span>
+                      <span className="tsubame-stat-label">Tsubame, Niigata Prefecture</span>
+                    </div>
+                    <div className="tsubame-stat-box">
+                      <span className="tsubame-stat-val">Premium Finishes</span>
+                      <span className="tsubame-stat-label">Steel • 24K Gold • Copper • Ginkobi Blue</span>
+                    </div>
+                    <div className="tsubame-stat-box">
+                      <span className="tsubame-stat-val">OEM Available</span>
+                      <span className="tsubame-stat-label">Laser Engraving &amp; Personalization</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. PRODUCT COLLECTIONS */}
+                <div className="content-card" id="collections" style={{ marginTop: 24 }}>
+                  <h2>Product Collections</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 16px 0" }}>
+                    Explore the six distinctive product families manufactured in Tsubame, combining traditional artisan finishes with modern functional elegance:
+                  </p>
+
+                  <div className="tsubame-collections-grid">
+                    {/* Collection 1: Tsubame Artisan Tumblers */}
+                    <div className="tsubame-collection-card">
+                      <div className="tsubame-collection-img-wrap">
+                        <img
+                          src="/images/opportunities/tsubame/collection-tsubame-tumbler.webp"
+                          alt="Tsubame Artisan Tumblers stainless steel"
+                          className="tsubame-collection-img"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="tsubame-collection-body">
+                        <span className="tsubame-collection-num">Collection 1</span>
+                        <h3>Tsubame Artisan Tumblers</h3>
+                        <div className="tsubame-collection-headline">Double-Walled &amp; Single-Walled Precision Drinkware</div>
+                        <p>
+                          A broad collection of Japanese-made tumblers and drinking vessels featuring stainless steel, traditional finishing techniques and premium presentation. Multiple vessel formats and finishes make the collection suitable for gifting, home use, restaurants, bars and specialist retail.
+                        </p>
+                        <div className="tsubame-collection-specs">
+                          <strong>Specifications:</strong> 18-8 Stainless Steel • Double-wall &amp; single-wall construction • Straight &amp; lock tumbler formats • Traditional Yamanaka Urushi lacquer collaboration
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Collection 2: Ginkobi Ao */}
+                    <div className="tsubame-collection-card">
+                      <div className="tsubame-collection-img-wrap">
+                        <img
+                          src="/images/opportunities/tsubame/collection-ginkobi-ao.webp"
+                          alt="Ginkobi Ao antique silver blue tumbler collection"
+                          className="tsubame-collection-img"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="tsubame-collection-body">
+                        <span className="tsubame-collection-num">Collection 2</span>
+                        <h3>Ginkobi Ao</h3>
+                        <div className="tsubame-collection-headline">The Blue of Japanese Craftsmanship</div>
+                        <p>
+                          A striking metallic-blue collection made using 18-8 stainless steel with an antique silver-plated finish. Its distinctive blue appearance gives the range an immediately recognizable luxury identity.
+                        </p>
+                        <div className="tsubame-collection-specs">
+                          <strong>Lineup:</strong> Guisake Cup (100ml), Small Tumbler (300ml), Large Tumbler (440ml), Cheers Tumbler (380ml), Double-Wall Ice Pail • Paulownia wooden gift boxes
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Collection 3: The Luxury of Gold */}
+                    <div className="tsubame-collection-card">
+                      <div className="tsubame-collection-img-wrap">
+                        <img
+                          src="/images/opportunities/tsubame/collection-gold-series.webp"
+                          alt="The Luxury of Gold stainless steel drinkware with 24K gold plated interior"
+                          className="tsubame-collection-img"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="tsubame-collection-body">
+                        <span className="tsubame-collection-num">Collection 3</span>
+                        <h3>The Luxury of Gold</h3>
+                        <div className="tsubame-collection-headline">24K Gold Plated Interior Warmth</div>
+                        <p>
+                          Premium stainless-steel drinking vessels featuring luxurious gold-finished interiors. The collection combines understated silver exteriors with warm gold interiors and lends itself particularly well to premium gifting, hospitality and specialist retail.
+                        </p>
+                        <div className="tsubame-collection-specs">
+                          <strong>Lineup:</strong> Guinomi sake cups (100ml), Small Tumbler (300ml), Large Tumbler (440ml), Tears Tumbler (380ml) • Inner surface 24K Gold Plating • Wooden gift packaging
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Collection 4: Mt. Fuji Sake Cups */}
+                    <div className="tsubame-collection-card">
+                      <div className="tsubame-collection-img-wrap">
+                        <img
+                          src="/images/opportunities/tsubame/collection-mt-fuji.webp"
+                          alt="Mt Fuji stainless steel sake cup with sandblasted summit"
+                          className="tsubame-collection-img"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="tsubame-collection-body">
+                        <span className="tsubame-collection-num">Collection 4</span>
+                        <h3>Mt. Fuji Sake Cups</h3>
+                        <div className="tsubame-collection-headline">Iconic Silhouette with Sandblasted Summit</div>
+                        <p>
+                          Distinctively Japanese sake cups inspired by Mount Fuji. The featured stainless-steel cups combine polished metal surfaces with an iconic silhouette, providing an excellent premium souvenir, gift and Japanese lifestyle proposition.
+                        </p>
+                        <div className="tsubame-collection-specs">
+                          <strong>Models:</strong> FM-102 (Inner 24K Gold Plated, 75ml) &amp; FM-100 (Polished Stainless Steel, 75ml) • Sandblasted snowy summit • Individual gift presentation
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Collection 5: Copper & Specialty Finishes */}
+                    <div className="tsubame-collection-card">
+                      <div className="tsubame-collection-img-wrap">
+                        <img
+                          src="/images/opportunities/tsubame/collection-copper-specialty.webp"
+                          alt="Kagayaki Pure Copper Beer Tumbler and Sakura collection"
+                          className="tsubame-collection-img"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="tsubame-collection-body">
+                        <span className="tsubame-collection-num">Collection 5</span>
+                        <h3>Copper &amp; Specialty Finishes</h3>
+                        <div className="tsubame-collection-headline">Kagayaki Pure Copper &amp; Sakura Motifs</div>
+                        <p>
+                          Additional ranges extend the collection into copper and specialty metallic finishes, providing distributors and retailers with a broader premium assortment and attractive gift-set opportunities.
+                        </p>
+                        <div className="tsubame-collection-specs">
+                          <strong>Lineup:</strong> Pure Copper beer tumblers &amp; sake ware (inner tin plating) • Gold, Silver &amp; Antique Silver finishes • 2pc &amp; 3pc gift sets in paulownia wooden boxes • Satin Sakura collection
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Collection 6: OEM & Personalized Gifts */}
+                    <div className="tsubame-collection-card">
+                      <div className="tsubame-collection-img-wrap">
+                        <img
+                          src="/images/opportunities/tsubame/collection-oem.webp"
+                          alt="OEM name engraving and personalization"
+                          className="tsubame-collection-img"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="tsubame-collection-body">
+                        <span className="tsubame-collection-num">Collection 6</span>
+                        <h3>OEM &amp; Personalized Gifts</h3>
+                        <div className="tsubame-collection-headline">Create Your Own Premium Japanese Gift</div>
+                        <p>
+                          The manufacturer also offers OEM opportunities for commemorative products and original goods, including personalization by name engraving on appropriate materials. Laser engraving is recommended for most metals, while silkscreen printing is utilized for lacquered finishes. Specific projects require confirmation with the manufacturer.
+                        </p>
+                        <div className="tsubame-collection-specs">
+                          <strong>Capability:</strong> Laser engraving on stainless steel &amp; copper • Silkscreen printing for lacquered finishes • Corporate branding &amp; bespoke gift editions
+                        </div>
+                        <a href="#inquiry" className="tsubame-oem-cta">Discuss an OEM Project →</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4. TARGET PARTNERS ("Who Should Explore This Opportunity?") */}
+                <div className="content-card" id="target-partners" style={{ marginTop: 24 }}>
+                  <h2>Who Should Explore This Opportunity?</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 16px 0" }}>
+                    This opportunity is ideally positioned for commercial partners seeking differentiated, high-margin Japanese lifestyle and tableware products:
+                  </p>
+
+                  <div className="tsubame-partners-grid">
+                    <div className="tsubame-partner-chip"><span>🌐</span> National Distributors</div>
+                    <div className="tsubame-partner-chip"><span>📦</span> Premium Goods Importers</div>
+                    <div className="tsubame-partner-chip"><span>🏬</span> Department Stores</div>
+                    <div className="tsubame-partner-chip"><span>✨</span> Design &amp; Lifestyle Retailers</div>
+                    <div className="tsubame-partner-chip"><span>🗾</span> Japanese Specialty Retailers</div>
+                    <div className="tsubame-partner-chip"><span>🛒</span> Premium E-commerce Platforms</div>
+                    <div className="tsubame-partner-chip"><span>🍽️</span> Hotel &amp; Hospitality Suppliers</div>
+                    <div className="tsubame-partner-chip"><span>🏨</span> Luxury Hotels &amp; Resorts</div>
+                    <div className="tsubame-partner-chip"><span>🍶</span> Japanese Dining &amp; Izakayas</div>
+                    <div className="tsubame-partner-chip"><span>🍷</span> Sake &amp; Beverage Specialists</div>
+                    <div className="tsubame-partner-chip"><span>🎁</span> Corporate Gifting Businesses</div>
+                    <div className="tsubame-partner-chip"><span>🎀</span> Luxury Gifting Companies</div>
+                    <div className="tsubame-partner-chip"><span>✈️</span> Duty-Free Operators</div>
+                    <div className="tsubame-partner-chip"><span>🏛️</span> Museum &amp; Design Stores</div>
+                    <div className="tsubame-partner-chip"><span>🏠</span> Homeware Retailers</div>
+                    <div className="tsubame-partner-chip"><span>💼</span> Promotional Merchandise Firms</div>
+                    <div className="tsubame-partner-chip"><span>⚙️</span> Private-Label / OEM Buyers</div>
+                  </div>
+                </div>
+
+                {/* 5. COMMERCIAL USE CASES */}
+                <div className="content-card" id="use-cases" style={{ marginTop: 24 }}>
+                  <h2>Commercial Use Cases</h2>
+                  <div className="tsubame-usecases-grid">
+                    <div className="tsubame-usecase-card">
+                      <h4><span>🏬</span> Premium Retail</h4>
+                      <p>High-design Japanese drinkware capable of standing out in department stores, lifestyle boutiques, and specialist homeware environments.</p>
+                    </div>
+                    <div className="tsubame-usecase-card">
+                      <h4><span>🥂</span> Hospitality</h4>
+                      <p>Distinctive tumblers and sake vessels for premium restaurants, cocktail bars, luxury hotels, and Japanese fine-dining concepts.</p>
+                    </div>
+                    <div className="tsubame-usecase-card">
+                      <h4><span>🎁</span> Corporate Gifting</h4>
+                      <p>Gift-set presentation in traditional wooden boxes (kiribako) and premium metallic finishes make the products ideal for executive and corporate gifting.</p>
+                    </div>
+                    <div className="tsubame-usecase-card">
+                      <h4><span>🗾</span> Japan Lifestyle &amp; Gifting</h4>
+                      <p>Strong Japanese provenance and recognizable design make selected ranges particularly suitable for Japanese cultural concepts and tourism gifting.</p>
+                    </div>
+                    <div className="tsubame-usecase-card">
+                      <h4><span>🛒</span> E-Commerce</h4>
+                      <p>Highly visual product ranges that can be effectively marketed through specialist online retailers, curated gift platforms, and premium marketplaces.</p>
+                    </div>
+                    <div className="tsubame-usecase-card">
+                      <h4><span>⚙️</span> OEM &amp; Personalization</h4>
+                      <p>Personalized commemorative products, corporate editions, and original branded goods for qualified commercial projects.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 6. CATALOG DOWNLOADS ("Explore the Collections") */}
+                <div className="content-card" id="catalogs" style={{ marginTop: 24 }}>
+                  <h2>Explore the Collections</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 16px 0" }}>
+                    Review the official product catalogues and technical specifications for the Tsubame drinkware collections:
+                  </p>
+
+                  <div className="tsubame-catalogs-grid">
+                    <div className="tsubame-catalog-card">
+                      <div className="tsubame-catalog-header">
+                        <span className="tsubame-pdf-badge">PDF</span>
+                        <div>
+                          <h4>Tsubame Tumbler Collection</h4>
+                          <p>Full 12-page comprehensive product catalogue, finishes &amp; dimensions</p>
+                        </div>
+                      </div>
+                      <a href="/Maruyama Stainless.pdf" target="_blank" rel="noopener noreferrer" className="btn-catalog-download">
+                        View Catalogue (PDF) ↗
+                      </a>
+                    </div>
+
+                    <div className="tsubame-catalog-card">
+                      <div className="tsubame-catalog-header">
+                        <span className="tsubame-pdf-badge">PDF</span>
+                        <div>
+                          <h4>Ginkobi Ao Collection</h4>
+                          <p>Antique silver blue stainless-steel tumblers &amp; sake ware</p>
+                        </div>
+                      </div>
+                      <a href="/Ginkobi_Ao_Catalog.pdf" target="_blank" rel="noopener noreferrer" className="btn-catalog-download">
+                        View Catalogue (PDF) ↗
+                      </a>
+                    </div>
+
+                    <div className="tsubame-catalog-card">
+                      <div className="tsubame-catalog-header">
+                        <span className="tsubame-pdf-badge">PDF</span>
+                        <div>
+                          <h4>Mt. Fuji Sake Cup Collection</h4>
+                          <p>English product catalogue for Mt. Fuji cold sake cups (FM-100 / FM-102)</p>
+                        </div>
+                      </div>
+                      <a href="/Mt_Fuji_Sake_Cup_Catalog_English.pdf" target="_blank" rel="noopener noreferrer" className="btn-catalog-download">
+                        View Catalogue (PDF) ↗
+                      </a>
+                    </div>
+
+                    <div className="tsubame-catalog-card">
+                      <div className="tsubame-catalog-header">
+                        <span className="tsubame-pdf-badge">PDF</span>
+                        <div>
+                          <h4>The Luxury of Gold</h4>
+                          <p>24K gold plated interior drinking vessels &amp; sake cups</p>
+                        </div>
+                      </div>
+                      <a href="/The_Luxury_of_Gold_Catalog.pdf" target="_blank" rel="noopener noreferrer" className="btn-catalog-download">
+                        View Catalogue (PDF) ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 7. BOTTOM PROMPT BANNER */}
+                <div className="tsubame-prompt-banner" style={{ marginTop: 24 }}>
+                  <div>
+                    <span className="tsubame-prompt-text">Interested in representing these products in your market?</span>
+                    <p style={{ margin: "4px 0 0 0", fontSize: "0.88rem", opacity: 0.9 }}>
+                      Submit your commercial qualification below to receive wholesale pricing, export terms, and sample details.
+                    </p>
+                  </div>
+                  <a href="#inquiry" className="tsubame-prompt-btn">Request Partnership Information</a>
+                </div>
+              </>
+            )}
 
             {/* Custom Rich Sections for SONIC & FRIENDS */}
             {opportunity.slug === "sonic-friends-europe-2027" && (
@@ -1156,7 +1499,9 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
               </div>
             </div>
 
-            <InquiryForm oppTitle={opportunity.title} oppSlug={opportunity.slug} source={isJip ? "JIP Japan" : "General"} />
+            <div id="inquire">
+              <InquiryForm oppTitle={opportunity.title} oppSlug={opportunity.slug} source={isJip ? "JIP Japan" : "General"} />
+            </div>
           </div>
         </article>
 

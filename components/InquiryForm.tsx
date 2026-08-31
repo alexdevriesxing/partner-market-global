@@ -84,6 +84,7 @@ function InquiryFormClient({
   const isIchiban = oppSlug === "ichiban-ken-indonesia-master-franchise";
   const isEbara = oppSlug === "ebara-foods-indonesia-distribution-noodle-partnership";
   const isSonic = oppSlug === "sonic-friends-europe-2027";
+  const isTsubame = oppSlug === "premium-japanese-tsubame-drinkware";
 
   const opportunity = opportunities.find(o => o.slug === oppSlug);
   const originCountry = opportunity?.originCountry || "";
@@ -169,6 +170,13 @@ function InquiryFormClient({
     notMasuyaConfirmed: false
   });
 
+  const [tsubameFields, setTsubameFields] = useState({
+    jobTitle: "",
+    marketsServed: "",
+    productsOfInterest: [] as string[],
+    estimatedOpportunity: ""
+  });
+
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
@@ -209,6 +217,18 @@ function InquiryFormClient({
     });
   };
 
+  const handleTsubameProductToggle = (item: string) => {
+    setTsubameFields((prev) => {
+      const exists = prev.productsOfInterest.includes(item);
+      return {
+        ...prev,
+        productsOfInterest: exists
+          ? prev.productsOfInterest.filter((i) => i !== item)
+          : [...prev.productsOfInterest, item]
+      };
+    });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (honeypot) return; // Silent rejection for bot submissions
@@ -240,13 +260,10 @@ function InquiryFormClient({
       const cType = sonicFields.companyType || formData.partnerType;
       if (["National Retail Chain", "Toy Retailer", "Gaming Retailer", "Department Store"].includes(cType)) {
         leadScore += 20;
-        prioritySignals.push(`National Retail / Major Chain (${cType})`);
-      } else if (["Distributor", "Wholesaler", "Importer"].includes(cType)) {
-        leadScore += 20;
-        prioritySignals.push(`Wholesale / Distribution Partner (${cType})`);
-      } else if (["Specialist Retailer", "Pop Culture Stores", "E-commerce", "Gift Retailer"].includes(cType)) {
+        prioritySignals.push(`Key Retail Format (${cType})`);
+      } else if (["Wholesale Distributor", "Licensed Merchandise Buyer"].includes(cType)) {
         leadScore += 15;
-        prioritySignals.push(`Specialist Buyer (${cType})`);
+        prioritySignals.push(`Wholesale Partner (${cType})`);
       }
 
       if (["26–50 stores", "50+ stores", "Wholesale distribution network"].includes(sonicFields.storeCount)) {
@@ -281,24 +298,39 @@ function InquiryFormClient({
       }
     }
 
+    if (isTsubame) {
+      if (["Distributor", "Importer", "HORECA", "Corporate Gifting"].includes(formData.partnerType)) {
+        leadScore += 20;
+        prioritySignals.push(`Core B2B Tier (${formData.partnerType})`);
+      }
+      if (tsubameFields.productsOfInterest.length >= 3 || tsubameFields.productsOfInterest.includes("Full Portfolio")) {
+        leadScore += 15;
+        prioritySignals.push("Broad Portfolio Interest");
+      }
+      if (tsubameFields.productsOfInterest.includes("OEM / Personalization")) {
+        leadScore += 15;
+        prioritySignals.push("OEM Project Interest");
+      }
+    }
+
     const priorityRating = leadScore >= 45 ? "HIGH PRIORITY" : leadScore >= 25 ? "MEDIUM PRIORITY" : "STANDARD";
 
     const payload = {
-      opportunity: oppTitle || (isSonic ? "SONIC & FRIENDS Europe 2027" : "General Opportunity"),
+      opportunity: isTsubame ? "Opportunity: Tsubame Premium Japanese Drinkware" : (oppTitle || (isSonic ? "SONIC & FRIENDS Europe 2027" : "General Opportunity")),
       oppSlug: oppSlug || "general",
-      brand: isSonic ? "SONIC & FRIENDS" : opportunity?.brand || "N/A",
-      principal: isSonic ? "Japan Industrial Promotion Inc. (Daiki Fukaura)" : source || "JIP Japan",
+      brand: isTsubame ? "Tsubame Drinkware / Tamahashi" : (isSonic ? "SONIC & FRIENDS" : opportunity?.brand || "N/A"),
+      principal: isTsubame ? "Tamahashi Corporation / JIP Japan" : (isSonic ? "Japan Industrial Promotion Inc. (Daiki Fukaura)" : source || "JIP Japan"),
       contactName: isSonic ? `${sonicFields.firstName} ${sonicFields.lastName}`.trim() : formData.name,
-      jobTitle: sonicFields.jobTitle || "Buyer / Decision Maker",
+      jobTitle: isTsubame ? (tsubameFields.jobTitle || "Commercial Buyer") : (sonicFields.jobTitle || "Buyer / Decision Maker"),
       company: formData.company,
       email: formData.email,
       phone: formData.phone,
       country: formData.country,
       website: formData.website || "",
       companyType: isSonic ? sonicFields.companyType : formData.partnerType,
-      activity: formData.activity,
-      network: formData.network,
-      reason: isSonic ? sonicFields.requests.join(", ") : formData.reason,
+      activity: isTsubame ? (tsubameFields.marketsServed ? `Markets: ${tsubameFields.marketsServed} | ${formData.activity}` : formData.activity) : formData.activity,
+      network: isTsubame ? (tsubameFields.estimatedOpportunity ? `Channel/Est: ${tsubameFields.estimatedOpportunity} | ${formData.network}` : formData.network) : formData.network,
+      reason: isTsubame ? (`Products: ${tsubameFields.productsOfInterest.join(", ") || "General"} | Message: ${formData.reason}`) : (isSonic ? sonicFields.requests.join(", ") : formData.reason),
       requirements: formData.requirements,
       leadScore,
       priorityRating,
@@ -307,6 +339,7 @@ function InquiryFormClient({
       nittohDetails: isNittoh ? nittohFields : undefined,
       ichibanDetails: isIchiban ? ichibanFields : undefined,
       ebaraDetails: isEbara ? ebaraFields : undefined,
+      tsubameDetails: isTsubame ? tsubameFields : undefined,
       utmData: utms,
       referrer
     };
@@ -494,7 +527,19 @@ function InquiryFormClient({
                 onChange={(e) => setFormData({ ...formData, partnerType: e.target.value })}
               >
                 <option value="">{partnerTypeDefault}</option>
-                {isNittoh ? (
+                {isTsubame ? (
+                  <>
+                    <option value="Distributor">Distributor</option>
+                    <option value="Importer">Importer</option>
+                    <option value="Retailer">Retailer</option>
+                    <option value="E-commerce">E-commerce</option>
+                    <option value="HORECA">HORECA</option>
+                    <option value="Corporate Gifting">Corporate Gifting</option>
+                    <option value="Hospitality Supplier">Hospitality Supplier</option>
+                    <option value="Agent">Agent</option>
+                    <option value="Other">Other</option>
+                  </>
+                ) : isNittoh ? (
                   <>
                     <option value="Importer">Importer</option>
                     <option value="Distributor">Distributor</option>
@@ -1011,6 +1056,122 @@ function InquiryFormClient({
             <label className="span-2">
               Proposed Route-to-Market & Commercial Plan *
               <textarea required value={ebaraFields.proposedRtmPlan} onChange={(e) => setEbaraFields({...ebaraFields, proposedRtmPlan: e.target.value})} placeholder="Outline your proposed timeline, target restaurant accounts in Bali/Indonesia, and commercial launch plan..." style={{ width: "100%", marginTop: "6px", minHeight: "80px" }} />
+            </label>
+          </div>
+        )}
+
+        {isTsubame && (
+          <div
+            className="custom-qualifying-fields span-2"
+            style={{
+              gridColumn: "span 2",
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "16px",
+              marginTop: "16px",
+              borderTop: "2px solid #d4af37",
+              paddingTop: "20px"
+            }}
+          >
+            <div
+              className="span-2"
+              style={{
+                gridColumn: "span 2",
+                background: "linear-gradient(135deg, #0b1329 0%, #1e293b 100%)",
+                border: "1px solid rgba(212, 175, 55, 0.35)",
+                padding: "16px 20px",
+                borderRadius: "8px",
+                color: "#f8fafc"
+              }}
+            >
+              <h3 style={{ margin: "0 0 6px 0", fontSize: "1.1rem", fontWeight: "700", color: "#ffd782" }}>
+                Tsubame Premium Japanese Drinkware Partnership Inquiry
+              </h3>
+              <p style={{ margin: 0, fontSize: "0.88rem", color: "#cbd5e1" }}>
+                Commercial enquiry for international distributors, retailers, hospitality buyers, and corporate gifting specialists.
+              </p>
+            </div>
+
+            <label>
+              Job Title *
+              <input
+                type="text"
+                required
+                value={tsubameFields.jobTitle}
+                onChange={(e) => setTsubameFields({ ...tsubameFields, jobTitle: e.target.value })}
+                placeholder="e.g. Managing Director, Head of Procurement, Senior Buyer"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+
+            <label>
+              Markets / Countries Served *
+              <input
+                type="text"
+                required
+                value={tsubameFields.marketsServed}
+                onChange={(e) => setTsubameFields({ ...tsubameFields, marketsServed: e.target.value })}
+                placeholder="e.g. UK, Germany, France, Benelux, USA, Middle East"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+
+            <div
+              className="span-2"
+              style={{
+                gridColumn: "span 2",
+                background: "var(--soft-bg, #f8fafc)",
+                padding: "16px",
+                borderRadius: "8px",
+                border: "1px solid var(--border, #e2e8f0)"
+              }}
+            >
+              <strong style={{ display: "block", marginBottom: "10px", fontSize: "0.95rem", color: "#0f172a" }}>
+                Products of Interest:
+              </strong>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "8px" }}>
+                {[
+                  "Tsubame Tumblers",
+                  "Ginkobi Ao",
+                  "Gold Collection",
+                  "Mt. Fuji Sake Cups",
+                  "Copper Collection",
+                  "Gift Sets",
+                  "OEM / Personalization",
+                  "Full Portfolio"
+                ].map((item) => (
+                  <label
+                    key={item}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      fontSize: "0.85rem",
+                      cursor: "pointer",
+                      margin: 0,
+                      color: "#334155"
+                    }}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={tsubameFields.productsOfInterest.includes(item)}
+                      onChange={() => handleTsubameProductToggle(item)}
+                    />
+                    <span>{item}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              Estimated Opportunity / Channel Scope
+              <input
+                type="text"
+                value={tsubameFields.estimatedOpportunity}
+                onChange={(e) => setTsubameFields({ ...tsubameFields, estimatedOpportunity: e.target.value })}
+                placeholder="e.g. 5 luxury department stores, nationwide HORECA distribution, corporate year-end gifting, custom OEM project"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
             </label>
           </div>
         )}
