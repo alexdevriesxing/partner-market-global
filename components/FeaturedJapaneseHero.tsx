@@ -33,7 +33,7 @@ export function FeaturedJapaneseHero({ locale }: FeaturedJapaneseHeroProps) {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="tsubame-top-badge-row">
-            <span className="tsubame-eyebrow">FEATURED JAPANESE OPPORTUNITY</span>
+            <span className="tsubame-eyebrow">FEATURED JAPANESE HOSPITALITY OPPORTUNITY</span>
             <span className="tsubame-badge-new">NEW FEATURED OPPORTUNITY</span>
           </div>
 

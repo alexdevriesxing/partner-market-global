@@ -506,6 +506,78 @@ const staticOpportunities: Opportunity[] = [
   },
 ];
 
+export const izutsuYatsuhashiOpportunity: Opportunity = {
+  id: "jip-izutsu-yatsuhashi",
+  slug: "izutsu-yatsuhashi-kyoto",
+  title: "Izutsu Yatsuhashi — 220 Years of Kyoto Confectionery Tradition",
+  type: "Export / Distribution / Luxury Hospitality Supply / Gifting / Retail",
+  sector: "Food & Beverage / Traditional Confectionery / Japanese Specialty",
+  originCountry: "Japan",
+  targetMarkets: ["United States", "Middle East", "Europe", "Asia-Pacific", "Global Hospitality"],
+  heroImage: "/images/opportunities/izutsu-yatsuhashi/izutsu-opp-hero.webp",
+  cardImage: "/images/opportunities/izutsu-yatsuhashi/izutsu-card.webp",
+  summary: "Founded in Kyoto in 1805, Izutsu Yatsuhashi Honpo brings one of Kyoto's traditional confectionery specialties to international hospitality, premium dining, gifting and distribution channels. Its hard-baked Yatsuhashi combines an authentic Kyoto story with an export-friendly 180+ day shelf life.",
+  description: "Izutsu Yatsuhashi Honpo Co., Ltd. is presenting an exclusive commercial opportunity for international food importers, specialty distributors, luxury hotel groups, Michelin-starred restaurants, premium cafes, corporate gifting agencies, and retail buyers in the United States, Middle East, Europe, and Asia-Pacific.\n\nFounded in 1805 (Bunka 2) in Gion, Kyoto, Izutsu Yatsuhashi is one of Japan's most historic confectionery houses. While soft raw sweets (nama-yatsuhashi) are restricted by short shelf life, Izutsu's signature hard-baked Yatsuhashi delivers an extraordinary commercial advantage: a guaranteed 180+ day shelf life at room temperature without any artificial preservatives or chemical additives. This makes the product exceptionally well-suited for international maritime container freight, temperature-controlled distribution, luxury hotel turndown amenities, upscale airline service, and premium confectionery retail shelves worldwide.\n\nShaped in the elegant curve of a traditional Japanese koto (harp), Izutsu Yatsuhashi pairs the warming, aromatic spice of natural cinnamon (nikki) with a crisp, light, satisfying crunch. Complemented by an authentic collaboration line with prestigious Uji Matcha producers and dual packaging formats (traditional Kyoto Kabuki gift boxes and contemporary resealable stand-up pouches), Izutsu Yatsuhashi bridges 220 years of Kyoto cultural heritage with modern global gastronomy.",
+  companyBackground: "Company: Izutsu Yatsuhashi Co., Ltd. (Izutsu Yatsuhashi Honpo)\nEstablished: 1805 (Bunka 2, Edo Period — 220 Years of Continuous Heritage)\nHeadquarters: Gion, Higashiyama-ku, Kyoto, Japan\nEmployees: Approximately 340\nFlagship Premises: Gion Main Store & Historic Kitaza Cultural Building\nFounding Philosophy: '利益より永続' (Continuity and Trust Over Short-Term Profit)\nFacilitated by: Japan Industrial Promotion Inc. (JIP Japan) & PartnerMarketGlobal International Market Development.",
+  productDetails: "The commercial product portfolio features two flagship lines and versatile export packaging formats:\n- Kyoto Specialty Izutsu Yatsuhashi (Traditional Cinnamon Baked): The classic hard-baked confectionery shaped like a Japanese koto harp. Made without additives, offering a delicately curved, crisp texture and aromatic nikki (cinnamon) profile with a 180+ day shelf life.\n- Uji Matcha Yatsuhashi: Layers of rich, velvety Uji matcha green tea dusted over traditional baked Yatsuhashi. Developed in collaboration with premier Uji matcha producers, balancing subtle cinnamon sweetness with refined green tea bitterness.\n- Traditional Kabuki Gift Box Format: Elegant presentation box featuring authentic Edo-period koto artwork, containing individually wrapped sealed twin-packs for freshness, luxury hotel turndown amenities, and premium corporate gifting.\n- Modern Resealable Stand-Up Pouch: Sophisticated foil-lined zip pouch designed for contemporary retail display, high-end cafe counters, specialty grocers, and grab-and-go premium snacking.",
+  marketOpportunity: "Western & Middle Eastern Taste Resonance: Natural cinnamon (nikki) is universally celebrated across Western, Middle Eastern, and Asian palate traditions. In Japanese consumer surveys ('Foreigners\' Souvenir Election'), baked Yatsuhashi ranked #1 among international visitors, praised for its crisp crunch and natural pairing with morning coffee and tea.\n\nExport-Ready Economics: A minimum 180-day room-temperature shelf life eliminates the high spoilage risks of fresh sweets, allowing efficient sea freight and extended retail sales windows.\n\nLuxury Hospitality & VIP Amenities: The historic Gion flagship and Kitaza luxury bar offer an exclusive venue for VIP buyer experiences and cultural engagement. Izutsu Yatsuhashi provides five-star hotels and luxury airlines with an authentic, conversation-starting Japanese amenity.\n\nRegulatory & Export Readiness: Fully compliant with international pesticide and food safety regulations, backed by official Japanese MAFF (Ministry of Agriculture, Forestry and Fisheries) export documentation support.",
+  partnerProfile: "Best suited to national specialty food importers, Japanese/Asian gourmet distributors, luxury hotel procurement teams, fine dining and Michelin-starred restaurant groups, specialty coffee and tea house chains, corporate gifting specialists, duty-free airport concessionaires, and premium department store food halls.",
+  commercialModel: "Exclusive and semi-exclusive territorial distribution, foodservice/hospitality amenity supply, retail distribution, corporate gifting contracts, and bespoke hospitality packaging. Sample assortments, master carton specifications, FOB/CIF pricing, and MAFF export documentation available upon qualified inquiry.",
+  territoryAvailability: "United States, Middle East (UAE, Saudi Arabia, Qatar, Kuwait), European Union, United Kingdom, and Asia-Pacific. Territory agreements subject to partner qualification.",
+  investmentRequirement: "Master carton packaging, pallet configurations, export shipping schedules, minimum order quantities (MOQs), and landed cost models provided upon qualified commercial inquiry.",
+  credentials: [
+    "Founded 1805 in Kyoto (220 Years of Artisan Heritage)",
+    "Ranked #1 in Japanese Souvenirs Chosen by Foreign Visitors",
+    "180+ Day Shelf Life Guaranteed Without Additives",
+    "Traditional Koto-Shaped Cinnamon-Baked Formulation",
+    "Prestigious Uji Matcha Collaboration Line",
+    "Dual Packaging: Luxury Gift Boxes & Modern Stand-Up Pouches",
+    "Gion Flagship Store & Historic Kitaza Cultural Center",
+    "Compliant with Global Pesticide Standards & Supported by MAFF"
+  ],
+  verificationBadges: [
+    "Featured Opportunity",
+    "Client Opportunity",
+    "JIP Japan Vetted",
+    "Est. 1805 Kyoto",
+    "180+ Day Shelf Life",
+    "Retail & Hospitality",
+    "B2B Distribution"
+  ],
+  documentsAvailable: [
+    "Izutsu Yatsuhashi Company Profile & 1805 Heritage Deck (PDF)",
+    "Key Product Lineup & Master Carton Specifications",
+    "Uji Matcha Collaboration Overview & Flavor Sheets",
+    "180-Day Shelf Life & Temperature Stability Data",
+    "Export Compliance, Ingredients & MAFF Documentation",
+    "Commercial Wholesale Pricing & MOQ Schedule (On Qualified Inquiry)"
+  ],
+  risks: "National food-import regulations, labeling compliance, language translations, and customs classifications must be reviewed for each destination country. Product must be stored in cool, dry conditions away from direct sunlight and high humidity to maintain optimal crispness. Commercial exclusivity terms are subject to formal qualification and contract.",
+  status: "Active Opportunity — Worldwide Partner Outreach",
+  featured: true,
+  brand: "Izutsu Yatsuhashi Honpo (井筒八ッ橋本舗)",
+  company: "Izutsu Yatsuhashi Co., Ltd.",
+  sourcePartner: "JIP Japan",
+  seoKeywords: [
+    "Izutsu Yatsuhashi distributor",
+    "Kyoto confectionery wholesale",
+    "Japanese baked confectionery export",
+    "Yatsuhashi distributor USA",
+    "Yatsuhashi distributor Middle East",
+    "Uji matcha confectionery wholesale",
+    "Japanese luxury food distributor",
+    "Japanese tea sweets wholesale",
+    "Kyoto traditional sweets importer",
+    "Japanese corporate gifting confectionery",
+    "long shelf life Japanese sweets",
+    "cinnamon baked Yatsuhashi",
+    "Japanese hotel amenities food",
+    "Izutsu Yatsuhashi Honpo"
+  ],
+  imageAlt: "Authentic Izutsu Yatsuhashi traditional Kyoto baked confectionery and Uji Matcha sweets",
+  exclusivity: "Territory or channel distribution agreements discussed on qualified inquiry"
+};
+
 export const tsubameDrinkwareOpportunity: Opportunity = {
   id: "jip-tsubame-drinkware",
   slug: "premium-japanese-tsubame-drinkware",
@@ -585,6 +657,7 @@ const sonicOpp = mappedJipOpportunities.find((o) => o.slug === "sonic-friends-eu
 const otherMappedJip = mappedJipOpportunities.filter((o) => o.slug !== "sonic-friends-europe-2027");
 
 export const opportunities: Opportunity[] = [
+  izutsuYatsuhashiOpportunity,
   tsubameDrinkwareOpportunity,
   ...(sonicOpp
     ? [sonicOpp, ...staticOpportunities, ...otherMappedJip]

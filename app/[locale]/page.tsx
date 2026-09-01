@@ -7,6 +7,7 @@ import { TrustStrip } from "@/components/TrustStrip";
 import { StructuredData } from "@/components/StructuredData";
 import { HeroSectionClient } from "@/components/HeroSectionClient";
 import { FeaturedJapaneseHero } from "@/components/FeaturedJapaneseHero";
+import { FeaturedIzutsuHero } from "@/components/FeaturedIzutsuHero";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { opportunities } from "@/lib/data";
 import { pageMetadata } from "@/lib/seo";
@@ -68,12 +69,14 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const tTrust = await getTranslations('trust');
   const tJapanHome = getHomeJapanTranslations(locale);
 
+  const izutsuOpp = opportunities.find((o) => o.slug === "izutsu-yatsuhashi-kyoto");
   const tsubameOpp = opportunities.find((o) => o.slug === "premium-japanese-tsubame-drinkware");
   const sonicOpp = opportunities.find((o) => o.slug === "sonic-friends-europe-2027");
   const yachiyoOpp = opportunities.find((o) => o.slug === "yachiyo-mengyo-handa-somen-eu-distribution");
-  const otherJapan = opportunities.filter((o) => o.originCountry === "Japan" && o.featured && o.slug !== "premium-japanese-tsubame-drinkware" && o.slug !== "sonic-friends-europe-2027" && o.slug !== "yachiyo-mengyo-handa-somen-eu-distribution");
+  const otherJapan = opportunities.filter((o) => o.originCountry === "Japan" && o.featured && o.slug !== "izutsu-yatsuhashi-kyoto" && o.slug !== "premium-japanese-tsubame-drinkware" && o.slug !== "sonic-friends-europe-2027" && o.slug !== "yachiyo-mengyo-handa-somen-eu-distribution");
   
   const japanFeatured = [
+    ...(izutsuOpp ? [izutsuOpp] : []),
     ...(tsubameOpp ? [tsubameOpp] : []),
     ...(sonicOpp ? [sonicOpp] : []),
     ...(yachiyoOpp ? [yachiyoOpp] : []),
@@ -83,6 +86,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   
   const nonJapanFeatured = opportunities.filter((o) => o.featured && o.originCountry !== "Japan");
   const globalFeatured = [
+    ...(izutsuOpp ? [izutsuOpp] : []),
     ...(tsubameOpp ? [tsubameOpp] : []),
     ...(sonicOpp ? [sonicOpp] : []),
     ...(yachiyoOpp ? [yachiyoOpp] : []),
@@ -119,6 +123,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <>
       <StructuredData data={faqSchema} />
+      <FeaturedIzutsuHero locale={locale} />
       <FeaturedJapaneseHero locale={locale} />
       <HeroSectionClient
         locale={locale}

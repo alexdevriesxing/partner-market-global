@@ -26,14 +26,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const metadata = pageMetadata({
     locale,
     path: `/opportunities/${opportunity.slug}`,
-    title: opportunity.slug === "premium-japanese-tsubame-drinkware"
+    title: opportunity.slug === "izutsu-yatsuhashi-kyoto"
+      ? "Izutsu Yatsuhashi Kyoto Confectionery Distribution Opportunity | PartnerMarketGlobal"
+      : opportunity.slug === "premium-japanese-tsubame-drinkware"
       ? "Premium Japanese Tsubame Drinkware Distribution Opportunity | PartnerMarketGlobal"
       : opportunity.slug === "sonic-friends-europe-2027"
       ? "SONIC & FRIENDS European Distribution & Retail Opportunity | PartnerMarketGlobal"
       : opportunity.slug === "yachiyo-mengyo-handa-somen-eu-distribution"
       ? "Yachiyo Mengyo Handa Somen EU Distribution | Partner Market Global"
       : opportunity.title,
-    description: opportunity.slug === "premium-japanese-tsubame-drinkware"
+    description: opportunity.slug === "izutsu-yatsuhashi-kyoto"
+      ? "Explore international distribution and luxury hospitality opportunities for Izutsu Yatsuhashi, Kyoto's legendary confectionery brand established in 1805 with a 180+ day shelf life."
+      : opportunity.slug === "premium-japanese-tsubame-drinkware"
       ? "Explore an international distribution opportunity for premium Japanese drinkware crafted in Tsubame, Niigata, including stainless-steel tumblers, sake cups, gold, blue and specialty collections."
       : opportunity.slug === "sonic-friends-europe-2027"
       ? "European retailers, distributors and wholesalers can enquire about the new SONIC & FRIENDS merchandise range from Japan for the 2027 Sonic retail window."
@@ -145,7 +149,33 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
       <Link href={`/${locale}/opportunities`} className="breadcrumb">{t('back')}</Link>
       <section className="detail-shell">
         <article className="detail-main">
-          <img className="detail-hero-img" src={opportunity.heroImage} alt={opportunity.imageAlt || opportunity.title} />
+          {opportunity.slug === "izutsu-yatsuhashi-kyoto" ? (
+            <div className="izutsu-detail-hero">
+              <picture>
+                <source
+                  media="(max-width: 640px)"
+                  srcSet="/images/opportunities/izutsu-yatsuhashi/izutsu-opp-hero-mobile.webp"
+                  type="image/webp"
+                />
+                <source
+                  media="(max-width: 1024px)"
+                  srcSet="/images/opportunities/izutsu-yatsuhashi/izutsu-opp-hero-tablet.webp"
+                  type="image/webp"
+                />
+                <source
+                  srcSet="/images/opportunities/izutsu-yatsuhashi/izutsu-opp-hero.webp"
+                  type="image/webp"
+                />
+                <img
+                  className="detail-hero-img"
+                  src="/images/opportunities/izutsu-yatsuhashi/izutsu-opp-hero.jpg"
+                  alt="Izutsu Yatsuhashi authentic traditional Kyoto baked confectionery and Uji Matcha"
+                />
+              </picture>
+            </div>
+          ) : (
+            <img className="detail-hero-img" src={opportunity.heroImage} alt={opportunity.imageAlt || opportunity.title} />
+          )}
           <div className="detail-content">
             <div className="detail-title-row">
               <div>
@@ -153,14 +183,21 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                   {isJip && <JIPJapanBadge variant="detail" showLabel={true} />}
                   {opportunity.verificationBadges.map((badge) => <span className="top-badge" key={badge}>✓ {badge}</span>)}
                 </div>
-                <h1>{opportunity.title}</h1>
-                <p>{opportunity.summary}</p>
+                <h1>{opportunity.slug === "izutsu-yatsuhashi-kyoto" ? "Izutsu Yatsuhashi — A Taste of Kyoto Since 1805" : opportunity.title}</h1>
+                <p>{opportunity.slug === "izutsu-yatsuhashi-kyoto" ? "A premium Japanese confectionery opportunity for luxury hotels, high-end restaurants, premium cafés, gifting partners and distributors in the United States and Middle East." : opportunity.summary}</p>
               </div>
               <div className="quick-panel">
                 <strong>{t('interested')}</strong>
                 <p>Send a qualified inquiry to receive more information.</p>
                 <Link className="btn btn-primary full" href={`/${locale}/contact?oppTitle=${encodeURIComponent(opportunity.title)}&oppSlug=${opportunity.slug}&source=${isJip ? "JIP Japan" : "General"}`}>{t('sendInquiry')}</Link>
-                <a className="btn btn-line full" href="#documents" style={{ marginTop: 8 }}>{t('saveOpportunity')}</a>
+                {opportunity.slug === "izutsu-yatsuhashi-kyoto" ? (
+                  <>
+                    <a className="btn btn-primary full" href="#inquire">Request Partnership Information</a>
+                    <a className="btn btn-line full" href="#products" style={{ marginTop: 8 }}>View Products</a>
+                  </>
+                ) : (
+                  <a className="btn btn-line full" href="#documents" style={{ marginTop: 8 }}>{t('saveOpportunity')}</a>
+                )}
               </div>
             </div>
 
@@ -239,6 +276,351 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                 <img src={opportunity.cardImage} alt={`${opportunity.title} product showcase`} style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "12px" }} />
               </div>
             </div>
+
+            {/* Custom Rich Sections for Izutsu Yatsuhashi Kyoto Confectionery */}
+            {opportunity.slug === "izutsu-yatsuhashi-kyoto" && (
+              <>
+                {/* 1. TOP PROMPT BANNER */}
+                <div className="izutsu-prompt-banner">
+                  <div>
+                    <span className="izutsu-prompt-text">Interested in representing Izutsu Yatsuhashi in your market?</span>
+                    <p style={{ margin: "4px 0 0 0", fontSize: "0.88rem", opacity: 0.9 }}>
+                      Connect with PartnerMarketGlobal for international export agreements, luxury hotel amenity supply, and exclusive distributor partnerships.
+                    </p>
+                  </div>
+                  <a href="#inquire" className="izutsu-prompt-btn">Request Partnership Information</a>
+                </div>
+
+                {/* 2. AUTHENTIC HERITAGE & STORYTELLING */}
+                <div className="content-card" id="heritage" style={{ marginTop: 24 }}>
+                  <div className="izutsu-authenticity-badge">
+                    <span>🏛️</span>
+                    <span>AUTHENTIC HERITAGE DOCUMENTATION • EST. 1805 (BUNKA 2)</span>
+                  </div>
+                  <h2>220 Years of Kyoto Heritage: What is Yatsuhashi?</h2>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, alignItems: "start", marginTop: 16 }}>
+                    <div>
+                      <p style={{ lineHeight: 1.65, marginBottom: 14, color: "#334155" }}>
+                        Founded in <strong>1805 (Bunka 2 of the Edo Period)</strong> in Kyoto&apos;s celebrated Gion district, <strong>Izutsu Yatsuhashi Honpo</strong> is one of Japan&apos;s oldest and most revered confectionery houses.
+                      </p>
+                      <p style={{ lineHeight: 1.65, marginBottom: 14, color: "#334155" }}>
+                        The name and shape trace back to <strong>Yatsuhashi Kengyo</strong>, the legendary musician recognized as the father of modern Japanese koto music. Following his death in Kyoto, local confectioners created a hard-baked rice wafer curved gracefully in the arch of a traditional <em>koto</em> (Japanese harp) in his honor.
+                      </p>
+                      <p style={{ lineHeight: 1.65, marginBottom: 14, color: "#334155" }}>
+                        Guided by the founding family motto <strong>&quot;利益より永続&quot; (Continuity and Trust Over Short-Term Profit)</strong>, Izutsu has preserved this orthodox recipe for over two centuries while expanding to approximately 340 artisans and staff, operating its historic flagship and the prestigious &quot;Kitaza&quot; cultural building in Gion.
+                      </p>
+                    </div>
+                    <div>
+                      <img
+                        src="/images/opportunities/izutsu-yatsuhashi/authentic-baked-yatsuhashi-banner.webp"
+                        alt="Authentic Kyoto Izutsu Yatsuhashi traditional baked confectionery on dark lacquer plate"
+                        style={{ width: "100%", height: "auto", borderRadius: 12, objectFit: "cover", border: "1px solid #e2e8f0" }}
+                        loading="lazy"
+                      />
+                      <p style={{ fontSize: "0.78rem", color: "#64748b", marginTop: 6, fontStyle: "italic", textAlign: "center" }}>
+                        Authentic Izutsu Yatsuhashi: Hard-baked cinnamon wafers curved in the silhouette of a Japanese koto
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="tsubame-stats-row" style={{ marginTop: 24 }}>
+                    <div className="tsubame-stat-box">
+                      <span className="tsubame-stat-val" style={{ color: "#991b1b" }}>1805</span>
+                      <span className="tsubame-stat-label">Founded (Bunka 2)</span>
+                    </div>
+                    <div className="tsubame-stat-box">
+                      <span className="tsubame-stat-val" style={{ color: "#991b1b" }}>220+ Years</span>
+                      <span className="tsubame-stat-label">Kyoto Artisan Heritage</span>
+                    </div>
+                    <div className="tsubame-stat-box">
+                      <span className="tsubame-stat-val" style={{ color: "#991b1b" }}>180+ Days</span>
+                      <span className="tsubame-stat-label">Guaranteed Ambient Shelf Life</span>
+                    </div>
+                    <div className="tsubame-stat-box">
+                      <span className="tsubame-stat-val" style={{ color: "#991b1b" }}>Gion, Kyoto</span>
+                      <span className="tsubame-stat-label">Flagship &amp; Historic Kitaza</span>
+                    </div>
+                  </div>
+
+                  <div className="izutsu-heritage-grid">
+                    <div className="izutsu-heritage-card">
+                      <img
+                        src="/images/opportunities/izutsu-yatsuhashi/authentic-kyoto-heritage-illustration.webp"
+                        alt="Historical Edo period woodblock illustration of Izutsu tea shop in Gion Kyoto 1805"
+                      />
+                      <div className="izutsu-heritage-caption">
+                        <strong>Edo-Period Archival Illustration</strong>
+                        Original woodblock depicting the historic Izutsu tea shop (&quot;祇園町北側 井筒茶店&quot;) welcoming travelers and pilgrims in Gion, Kyoto.
+                      </div>
+                    </div>
+                    <div className="izutsu-heritage-card">
+                      <img
+                        src="/images/opportunities/izutsu-yatsuhashi/authentic-calligraphy-motto.webp"
+                        alt="Izutsu Yatsuhashi founding philosophy calligraphy motto"
+                      />
+                      <div className="izutsu-heritage-caption">
+                        <strong>The Founding House Philosophy</strong>
+                        Original calligraphy scroll reading <em>&quot;利益より永続&quot;</em> — prioritizing enduring quality, trust, and multi-generational relationships over short-term gain.
+                      </div>
+                    </div>
+                    <div className="izutsu-heritage-card">
+                      <img
+                        src="/images/opportunities/izutsu-yatsuhashi/authentic-kyoto-gion-headquarters.webp"
+                        alt="Izutsu Yatsuhashi Honpo Gion headquarters building and Kitaza in Kyoto"
+                      />
+                      <div className="izutsu-heritage-caption">
+                        <strong>Gion Flagship &amp; Historic Kitaza</strong>
+                        Headquarters in the heart of Gion, Kyoto, housing the traditional confectionery salon and the exclusive Kitaza luxury venue for VIP tastings.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. CORE AUTHENTIC PRODUCT LINEUP */}
+                <div className="content-card" id="products" style={{ marginTop: 24 }}>
+                  <div className="izutsu-authenticity-badge">
+                    <span>✨</span>
+                    <span>CORE AUTHENTIC PRODUCT PHOTOGRAPHY • SUPPLIER DOCUMENTATION</span>
+                  </div>
+                  <h2>Key Commercial Product Lineup</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 16px 0" }}>
+                    Izutsu Yatsuhashi offers two core culinary profiles paired with flexible packaging formats engineered for luxury hospitality, retail shelves, and international freight stability:
+                  </p>
+
+                  <div className="izutsu-products-grid">
+                    {/* Product Card 1: Kyoto Specialty Izutsu Yatsuhashi */}
+                    <div className="izutsu-product-card">
+                      <div className="izutsu-product-img-wrap">
+                        <span className="izutsu-product-badge">Flagship Classic</span>
+                        <img
+                          src="/images/opportunities/izutsu-yatsuhashi/authentic-traditional-gift-box.webp"
+                          alt="Authentic Izutsu Yatsuhashi traditional packaged gift box with koto illustration and individually wrapped wafers"
+                          className="izutsu-product-img-contain"
+                        />
+                      </div>
+                      <div className="izutsu-product-body">
+                        <h3>Kyoto Specialty: Izutsu Yatsuhashi</h3>
+                        <div className="izutsu-product-headline">Traditional Hard-Baked Cinnamon Wafers</div>
+                        <p>
+                          The timeless orthodox specialty of Kyoto. Thin, crisp wafers delicately curved into the shape of a Japanese koto. Formulated with carefully selected rice flour, sugar, and natural <em>nikki</em> (cinnamon), refined to deliver an aromatic, light, and wonderfully crunchy bite. Made completely without additives.
+                        </p>
+                        <div className="izutsu-product-specs">
+                          <strong>Shelf Life:</strong> 180+ days at room temperature • <strong>Additives:</strong> Zero • <strong>Packaging:</strong> Traditional presentation box with sealed twin-pack inner sleeves
+                        </div>
+                        <div className="izutsu-product-apps">
+                          <strong>Key Channels:</strong> Luxury hotel turndown amenities, fine dining dessert pairings, executive corporate gifting, international specialty retailers.
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Product Card 2: Uji Matcha Yatsuhashi */}
+                    <div className="izutsu-product-card">
+                      <div className="izutsu-product-img-wrap">
+                        <span className="izutsu-product-badge" style={{ background: "#166534" }}>Premium Collaboration</span>
+                        <img
+                          src="/images/opportunities/izutsu-yatsuhashi/authentic-uji-matcha-yatsuhashi.webp"
+                          alt="Authentic Uji Matcha Yatsuhashi confectionery on dark textured Japanese ceramic platter"
+                          className="izutsu-product-img"
+                        />
+                      </div>
+                      <div className="izutsu-product-body">
+                        <h3>Uji Matcha Yatsuhashi</h3>
+                        <div className="izutsu-product-headline" style={{ color: "#166534" }}>Rich First-Harvest Uji Matcha Infusion</div>
+                        <p>
+                          Developed in collaboration with world-renowned Uji matcha tea masters. Generous layers of authentic stone-ground Uji matcha are dusted onto traditional baked Yatsuhashi, creating a sophisticated equilibrium between the warm sweetness of cinnamon and the refined, complex umami-bitterness of pure green tea.
+                        </p>
+                        <div className="izutsu-product-specs" style={{ background: "#f0fdf4", borderColor: "#bbf7d0", color: "#14532d" }}>
+                          <strong>Ingredients:</strong> Genuine Uji Matcha • <strong>Profile:</strong> Umami &amp; aromatic spice • <strong>Shelf Life:</strong> 180+ days guaranteed
+                        </div>
+                        <div className="izutsu-product-apps">
+                          <strong>Key Channels:</strong> Specialty matcha salons, luxury afternoon tea services, hotel executive lounges, Michelin-starred dessert garnishes.
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Product Card 3: Modern Stand-Up Resealable Pouch */}
+                    <div className="izutsu-product-card">
+                      <div className="izutsu-product-img-wrap">
+                        <span className="izutsu-product-badge" style={{ background: "#0f766e" }}>Retail &amp; Cafe Format</span>
+                        <img
+                          src="/images/opportunities/izutsu-yatsuhashi/authentic-uji-matcha-pouch.webp"
+                          alt="Authentic Izutsu Uji Matcha stand-up resealable barrier pouch packaging"
+                          className="izutsu-product-img-contain"
+                        />
+                      </div>
+                      <div className="izutsu-product-body">
+                        <h3>Modern Resealable Stand-Up Pouch</h3>
+                        <div className="izutsu-product-headline" style={{ color: "#0f766e" }}>Designed for Contemporary Retail &amp; Cafe Culture</div>
+                        <p>
+                          A versatile, shelf-ready format combining authentic Kyoto aesthetics with modern retail practicality. The metallized moisture-barrier foil with a resealable zipper maintains peak crispness, making it perfect for premium supermarket shelves, specialty cafes, grab-and-go luxury snacking, and boutique concept stores.
+                        </p>
+                        <div className="izutsu-product-specs" style={{ background: "#f0fdfa", borderColor: "#99f6e4", color: "#115e59" }}>
+                          <strong>Format:</strong> High-barrier zip pouch • <strong>Merchandising:</strong> Peg or shelf display • <strong>Convenience:</strong> Resealable single-consumer portion
+                        </div>
+                        <div className="izutsu-product-apps">
+                          <strong>Key Channels:</strong> Specialty coffee shops, boutique grocers, airport duty-free travel retail, luxury minibar offerings.
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Product Card 4: Authentic Ceramic Presentation Plate */}
+                    <div className="izutsu-product-card">
+                      <div className="izutsu-product-img-wrap">
+                        <span className="izutsu-product-badge" style={{ background: "#4338ca" }}>Hospitality Presentation</span>
+                        <img
+                          src="/images/opportunities/izutsu-yatsuhashi/authentic-baked-yatsuhashi-plate.webp"
+                          alt="Authentic Izutsu Yatsuhashi curved wafers served on dark lacquer ceramic plate"
+                          className="izutsu-product-img-contain"
+                        />
+                      </div>
+                      <div className="izutsu-product-body">
+                        <h3>Hospitality &amp; Foodservice Service</h3>
+                        <div className="izutsu-product-headline" style={{ color: "#4338ca" }}>The Perfect Companion for Coffee, Tea &amp; Cocktails</div>
+                        <p>
+                          In luxury hospitality settings, baked Yatsuhashi provides an elegant, sculptural garnish that captivates international guests. The arched shape nests comfortably beside espresso cups, ceremonial matcha bowls, or artisanal cocktails, providing a distinctive crunch and conversation piece for discerning patrons.
+                        </p>
+                        <div className="izutsu-product-specs" style={{ background: "#eef2ff", borderColor: "#c7d2fe", color: "#3730a3" }}>
+                          <strong>Serving:</strong> Ready-to-serve ambient confection • <strong>Texture:</strong> Ultra-crisp crunch • <strong>Story:</strong> 220 years of Kyoto hospitality
+                        </div>
+                        <div className="izutsu-product-apps">
+                          <strong>Key Channels:</strong> Five-star hotel bars, boutique coffee roasters, private member clubs, first-class airline dining.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4. THREE STRATEGIC GLOBAL ADVANTAGES */}
+                <div className="content-card" id="advantages" style={{ marginTop: 24 }}>
+                  <h2>Three Strategic Advantages for Global Partners</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 16px 0" }}>
+                    Why Izutsu Yatsuhashi delivers an exceptional commercial proposition for international importers and distributors:
+                  </p>
+
+                  <div className="izutsu-advantages-grid">
+                    <div className="izutsu-advantage-box">
+                      <div className="izutsu-advantage-num">01</div>
+                      <h3>Global Standard 180-Day Guarantee</h3>
+                      <p>
+                        Unlike soft raw sweets (<em>nama-yatsuhashi</em>) which expire in just 7 to 10 days, Izutsu&apos;s traditional hard-baking method ensures a minimum <strong>180-day quality guarantee without chemical additives</strong>. This protects distributors against supply chain delays and guarantees fresh retail inventory after ocean freight.
+                      </p>
+                    </div>
+
+                    <div className="izutsu-advantage-box">
+                      <div className="izutsu-advantage-num">02</div>
+                      <h3>Globally Popular Uji Matcha Collaboration</h3>
+                      <p>
+                        Authentic Japanese matcha continues to experience explosive worldwide demand. Izutsu&apos;s co-developed Uji Matcha collection unlocks high-margin menus and retail placement through direct cross-proposals pairing with green tea, artisanal coffee, and gourmet desserts.
+                      </p>
+                    </div>
+
+                    <div className="izutsu-advantage-box">
+                      <div className="izutsu-advantage-num">03</div>
+                      <h3>Multi-Faceted Packaging Strategy</h3>
+                      <p>
+                        A balanced dual-format approach: traditional &quot;Kabuki&quot; presentation boxes commanding high gift price points for luxury hotels and VIP gifting, alongside sophisticated resealable stand-up pouches tailored for modern cafe counters and high-turnover retail shelves.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 5. PROVEN INTERNATIONAL APPEAL & WESTERN TASTE RESONANCE */}
+                <div className="izutsu-testimonials-panel" id="international-proof">
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
+                    <div>
+                      <span style={{ fontSize: "0.76rem", letterSpacing: "0.14em", textTransform: "uppercase", fontWeight: 800, color: "#ffd782" }}>
+                        INTERNATIONAL CONSUMER RESEARCH
+                      </span>
+                      <h3 style={{ margin: "4px 0 0 0", fontSize: "1.4rem", color: "#ffffff" }}>
+                        Ranked #1 in Japanese Souvenirs Chosen by Foreign Visitors
+                      </h3>
+                    </div>
+                    <span style={{ background: "linear-gradient(135deg, #d4af37, #f59e0b)", color: "#1c080b", fontWeight: 800, fontSize: "0.85rem", padding: "6px 14px", borderRadius: 999 }}>
+                      #1 OVERSEAS CHOICE
+                    </span>
+                  </div>
+
+                  <p style={{ fontSize: "0.92rem", color: "#e2e8f0", marginTop: 12, lineHeight: 1.6 }}>
+                    In extensive consumer research and broadcast evaluations (&quot;Foreigners&apos; Souvenir Election&quot;), Western travelers decisively favored <strong>baked Yatsuhashi (Yaki-Yatsuhashi)</strong> over soft raw varieties, captivated by the crispy bite and natural cinnamon warmth:
+                  </p>
+
+                  <div className="izutsu-quotes-grid">
+                    <div className="izutsu-quote-card">
+                      <blockquote>&ldquo;This cinnamon cookie is amazingly delicious!&rdquo;</blockquote>
+                      <cite>— International Visitor Evaluation</cite>
+                    </div>
+                    <div className="izutsu-quote-card">
+                      <blockquote>&ldquo;The crispy, crunchy texture is absolutely delightful.&rdquo;</blockquote>
+                      <cite>— Western Culinary Panelist</cite>
+                    </div>
+                    <div className="izutsu-quote-card">
+                      <blockquote>&ldquo;With its familiar cinnamon flavor, it pairs perfectly with morning coffee.&rdquo;</blockquote>
+                      <cite>— Specialty Coffee Buyer</cite>
+                    </div>
+                  </div>
+
+                  <div style={{ marginTop: 24, padding: "18px 20px", background: "rgba(255, 255, 255, 0.05)", borderRadius: 10, border: "1px solid rgba(255, 255, 255, 0.12)" }}>
+                    <h4 style={{ margin: "0 0 8px 0", fontSize: "1rem", color: "#ffd782" }}>Export Readiness &amp; MAFF Institutional Alignment</h4>
+                    <p style={{ margin: 0, fontSize: "0.88rem", color: "#cbd5e1", lineHeight: 1.6 }}>
+                      Izutsu Yatsuhashi strictly adheres to global food safety standards and clears stringent agricultural pesticide residue criteria worldwide (including Taiwan, the United States, and the European Union). Export documentation, certificate of origin, and phytosanitary declarations are supported in close collaboration with Japan&apos;s Ministry of Agriculture, Forestry and Fisheries (MAFF).
+                    </p>
+                  </div>
+                </div>
+
+                {/* 6. TARGET CHANNELS & COMMERCIAL PROPOSITION */}
+                <div className="content-card" style={{ marginTop: 24 }}>
+                  <h2>Target Commercial Partnership Channels</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 16px 0" }}>
+                    PartnerMarketGlobal is actively introducing Izutsu Yatsuhashi across qualified B2B channels in North America, the Middle East, and Europe:
+                  </p>
+
+                  <div className="tsubame-partners-grid">
+                    <div className="tsubame-partner-chip">
+                      <span style={{ fontSize: "1.3rem" }}>🏨</span>
+                      <div>
+                        <strong>Luxury Hotels &amp; Resorts</strong>
+                        <span style={{ fontSize: "0.78rem", color: "#64748b", display: "block" }}>Turndown amenities, lounge tea service &amp; VIP suites</span>
+                      </div>
+                    </div>
+                    <div className="tsubame-partner-chip">
+                      <span style={{ fontSize: "1.3rem" }}>☕</span>
+                      <div>
+                        <strong>Specialty Coffee &amp; Cafés</strong>
+                        <span style={{ fontSize: "0.78rem", color: "#64748b", display: "block" }}>Artisanal coffee companion &amp; modern pouch sales</span>
+                      </div>
+                    </div>
+                    <div className="tsubame-partner-chip">
+                      <span style={{ fontSize: "1.3rem" }}>🏬</span>
+                      <div>
+                        <strong>Premium Department Stores</strong>
+                        <span style={{ fontSize: "0.78rem", color: "#64748b", display: "block" }}>Gourmet food halls, Japanese specialty sections</span>
+                      </div>
+                    </div>
+                    <div className="tsubame-partner-chip">
+                      <span style={{ fontSize: "1.3rem" }}>✈️</span>
+                      <div>
+                        <strong>Airlines &amp; Airport Duty-Free</strong>
+                        <span style={{ fontSize: "0.78rem", color: "#64748b", display: "block" }}>First/Business class dining &amp; travel retail</span>
+                      </div>
+                    </div>
+                    <div className="tsubame-partner-chip">
+                      <span style={{ fontSize: "1.3rem" }}>🎁</span>
+                      <div>
+                        <strong>Corporate Gifting Agencies</strong>
+                        <span style={{ fontSize: "0.78rem", color: "#64748b", display: "block" }}>Prestige Japanese confectionery presentation boxes</span>
+                      </div>
+                    </div>
+                    <div className="tsubame-partner-chip">
+                      <span style={{ fontSize: "1.3rem" }}>🚢</span>
+                      <div>
+                        <strong>National Food Importers</strong>
+                        <span style={{ fontSize: "0.78rem", color: "#64748b", display: "block" }}>Exclusive and regional distribution rights</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
 
             {/* Custom Rich Sections for Premium Japanese Tsubame Drinkware */}
             {opportunity.slug === "premium-japanese-tsubame-drinkware" && (
