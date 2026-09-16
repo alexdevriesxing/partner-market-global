@@ -1989,7 +1989,7 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                     <div className="nippon-card">
                       <div className="nippon-card-img-wrap">
                         <img
-                          src="/images/nippon-career/nippon-career-ultra-thin-meat-cuts.webp"
+                          src="/images/opportunities/nippon-career/nippon-career-ultra-thin-meat-cuts.webp"
                           alt="Nippon Career ultra-thin meat cuts down to 1.5mm"
                           className="nippon-card-img"
                           loading="lazy"
@@ -2008,7 +2008,7 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                     <div className="nippon-card">
                       <div className="nippon-card-img-wrap">
                         <img
-                          src="/images/nippon-career/nippon-career-95-percent-yield.webp"
+                          src="/images/opportunities/nippon-career/nippon-career-95-percent-yield.webp"
                           alt="Approx. 95% meat yield with minimal scrap"
                           className="nippon-card-img"
                           loading="lazy"
@@ -2027,7 +2027,7 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                     <div className="nippon-card">
                       <div className="nippon-card-img-wrap">
                         <img
-                          src="/images/nippon-career/nippon-career-band-blade-replacement.webp"
+                          src="/images/opportunities/nippon-career/nippon-career-band-blade-replacement.webp"
                           alt="One minute band blade replacement mechanism"
                           className="nippon-card-img"
                           loading="lazy"
@@ -2046,7 +2046,7 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                     <div className="nippon-card">
                       <div className="nippon-card-img-wrap">
                         <img
-                          src="/images/nippon-career/nippon-career-shingled-slicing.webp"
+                          src="/images/opportunities/nippon-career/nippon-career-shingled-slicing.webp"
                           alt="Automated shingling and stacking of sliced meat"
                           className="nippon-card-img"
                           loading="lazy"
@@ -2065,7 +2065,7 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                     <div className="nippon-card">
                       <div className="nippon-card-img-wrap">
                         <img
-                          src="/images/nippon-career/nippon-career-safety-cover-design.webp"
+                          src="/images/opportunities/nippon-career/nippon-career-safety-cover-design.webp"
                           alt="Hygienic toolless washdown construction"
                           className="nippon-card-img"
                           loading="lazy"
@@ -2084,7 +2084,7 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                     <div className="nippon-card">
                       <div className="nippon-card-img-wrap">
                         <img
-                          src="/images/nippon-career/nippon-career-slicing-line.webp"
+                          src="/images/opportunities/nippon-career/nippon-career-slicing-line.webp"
                           alt="High capacity continuous meat slicing line"
                           className="nippon-card-img"
                           loading="lazy"
@@ -2162,7 +2162,7 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                     <div className="nippon-card">
                       <div className="nippon-card-img-wrap" style={{ background: "#f8fafc", padding: 12, display: "flex", alignItems: "center", justifyContent: "center" }}>
                         <img
-                          src="/images/nippon-career/nippon-career-ex1-32-slicer.webp"
+                          src="/images/opportunities/nippon-career/nippon-career-ex1-32-slicer.webp"
                           alt="Nippon Career EX1-32 Industrial Meat Slicer"
                           style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain" }}
                           loading="lazy"
@@ -2186,7 +2186,7 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                     <div className="nippon-card">
                       <div className="nippon-card-img-wrap" style={{ background: "#f8fafc", padding: 12, display: "flex", alignItems: "center", justifyContent: "center" }}>
                         <img
-                          src="/images/nippon-career/nippon-career-ey1-30-slicer.webp"
+                          src="/images/opportunities/nippon-career/nippon-career-ey1-30-slicer.webp"
                           alt="Nippon Career EY1-30 Compact Meat Slicer"
                           style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain" }}
                           loading="lazy"
@@ -2210,7 +2210,7 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                     <div className="nippon-card">
                       <div className="nippon-card-img-wrap" style={{ background: "#f8fafc", padding: 12, display: "flex", alignItems: "center", justifyContent: "center" }}>
                         <img
-                          src="/images/nippon-career/nippon-career-ez1-34-folding-slicer.webp"
+                          src="/images/opportunities/nippon-career/nippon-career-ez1-34-folding-slicer.webp"
                           alt="Nippon Career EZ1-34 Automatic Sheet Folding Slicer"
                           style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain" }}
                           loading="lazy"
@@ -2423,7 +2423,7 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                     <div className="nippon-card">
                       <div className="nippon-card-img-wrap">
                         <img
-                          src="/images/nippon-career/nippon-career-shabu-shabu-presentation.webp"
+                          src="/images/opportunities/nippon-career/nippon-career-shabu-shabu-presentation.webp"
                           alt="Shabu-Shabu and Sukiyaki ultra thin meat presentation"
                           className="nippon-card-img"
                           loading="lazy"
@@ -2440,7 +2440,7 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                     <div className="nippon-card">
                       <div className="nippon-card-img-wrap">
                         <img
-                          src="/images/nippon-career/nippon-career-supermarket-trays.webp"
+                          src="/images/opportunities/nippon-career/nippon-career-supermarket-trays.webp"
                           alt="Supermarket retail pre-pack shingled meat trays"
                           className="nippon-card-img"
                           loading="lazy"
@@ -2457,7 +2457,7 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                     <div className="nippon-card">
                       <div className="nippon-card-img-wrap">
                         <img
-                          src="/images/nippon-career/nippon-career-meat-processing.webp"
+                          src="/images/opportunities/nippon-career/nippon-career-meat-processing.webp"
                           alt="Industrial central kitchen meat processing"
                           className="nippon-card-img"
                           loading="lazy"
@@ -2529,7 +2529,7 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                     </div>
                     <div>
                       <img
-                        src="/images/nippon-career/nippon-career-matsuyama-headquarters.webp"
+                        src="/images/opportunities/nippon-career/nippon-career-matsuyama-headquarters.webp"
                         alt="Nippon Career Industry Co., Ltd. headquarters and manufacturing facility in Matsuyama Japan"
                         style={{ width: "100%", height: "auto", borderRadius: 10, border: "1px solid #e2e8f0" }}
                         loading="lazy"
