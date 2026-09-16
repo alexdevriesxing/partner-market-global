@@ -2,9 +2,37 @@
 
 Canonical domain: https://www.partnermarketglobal.com
 Official contact: info@partnermarketglobal.com
-Generated: 2026-08-19
+Generated: 2026-09-16
 
 This document provides complete, machine-readable specifications for all commercial opportunities active on Partner Market Global.
+
+---
+
+## OPPORTUNITY: Nippon Career Industry — Industrial Fresh Meat Slicers & Processing Systems
+- Slug: nippon-career-ultra-thin-meat-slicing
+- URL: https://www.partnermarketglobal.com/en/opportunities/nippon-career-ultra-thin-meat-slicing/
+- Manufacturer: Nippon Career Industry Co., Ltd. (日本キャリア工業株式会社)
+- Headquarters: Matsuyama City, Ehime Prefecture, Japan (Established 1970, ISO 9001 Certified)
+- Guiding Motto: "十倍の価格百倍の寿命" (10 Times the Price, 100 Times the Service Life)
+- Commercial Category: Industrial Food Processing Machinery / Automation / Dealership & Direct Supply
+- Target Markets: Global (Europe, North America, Southeast Asia, Middle East, Oceania)
+- Core Technology: Patented continuous band blade mechanism for ultra-thin slicing of fresh and chilled raw meat (-2°C to +4°C) without freezing or crusting.
+- Slice Thickness: Continuously adjustable down to ~1.5 mm up to 20 mm / 30 mm.
+- Raw Meat Yield: Approximately 95% usable recovery with minimal tail-end scrap.
+- Blade Replacement Time: ~1 minute (toolless swap by floor operators, zero grinding downtime).
+- Slicing Throughput: Continuous speeds up to ~100 cuts/min.
+- Model Lineup:
+  * EX1-32: Flagship high-capacity automatic slicer with wide magazine and multi-row shingling conveyor.
+  * EY1-30: Compact commercial model for supermarket butcheries and regional commissaries.
+  * EZ1-34: Automatic sheet-folding slicer with synchronized plastic film interleaving.
+- Sanitary Construction: Food-grade stainless steel, IP65 washdown protection, toolless belt and safety cover disassembly for HACCP compliance.
+- Target Buyers & Partners:
+  * Supermarket and grocery retail chains (in-store butcheries and central commissary packing).
+  * Commercial meat processors and wholesalers (chilled beef, pork belly, poultry, lamb).
+  * Large restaurant chains and franchises (Yakiniku, Korean BBQ, Shabu-Shabu, hot pot).
+  * Regional food processing machinery distributors with technical service and parts inventory.
+- Reference Distributor Network: Successfully deployed across 14+ territories including South Korea, China, Taiwan, Thailand, Vietnam, Belgium, Netherlands, Spain, Portugal, Italy, France, UK, Hungary, Greece, Turkey, USA, and Canada.
+- Facilitation Role: Partner Market Global coordinates direct commercial introductions, technical feasibility reviews, and sample trial cuts in Japan.
 
 ---
 

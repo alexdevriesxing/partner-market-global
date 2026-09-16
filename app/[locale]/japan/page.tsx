@@ -224,6 +224,21 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
                     </>
                   )}
                 </li>
+                <li style={{ marginBottom: "6px" }}>
+                  {locale === "ja" ? (
+                    <>
+                      <Link href={`/${locale}/opportunities/nippon-career-ultra-thin-meat-slicing`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
+                        日本キャリア工業 業務用極薄スライサー・食品加工機械 国際提携
+                      </Link>：愛媛県松山市発。約95%の高歩留まりと約1分でのバンドブレード交換を実現する超薄切り（約1.5mm〜）チルド食肉スライサーの国際代理店・大手スーパー・加工業者向け提携。
+                    </>
+                  ) : (
+                    <>
+                      <Link href={`/${locale}/opportunities/nippon-career-ultra-thin-meat-slicing`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
+                        Nippon Career Ultra-Thin Meat Slicers — Global Equipment &amp; Partner Opportunity
+                      </Link>: Japanese fresh-meat precision slicing technology (~1.5mm, ~95% yield, 1-min blade changes) for supermarket chains, meat processors, and international equipment distributors.
+                    </>
+                  )}
+                </li>
                 <li>
                   {locale === "ja" ? (
                     <>

@@ -26,7 +26,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const metadata = pageMetadata({
     locale,
     path: `/opportunities/${opportunity.slug}`,
-    title: opportunity.slug === "izutsu-yatsuhashi-kyoto"
+    title: opportunity.slug === "nippon-career-ultra-thin-meat-slicing"
+      ? "Nippon Career Industrial Meat Slicers | International Business Opportunity"
+      : opportunity.slug === "izutsu-yatsuhashi-kyoto"
       ? "Izutsu Yatsuhashi Kyoto Confectionery Distribution Opportunity | PartnerMarketGlobal"
       : opportunity.slug === "premium-japanese-tsubame-drinkware"
       ? "Premium Japanese Tsubame Drinkware Distribution Opportunity | PartnerMarketGlobal"
@@ -35,7 +37,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : opportunity.slug === "yachiyo-mengyo-handa-somen-eu-distribution"
       ? "Yachiyo Mengyo Handa Somen EU Distribution | Partner Market Global"
       : opportunity.title,
-    description: opportunity.slug === "izutsu-yatsuhashi-kyoto"
+    description: opportunity.slug === "nippon-career-ultra-thin-meat-slicing"
+      ? "Partner Market Global is seeking supermarkets, meat processors, distributors and restaurant groups interested in Nippon Career Industry's Japanese ultra-thin fresh meat slicing technology."
+      : opportunity.slug === "izutsu-yatsuhashi-kyoto"
       ? "Explore international distribution and luxury hospitality opportunities for Izutsu Yatsuhashi, Kyoto's legendary confectionery brand established in 1805 with a 180+ day shelf life."
       : opportunity.slug === "premium-japanese-tsubame-drinkware"
       ? "Explore an international distribution opportunity for premium Japanese drinkware crafted in Tsubame, Niigata, including stainless-steel tumblers, sake cups, gold, blue and specialty collections."
@@ -143,9 +147,65 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
     [t('quickFacts.status'), opportunity.status]
   ];
 
+  const nipponCareerFaqs = [
+    {
+      question: "Can Nippon Career slicers cut completely fresh and chilled raw meat without pre-freezing?",
+      answer: "Yes. Nippon Career's E-Series slicers are specifically engineered to slice fresh and chilled raw meat (typically at -2°C to +4°C) down to approximately 1.5 mm without requiring deep-freezing or surface crusting. This preserves cellular structure, natural juices, and mouthfeel."
+    },
+    {
+      question: "How does the patented band blade replacement compare to conventional rotary disc slicers?",
+      answer: "Conventional industrial slicers use heavy circular disc blades that take 30 to 45 minutes to sharpen, balance, and align with skilled mechanics. Nippon Career utilizes an ultra-sharp, thin continuous band blade that can be safely exchanged in approximately one minute by regular floor operators without specialized maintenance tools."
+    },
+    {
+      question: "What is the achievable slice thickness range across E-Series machines?",
+      answer: "Depending on the model (EX1-32, EY1-30, EZ1-34) and meat characteristics (temperature, firmness, cut type), slice thickness is continuously adjustable from ultra-thin ~1.5 mm ribbons up to 20 mm or 30 mm commercial portions."
+    },
+    {
+      question: "What raw meat yield efficiency can commercial meat processors achieve?",
+      answer: "Industrial operators report usable raw meat yields of approximately 95%. The combination of continuous positive meat feeding, razor-sharp band blade cutting, and minimal end-piece waste significantly reduces scrap compared to traditional commercial slicing equipment."
+    },
+    {
+      question: "What types of meat cuts and proteins can be processed?",
+      answer: "E-Series slicers are engineered for boneless chilled beef (brisket, ribeye, striploin, chuck roll), boneless pork (belly, loin, collar), boneless poultry breast, and lamb cuts intended for Shabu-Shabu, Sukiyaki, Korean BBQ, hot pot, supermarket retail trays, and central kitchen prep."
+    },
+    {
+      question: "How do the automated shingling and stacking mechanisms work?",
+      answer: "An integrated multi-stage servo-controlled discharge conveyor shingles sliced meat in uniform overlapping layers, stacks portions in counted batches, or folds slices with interleaving sheets (on the EZ1-34 model), preparing cuts directly for food trays without manual touching."
+    },
+    {
+      question: "How is daily sanitation and toolless washdown handled?",
+      answer: "The machine is constructed from heavy-gauge food-grade stainless steel with IP65 washdown-rated components. Belts, scrapers, and blade guards disassemble without hand tools for rapid daily chemical sanitation complying with HACCP, USDA, and EU hygiene requirements."
+    },
+    {
+      question: "What are the electrical and facility utility requirements for overseas installations?",
+      answer: "Standard models operate on 3-phase industrial power (200V / 220V / 380V / 400V / 480V 50/60Hz configurations available for export). Nippon Career provides facility installation schematics and electrical matching guidelines for foreign industrial plants."
+    },
+    {
+      question: "How are replacement band blades and spare parts supplied internationally?",
+      answer: "Consumable band blades and high-wear components are distributed through authorized regional machinery partners and can also be dispatched directly from Nippon Career's factory in Matsuyama, Japan, ensuring ongoing operational continuity."
+    },
+    {
+      question: "What commercial partnership arrangements are available through Partner Market Global?",
+      answer: "Partner Market Global facilitates direct commercial introductions between qualified machinery distributors, supermarket chains, and meat packing processors and Nippon Career Industry's executive board in Japan. We coordinate technical reviews, commercial terms, and sample test slicing."
+    }
+  ];
+
+  const faqSchema = opportunity.slug === "nippon-career-ultra-thin-meat-slicing" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: nipponCareerFaqs.map(faq => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer
+      }
+    }))
+  } : null;
+
   return (
     <>
-      <StructuredData data={[offerSchema, breadcrumbSchema]} />
+      <StructuredData data={[offerSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])]} />
       <Link href={`/${locale}/opportunities`} className="breadcrumb">{t('back')}</Link>
       <section className="detail-shell">
         <article className="detail-main">
@@ -173,6 +233,30 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                 />
               </picture>
             </div>
+          ) : opportunity.slug === "nippon-career-ultra-thin-meat-slicing" ? (
+            <div className="nippon-detail-hero">
+              <picture>
+                <source
+                  media="(max-width: 640px)"
+                  srcSet="/images/opportunities/nippon-career/nippon-career-hero-800.webp"
+                  type="image/webp"
+                />
+                <source
+                  media="(max-width: 1024px)"
+                  srcSet="/images/opportunities/nippon-career/nippon-career-hero-1200.webp"
+                  type="image/webp"
+                />
+                <source
+                  srcSet="/images/opportunities/nippon-career-ultra-thin-meat-slicing-hero.webp"
+                  type="image/webp"
+                />
+                <img
+                  className="detail-hero-img"
+                  src="/images/opportunities/nippon-career-ultra-thin-meat-slicing-hero.jpg"
+                  alt="Nippon Career Industry Japanese industrial ultra-thin fresh meat slicing line E-Series"
+                />
+              </picture>
+            </div>
           ) : (
             <img className="detail-hero-img" src={opportunity.heroImage} alt={opportunity.imageAlt || opportunity.title} />
           )}
@@ -183,8 +267,8 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                   {isJip && <JIPJapanBadge variant="detail" showLabel={true} />}
                   {opportunity.verificationBadges.map((badge) => <span className="top-badge" key={badge}>✓ {badge}</span>)}
                 </div>
-                <h1>{opportunity.slug === "izutsu-yatsuhashi-kyoto" ? "Izutsu Yatsuhashi — A Taste of Kyoto Since 1805" : opportunity.title}</h1>
-                <p>{opportunity.slug === "izutsu-yatsuhashi-kyoto" ? "A premium Japanese confectionery opportunity for luxury hotels, high-end restaurants, premium cafés, gifting partners and distributors in the United States and Middle East." : opportunity.summary}</p>
+                <h1>{opportunity.slug === "izutsu-yatsuhashi-kyoto" ? "Izutsu Yatsuhashi — A Taste of Kyoto Since 1805" : opportunity.slug === "nippon-career-ultra-thin-meat-slicing" ? "Nippon Career Industry — Industrial Fresh Meat Slicers & Processing Systems" : opportunity.title}</h1>
+                <p>{opportunity.slug === "izutsu-yatsuhashi-kyoto" ? "A premium Japanese confectionery opportunity for luxury hotels, high-end restaurants, premium cafés, gifting partners and distributors in the United States and Middle East." : opportunity.slug === "nippon-career-ultra-thin-meat-slicing" ? "Direct B2B partner introduction for qualified supermarket groups, meat processors, restaurant chains, and industrial food machinery distributors seeking Japan's leading ultra-thin fresh meat slicing technology." : opportunity.summary}</p>
               </div>
               <div className="quick-panel">
                 <strong>{t('interested')}</strong>
@@ -194,6 +278,12 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                   <>
                     <a className="btn btn-primary full" href="#inquire">Request Partnership Information</a>
                     <a className="btn btn-line full" href="#products" style={{ marginTop: 8 }}>View Products</a>
+                  </>
+                ) : opportunity.slug === "nippon-career-ultra-thin-meat-slicing" ? (
+                  <>
+                    <a className="btn btn-primary full" href="#inquire">Request Commercial Introduction</a>
+                    <a className="btn btn-line full" href="#models" style={{ marginTop: 8 }}>View E-Series Models</a>
+                    <a className="btn btn-line full" href="#downloads" style={{ marginTop: 8 }}>Download Catalogues &amp; PDFs</a>
                   </>
                 ) : (
                   <a className="btn btn-line full" href="#documents" style={{ marginTop: 8 }}>{t('saveOpportunity')}</a>
@@ -1823,6 +1913,747 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                     <li style={{ marginBottom: 6 }}>Claims must be supported by valid official certification per SKU.</li>
                     <li>BPOM import clearance, customs classification, and labelling compliance must be verified during partner qualification.</li>
                   </ul>
+                </div>
+              </>
+            )}
+
+            {/* Custom Rich Sections for Nippon Career Industry Co., Ltd. Japan */}
+            {opportunity.slug === "nippon-career-ultra-thin-meat-slicing" && (
+              <>
+                {/* 1. TOP PROMPT BANNER */}
+                <div className="nippon-prompt-banner">
+                  <div>
+                    <span className="nippon-prompt-text">Seeking Industrial Meat Slicing Automation or Regional Dealership Rights?</span>
+                    <p style={{ margin: "6px 0 0 0", fontSize: "0.88rem", opacity: 0.9 }}>
+                      Partner Market Global facilitates direct qualified introductions to Nippon Career Industry Co., Ltd. (Japan) for supermarket chains, meat processors, restaurant groups, and industrial equipment distributors.
+                    </p>
+                  </div>
+                  <div className="nippon-prompt-actions">
+                    <a href="#inquire" className="nippon-btn-primary">Request Introduction</a>
+                    <a href="#downloads" className="nippon-btn-secondary">Download Catalogues</a>
+                  </div>
+                </div>
+
+                {/* 2. CORE PERFORMANCE METRICS */}
+                <div className="content-card" style={{ marginTop: 24 }}>
+                  <div className="nippon-badge-pill" style={{ marginBottom: 12 }}>
+                    <span>⚙️</span>
+                    <span>ENGINEERING EXCELLENCE • MATSUYAMA, JAPAN</span>
+                  </div>
+                  <h2>Key Industrial Performance Metrics</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 16px 0" }}>
+                    Nippon Career Industry&apos;s continuous band-blade technology delivers unprecedented precision, yield, and operational uptime:
+                  </p>
+
+                  <div className="nippon-stats-row">
+                    <div className="nippon-stat-box">
+                      <span className="nippon-stat-val">Down to ~1.5 mm</span>
+                      <span className="nippon-stat-label">Ultra-Thin Chilled Raw Slicing (No Pre-Freezing)</span>
+                    </div>
+                    <div className="nippon-stat-box">
+                      <span className="nippon-stat-val">Approx. 95%</span>
+                      <span className="nippon-stat-label">Raw Meat Yield Efficiency</span>
+                    </div>
+                    <div className="nippon-stat-box">
+                      <span className="nippon-stat-val">~1 Minute</span>
+                      <span className="nippon-stat-label">Toolless Band Blade Replacement</span>
+                    </div>
+                    <div className="nippon-stat-box">
+                      <span className="nippon-stat-val">Up to ~100/min</span>
+                      <span className="nippon-stat-label">Continuous Slicing Throughput</span>
+                    </div>
+                    <div className="nippon-stat-box">
+                      <span className="nippon-stat-val">1,000+ Units</span>
+                      <span className="nippon-stat-label">Industrial Slicer Deployments in Japan</span>
+                    </div>
+                    <div className="nippon-stat-box">
+                      <span className="nippon-stat-val">Est. 1970</span>
+                      <span className="nippon-stat-label">50+ Years Food Machinery Specialization</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. SIX CORE VALUE PROPOSITIONS */}
+                <div className="content-card" id="value-propositions" style={{ marginTop: 24 }}>
+                  <div className="nippon-badge-pill" style={{ marginBottom: 12 }}>
+                    <span>✨</span>
+                    <span>MANUFACTURER VALUE PROPOSITION</span>
+                  </div>
+                  <h2>Why Nippon Career E-Series Leads Industrial Meat Slicing</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 16px 0" }}>
+                    Engineered to solve the fundamental bottlenecks of meat prep: yield loss, irregular thickness, and hours of blade-sharpening downtime:
+                  </p>
+
+                  <div className="nippon-grid-3">
+                    {/* VP 1 */}
+                    <div className="nippon-card">
+                      <div className="nippon-card-img-wrap">
+                        <img
+                          src="/images/nippon-career/nippon-career-ultra-thin-meat-cuts.webp"
+                          alt="Nippon Career ultra-thin meat cuts down to 1.5mm"
+                          className="nippon-card-img"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="nippon-card-body">
+                        <h3 className="nippon-card-title">1. Fresh &amp; Chilled Ultra-Thin Slicing</h3>
+                        <p className="nippon-card-text">
+                          Cuts raw fresh and chilled meat down to ~1.5 mm cleanly without deep-freezing or surface crusting. Preserves cellular integrity, natural juices, tender bite, and bloom—essential for high-value Shabu-Shabu, Sukiyaki, and premium retail presentations.
+                        </p>
+                        <div className="nippon-card-footer">Preserves Raw Fresh Texture</div>
+                      </div>
+                    </div>
+
+                    {/* VP 2 */}
+                    <div className="nippon-card">
+                      <div className="nippon-card-img-wrap">
+                        <img
+                          src="/images/nippon-career/nippon-career-95-percent-yield.webp"
+                          alt="Approx. 95% meat yield with minimal scrap"
+                          className="nippon-card-img"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="nippon-card-body">
+                        <h3 className="nippon-card-title">2. High Product Yield (Approx. 95%)</h3>
+                        <p className="nippon-card-text">
+                          Patented positive meat-feed mechanics and razor-sharp continuous band-blade guidance cut all the way through the meat block with virtually zero tail-end crush or scrap. Plants routinely report ~95% usable meat recovery, transforming profit margins.
+                        </p>
+                        <div className="nippon-card-footer">Minimal Tail Scrap &amp; Waste</div>
+                      </div>
+                    </div>
+
+                    {/* VP 3 */}
+                    <div className="nippon-card">
+                      <div className="nippon-card-img-wrap">
+                        <img
+                          src="/images/nippon-career/nippon-career-band-blade-replacement.webp"
+                          alt="One minute band blade replacement mechanism"
+                          className="nippon-card-img"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="nippon-card-body">
+                        <h3 className="nippon-card-title">3. 1-Minute Band Blade Replacement</h3>
+                        <p className="nippon-card-text">
+                          Eliminates 30 to 45 minutes of hazardous blade-grinding and balancing downtime. A regular line operator can remove and replace the ultra-thin band blade in approximately 60 seconds with zero specialized maintenance tools required.
+                        </p>
+                        <div className="nippon-card-footer">Zero Grinding Downtime</div>
+                      </div>
+                    </div>
+
+                    {/* VP 4 */}
+                    <div className="nippon-card">
+                      <div className="nippon-card-img-wrap">
+                        <img
+                          src="/images/nippon-career/nippon-career-shingled-slicing.webp"
+                          alt="Automated shingling and stacking of sliced meat"
+                          className="nippon-card-img"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="nippon-card-body">
+                        <h3 className="nippon-card-title">4. Precision Shingling &amp; Stacking</h3>
+                        <p className="nippon-card-text">
+                          Integrated multi-speed servo conveyance arranges sliced meat automatically in uniform shingled rows, counted stacks, or folded sheets (EZ1-34), discharging portions directly ready for supermarket tray packaging without human hand-touch.
+                        </p>
+                        <div className="nippon-card-footer">Automated Tray-Ready Output</div>
+                      </div>
+                    </div>
+
+                    {/* VP 5 */}
+                    <div className="nippon-card">
+                      <div className="nippon-card-img-wrap">
+                        <img
+                          src="/images/nippon-career/nippon-career-safety-cover-design.webp"
+                          alt="Hygienic toolless washdown construction"
+                          className="nippon-card-img"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="nippon-card-body">
+                        <h3 className="nippon-card-title">5. Toolless Washdown Sanitation</h3>
+                        <p className="nippon-card-text">
+                          Engineered from food-grade stainless steel with IP65 washdown-rated drive modules. Belts, scraper blades, and stainless safety covers disassemble by hand in minutes for thorough daily CIP sanitation complying with stringent HACCP standards.
+                        </p>
+                        <div className="nippon-card-footer">Full IP65 Sanitary Washdown</div>
+                      </div>
+                    </div>
+
+                    {/* VP 6 */}
+                    <div className="nippon-card">
+                      <div className="nippon-card-img-wrap">
+                        <img
+                          src="/images/nippon-career/nippon-career-slicing-line.webp"
+                          alt="High capacity continuous meat slicing line"
+                          className="nippon-card-img"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="nippon-card-body">
+                        <h3 className="nippon-card-title">6. Continuous Industrial Throughput</h3>
+                        <p className="nippon-card-text">
+                          Capable of continuous slicing speeds up to ~100 cuts per minute (dependent on meat temperature, firmness, and thickness). Designed for multi-shift industrial reliability in central commissaries, meatpacking lines, and supermarket prep centers.
+                        </p>
+                        <div className="nippon-card-footer">Continuous Industrial Duty</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4. WHO WE WANT TO MEET */}
+                <div className="content-card" id="target-partners" style={{ marginTop: 24 }}>
+                  <div className="nippon-badge-pill" style={{ marginBottom: 12 }}>
+                    <span>🎯</span>
+                    <span>TARGET PARTNER PROFILES</span>
+                  </div>
+                  <h2>Who We Want to Meet</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 16px 0" }}>
+                    Partner Market Global is screening and coordinating discussions with four primary commercial categories:
+                  </p>
+
+                  <div className="nippon-grid-4">
+                    <div style={{ padding: 18, border: "1px solid #e2e8f0", borderRadius: 10, background: "#f8fafc" }}>
+                      <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>🛒</div>
+                      <h4 style={{ margin: "0 0 6px 0", fontSize: "1rem", color: "#0f172a" }}>Supermarket &amp; Retail Groups</h4>
+                      <p style={{ margin: 0, fontSize: "0.86rem", color: "#475569", lineHeight: 1.5 }}>
+                        Retailers operating central meat preparation facilities or high-volume butchery counters seeking to automate shingled beef, pork belly, and hot-pot retail trays.
+                      </p>
+                    </div>
+
+                    <div style={{ padding: 18, border: "1px solid #e2e8f0", borderRadius: 10, background: "#f8fafc" }}>
+                      <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>🥩</div>
+                      <h4 style={{ margin: "0 0 6px 0", fontSize: "1rem", color: "#0f172a" }}>Meat Processors &amp; Wholesalers</h4>
+                      <p style={{ margin: 0, fontSize: "0.86rem", color: "#475569", lineHeight: 1.5 }}>
+                        Commercial packing plants and wholesale meat purveyors looking to increase chilled raw yield, eliminate blade downtime, and introduce premium thin-cut SKUs.
+                      </p>
+                    </div>
+
+                    <div style={{ padding: 18, border: "1px solid #e2e8f0", borderRadius: 10, background: "#f8fafc" }}>
+                      <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>🥢</div>
+                      <h4 style={{ margin: "0 0 6px 0", fontSize: "1rem", color: "#0f172a" }}>Restaurant &amp; Franchise Chains</h4>
+                      <p style={{ margin: 0, fontSize: "0.86rem", color: "#475569", lineHeight: 1.5 }}>
+                        Multi-unit Yakiniku, Asian BBQ, Shabu-Shabu, and hot-pot restaurant operators seeking perfectly uniform portion thickness and high-speed central kitchen prep.
+                      </p>
+                    </div>
+
+                    <div style={{ padding: 18, border: "1px solid #e2e8f0", borderRadius: 10, background: "#f8fafc" }}>
+                      <div style={{ fontSize: "1.6rem", marginBottom: 8 }}>🏭</div>
+                      <h4 style={{ margin: "0 0 6px 0", fontSize: "1rem", color: "#0f172a" }}>Equipment Distributors &amp; Dealers</h4>
+                      <p style={{ margin: 0, fontSize: "0.86rem", color: "#475569", lineHeight: 1.5 }}>
+                        Established food processing machinery distributors with technical service, installation capabilities, and customer relationships in key regional markets.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 5. E-SERIES MODEL COMPARISON */}
+                <div className="content-card" id="models" style={{ marginTop: 24 }}>
+                  <div className="nippon-badge-pill" style={{ marginBottom: 12 }}>
+                    <span>📐</span>
+                    <span>TECHNICAL SPECIFICATIONS &amp; MODEL LINEUP</span>
+                  </div>
+                  <h2>Nippon Career E-Series Slicer Models</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 16px 0" }}>
+                    Compare the flagship industrial slicer configurations designed for different commercial volume and layout requirements:
+                  </p>
+
+                  <div className="nippon-grid-3">
+                    <div className="nippon-card">
+                      <div className="nippon-card-img-wrap" style={{ background: "#f8fafc", padding: 12, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <img
+                          src="/images/nippon-career/nippon-career-ex1-32-slicer.webp"
+                          alt="Nippon Career EX1-32 Industrial Meat Slicer"
+                          style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain" }}
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="nippon-card-body">
+                        <span className="nippon-badge-pill" style={{ width: "fit-content", marginBottom: 8 }}>Flagship High-Capacity</span>
+                        <h3 className="nippon-card-title">Model EX1-32</h3>
+                        <p className="nippon-card-text">
+                          The premier high-speed automatic industrial slicer designed for large meat processors and high-capacity central kitchens. Features wide feed magazine, multi-program touch screen, and precision shingle conveyance.
+                        </p>
+                        <ul style={{ paddingLeft: 18, fontSize: "0.84rem", color: "#334155", margin: 0, lineHeight: 1.5 }}>
+                          <li><strong>Thickness:</strong> ~1.5 mm to 20 mm</li>
+                          <li><strong>Speed:</strong> Up to ~100 cuts/min</li>
+                          <li><strong>Conveyor:</strong> Automatic multi-row shingling</li>
+                          <li><strong>Application:</strong> Large processing plants &amp; commissaries</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="nippon-card">
+                      <div className="nippon-card-img-wrap" style={{ background: "#f8fafc", padding: 12, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <img
+                          src="/images/nippon-career/nippon-career-ey1-30-slicer.webp"
+                          alt="Nippon Career EY1-30 Compact Meat Slicer"
+                          style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain" }}
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="nippon-card-body">
+                        <span className="nippon-badge-pill" style={{ width: "fit-content", marginBottom: 8, background: "#dcfce7", color: "#15803d" }}>Compact Commercial</span>
+                        <h3 className="nippon-card-title">Model EY1-30</h3>
+                        <p className="nippon-card-text">
+                          Optimized footprint model delivering the exact same patented band-blade cutting quality for space-conscious supermarket butcheries, specialty meat stores, and medium commissaries.
+                        </p>
+                        <ul style={{ paddingLeft: 18, fontSize: "0.84rem", color: "#334155", margin: 0, lineHeight: 1.5 }}>
+                          <li><strong>Thickness:</strong> ~1.5 mm to 20 mm</li>
+                          <li><strong>Speed:</strong> High-efficiency continuous feed</li>
+                          <li><strong>Footprint:</strong> Compact layout with sanitary casters</li>
+                          <li><strong>Application:</strong> Supermarkets &amp; regional prep hubs</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="nippon-card">
+                      <div className="nippon-card-img-wrap" style={{ background: "#f8fafc", padding: 12, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <img
+                          src="/images/nippon-career/nippon-career-ez1-34-folding-slicer.webp"
+                          alt="Nippon Career EZ1-34 Automatic Sheet Folding Slicer"
+                          style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain" }}
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="nippon-card-body">
+                        <span className="nippon-badge-pill" style={{ width: "fit-content", marginBottom: 8, background: "#fef3c7", color: "#b45309" }}>Automatic Sheet Folding</span>
+                        <h3 className="nippon-card-title">Model EZ1-34</h3>
+                        <p className="nippon-card-text">
+                          Advanced folding slicer with integrated interleaving film mechanism. Automatically folds ultra-thin meat ribbons and interleaves hygienic plastic sheet liners for luxury retail packs.
+                        </p>
+                        <ul style={{ paddingLeft: 18, fontSize: "0.84rem", color: "#334155", margin: 0, lineHeight: 1.5 }}>
+                          <li><strong>Thickness:</strong> Ultra-thin ~1.5 mm folding cuts</li>
+                          <li><strong>Interleaving:</strong> Automated plastic film sheet folding</li>
+                          <li><strong>Hygiene:</strong> Hands-free premium presentation</li>
+                          <li><strong>Application:</strong> High-end Shabu-Shabu &amp; Sukiyaki packs</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* SPECIFICATION COMPARISON TABLE */}
+                  <div className="nippon-table-wrap">
+                    <table className="nippon-table">
+                      <thead>
+                        <tr>
+                          <th>Parameter</th>
+                          <th>Model EX1-32 (High Capacity)</th>
+                          <th>Model EY1-30 (Compact)</th>
+                          <th>Model EZ1-34 (Folding &amp; Interleaving)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><strong>Blade Technology</strong></td>
+                          <td>Ultra-thin continuous band blade</td>
+                          <td>Ultra-thin continuous band blade</td>
+                          <td>Ultra-thin continuous band blade</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Blade Swap Time</strong></td>
+                          <td>~1 minute (toolless quick-change)</td>
+                          <td>~1 minute (toolless quick-change)</td>
+                          <td>~1 minute (toolless quick-change)</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Slice Thickness Range</strong></td>
+                          <td>Approx. 1.5 mm to 20 mm</td>
+                          <td>Approx. 1.5 mm to 20 mm</td>
+                          <td>Approx. 1.5 mm to 20 mm (folding modes)</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Cutting Speed</strong></td>
+                          <td>Up to ~100 slices/min*</td>
+                          <td>Continuous servo feed*</td>
+                          <td>Synchronized folding &amp; interleaving*</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Meat Temperature Range</strong></td>
+                          <td>Chilled &amp; raw: -2°C to +4°C</td>
+                          <td>Chilled &amp; raw: -2°C to +4°C</td>
+                          <td>Chilled &amp; raw: -2°C to +4°C</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Discharge Modes</strong></td>
+                          <td>Shingling, stacking, continuous belt</td>
+                          <td>Shingling, step conveyance</td>
+                          <td>Automated film sheet folding &amp; stacking</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Sanitary Construction</strong></td>
+                          <td>Food-grade stainless steel (IP65)</td>
+                          <td>Food-grade stainless steel (IP65)</td>
+                          <td>Food-grade stainless steel (IP65)</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Primary Targets</strong></td>
+                          <td>Processors, packing plants, large central kitchens</td>
+                          <td>Supermarket chains, butcheries, medium commissaries</td>
+                          <td>Premium Wagyu, Shabu-Shabu, gourmet retail packaging</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p style={{ fontSize: "0.78rem", color: "#64748b", fontStyle: "italic", marginTop: 8 }}>
+                    *Slicing speed, minimum slice thickness, and raw meat yield percentages depend on meat temperature, moisture level, cut firmness, muscle shape uniformity, and machine settings.
+                  </p>
+                </div>
+
+                {/* 6. REFERENCE DISTRIBUTOR NETWORK */}
+                <div className="content-card" id="network" style={{ marginTop: 24 }}>
+                  <div className="nippon-badge-pill" style={{ marginBottom: 12 }}>
+                    <span>🌐</span>
+                    <span>PROVEN INTERNATIONAL DEPLOYMENT RECORD</span>
+                  </div>
+                  <h2>Global Reference Distributor &amp; Partner Network</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 16px 0" }}>
+                    Nippon Career Industry machinery has been successfully deployed, serviced, and represented across 14+ international territories through qualified food machinery dealerships:
+                  </p>
+
+                  <div className="nippon-table-wrap">
+                    <table className="nippon-table">
+                      <thead>
+                        <tr>
+                          <th>Region</th>
+                          <th>Country / Territory</th>
+                          <th>Partner / Network Role</th>
+                          <th>Technical Scope &amp; Support</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><strong>East Asia</strong></td>
+                          <td>South Korea</td>
+                          <td>Authorized Machinery Distributor</td>
+                          <td>Local installation, Korean user training, OEM spare blades</td>
+                        </tr>
+                        <tr>
+                          <td><strong>East Asia</strong></td>
+                          <td>China</td>
+                          <td>Industrial Partner Network</td>
+                          <td>High-volume central kitchen deployments, parts warehousing</td>
+                        </tr>
+                        <tr>
+                          <td><strong>East Asia</strong></td>
+                          <td>Taiwan</td>
+                          <td>Specialized Food Equipment Dealer</td>
+                          <td>Supermarket butchery automation, local field service</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Southeast Asia</strong></td>
+                          <td>Thailand</td>
+                          <td>Regional Machinery Representative</td>
+                          <td>Hot-pot and meatpacking line integration</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Southeast Asia</strong></td>
+                          <td>Vietnam</td>
+                          <td>Food Machinery Agent</td>
+                          <td>Contract packaging support, meat processor installations</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Europe</strong></td>
+                          <td>Belgium &amp; Netherlands</td>
+                          <td>Benelux Equipment Partner</td>
+                          <td>CE compliance support, butcher &amp; deli line installations</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Europe</strong></td>
+                          <td>Spain &amp; Portugal</td>
+                          <td>Iberian Machinery Distributor</td>
+                          <td>Ham, charcuterie, and chilled pork processing integrations</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Europe</strong></td>
+                          <td>Italy</td>
+                          <td>Machinery Agent Network</td>
+                          <td>Specialty deli and cured meat precision slicing</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Europe</strong></td>
+                          <td>France</td>
+                          <td>Food Industry Equipment Partner</td>
+                          <td>Industrial foodservice and central kitchen systems</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Europe</strong></td>
+                          <td>United Kingdom</td>
+                          <td>Machinery Sales &amp; Technical Dealer</td>
+                          <td>UK supermarket meat lines, local maintenance contracts</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Europe</strong></td>
+                          <td>Hungary</td>
+                          <td>Central European Partner</td>
+                          <td>Regional industrial meatpacking facilities</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Europe / Eurasia</strong></td>
+                          <td>Greece &amp; Turkey</td>
+                          <td>Regional Equipment Representatives</td>
+                          <td>Foodservice distribution, commercial butchery equipment</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Americas</strong></td>
+                          <td>United States &amp; Canada</td>
+                          <td>North American Machinery Dealers</td>
+                          <td>Supermarket chains, Asian retail commissaries, UL/NSF coordination</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p style={{ fontSize: "0.82rem", color: "#64748b", fontStyle: "italic", marginTop: 8 }}>
+                    Note: International distributor listings, partner references, and machine performance data were compiled from manufacturer documentation and remain subject to confirmation during commercial due diligence. Partner Market Global is actively expanding this network into open markets.
+                  </p>
+                </div>
+
+                {/* 7. COMMERCIAL USE CASES & APPLICATIONS */}
+                <div className="content-card" id="applications" style={{ marginTop: 24 }}>
+                  <div className="nippon-badge-pill" style={{ marginBottom: 12 }}>
+                    <span>🍽️</span>
+                    <span>COMMERCIAL APPLICATIONS</span>
+                  </div>
+                  <h2>Core Culinary &amp; Retail Packaging Applications</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 16px 0" }}>
+                    Nippon Career slicers unlock high-margin retail SKUs and streamline commercial kitchen workflows across global meat categories:
+                  </p>
+
+                  <div className="nippon-grid-3">
+                    <div className="nippon-card">
+                      <div className="nippon-card-img-wrap">
+                        <img
+                          src="/images/nippon-career/nippon-career-shabu-shabu-presentation.webp"
+                          alt="Shabu-Shabu and Sukiyaki ultra thin meat presentation"
+                          className="nippon-card-img"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="nippon-card-body">
+                        <h3 className="nippon-card-title">Shabu-Shabu &amp; Sukiyaki</h3>
+                        <p className="nippon-card-text">
+                          Flawless ultra-thin curls (~1.5 mm) of chilled Wagyu beef, ribeye, and pork collar that cook in seconds. Uniform thickness ensures exquisite mouthfeel without tearing.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="nippon-card">
+                      <div className="nippon-card-img-wrap">
+                        <img
+                          src="/images/nippon-career/nippon-career-supermarket-trays.webp"
+                          alt="Supermarket retail pre-pack shingled meat trays"
+                          className="nippon-card-img"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="nippon-card-body">
+                        <h3 className="nippon-card-title">Supermarket Retail Trays</h3>
+                        <p className="nippon-card-text">
+                          Directly shingles sliced beef and pork into visually striking overlapping arrays ready for automated tray-sealing, transforming retail shelf appeal and commanding higher price realization.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="nippon-card">
+                      <div className="nippon-card-img-wrap">
+                        <img
+                          src="/images/nippon-career/nippon-career-meat-processing.webp"
+                          alt="Industrial central kitchen meat processing"
+                          className="nippon-card-img"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="nippon-card-body">
+                        <h3 className="nippon-card-title">Central Kitchen Commissaries</h3>
+                        <p className="nippon-card-text">
+                          High-volume portioning for restaurant chains, Yakiniku, hot-pot buffets, and airline catering. Standardizes portions across dozens of branch locations while saving hours of manual labor.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 8. THE ECONOMIC CASE / COMMERCIAL ROI */}
+                <div className="content-card" id="economic-case" style={{ marginTop: 24 }}>
+                  <div className="nippon-badge-pill" style={{ marginBottom: 12 }}>
+                    <span>📊</span>
+                    <span>COMMERCIAL RETURN ON INVESTMENT</span>
+                  </div>
+                  <h2>The Economic Case for Meat Processors</h2>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 16, marginTop: 16 }}>
+                    <div style={{ padding: 18, border: "1px solid #e2e8f0", borderRadius: 10, background: "#f8fafc" }}>
+                      <h4 style={{ margin: "0 0 6px 0", fontSize: "1.05rem", color: "#0369a1" }}>+5% to +8% Usable Yield</h4>
+                      <p style={{ margin: 0, fontSize: "0.88rem", color: "#475569", lineHeight: 1.5 }}>
+                        Reaching ~95% usable cut yield on premium chilled meats recovers thousands of kilograms of saleable meat per year that would otherwise become trim or rendering waste.
+                      </p>
+                    </div>
+                    <div style={{ padding: 18, border: "1px solid #e2e8f0", borderRadius: 10, background: "#f8fafc" }}>
+                      <h4 style={{ margin: "0 0 6px 0", fontSize: "1.05rem", color: "#0369a1" }}>30-45 Min Downtime Saved / Shift</h4>
+                      <p style={{ margin: 0, fontSize: "0.88rem", color: "#475569", lineHeight: 1.5 }}>
+                        Eliminating rotary blade sharpening procedures means production lines keep running. 60-second band-blade swaps maximize overall equipment effectiveness (OEE).
+                      </p>
+                    </div>
+                    <div style={{ padding: 18, border: "1px solid #e2e8f0", borderRadius: 10, background: "#f8fafc" }}>
+                      <h4 style={{ margin: "0 0 6px 0", fontSize: "1.05rem", color: "#0369a1" }}>Replaces 3-4 Manual Slicers</h4>
+                      <p style={{ margin: 0, fontSize: "0.88rem", color: "#475569", lineHeight: 1.5 }}>
+                        One automated E-Series line with integrated shingling replaces multiple manual slicing stations, reducing operator fatigue, repetitive strain injuries, and labor overhead.
+                      </p>
+                    </div>
+                    <div style={{ padding: 18, border: "1px solid #e2e8f0", borderRadius: 10, background: "#f8fafc" }}>
+                      <h4 style={{ margin: "0 0 6px 0", fontSize: "1.05rem", color: "#0369a1" }}>Premium Retail Margin</h4>
+                      <p style={{ margin: 0, fontSize: "0.88rem", color: "#475569", lineHeight: 1.5 }}>
+                        Clean, tear-free fresh meat cuts command higher retail pricing per kilogram in supermarket chillers, unlocking higher profit margins on raw inventory.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 9. COMPANY PROFILE & HERITAGE */}
+                <div className="content-card" id="company-profile" style={{ marginTop: 24 }}>
+                  <div className="nippon-badge-pill" style={{ marginBottom: 12 }}>
+                    <span>🏢</span>
+                    <span>COMPANY PROFILE • NIPPON CAREER INDUSTRY CO., LTD.</span>
+                  </div>
+                  <h2>Japanese Manufacturing Heritage</h2>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, alignItems: "center", marginTop: 16 }}>
+                    <div>
+                      <p style={{ lineHeight: 1.65, marginBottom: 12, color: "#334155" }}>
+                        Founded in <strong>1970 in Matsuyama City, Ehime Prefecture, Japan</strong>, <strong>Nippon Career Industry Co., Ltd.</strong> is a pioneer in advanced food processing machinery with over five decades of engineering excellence.
+                      </p>
+                      <p style={{ lineHeight: 1.65, marginBottom: 12, color: "#334155" }}>
+                        The company operates under an uncompromising manufacturing philosophy: <strong>&quot;十倍の価格百倍の寿命&quot; (10 Times the Price, 100 Times the Service Life)</strong>. Rather than competing in race-to-the-bottom disposable machinery, Nippon Career builds industrial equipment designed to operate flawlessly for decades under grueling factory conditions.
+                      </p>
+                      <p style={{ lineHeight: 1.65, margin: 0, color: "#334155" }}>
+                        With over <strong>1,000 slicer installations</strong> operating across Japan&apos;s leading food processors, Nippon Career holds ISO 9001 certification and maintains strict quality control over all components from its Matsuyama headquarters.
+                      </p>
+                    </div>
+                    <div>
+                      <img
+                        src="/images/nippon-career/nippon-career-matsuyama-headquarters.webp"
+                        alt="Nippon Career Industry Co., Ltd. headquarters and manufacturing facility in Matsuyama Japan"
+                        style={{ width: "100%", height: "auto", borderRadius: 10, border: "1px solid #e2e8f0" }}
+                        loading="lazy"
+                      />
+                      <p style={{ fontSize: "0.78rem", color: "#64748b", marginTop: 6, fontStyle: "italic", textAlign: "center" }}>
+                        Nippon Career Industry Co., Ltd. headquarters &amp; engineering center in Matsuyama, Ehime, Japan
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 10. DOWNLOADABLE MATERIALS */}
+                <div className="content-card" id="downloads" style={{ marginTop: 24 }}>
+                  <div className="nippon-badge-pill" style={{ marginBottom: 12 }}>
+                    <span>📁</span>
+                    <span>OFFICIAL MANUFACTURER DOCUMENTATION</span>
+                  </div>
+                  <h2>Download Manufacturer Documentation</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 16px 0" }}>
+                    Access complete technical specifications, model catalogues, and international corporate presentations:
+                  </p>
+
+                  <div className="nippon-downloads-grid">
+                    <div className="nippon-download-card">
+                      <div>
+                        <div style={{ fontSize: "1.8rem", marginBottom: 8 }}>📄</div>
+                        <h4 style={{ margin: "0 0 6px 0", fontSize: "1rem", color: "#0f172a" }}>Nippon Career Company Profile</h4>
+                        <p style={{ margin: 0, fontSize: "0.85rem", color: "#64748b" }}>
+                          Corporate overview, historical milestones, patents, and manufacturing capabilities in Japanese and English (PDF).
+                        </p>
+                      </div>
+                      <a
+                        href="/downloads/nippon-career-industry-company-profile.pdf"
+                        download
+                        className="btn btn-primary"
+                        style={{ fontSize: "0.85rem", padding: "8px 14px", textDecoration: "none", textAlign: "center" }}
+                      >
+                        Download Company Profile (PDF)
+                      </a>
+                    </div>
+
+                    <div className="nippon-download-card">
+                      <div>
+                        <div style={{ fontSize: "1.8rem", marginBottom: 8 }}>📑</div>
+                        <h4 style={{ margin: "0 0 6px 0", fontSize: "1rem", color: "#0f172a" }}>E-Series Slicers Technical Catalogue</h4>
+                        <p style={{ margin: 0, fontSize: "0.85rem", color: "#64748b" }}>
+                          Detailed technical diagrams, model dimensional drawings, slicing speeds, and utility specifications (PDF).
+                        </p>
+                      </div>
+                      <a
+                        href="/downloads/nippon-career-e-series-meat-slicers.pdf"
+                        download
+                        className="btn btn-primary"
+                        style={{ fontSize: "0.85rem", padding: "8px 14px", textDecoration: "none", textAlign: "center" }}
+                      >
+                        Download E-Series Catalogue (PDF)
+                      </a>
+                    </div>
+
+                    <div className="nippon-download-card">
+                      <div>
+                        <div style={{ fontSize: "1.8rem", marginBottom: 8 }}>📊</div>
+                        <h4 style={{ margin: "0 0 6px 0", fontSize: "1rem", color: "#0f172a" }}>International Sales Expansion Proposal</h4>
+                        <p style={{ margin: 0, fontSize: "0.85rem", color: "#64748b" }}>
+                          Commercial proposal outlining distributor framework, target market applications, and partnership cooperation (PDF).
+                        </p>
+                      </div>
+                      <a
+                        href="/downloads/nippon-career-international-expansion.pdf"
+                        download
+                        className="btn btn-primary"
+                        style={{ fontSize: "0.85rem", padding: "8px 14px", textDecoration: "none", textAlign: "center" }}
+                      >
+                        Download Expansion Proposal (PDF)
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 11. PARTNER MARKET GLOBAL FACILITATION BOX */}
+                <div className="content-card" style={{ marginTop: 24, borderLeft: "4px solid #0284c7" }}>
+                  <div className="nippon-badge-pill" style={{ marginBottom: 12 }}>
+                    <span>🤝</span>
+                    <span>PARTNER MARKET GLOBAL FACILITATION PROTOCOL</span>
+                  </div>
+                  <h2>Partner Market Global Commercial Facilitation</h2>
+                  <p style={{ lineHeight: 1.6, fontSize: "0.95rem", color: "#334155" }}>
+                    Partner Market Global serves as an international commercial bridge connecting qualified buyers, supermarket chains, meat processors, and regional equipment dealerships directly with Nippon Career Industry Co., Ltd. in Japan.
+                  </p>
+                  <ul style={{ paddingLeft: 20, fontSize: "0.9rem", color: "#475569", marginTop: 10, lineHeight: 1.6 }}>
+                    <li><strong>Direct Executive Contact:</strong> Inquiries are screened and routed directly to Nippon Career&apos;s international commercial team.</li>
+                    <li><strong>Technical Feasibility Review:</strong> We assist in coordinating meat trial cuts and machine configuration specifications tailored to your target protein cuts.</li>
+                    <li><strong>Confidentiality &amp; Neutrality:</strong> We facilitate introductions on transparent terms without adding hidden markups to machinery equipment pricing.</li>
+                    <li><strong>Sample Testing in Japan:</strong> Qualified prospective buyers and distributors can arrange physical slicing trials on Nippon Career test lines in Japan.</li>
+                  </ul>
+                  <p style={{ margin: "14px 0 0 0", fontSize: "0.82rem", fontStyle: "italic", color: "#64748b" }}>
+                    Disclaimer: Slice thickness (down to ~1.5 mm), slicing speed (up to ~100 slices/min), and raw meat yield (~95%) are engineering performance targets dependent upon meat temperature (-2°C to +4°C), texture, moisture, bone trimming, and machine configuration. Partner Market Global facilitates verified international commercial introductions and does not manufacture machinery.
+                  </p>
+                </div>
+
+                {/* 12. FREQUENTLY ASKED QUESTIONS (10 ITEMS) */}
+                <div className="content-card" id="faqs" style={{ marginTop: 24 }}>
+                  <div className="nippon-badge-pill" style={{ marginBottom: 12 }}>
+                    <span>❓</span>
+                    <span>FREQUENTLY ASKED QUESTIONS</span>
+                  </div>
+                  <h2>Frequently Asked Questions</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 16px 0" }}>
+                    Detailed answers to common engineering, operational, and commercial questions:
+                  </p>
+
+                  <div style={{ marginTop: 16 }}>
+                    {nipponCareerFaqs.map((faq, idx) => (
+                      <details key={idx} className="nippon-faq-item" open={idx === 0}>
+                        <summary className="nippon-faq-question">
+                          <span>{idx + 1}. {faq.question}</span>
+                          <span style={{ fontSize: "0.8rem", color: "#64748b" }}>▼</span>
+                        </summary>
+                        <div className="nippon-faq-answer">
+                          {faq.answer}
+                        </div>
+                      </details>
+                    ))}
+                  </div>
                 </div>
               </>
             )}

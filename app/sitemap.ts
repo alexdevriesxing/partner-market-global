@@ -6,7 +6,7 @@ import { canonicalUrl, localizedLanguages } from "@/lib/seo";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-08-19");
+  const lastModified = new Date("2026-09-16");
   const staticRoutes = [
     { route: "", priority: 1.0, changeFrequency: "daily" as const },
     { route: "/opportunities", priority: 0.95, changeFrequency: "daily" as const },

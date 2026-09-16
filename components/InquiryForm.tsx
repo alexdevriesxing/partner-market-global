@@ -85,6 +85,7 @@ function InquiryFormClient({
   const isEbara = oppSlug === "ebara-foods-indonesia-distribution-noodle-partnership";
   const isSonic = oppSlug === "sonic-friends-europe-2027";
   const isTsubame = oppSlug === "premium-japanese-tsubame-drinkware";
+  const isNipponCareer = oppSlug === "nippon-career-ultra-thin-meat-slicing";
 
   const opportunity = opportunities.find(o => o.slug === oppSlug);
   const originCountry = opportunity?.originCountry || "";
@@ -175,6 +176,15 @@ function InquiryFormClient({
     marketsServed: "",
     productsOfInterest: [] as string[],
     estimatedOpportunity: ""
+  });
+
+  const [nipponCareerFields, setNipponCareerFields] = useState({
+    jobTitle: "",
+    organisationType: "",
+    interest: "",
+    expectedApplication: "",
+    processingVolume: "",
+    targetCountryMarket: ""
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -313,24 +323,39 @@ function InquiryFormClient({
       }
     }
 
+    if (isNipponCareer) {
+      leadScore += 15;
+      if (["Supermarket", "Meat Processor", "Food Processing Equipment Distributor", "Meat Distributor"].includes(nipponCareerFields.organisationType)) {
+        leadScore += 20;
+        prioritySignals.push(`Target Sector (${nipponCareerFields.organisationType})`);
+      }
+      if (["Purchase equipment", "Distribution partnership", "Request demonstration", "Country representation"].includes(nipponCareerFields.interest)) {
+        leadScore += 15;
+        prioritySignals.push(`Key Intent (${nipponCareerFields.interest})`);
+      }
+      if (nipponCareerFields.expectedApplication) {
+        prioritySignals.push(`App: ${nipponCareerFields.expectedApplication.slice(0, 30)}`);
+      }
+    }
+
     const priorityRating = leadScore >= 45 ? "HIGH PRIORITY" : leadScore >= 25 ? "MEDIUM PRIORITY" : "STANDARD";
 
     const payload = {
-      opportunity: isTsubame ? "Opportunity: Tsubame Premium Japanese Drinkware" : (oppTitle || (isSonic ? "SONIC & FRIENDS Europe 2027" : "General Opportunity")),
+      opportunity: isTsubame ? "Opportunity: Tsubame Premium Japanese Drinkware" : isNipponCareer ? "Opportunity: Nippon Career Ultra-Thin Meat Slicing" : (oppTitle || (isSonic ? "SONIC & FRIENDS Europe 2027" : "General Opportunity")),
       oppSlug: oppSlug || "general",
-      brand: isTsubame ? "Tsubame Drinkware / Tamahashi" : (isSonic ? "SONIC & FRIENDS" : opportunity?.brand || "N/A"),
-      principal: isTsubame ? "Tamahashi Corporation / JIP Japan" : (isSonic ? "Japan Industrial Promotion Inc. (Daiki Fukaura)" : source || "JIP Japan"),
+      brand: isTsubame ? "Tsubame Drinkware / Tamahashi" : isNipponCareer ? "Nippon Career Slicer Platform" : (isSonic ? "SONIC & FRIENDS" : opportunity?.brand || "N/A"),
+      principal: isTsubame ? "Tamahashi Corporation / JIP Japan" : isNipponCareer ? "NIPPON CAREER INDUSTRY CO., LTD." : (isSonic ? "Japan Industrial Promotion Inc. (Daiki Fukaura)" : source || "JIP Japan"),
       contactName: isSonic ? `${sonicFields.firstName} ${sonicFields.lastName}`.trim() : formData.name,
-      jobTitle: isTsubame ? (tsubameFields.jobTitle || "Commercial Buyer") : (sonicFields.jobTitle || "Buyer / Decision Maker"),
+      jobTitle: isNipponCareer ? (nipponCareerFields.jobTitle || "Commercial Decision Maker") : isTsubame ? (tsubameFields.jobTitle || "Commercial Buyer") : (sonicFields.jobTitle || "Buyer / Decision Maker"),
       company: formData.company,
       email: formData.email,
       phone: formData.phone,
-      country: formData.country,
+      country: isNipponCareer && nipponCareerFields.targetCountryMarket ? nipponCareerFields.targetCountryMarket : formData.country,
       website: formData.website || "",
-      companyType: isSonic ? sonicFields.companyType : formData.partnerType,
-      activity: isTsubame ? (tsubameFields.marketsServed ? `Markets: ${tsubameFields.marketsServed} | ${formData.activity}` : formData.activity) : formData.activity,
+      companyType: isSonic ? sonicFields.companyType : isNipponCareer ? (nipponCareerFields.organisationType || formData.partnerType) : formData.partnerType,
+      activity: isTsubame ? (tsubameFields.marketsServed ? `Markets: ${tsubameFields.marketsServed} | ${formData.activity}` : formData.activity) : isNipponCareer ? (nipponCareerFields.expectedApplication ? `App: ${nipponCareerFields.expectedApplication} | Vol: ${nipponCareerFields.processingVolume || "N/A"} | ${formData.activity}` : formData.activity) : formData.activity,
       network: isTsubame ? (tsubameFields.estimatedOpportunity ? `Channel/Est: ${tsubameFields.estimatedOpportunity} | ${formData.network}` : formData.network) : formData.network,
-      reason: isTsubame ? (`Products: ${tsubameFields.productsOfInterest.join(", ") || "General"} | Message: ${formData.reason}`) : (isSonic ? sonicFields.requests.join(", ") : formData.reason),
+      reason: isTsubame ? (`Products: ${tsubameFields.productsOfInterest.join(", ") || "General"} | Message: ${formData.reason}`) : isNipponCareer ? (`Interest: ${nipponCareerFields.interest || "Commercial Introduction"} | Application: ${nipponCareerFields.expectedApplication || "Ultra-thin slicing"} | Volume: ${nipponCareerFields.processingVolume || "Standard"} | Market: ${nipponCareerFields.targetCountryMarket || formData.country} | Note: ${formData.reason || "I would like Partner Market Global to arrange an introduction regarding Nippon Career Industry."}`) : (isSonic ? sonicFields.requests.join(", ") : formData.reason),
       requirements: formData.requirements,
       leadScore,
       priorityRating,
@@ -340,6 +365,7 @@ function InquiryFormClient({
       ichibanDetails: isIchiban ? ichibanFields : undefined,
       ebaraDetails: isEbara ? ebaraFields : undefined,
       tsubameDetails: isTsubame ? tsubameFields : undefined,
+      nipponCareerDetails: isNipponCareer ? nipponCareerFields : undefined,
       utmData: utms,
       referrer
     };
@@ -1170,6 +1196,128 @@ function InquiryFormClient({
                 value={tsubameFields.estimatedOpportunity}
                 onChange={(e) => setTsubameFields({ ...tsubameFields, estimatedOpportunity: e.target.value })}
                 placeholder="e.g. 5 luxury department stores, nationwide HORECA distribution, corporate year-end gifting, custom OEM project"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+          </div>
+        )}
+
+        {isNipponCareer && (
+          <div
+            className="custom-qualifying-fields span-2"
+            style={{
+              gridColumn: "span 2",
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "16px",
+              marginTop: "16px",
+              borderTop: "2px solid #dc2626",
+              paddingTop: "20px"
+            }}
+          >
+            <div
+              className="span-2"
+              style={{
+                gridColumn: "span 2",
+                background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
+                border: "1px solid rgba(220, 38, 38, 0.4)",
+                padding: "16px 20px",
+                borderRadius: "8px",
+                color: "#f8fafc"
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
+                <span style={{ display: "inline-block", width: "8px", height: "8px", borderRadius: "50%", background: "#dc2626" }}></span>
+                <h3 style={{ margin: 0, fontSize: "1.05rem", fontWeight: "700", color: "#f87171" }}>
+                  Nippon Career Industry — International Introduction &amp; Partner Qualification
+                </h3>
+              </div>
+              <p style={{ margin: 0, fontSize: "0.88rem", color: "#cbd5e1", lineHeight: 1.5 }}>
+                Partner Market Global facilitates direct introductions between qualified commercial buyers/distributors and Nippon Career Industry. Complete the details below so we can assess market fit and coordinate direct discussions.
+              </p>
+            </div>
+
+            <label>
+              Job Title *
+              <input
+                type="text"
+                required
+                value={nipponCareerFields.jobTitle}
+                onChange={(e) => setNipponCareerFields({ ...nipponCareerFields, jobTitle: e.target.value })}
+                placeholder="e.g. Procurement Director, Technical Sales Lead, Plant Manager"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+
+            <label>
+              Target Country / Market *
+              <input
+                type="text"
+                required
+                value={nipponCareerFields.targetCountryMarket}
+                onChange={(e) => setNipponCareerFields({ ...nipponCareerFields, targetCountryMarket: e.target.value })}
+                placeholder="e.g. United Kingdom, Germany, Thailand, Singapore, USA"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+
+            <label>
+              Organisation Type *
+              <select
+                required
+                value={nipponCareerFields.organisationType}
+                onChange={(e) => setNipponCareerFields({ ...nipponCareerFields, organisationType: e.target.value })}
+                style={{ width: "100%", marginTop: "6px" }}
+              >
+                <option value="">Select organisation type</option>
+                <option value="Supermarket">Supermarket / Hypermarket Chain</option>
+                <option value="Meat Processor">Meat Processor</option>
+                <option value="Meat Distributor">Meat Distributor / Importer</option>
+                <option value="Livestock Producer">Livestock Producer</option>
+                <option value="Restaurant Group">Restaurant Group / Multi-Unit Chain</option>
+                <option value="Food Processing Equipment Distributor">Food Processing Equipment Distributor / Integrator</option>
+                <option value="Central Kitchen">Central Kitchen / Commisary Operator</option>
+                <option value="Other">Other Organisation Type</option>
+              </select>
+            </label>
+
+            <label>
+              Primary Area of Commercial Interest *
+              <select
+                required
+                value={nipponCareerFields.interest}
+                onChange={(e) => setNipponCareerFields({ ...nipponCareerFields, interest: e.target.value })}
+                style={{ width: "100%", marginTop: "6px" }}
+              >
+                <option value="">Select primary interest</option>
+                <option value="Purchase equipment">Purchase equipment</option>
+                <option value="Request demonstration">Request product demonstration</option>
+                <option value="Distribution partnership">Distribution partnership</option>
+                <option value="Country representation">Country representation</option>
+                <option value="Technical information">Technical information &amp; line integration</option>
+                <option value="Pricing">Pricing &amp; commercial quotation</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              Expected Meat Slicing Application
+              <input
+                type="text"
+                value={nipponCareerFields.expectedApplication}
+                onChange={(e) => setNipponCareerFields({ ...nipponCareerFields, expectedApplication: e.target.value })}
+                placeholder="e.g. Shabu-shabu beef/pork, hot pot, yakiniku, supermarket retail meat packaging, bacon/ham trimming"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              Estimated Processing Volume (Optional)
+              <input
+                type="text"
+                value={nipponCareerFields.processingVolume}
+                onChange={(e) => setNipponCareerFields({ ...nipponCareerFields, processingVolume: e.target.value })}
+                placeholder="e.g. 500 kg daily, 5 metric tons weekly, or multi-facility rollout"
                 style={{ width: "100%", marginTop: "6px" }}
               />
             </label>

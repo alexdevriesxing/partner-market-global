@@ -102,6 +102,8 @@ export function siteStructuredData(locale: string) {
         "brand licensing partnerships",
         "private label and OEM sourcing",
         "Japanese market entry and JIP Japan opportunities",
+        "industrial food processing machinery and meat slicing automation",
+        "Nippon Career Industry Japan slicers",
         "international B2B partner search"
       ],
       contactPoint: [

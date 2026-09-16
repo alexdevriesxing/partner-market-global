@@ -99,7 +99,12 @@ export async function onRequestPost(context: EventContext): Promise<Response> {
 
   // 6. Format Subject & Body
   const isSonic = oppSlug === "sonic-friends-europe-2027" || oppTitle.includes("SONIC");
-  const subjectPrefix = isSonic ? `[SONIC & FRIENDS 2027 ${priorityRating}]` : `[PMG Inquiry] [${priorityRating}]`;
+  const isNippon = oppSlug === "nippon-career-ultra-thin-meat-slicing" || oppTitle.includes("Nippon Career");
+  const subjectPrefix = isSonic
+    ? `[SONIC & FRIENDS 2027 ${priorityRating}]`
+    : isNippon
+    ? `[NIPPON CAREER B2B ${priorityRating}]`
+    : `[PMG Inquiry] [${priorityRating}]`;
   const emailSubject = `${subjectPrefix} ${company} — ${country} [${referenceId}]`;
 
   const prioritySignals = Array.isArray(body.prioritySignals) ? body.prioritySignals.join(" | ") : (body.prioritySignals || "N/A");
@@ -127,6 +132,17 @@ export async function onRequestPost(context: EventContext): Promise<Response> {
   if (body.network) textBody += `- Existing Channels / Network: ${body.network}\n`;
   if (body.reason) textBody += `- Reason for Interest: ${body.reason}\n`;
   if (body.requirements) textBody += `- Can Meet Minimum Requirements: ${body.requirements}\n`;
+
+  if (body.nipponCareerDetails) {
+    const nd = body.nipponCareerDetails;
+    textBody += `\nNIPPON CAREER INDUSTRY QUALIFICATION:\n`;
+    textBody += `- Organisation Type: ${nd.organisationType || "N/A"}\n`;
+    textBody += `- Primary Commercial Interest: ${nd.primaryInterest || "N/A"}\n`;
+    textBody += `- Meat Slicing Application: ${nd.application || "N/A"}\n`;
+    textBody += `- Estimated Processing Volume: ${nd.processingVolume || "N/A"}\n`;
+    textBody += `- Target Country / Market: ${nd.targetCountry || country}\n`;
+    if (nd.technicalQuestions) textBody += `- Technical Requirements / Questions: ${nd.technicalQuestions}\n`;
+  }
 
   if (body.sonicDetails) {
     const sd = body.sonicDetails;
@@ -191,6 +207,18 @@ export async function onRequestPost(context: EventContext): Promise<Response> {
         <tr><th>Website</th><td>${body.website ? `<a href="${body.website}" target="_blank">${body.website}</a>` : "N/A"}</td></tr>
         <tr><th>Partner Type</th><td>${body.companyType || body.partnerType || "N/A"}</td></tr>
       </table>
+
+      ${body.nipponCareerDetails ? `
+      <div class="section-title">Nippon Career Industry Qualification</div>
+      <table>
+        <tr><th>Organisation Type</th><td><strong>${body.nipponCareerDetails.organisationType || "N/A"}</strong></td></tr>
+        <tr><th>Primary Interest</th><td>${body.nipponCareerDetails.primaryInterest || "N/A"}</td></tr>
+        <tr><th>Slicing Application</th><td>${body.nipponCareerDetails.application || "N/A"}</td></tr>
+        <tr><th>Processing Volume</th><td>${body.nipponCareerDetails.processingVolume || "N/A"}</td></tr>
+        <tr><th>Target Market / Country</th><td><strong>${body.nipponCareerDetails.targetCountry || country}</strong></td></tr>
+        ${body.nipponCareerDetails.technicalQuestions ? `<tr><th>Technical Specs / Notes</th><td>${body.nipponCareerDetails.technicalQuestions}</td></tr>` : ""}
+      </table>
+      ` : ""}
 
       ${body.sonicDetails ? `
       <div class="section-title">SONIC & FRIENDS 2027 Qualification</div>

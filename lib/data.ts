@@ -653,10 +653,98 @@ export const tsubameDrinkwareOpportunity: Opportunity = {
   exclusivity: "Territory or channel distribution agreements discussed on qualified inquiry"
 };
 
+export const nipponCareerOpportunity: Opportunity = {
+  id: "jip-nippon-career-slicers",
+  slug: "nippon-career-ultra-thin-meat-slicing",
+  title: "Japanese Ultra-Thin Fresh Meat Slicer Manufacturer Seeking International Partners",
+  type: "International Sales / Distributor / End-User Introduction",
+  sector: "Food Processing Machinery / Industrial Meat Slicing",
+  originCountry: "Japan",
+  targetMarkets: [
+    "ASEAN",
+    "Greater China",
+    "Europe",
+    "North America",
+    "Middle East",
+    "Global"
+  ],
+  heroImage: "/images/opportunities/nippon-career-ultra-thin-meat-slicing-hero.webp",
+  cardImage: "/images/opportunities/nippon-career-ultra-thin-meat-slicing.webp",
+  summary: "NIPPON CAREER INDUSTRY CO., LTD. of Japan develops proprietary industrial meat-processing machinery capable of slicing fresh, unfrozen meat down to approximately 1.5 mm. Partner Market Global is facilitating qualified introductions to international distributors, supermarket groups, meat processors and restaurant chains.",
+  description: "NIPPON CAREER INDUSTRY CO., LTD. is a specialised Japanese manufacturer of high-performance food-processing machinery based in Matsuyama, Ehime Prefecture. The international commercial opportunity focuses on its patented industrial slicer technology engineered for slicing fresh, unfrozen meat down to approximately 1.5–2.5 mm.\n\nWhile conventional slicing equipment typically requires partially frozen meat or struggles to achieve consistent ultra-thin portioning without tearing, Nippon Career's E-Series platform delivers exceptional cut uniformity, orderly shingling or folding, and target yields of approximately 95% under suitable operating conditions.\n\nFeaturing an on-site disposable band blade replacement system that takes approximately one minute, the technology eliminates lengthy external blade sharpening stops and dramatically reduces operational downtime.",
+  companyBackground: "Company: NIPPON CAREER INDUSTRY CO., LTD. (株式会社日本キャリア工業)\nFounded: October 1970 | Incorporated: May 1975\nHeadquarters: Matsuyama City, Ehime Prefecture, Japan\nPresident: Suguru Mitani\nCapital: JPY 40 million | Employees: 127\nBusiness Activities: Development, design, manufacture, sales and maintenance of specialised food-processing machinery.\nBranch Offices: Tokyo, Osaka, Chubu (Ichinomiya), Kyushu (Kumamoto)\nAccreditation: ISO9001 Certified, Monodzukuri Nippon Grand Award, Minister of Science & Technology Commendation\nOfficial Website: https://www.nippon-career.co.jp/\nFacilitated by: Partner Market Global International Business Development",
+  productDetails: "Nippon Career E-Series Platform Lineup:\n- EX1-32: Slicing thickness approx. 1–20 mm, continuous meat feeding, automatic blade sharpening, approx. 840 kg machine weight. Tailored for small pieces, bacon, and trimming applications.\n- EY1-30: Slicing thickness approx. 1–25 mm, high-capacity processing (up to 100 slices/min for cuts ≤3 mm; 40–70 slices/min for cuts ≥3 mm), continuous feed, approx. 860 kg machine weight. Ideal for grilled meat and pork belly.\n- EZ1-34: Folding slicer with center-fold mechanism, folding speed 40–50 slices/min (30–60 slices/min without folding), approx. 910 kg machine weight. Designed specifically for shabu-shabu, hot pot presentation, and neat shingling.\n\nPlatform Innovations: Continuous band knife cutting, water-air mixed blade spray cleaning with scraper, two-stage 45°/90° safety covers, approx. 30% reduction in disassembly parts for sanitation.",
+  marketOpportunity: "Global demand for ultra-thin sliced fresh meat is accelerating across modern retail supermarkets, hot pot and shabu-shabu restaurant chains, and central meat processing facilities. By enabling processors to convert bulk block meat into premium portioned retail packs and restaurant trays with up to 95% yield and 1-minute blade maintenance, Nippon Career technology delivers direct gross margin expansion.",
+  partnerProfile: "Qualified regional and national food processing equipment distributors, supermarket and hypermarket procurement groups, commercial meat processors and importers, and high-volume Asian restaurant chains (shabu-shabu, hot pot, yakiniku, Korean BBQ) across ASEAN, Europe, North America, Greater China, and the Middle East.",
+  commercialModel: "Direct manufacturer supply and technical integration agreements facilitated through Partner Market Global. Commercial terms, local distribution rights, equipment purchasing, and demonstration unit availability are evaluated and agreed on a territory-by-territory basis upon qualified inquiry.",
+  territoryAvailability: "Worldwide outreach (Priority evaluation for ASEAN, Greater China, Europe, North America, Middle East; market availability and territory rights discussed on a country-by-country basis).",
+  investmentRequirement: "Equipment purchase or distributor stocking arrangements. Technical specifications, FOB/CIF shipping details, spare band blade kits, and warranty terms provided upon partner qualification.",
+  credentials: [
+    "Over 50 Years of Proprietary Japanese Engineering Experience (Est. 1970)",
+    "Ultra-Thin Fresh Meat Slicing Down to Approx. 1.5 mm Without Freezing",
+    "Target Yield Performance of Approx. 95% Under Suitable Conditions",
+    "Rapid 1-Minute On-Site Band Blade Replacement Concept",
+    "Over 1,000 Slicer Systems Installed Across Japanese Meat Facilities",
+    "Adopted by Major Supermarket Groups and Leading Food Processors",
+    "Patented Slicing, Shingling and Centre-Folding Mechanisms",
+    "Redesigned Frame with 45°/90° Safety Cover and ~30% Fewer Disassembly Parts",
+    "High Throughput Capacity Up to 100 Slices Per Minute (Model Dependent)",
+    "ISO 9001 Certified Quality Management System & Japanese Monodzukuri Award Winner",
+    "Facilitated Internationally by Partner Market Global"
+  ],
+  verificationBadges: [
+    "Client Opportunity",
+    "JIP Japan Vetted",
+    "Industrial Machinery",
+    "Food Processing",
+    "Distributor Opportunity",
+    "1.5mm Ultra-Thin",
+    "Approx. 95% Yield",
+    "Japan Engineered"
+  ],
+  documentsAvailable: [
+    "Nippon Career Industry — Corporate Profile (Bilingual PDF)",
+    "Nippon Career — E-Series Slicer Technical Catalogue (PDF)",
+    "Nippon Career Industry — International Sales Expansion Proposal (PDF)",
+    "Model Dimension Schematics & Utility Requirement Sheets",
+    "Reference Distributor Network Summary",
+    "Custom Machine Integration & Line Sizing Guidelines"
+  ],
+  risks: "Actual slicing performance (including achievable slice thickness, yield percentage, and throughput) depends on meat temperature, firmness, cut shape, fat content, and machine configuration. Commercial distribution rights and country territory availability are subject to contract and manufacturer clearance. Standard international freight, voltage/frequency compatibility (AC200V standard, transformer/inverter configurations available), and local import compliance apply.",
+  status: "Active Opportunity — Worldwide Partner Outreach",
+  featured: true,
+  brand: "Nippon Career Slicer Platform",
+  company: "NIPPON CAREER INDUSTRY CO., LTD.",
+  sourcePartner: "JIP Japan",
+  seoKeywords: [
+    "industrial meat slicer",
+    "fresh meat slicer",
+    "ultra thin meat slicer",
+    "1.5mm meat slicing machine",
+    "shabu shabu meat slicer",
+    "hot pot meat slicer",
+    "Japanese meat processing machinery",
+    "meat processing equipment Japan",
+    "industrial food slicer",
+    "supermarket meat processing equipment",
+    "meat processing machinery distributor",
+    "food processing machinery distributor",
+    "Nippon Career Industry",
+    "Nippon Career slicer",
+    "E-Series meat slicer",
+    "EX1-32",
+    "EY1-30",
+    "EZ1-34"
+  ],
+  imageAlt: "Nippon Career Industry Japanese ultra-thin fresh meat slicing technology in commercial food processing facility",
+  exclusivity: "Market availability and potential introductions discussed on a country-by-country basis"
+};
+
 const sonicOpp = mappedJipOpportunities.find((o) => o.slug === "sonic-friends-europe-2027");
 const otherMappedJip = mappedJipOpportunities.filter((o) => o.slug !== "sonic-friends-europe-2027");
 
 export const opportunities: Opportunity[] = [
+  nipponCareerOpportunity,
   izutsuYatsuhashiOpportunity,
   tsubameDrinkwareOpportunity,
   ...(sonicOpp
