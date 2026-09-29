@@ -46,6 +46,8 @@ export type Opportunity = {
   imageAlt?: string;
   exclusivity?: string;
   sourcePartner?: string;
+  isPinned?: boolean;
+  featuredOrder?: number;
 };
 
 import jipOpportunitiesRaw from "./jip-opportunities.json";
@@ -138,6 +140,7 @@ const mappedJipOpportunities: Opportunity[] = (jipOpportunitiesRaw as unknown as
       risks: "Third-party intellectual property is owned by SEGA and respective partners. Wholesale pricing and internal line sheets are confidential and provided only to qualified buyers. Commercial orders require timely placement to meet January 2027 Shenzhen FOB production schedules in advance of the March 2027 European theatrical release. Standard European toy safety (CE / UKCA compliance), import duties, and customs clearances apply.",
       status: "Active Opportunity — 2027 Retail Window",
       featured: true,
+      featuredOrder: 5,
       brand: "SONIC & FRIENDS / SEGA",
       company: "Japan Industrial Promotion Inc.",
       seoKeywords: [
@@ -555,6 +558,7 @@ export const izutsuYatsuhashiOpportunity: Opportunity = {
   risks: "National food-import regulations, labeling compliance, language translations, and customs classifications must be reviewed for each destination country. Product must be stored in cool, dry conditions away from direct sunlight and high humidity to maintain optimal crispness. Commercial exclusivity terms are subject to formal qualification and contract.",
   status: "Active Opportunity — Worldwide Partner Outreach",
   featured: true,
+  featuredOrder: 3,
   brand: "Izutsu Yatsuhashi Honpo (井筒八ッ橋本舗)",
   company: "Izutsu Yatsuhashi Co., Ltd.",
   sourcePartner: "JIP Japan",
@@ -628,6 +632,7 @@ export const tsubameDrinkwareOpportunity: Opportunity = {
   risks: "Laser engraving suitability depends on the specific base material and finish (silkscreen printing required for lacquered finishes). Import duties, customs classification, freight economics, and regional food-contact compliance must be reviewed per destination market. Territory terms and production lead times require formal agreement with the manufacturer.",
   status: "Active Opportunity — Worldwide Partner Outreach",
   featured: true,
+  featuredOrder: 4,
   brand: "Tsubame Drinkware / Tamahashi",
   company: "Tamahashi Corporation",
   sourcePartner: "JIP Japan",
@@ -713,6 +718,7 @@ export const nipponCareerOpportunity: Opportunity = {
   risks: "Actual slicing performance (including achievable slice thickness, yield percentage, and throughput) depends on meat temperature, firmness, cut shape, fat content, and machine configuration. Commercial distribution rights and country territory availability are subject to contract and manufacturer clearance. Standard international freight, voltage/frequency compatibility (AC200V standard, transformer/inverter configurations available), and local import compliance apply.",
   status: "Active Opportunity — Worldwide Partner Outreach",
   featured: true,
+  featuredOrder: 2,
   brand: "Nippon Career Slicer Platform",
   company: "NIPPON CAREER INDUSTRY CO., LTD.",
   sourcePartner: "JIP Japan",
@@ -740,10 +746,98 @@ export const nipponCareerOpportunity: Opportunity = {
   exclusivity: "Market availability and potential introductions discussed on a country-by-country basis"
 };
 
+export const celebleOpportunity: Opportunity = {
+  id: "jip-celeble-sparkling",
+  slug: "celeble-non-alcoholic-sparkling-wine-distribution",
+  title: "Japanese Premium 0.00% Sparkling Beverage Seeking Global Distribution Partners",
+  type: "Import / Distribution / HORECA & Retail Supply / Foodservice Partnership",
+  sector: "Food & Beverage / Premium Non-Alcoholic Beverages / 0.00% Sparkling Wine",
+  originCountry: "Japan",
+  targetMarkets: [
+    "Global",
+    "Europe",
+    "North America",
+    "Middle East",
+    "Asia-Pacific",
+    "ASEAN"
+  ],
+  heroImage: "/images/opportunities/celeble/celeble-hero.webp",
+  cardImage: "/images/opportunities/celeble/celeble-card.webp",
+  summary: "Balance Co., Ltd. of Toyama, Japan is seeking qualified international importers, distributors and market-development partners for Celeblé, its premium 0.00% sparkling beverage range.",
+  description: "Balance Co., Ltd. is presenting an exclusive international commercial opportunity for qualified food and beverage importers, distributors, upscale HORECA partners and retail groups to introduce Celeblé (セレブレ), Japan's premier culinary 0.00% non-alcoholic sparkling beverage range.\n\nUnlike conventional dealcoholized wines that suffer from stripped aromas, altered taste profiles and residual alcohol traces (often failing absolute zero-alcohol standards), and unlike unfermented grape juice drinks that are excessively sweet and cloying, Celeblé is produced through a proprietary fermentation method using wine-grape varieties. The process reduces natural sugars and creates genuine wine acidity, complex polyphenols and delicate effervescence without generating any alcohol.\n\nFormulated with zero animal-derived ingredients and certified zero caffeine, Celeblé is 100% vegan-compatible and respects diverse cultural, religious, and lifestyle values. Widely adopted across Japan's top fine-dining categories—including French (38%), Italian (26%), and traditional Japanese Washoku (10%) restaurants—Celeblé significantly elevates average guest check spend (JPY 600–1,800 menu pricing) and pairs seamlessly with multi-course gastronomy.",
+  companyBackground: "Company: Balance Co., Ltd. (株式会社バランス)\nMain Office: 1-6-34 Shimoakaemachi, Toyama City, Toyama Prefecture 930-0816, Japan\nEstablished: April 2000 | Capital: JPY 10 Million\nPresident & CEO: Keigo Misuta\nCorporate Mission: 'Health and Smile' — Operating as a dedicated life-support enterprise producing specialized hydration, clinical nutritional care, and premium sparkling beverages.\nDevelopment Philosophy: Driven directly by customer and sommelier feedback, formulated with precision and backed by scientific data.\nOfficial Representation: Japan Industrial Promotion Inc. (JIP Japan) & Partner Market Global International Market Development.",
+  productDetails: "Celeblé Commercial Lineup & Formats:\n- Celeblé Blanc (355ml Glass Bottle): Flagship white sparkling beverage recreating the crisp, elegant profile of dry Champagne. Notes of crisp green apple, citrus, white floral accents, and persistent fine bubbles. Yields 2–3 flutes per bottle.\n- Celeblé Rosé (355ml Glass Bottle): Distinctive salmon-pink sparkling beverage with subtle red berry and floral aromatics. Crisp acidity balanced with rounded body; ideal for aperitifs, seafood, poultry, and celebratory dining. Yields 2–3 flutes per bottle.\n- Celeblé Dry (355ml Glass Bottle): Crisp, extra-dry sparkling formulation engineered specifically for savory meal pairings with minimal residual sweetness, highlighting minerality and sharp, refreshing effervescence.\n- Celeblé Blanc Mini (200ml Glass Bottle): Single-serve personal flute format (1–2 glasses) created for solo diners, business lunches, room service, airlines, and bar service without opening full 355ml bottles.\n\nCore Product Formulations & Certifications:\n- Guaranteed 0.00% Alcohol (Safe for drivers, pregnant or nursing mothers, and zero-alcohol lifestyles).\n- Zero Caffeine (Safe for evening dining and sensitive patrons; specialty black tea extract is caffeine-free).\n- Zero Animal-Derived Ingredients (Vegan and compliant with multicultural dietary considerations).\n- Comprehensive B2B Merchandising Support: Turnkey A4 tabletop posters, table tents, and sommelier pairing materials available.",
+  marketOpportunity: "Accelerating Global Mindful-Drinking Demand: Demand for culinary-grade non-alcoholic alternatives is expanding exponentially across Europe, North America, the Middle East, and Asia. High-end restaurants and luxury hotels require sophisticated zero-proof options that command premium pricing without compromising dignity.\n\nProven Japan Restaurant Economics: In Japan, Celeblé is established in premium establishments with dinner checks exceeding JPY 5,000, commanding menu prices of JPY 600–800 for 200ml bottles and JPY 1,000–1,800 for 355ml bottles. Proven adoption spans French (38%), Italian (26%), Japanese dining (10%), cafes (8%), and dining bars (6%).\n\nEstablished Export Deliveries: Balance Co., Ltd. has established ongoing export deliveries across Saudi Arabia (since 2020), Singapore, Taiwan, the United States (since 2022), Canada, Guam, and Thailand, delivering over 6,600 bottles in recent single-year export shipments to North America and Asia.\n\nYear-Round Sales Resilience: Strong baseline sales year-round with high repeat order rates, peaking during spring cherry blossom (hanami) events, summer terrace dining, and year-end/New Year holiday celebrations.",
+  partnerProfile: "Qualified beverage importers, specialty wine & spirits distributors seeking a lead 0.00% ABV brand, upscale HORECA distributors (hotels, Michelin-starred and fine-dining restaurants, wedding venues), luxury airline and cruise concessionaires, gourmet grocery and department store buyers, and corporate gifting specialists.",
+  commercialModel: "Direct manufacturer supply on standard FOB Japan export terms. Flexible commercial arrangements including territory-exclusive distribution rights, national retail listings, and dedicated HORECA supply contracts. Wholesale pricing tiers, master carton specifications (355ml and 200ml cartons), sample bottles, and export documentation available upon partner qualification.",
+  territoryAvailability: "Global (Priority evaluation for Europe, North America, Middle East, Asia-Pacific, ASEAN; open for country and regional master distribution agreements).",
+  investmentRequirement: "Standard pallet and master carton ordering schedules. Minimum order quantities (MOQs), landed cost models, sample availability, and market launch support discussed upon qualified commercial inquiry.",
+  credentials: [
+    "Proprietary 0.00% Alcohol Fermentation Method (Not Dealcoholized)",
+    "Guaranteed 0.00% Alcohol & Zero Caffeine Formulation",
+    "Zero Animal-Derived Ingredients (Vegan & Diverse Culture Friendly)",
+    "Established Domestic Market Share in French (38%), Italian (26%) & Washoku (10%) Fine Dining",
+    "Proven Export Deliveries: USA, Saudi Arabia, Singapore, Taiwan, Canada, Guam, Thailand",
+    "Full Assortment: Blanc (355ml), Rosé (355ml), Dry (355ml), Blanc Mini (200ml)",
+    "High Average Check Size Uplift for Restaurants (JPY 600–1,800 Menu Pricing)",
+    "Turnkey B2B Tabletop POP Displays, Posters & Table Tents Provided",
+    "Manufactured in Toyama Prefecture by Balance Co., Ltd. (Est. 2000)",
+    "Facilitated Internationally by JIP Japan & Partner Market Global"
+  ],
+  verificationBadges: [
+    "Featured Opportunity",
+    "Lead Opportunity",
+    "Client Opportunity",
+    "JIP Japan Vetted",
+    "0.00% Non-Alcoholic",
+    "Zero Caffeine",
+    "Vegan Compatible",
+    "HORECA & Dining",
+    "Global Distribution"
+  ],
+  documentsAvailable: [
+    "Balance Co., Ltd. — Celeblé Corporate Product Introduction Deck (PDF)",
+    "Complete Product Specifications & Ingredient Breakdown (Blanc, Rosé, Dry, Blanc Mini)",
+    "Comparative Fermentation Process Sheet & Technical Validation",
+    "Japan Foodservice Adoption & Cuisine Breakdown Statistics",
+    "Turnkey Tabletop POP & Marketing Collateral Guide",
+    "Export Packaging & Master Carton Dimension Sheets",
+    "Confidential Wholesale Price List & MOQ Schedule (On Qualified Inquiry)"
+  ],
+  risks: "National food and beverage import regulations, customs classifications, and labeling compliance (ingredient language, nutritional facts, storage instructions) must be confirmed for each target territory. While 0.00% alcohol and vegan-formulated, regional regulatory or religious certifications (such as formal Halal registration) should be evaluated per market. Temperature-controlled dry container shipping is recommended to protect effervescence and product integrity.",
+  status: "Active Lead Opportunity — Worldwide Partner Search",
+  featured: true,
+  isPinned: true,
+  featuredOrder: 1,
+  brand: "Celeblé (セレブレ)",
+  company: "Balance Co., Ltd.",
+  sourcePartner: "JIP Japan",
+  seoKeywords: [
+    "Celeble non-alcoholic sparkling",
+    "Celeble distributor",
+    "Balance Co Ltd Toyama",
+    "Japanese 0.00 sparkling wine",
+    "non alcoholic sparkling wine distributor",
+    "premium non alcoholic beverage wholesale",
+    "halal friendly sparkling wine",
+    "vegan sparkling wine Japan",
+    "Celeble Blanc",
+    "Celeble Rose",
+    "Celeble Dry",
+    "Celeble Blanc Mini",
+    "restaurant non alcoholic wine distributor",
+    "luxury non alcoholic beverage importer",
+    "Japanese beverage export opportunity"
+  ],
+  imageAlt: "Celeblé Japanese premium 0.00% non-alcoholic sparkling beverage bottle and champagne flute with gourmet dining pairings",
+  exclusivity: "Territorial and channel exclusivity negotiable based on qualification and commercial commitments"
+};
+
 const sonicOpp = mappedJipOpportunities.find((o) => o.slug === "sonic-friends-europe-2027");
 const otherMappedJip = mappedJipOpportunities.filter((o) => o.slug !== "sonic-friends-europe-2027");
 
 export const opportunities: Opportunity[] = [
+  celebleOpportunity,
   nipponCareerOpportunity,
   izutsuYatsuhashiOpportunity,
   tsubameDrinkwareOpportunity,

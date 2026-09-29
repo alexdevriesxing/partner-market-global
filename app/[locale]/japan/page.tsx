@@ -164,16 +164,31 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
                 {locale === "ja" ? "注目の新規提携案件：" : "Featured New Opportunities:"}
               </strong>
               <ul style={{ paddingLeft: "18px", marginTop: "8px", fontSize: "0.9rem", lineHeight: "1.5" }}>
+                <li style={{ marginBottom: "8px" }}>
+                  {locale === "ja" ? (
+                    <>
+                      <Link href={`/${locale}/opportunities/celeble-non-alcoholic-sparkling-wine-distribution`} style={{ fontWeight: "700", textDecoration: "underline", color: "var(--primary)" }}>
+                        セレブレ（Celeblé）日本のプレミアム0.00%ノンアルコールスパークリング飲料 世界販売代理店募集
+                      </Link>：富山県・株式会社バランスによる独自発酵製法（脱アルコールではなくアルコール非生成発酵）の0.00%・カフェインゼロ・動物性原料不使用の本格ワインテイスト飲料。フレンチ・イタリアン・和食店での高い採用実績。
+                    </>
+                  ) : (
+                    <>
+                      <Link href={`/${locale}/opportunities/celeble-non-alcoholic-sparkling-wine-distribution`} style={{ fontWeight: "700", textDecoration: "underline", color: "var(--primary)" }}>
+                        Celeblé — Japanese Premium 0.00% Sparkling Beverage Seeking Global Distribution Partners
+                      </Link>: Balance Co., Ltd. (Toyama, Japan) offers an authentic 0.00% alcohol, zero-caffeine, vegan sparkling beverage crafted through proprietary wine-grape fermentation for global importers, fine dining, and HORECA.
+                    </>
+                  )}
+                </li>
                 <li style={{ marginBottom: "6px" }}>
                   {locale === "ja" ? (
                     <>
-                      <Link href={`/${locale}/opportunities/sonic-friends-europe-2027`} style={{ fontWeight: "700", textDecoration: "underline", color: "var(--primary)" }}>
+                      <Link href={`/${locale}/opportunities/sonic-friends-europe-2027`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
                         SONIC &amp; FRIENDS 欧州リテール・流通・卸売パートナーシップ 2027
                       </Link>：セガ発の新規キャラクターシリーズ。2027年春の欧州映画公開ウィンドウに合わせたぬいぐるみ・マスコット・サンリオコラボ商品の欧州展開。
                     </>
                   ) : (
                     <>
-                      <Link href={`/${locale}/opportunities/sonic-friends-europe-2027`} style={{ fontWeight: "700", textDecoration: "underline", color: "var(--primary)" }}>
+                      <Link href={`/${locale}/opportunities/sonic-friends-europe-2027`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
                         SONIC &amp; FRIENDS — European Retail &amp; Distribution Opportunity 2027
                       </Link>: Official SEGA character merchandise positioned around the major 2027 European movie release window and concert tour.
                     </>

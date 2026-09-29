@@ -262,9 +262,10 @@ export function OpportunitySearchFilter({ initialOpportunities, locale }: Props)
       if (sortBy === "name_desc") {
         return (b.title || "").localeCompare(a.title || "");
       }
-      // default: featured first, then fallback to id
-      if (a.slug === "sonic-friends-europe-2027") return -1;
-      if (b.slug === "sonic-friends-europe-2027") return 1;
+      // default: pinned / priority opportunities first (by featuredOrder), then featured, then fallback to id
+      const orderA = a.featuredOrder ?? (a.isPinned ? 0 : a.featured ? 50 : 100);
+      const orderB = b.featuredOrder ?? (b.isPinned ? 0 : b.featured ? 50 : 100);
+      if (orderA !== orderB) return orderA - orderB;
       if (a.featured && !b.featured) return -1;
       if (!a.featured && b.featured) return 1;
       return (a.id || "").localeCompare(b.id || "");

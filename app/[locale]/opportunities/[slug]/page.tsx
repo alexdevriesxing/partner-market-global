@@ -26,7 +26,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const metadata = pageMetadata({
     locale,
     path: `/opportunities/${opportunity.slug}`,
-    title: opportunity.slug === "nippon-career-ultra-thin-meat-slicing"
+    title: opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution"
+      ? "Japanese Premium 0.00% Sparkling Beverage Seeking Global Distribution Partners | Celeblé"
+      : opportunity.slug === "nippon-career-ultra-thin-meat-slicing"
       ? "Nippon Career Industrial Meat Slicers | International Business Opportunity"
       : opportunity.slug === "izutsu-yatsuhashi-kyoto"
       ? "Izutsu Yatsuhashi Kyoto Confectionery Distribution Opportunity | PartnerMarketGlobal"
@@ -37,7 +39,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : opportunity.slug === "yachiyo-mengyo-handa-somen-eu-distribution"
       ? "Yachiyo Mengyo Handa Somen EU Distribution | Partner Market Global"
       : opportunity.title,
-    description: opportunity.slug === "nippon-career-ultra-thin-meat-slicing"
+    description: opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution"
+      ? "Balance Co., Ltd. of Toyama, Japan is seeking qualified international importers, distributors and market-development partners for Celeblé, its premium 0.00% sparkling beverage range."
+      : opportunity.slug === "nippon-career-ultra-thin-meat-slicing"
       ? "Partner Market Global is seeking supermarkets, meat processors, distributors and restaurant groups interested in Nippon Career Industry's Japanese ultra-thin fresh meat slicing technology."
       : opportunity.slug === "izutsu-yatsuhashi-kyoto"
       ? "Explore international distribution and luxury hospitality opportunities for Izutsu Yatsuhashi, Kyoto's legendary confectionery brand established in 1805 with a 180+ day shelf life."
@@ -209,16 +213,28 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
       <Link href={`/${locale}/opportunities`} className="breadcrumb">{t('back')}</Link>
       <section className="detail-shell">
         <article className="detail-main">
-          {opportunity.slug === "izutsu-yatsuhashi-kyoto" ? (
+          {opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution" ? (
+            <div className="celeble-detail-hero">
+              <picture>
+                <source
+                  srcSet="/images/opportunities/celeble/celeble-featured-opportunity-home.webp"
+                  type="image/webp"
+                />
+                <img
+                  className="detail-hero-img"
+                  src="/images/opportunities/celeble/celeble-featured-opportunity-home.webp"
+                  alt="Celeblé Japanese premium 0.00% non-alcoholic sparkling beverage bottle and champagne flute with gourmet food pairings"
+                />
+              </picture>
+            </div>
+          ) : opportunity.slug === "izutsu-yatsuhashi-kyoto" ? (
             <div className="izutsu-detail-hero">
               <picture>
                 <source
-                  media="(max-width: 640px)"
                   srcSet="/images/opportunities/izutsu-yatsuhashi/izutsu-opp-hero-mobile.webp"
                   type="image/webp"
                 />
                 <source
-                  media="(max-width: 1024px)"
                   srcSet="/images/opportunities/izutsu-yatsuhashi/izutsu-opp-hero-tablet.webp"
                   type="image/webp"
                 />
@@ -267,14 +283,20 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                   {isJip && <JIPJapanBadge variant="detail" showLabel={true} />}
                   {opportunity.verificationBadges.map((badge) => <span className="top-badge" key={badge}>✓ {badge}</span>)}
                 </div>
-                <h1>{opportunity.slug === "izutsu-yatsuhashi-kyoto" ? "Izutsu Yatsuhashi — A Taste of Kyoto Since 1805" : opportunity.slug === "nippon-career-ultra-thin-meat-slicing" ? "Nippon Career Industry — Industrial Fresh Meat Slicers & Processing Systems" : opportunity.title}</h1>
-                <p>{opportunity.slug === "izutsu-yatsuhashi-kyoto" ? "A premium Japanese confectionery opportunity for luxury hotels, high-end restaurants, premium cafés, gifting partners and distributors in the United States and Middle East." : opportunity.slug === "nippon-career-ultra-thin-meat-slicing" ? "Direct B2B partner introduction for qualified supermarket groups, meat processors, restaurant chains, and industrial food machinery distributors seeking Japan's leading ultra-thin fresh meat slicing technology." : opportunity.summary}</p>
+                <h1>{opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution" ? "Japanese Premium 0.00% Sparkling Beverage Seeking Global Distribution Partners" : opportunity.slug === "izutsu-yatsuhashi-kyoto" ? "Izutsu Yatsuhashi — A Taste of Kyoto Since 1805" : opportunity.slug === "nippon-career-ultra-thin-meat-slicing" ? "Nippon Career Industry — Industrial Fresh Meat Slicers & Processing Systems" : opportunity.title}</h1>
+                <p>{opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution" ? "Balance Co., Ltd. of Toyama, Japan is seeking qualified international importers, distributors and market-development partners for Celeblé, its premium 0.00% sparkling beverage range." : opportunity.slug === "izutsu-yatsuhashi-kyoto" ? "A premium Japanese confectionery opportunity for luxury hotels, high-end restaurants, premium cafés, gifting partners and distributors in the United States and Middle East." : opportunity.slug === "nippon-career-ultra-thin-meat-slicing" ? "Direct B2B partner introduction for qualified supermarket groups, meat processors, restaurant chains, and industrial food machinery distributors seeking Japan's leading ultra-thin fresh meat slicing technology." : opportunity.summary}</p>
               </div>
               <div className="quick-panel">
                 <strong>{t('interested')}</strong>
                 <p>Send a qualified inquiry to receive more information.</p>
                 <Link className="btn btn-primary full" href={`/${locale}/contact?oppTitle=${encodeURIComponent(opportunity.title)}&oppSlug=${opportunity.slug}&source=${isJip ? "JIP Japan" : "General"}`}>{t('sendInquiry')}</Link>
-                {opportunity.slug === "izutsu-yatsuhashi-kyoto" ? (
+                {opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution" ? (
+                  <>
+                    <a className="btn btn-primary full" href="#inquire">Request Distribution Terms</a>
+                    <a className="btn btn-line full" href="#lineup" style={{ marginTop: 8 }}>View 4-SKU Lineup</a>
+                    <a className="btn btn-line full" href="#market" style={{ marginTop: 8 }}>Restaurant &amp; Market Data</a>
+                  </>
+                ) : opportunity.slug === "izutsu-yatsuhashi-kyoto" ? (
                   <>
                     <a className="btn btn-primary full" href="#inquire">Request Partnership Information</a>
                     <a className="btn btn-line full" href="#products" style={{ marginTop: 8 }}>View Products</a>
@@ -1917,6 +1939,269 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
               </>
             )}
 
+            {/* Custom Rich Sections for Celeblé / Balance Co., Ltd. Japan */}
+            {opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution" && (
+              <>
+                {/* 1. TOP PROMPT BANNER */}
+                <div className="celeble-prompt-banner" style={{ background: "linear-gradient(135deg, #09120e 0%, #101d16 55%, #08100c 100%)", border: "1px solid rgba(16, 185, 129, 0.4)", borderRadius: 14, padding: "24px 28px", color: "#f8fafc", marginBottom: 24, boxShadow: "0 8px 24px rgba(0,0,0,0.25)" }}>
+                  <div>
+                    <span style={{ fontSize: "0.78rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#34d399", display: "inline-block", marginBottom: 6 }}>
+                      ⭐ LEAD GLOBAL OPPORTUNITY • BALANCE CO., LTD. (TOYAMA, JAPAN)
+                    </span>
+                    <h3 style={{ margin: "0 0 8px 0", fontSize: "1.3rem", fontWeight: 700, color: "#ffffff" }}>
+                      Seeking International Beverage Importers, Fine-Dining Distributors &amp; Luxury HORECA Partners
+                    </h3>
+                    <p style={{ margin: "0 0 16px 0", fontSize: "0.92rem", lineHeight: 1.6, color: "#cbd5e1" }}>
+                      Partner Market Global is collaborating with <strong>Balance Co., Ltd.</strong> of Toyama, Japan to appoint qualified national importers, wine &amp; spirits wholesalers, and hospitality distributors for <strong>Celeblé</strong>—Japan&apos;s culinary 0.00% non-alcoholic sparkling beverage.
+                    </p>
+                  </div>
+                  <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                    <a href="#inquire" className="btn btn-primary" style={{ background: "linear-gradient(135deg, #059669, #10b981)", borderColor: "#34d399", padding: "10px 22px", borderRadius: 8, fontWeight: 700 }}>
+                      Request Distribution Terms
+                    </a>
+                    <a href="#lineup" className="btn btn-line" style={{ color: "#34d399", borderColor: "rgba(52, 211, 153, 0.4)", padding: "10px 20px", borderRadius: 8 }}>
+                      View 4-SKU Lineup
+                    </a>
+                    <a href="#market" className="btn btn-line" style={{ color: "#34d399", borderColor: "rgba(52, 211, 153, 0.4)", padding: "10px 20px", borderRadius: 8 }}>
+                      Japan Restaurant Data
+                    </a>
+                  </div>
+                </div>
+
+                {/* 2. THE CULINARY & FERMENTATION ADVANTAGE */}
+                <div className="content-card" style={{ marginTop: 24 }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#059669", fontWeight: 700 }}>PROPRIETARY FERMENTATION INNOVATION</span>
+                  </div>
+                  <h2>Why Celeblé: Authentic Sparkling Wine Taste at 0.00% Alcohol</h2>
+                  <p style={{ lineHeight: 1.65, fontSize: "0.95rem", color: "#334155" }}>
+                    Conventional non-alcoholic wines rely on dealcoholization, a process that removes alcohol after regular winemaking but inherently strips delicate aromatic compounds and frequently leaves detectable residual alcohol (&gt;0.00%). On the other extreme, wine-flavored grape juices are unfermented and heavy with cloying sugars that overpower fine food.
+                  </p>
+                  <p style={{ lineHeight: 1.65, fontSize: "0.95rem", color: "#334155" }}>
+                    <strong>Celeblé solves this culinary challenge:</strong> Using the juice of premium wine-grape varieties, Balance Co., Ltd. ferments the juice using a specialized, proprietary technique that metabolizes sugars and develops natural wine acidity and mouthfeel <em>without producing alcohol</em>. The result is verified <strong>0.00% Alc.</strong>, <strong>0 caffeine</strong>, and zero animal-derived ingredients.
+                  </p>
+
+                  <div style={{ marginTop: 20, borderRadius: 12, overflow: "hidden", border: "1px solid #e2e8f0" }}>
+                    <img
+                      src="/images/opportunities/celeble/celeble-fermentation-chart.webp"
+                      alt="Fermentation Process Comparison: Wine vs. De-Alcoholic Wine vs. Grape Juice vs. Celeblé"
+                      style={{ width: "100%", height: "auto", display: "block" }}
+                    />
+                    <div style={{ padding: "12px 16px", background: "#f8fafc", fontSize: "0.85rem", color: "#64748b" }}>
+                      Figure 1: Proprietary fermentation process comparison from the Balance Co., Ltd. technical briefing deck.
+                    </div>
+                  </div>
+
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16, marginTop: 24 }}>
+                    <div style={{ padding: 16, borderRadius: 10, background: "#f0fdf4", border: "1px solid #bbf7d0" }}>
+                      <strong style={{ color: "#166534", display: "block", marginBottom: 4 }}>0.00% Alcohol Guaranteed</strong>
+                      <span style={{ fontSize: "0.88rem", color: "#15803d", lineHeight: 1.5 }}>
+                        Safe for designated drivers, medical contraindications, expectant mothers, and zero-proof lifestyle consumers.
+                      </span>
+                    </div>
+                    <div style={{ padding: 16, borderRadius: 10, background: "#f0fdf4", border: "1px solid #bbf7d0" }}>
+                      <strong style={{ color: "#166534", display: "block", marginBottom: 4 }}>Zero Caffeine &amp; 100% Vegan</strong>
+                      <span style={{ fontSize: "0.88rem", color: "#15803d", lineHeight: 1.5 }}>
+                        Zero animal-derived ingredients and certified zero caffeine. Respects diverse international cultural and dietary values.
+                      </span>
+                    </div>
+                    <div style={{ padding: 16, borderRadius: 10, background: "#f0fdf4", border: "1px solid #bbf7d0" }}>
+                      <strong style={{ color: "#166534", display: "block", marginBottom: 4 }}>Sommelier-Approved Gastronomy</strong>
+                      <span style={{ fontSize: "0.88rem", color: "#15803d", lineHeight: 1.5 }}>
+                        Crisp acidity and fine sparkling bubbles cleanse the palate and pair seamlessly with multi-course dining.
+                      </span>
+                    </div>
+                    <div style={{ padding: 16, borderRadius: 10, background: "#f0fdf4", border: "1px solid #bbf7d0" }}>
+                      <strong style={{ color: "#166534", display: "block", marginBottom: 4 }}>High HORECA Revenue Lift</strong>
+                      <span style={{ fontSize: "0.88rem", color: "#15803d", lineHeight: 1.5 }}>
+                        Replaces low-margin soft drinks with premium JPY 600–800 (200ml) or JPY 1,000–1,800 (355ml) restaurant drink pricing.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. PRODUCT LINEUP & ASSORTMENT */}
+                <div className="content-card" id="lineup" style={{ marginTop: 24 }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#059669", fontWeight: 700 }}>COMMERCIAL PRODUCT PORTFOLIO</span>
+                  </div>
+                  <h2>Celeblé Product Assortment: 4 Dedicated SKUs</h2>
+                  <p style={{ lineHeight: 1.65, fontSize: "0.95rem", color: "#334155" }}>
+                    Available in two practical bottle formats: the <strong>355ml sharing bottle</strong> (serves 2–3 flutes, ideal for tables, pairings and toasts) and the <strong>200ml personal mini bottle</strong> (serves 1–2 flutes, ideal for solo diners, lunch menus, room service and airline service).
+                  </p>
+
+                  <div style={{ marginBottom: 20, borderRadius: 12, overflow: "hidden", border: "1px solid #e2e8f0" }}>
+                    <img
+                      src="/images/opportunities/celeble/celeble-lineup-bottles.webp"
+                      alt="Celeblé Product Lineup: Blanc, Rose, Dry, and Blanc Mini"
+                      style={{ width: "100%", height: "auto", display: "block" }}
+                    />
+                  </div>
+
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 16 }}>
+                    <div style={{ padding: 18, borderRadius: 12, background: "#ffffff", border: "1px solid #e2e8f0", boxShadow: "0 2px 6px rgba(0,0,0,0.04)" }}>
+                      <div style={{ fontSize: "0.75rem", fontWeight: 800, color: "#059669", textTransform: "uppercase", marginBottom: 4 }}>Flagship SKU</div>
+                      <h3 style={{ margin: "0 0 6px 0", fontSize: "1.1rem" }}>Celeblé Blanc (355ml)</h3>
+                      <p style={{ fontSize: "0.86rem", color: "#64748b", lineHeight: 1.5, margin: "0 0 10px 0" }}>
+                        Recreates the refined palate and fine effervescence of white Champagne. Golden straw tone, refreshing citrus and green apple notes with crisp, lively bubbles.
+                      </p>
+                      <div style={{ fontSize: "0.8rem", color: "#334155", background: "#f8fafc", padding: "6px 10px", borderRadius: 6 }}>
+                        <strong>Format:</strong> 355ml Glass Bottle (2–3 flutes)
+                      </div>
+                    </div>
+
+                    <div style={{ padding: 18, borderRadius: 12, background: "#ffffff", border: "1px solid #e2e8f0", boxShadow: "0 2px 6px rgba(0,0,0,0.04)" }}>
+                      <div style={{ fontSize: "0.75rem", fontWeight: 800, color: "#db2777", textTransform: "uppercase", marginBottom: 4 }}>Celebration SKU</div>
+                      <h3 style={{ margin: "0 0 6px 0", fontSize: "1.1rem" }}>Celeblé Rosé (355ml)</h3>
+                      <p style={{ fontSize: "0.86rem", color: "#64748b", lineHeight: 1.5, margin: "0 0 10px 0" }}>
+                        Vibrant salmon-pink hue with expressive red berry and botanical aromatics. Rounded palate and balanced acidity, excellent for toasts and seafood pairings.
+                      </p>
+                      <div style={{ fontSize: "0.8rem", color: "#334155", background: "#f8fafc", padding: "6px 10px", borderRadius: 6 }}>
+                        <strong>Format:</strong> 355ml Glass Bottle (2–3 flutes)
+                      </div>
+                    </div>
+
+                    <div style={{ padding: 18, borderRadius: 12, background: "#ffffff", border: "1px solid #e2e8f0", boxShadow: "0 2px 6px rgba(0,0,0,0.04)" }}>
+                      <div style={{ fontSize: "0.75rem", fontWeight: 800, color: "#2563eb", textTransform: "uppercase", marginBottom: 4 }}>Gastronomy SKU</div>
+                      <h3 style={{ margin: "0 0 6px 0", fontSize: "1.1rem" }}>Celeblé Dry (355ml)</h3>
+                      <p style={{ fontSize: "0.86rem", color: "#64748b", lineHeight: 1.5, margin: "0 0 10px 0" }}>
+                        Extra-dry profile engineered specifically for multi-course savory dining. Minimal residual sweetness, pronounced minerality and sharp, palate-cleansing finish.
+                      </p>
+                      <div style={{ fontSize: "0.8rem", color: "#334155", background: "#f8fafc", padding: "6px 10px", borderRadius: 6 }}>
+                        <strong>Format:</strong> 355ml Glass Bottle (2–3 flutes)
+                      </div>
+                    </div>
+
+                    <div style={{ padding: 18, borderRadius: 12, background: "#ffffff", border: "1px solid #e2e8f0", boxShadow: "0 2px 6px rgba(0,0,0,0.04)" }}>
+                      <div style={{ fontSize: "0.75rem", fontWeight: 800, color: "#d97706", textTransform: "uppercase", marginBottom: 4 }}>Single-Serve SKU</div>
+                      <h3 style={{ margin: "0 0 6px 0", fontSize: "1.1rem" }}>Celeblé Blanc Mini (200ml)</h3>
+                      <p style={{ fontSize: "0.86rem", color: "#64748b", lineHeight: 1.5, margin: "0 0 10px 0" }}>
+                        Single-serve personal format (1–2 flutes) eliminating open-bottle wastage. Perfect for solo diners, executive lunch menus, mini-bars and in-flight catering.
+                      </p>
+                      <div style={{ fontSize: "0.8rem", color: "#334155", background: "#f8fafc", padding: "6px 10px", borderRadius: 6 }}>
+                        <strong>Format:</strong> 200ml Glass Bottle (1–2 flutes)
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4. RESTAURANT ADOPTION & JAPAN MARKET VALIDATION */}
+                <div className="content-card" id="market" style={{ marginTop: 24 }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#059669", fontWeight: 700 }}>DOMESTIC COMMERCIAL VALIDATION</span>
+                  </div>
+                  <h2>Japan Foodservice Breakdown &amp; Market Growth</h2>
+                  <p style={{ lineHeight: 1.65, fontSize: "0.95rem", color: "#334155" }}>
+                    In Japan&apos;s demanding gastronomic landscape, Celeblé is primarily served across upscale restaurants with dinner checks exceeding JPY 5,000. It enjoys strong sommelier endorsement and high customer repeat rates.
+                  </p>
+
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 20, marginTop: 16 }}>
+                    <div style={{ border: "1px solid #e2e8f0", borderRadius: 12, overflow: "hidden" }}>
+                      <img
+                        src="/images/opportunities/celeble/celeble-foodservice-breakdown.webp"
+                        alt="Celeblé Sales Breakdown by Restaurant Sector"
+                        style={{ width: "100%", height: "auto", display: "block" }}
+                      />
+                      <div style={{ padding: 14, background: "#f8fafc", fontSize: "0.86rem", color: "#475569" }}>
+                        <strong>Sector Distribution:</strong> French dining (38%), Italian (26%), Japanese Washoku (10%), Cafés (8%), Dining Bars (6%), Chinese (4%), Teppanyaki (3%), International &amp; Izakaya (4%).
+                      </div>
+                    </div>
+
+                    <div style={{ border: "1px solid #e2e8f0", borderRadius: 12, overflow: "hidden" }}>
+                      <img
+                        src="/images/opportunities/celeble/celeble-market-trends.webp"
+                        alt="Non-Alcoholic Beverage Market Trends Japan"
+                        style={{ width: "100%", height: "auto", display: "block" }}
+                      />
+                      <div style={{ padding: 14, background: "#f8fafc", fontSize: "0.86rem", color: "#475569" }}>
+                        <strong>Market Trends:</strong> Japanese non-alcoholic market has quadrupled over the last 15 years, with year-round demand peaking during spring hanami, summer dining, and year-end celebrations.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 5. GLOBAL EXPORT VALIDATION */}
+                <div className="content-card" style={{ marginTop: 24 }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#059669", fontWeight: 700 }}>INTERNATIONAL EXPORT TRACK RECORD</span>
+                  </div>
+                  <h2>Proven Export Deliveries Across 7+ Global Territories</h2>
+                  <p style={{ lineHeight: 1.65, fontSize: "0.95rem", color: "#334155" }}>
+                    Balance Co., Ltd. has established ongoing export container shipments to prestigious international dining and luxury retail accounts:
+                  </p>
+
+                  <div style={{ overflowX: "auto", marginTop: 12 }}>
+                    <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.88rem" }}>
+                      <thead>
+                        <tr style={{ background: "#f1f5f9", textAlign: "left" }}>
+                          <th style={{ padding: "10px 14px", borderBottom: "2px solid #cbd5e1" }}>Year</th>
+                          <th style={{ padding: "10px 14px", borderBottom: "2px solid #cbd5e1" }}>Destinations</th>
+                          <th style={{ padding: "10px 14px", borderBottom: "2px solid #cbd5e1" }}>Shipped SKUs &amp; Volumes</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr style={{ borderBottom: "1px solid #e2e8f0" }}>
+                          <td style={{ padding: "10px 14px", fontWeight: 700 }}>2020</td>
+                          <td style={{ padding: "10px 14px" }}>Saudi Arabia</td>
+                          <td style={{ padding: "10px 14px" }}>Blanc 355ml (1,000 bottles), Rosé 355ml (1,000 bottles)</td>
+                        </tr>
+                        <tr style={{ borderBottom: "1px solid #e2e8f0", background: "#f8fafc" }}>
+                          <td style={{ padding: "10px 14px", fontWeight: 700 }}>2021</td>
+                          <td style={{ padding: "10px 14px" }}>Singapore, Taiwan, Saudi Arabia</td>
+                          <td style={{ padding: "10px 14px" }}>Blanc (4,000 bottles), Rosé (4,000 bottles), Dry (200 bottles)</td>
+                        </tr>
+                        <tr style={{ borderBottom: "1px solid #e2e8f0" }}>
+                          <td style={{ padding: "10px 14px", fontWeight: 700 }}>2022</td>
+                          <td style={{ padding: "10px 14px" }}>Saudi Arabia, Singapore, USA, Taiwan</td>
+                          <td style={{ padding: "10px 14px" }}>Blanc (700 bottles), Rosé (1,300 bottles), Dry (400 bottles)</td>
+                        </tr>
+                        <tr style={{ borderBottom: "1px solid #e2e8f0", background: "#f8fafc" }}>
+                          <td style={{ padding: "10px 14px", fontWeight: 700 }}>2023</td>
+                          <td style={{ padding: "10px 14px" }}>Singapore, USA, Guam, Thailand</td>
+                          <td style={{ padding: "10px 14px" }}>Blanc (700 bottles), Rosé (800 bottles), Dry (200 bottles)</td>
+                        </tr>
+                        <tr style={{ borderBottom: "1px solid #e2e8f0" }}>
+                          <td style={{ padding: "10px 14px", fontWeight: 700 }}>2024</td>
+                          <td style={{ padding: "10px 14px" }}>USA, Canada, Guam</td>
+                          <td style={{ padding: "10px 14px" }}>Blanc (1,800 bottles), Rosé (1,200 bottles), Dry (1,400 bottles)</td>
+                        </tr>
+                        <tr style={{ background: "#f0fdf4" }}>
+                          <td style={{ padding: "10px 14px", fontWeight: 700, color: "#166534" }}>2025</td>
+                          <td style={{ padding: "10px 14px", color: "#166534" }}>USA, Taiwan</td>
+                          <td style={{ padding: "10px 14px", color: "#166534", fontWeight: 600 }}>Blanc (2,900 bottles), Rosé (3,200 bottles), Dry (500 bottles) — 6,600 bottles</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* 6. B2B MARKETING & TABLETOP POP */}
+                <div className="content-card" style={{ marginTop: 24 }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#059669", fontWeight: 700 }}>RESTAURANT MERCHANDISING SUPPORT</span>
+                  </div>
+                  <h2>Turnkey Tabletop POP &amp; Menu Integration Materials</h2>
+                  <p style={{ lineHeight: 1.65, fontSize: "0.95rem", color: "#334155" }}>
+                    To ensure rapid sell-through and high product turnover in restaurant dining rooms, Balance Co., Ltd. provides comprehensive point-of-sale display materials:
+                  </p>
+
+                  <div style={{ marginTop: 14, borderRadius: 12, overflow: "hidden", border: "1px solid #e2e8f0" }}>
+                    <img
+                      src="/images/opportunities/celeble/celeble-pop-displays.webp"
+                      alt="Celeblé Table Tents, Posters, and Merchandising Displays"
+                      style={{ width: "100%", height: "auto", display: "block" }}
+                    />
+                  </div>
+
+                  <ul style={{ paddingLeft: 20, fontSize: "0.9rem", color: "#475569", marginTop: 16, lineHeight: 1.6 }}>
+                    <li style={{ marginBottom: 6 }}><strong>Freestanding Table Tents (121mm × 138mm):</strong> Designed for table-level guest engagement, prompting pre-meal toast orders.</li>
+                    <li style={{ marginBottom: 6 }}><strong>A4 Laminated Posters &amp; Menu Inserts:</strong> Highlighting 0.00% alcohol, 0 caffeine, and wine-flavor pairing credentials.</li>
+                    <li style={{ marginBottom: 6 }}><strong>Staff Call &amp; Sommelier Cheat Sheets:</strong> Assisting restaurant floor staff in recommending pairings with course menus.</li>
+                  </ul>
+                </div>
+              </>
+            )}
+
             {/* Custom Rich Sections for Nippon Career Industry Co., Ltd. Japan */}
             {opportunity.slug === "nippon-career-ultra-thin-meat-slicing" && (
               <>
@@ -2690,9 +2975,21 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
               <div className="content-card" id="documents">
                 <h2>{t('documentsAvailable')}</h2>
                 <div className="document-grid">
-                  {opportunity.documentsAvailable.map((document) => (
-                    <div className="document-item" key={document}><span className="pdf-icon">▣</span>{document}</div>
-                  ))}
+                  {opportunity.documentsAvailable.map((document) => {
+                    const isCeleblePdf = opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution" && document.includes("Product Introduction Deck");
+                    return (
+                      <div className="document-item" key={document}>
+                        <span className="pdf-icon">▣</span>
+                        {isCeleblePdf ? (
+                          <a href="/downloads/celeble-product-introduction-balance-co.pdf" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", color: "inherit", fontWeight: 600 }}>
+                            {document} (Download PDF ↗)
+                          </a>
+                        ) : (
+                          document
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>

@@ -6,6 +6,7 @@ import { OpportunityCard } from "@/components/OpportunityCard";
 import { TrustStrip } from "@/components/TrustStrip";
 import { StructuredData } from "@/components/StructuredData";
 import { HeroSectionClient } from "@/components/HeroSectionClient";
+import { FeaturedCelebleHero } from "@/components/FeaturedCelebleHero";
 import { FeaturedJapaneseHero } from "@/components/FeaturedJapaneseHero";
 import { FeaturedIzutsuHero } from "@/components/FeaturedIzutsuHero";
 import { FeaturedNipponHero } from "@/components/FeaturedNipponHero";
@@ -70,14 +71,16 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const tTrust = await getTranslations('trust');
   const tJapanHome = getHomeJapanTranslations(locale);
 
+  const celebleOpp = opportunities.find((o) => o.slug === "celeble-non-alcoholic-sparkling-wine-distribution");
   const nipponOpp = opportunities.find((o) => o.slug === "nippon-career-ultra-thin-meat-slicing");
   const izutsuOpp = opportunities.find((o) => o.slug === "izutsu-yatsuhashi-kyoto");
   const tsubameOpp = opportunities.find((o) => o.slug === "premium-japanese-tsubame-drinkware");
   const sonicOpp = opportunities.find((o) => o.slug === "sonic-friends-europe-2027");
   const yachiyoOpp = opportunities.find((o) => o.slug === "yachiyo-mengyo-handa-somen-eu-distribution");
-  const otherJapan = opportunities.filter((o) => o.originCountry === "Japan" && o.featured && o.slug !== "nippon-career-ultra-thin-meat-slicing" && o.slug !== "izutsu-yatsuhashi-kyoto" && o.slug !== "premium-japanese-tsubame-drinkware" && o.slug !== "sonic-friends-europe-2027" && o.slug !== "yachiyo-mengyo-handa-somen-eu-distribution");
+  const otherJapan = opportunities.filter((o) => o.originCountry === "Japan" && o.featured && o.slug !== "celeble-non-alcoholic-sparkling-wine-distribution" && o.slug !== "nippon-career-ultra-thin-meat-slicing" && o.slug !== "izutsu-yatsuhashi-kyoto" && o.slug !== "premium-japanese-tsubame-drinkware" && o.slug !== "sonic-friends-europe-2027" && o.slug !== "yachiyo-mengyo-handa-somen-eu-distribution");
   
   const japanFeatured = [
+    ...(celebleOpp ? [celebleOpp] : []),
     ...(nipponOpp ? [nipponOpp] : []),
     ...(izutsuOpp ? [izutsuOpp] : []),
     ...(tsubameOpp ? [tsubameOpp] : []),
@@ -89,6 +92,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   
   const nonJapanFeatured = opportunities.filter((o) => o.featured && o.originCountry !== "Japan");
   const globalFeatured = [
+    ...(celebleOpp ? [celebleOpp] : []),
     ...(nipponOpp ? [nipponOpp] : []),
     ...(izutsuOpp ? [izutsuOpp] : []),
     ...(tsubameOpp ? [tsubameOpp] : []),
@@ -127,6 +131,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <>
       <StructuredData data={faqSchema} />
+      <FeaturedCelebleHero locale={locale} />
       <FeaturedNipponHero locale={locale} />
       <FeaturedIzutsuHero locale={locale} />
       <FeaturedJapaneseHero locale={locale} />
