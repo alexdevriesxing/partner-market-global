@@ -100,7 +100,13 @@ export async function onRequestPost(context: EventContext): Promise<Response> {
   // 6. Format Subject & Body
   const isSonic = oppSlug === "sonic-friends-europe-2027" || oppTitle.includes("SONIC");
   const isNippon = oppSlug === "nippon-career-ultra-thin-meat-slicing" || oppTitle.includes("Nippon Career");
-  const subjectPrefix = isSonic
+  const isEiwa = oppSlug === "eiwa-japanese-food-ingredients-global-distribution" || oppTitle.includes("Eiwa");
+  const isKadoya = oppSlug === "kadoya-tai-to-kome-japanese-restaurant-franchise" || oppTitle.includes("Kadoya") || oppTitle.includes("Tai to Kome");
+  const subjectPrefix = isKadoya
+    ? `[KADOYA FRANCHISE ${priorityRating}]`
+    : isEiwa
+    ? `[EIWA HOLDINGS B2B ${priorityRating}]`
+    : isSonic
     ? `[SONIC & FRIENDS 2027 ${priorityRating}]`
     : isNippon
     ? `[NIPPON CAREER B2B ${priorityRating}]`
@@ -155,6 +161,34 @@ export async function onRequestPost(context: EventContext): Promise<Response> {
     textBody += `- Intended Retail Channels: ${sd.intendedChannels || "N/A"}\n`;
     textBody += `- Requested Actions: ${(sd.requests || []).join(", ") || "Line list & pricing"}\n`;
     if (sd.message) textBody += `- Buyer Message: ${sd.message}\n`;
+  }
+
+  if (body.eiwaDetails) {
+    const ed = body.eiwaDetails;
+    textBody += `\nEIWA HOLDINGS QUALIFICATION & PRODUCTS:\n`;
+    textBody += `- Company Type: ${ed.companyType || "N/A"}\n`;
+    textBody += `- Selected Products: ${(ed.interestedProducts || []).join(", ") || "Full Portfolio"}\n`;
+    textBody += `- Intended Territory: ${ed.intendedTerritory || country}\n`;
+    textBody += `- Distribution Channels: ${ed.distributionChannels || "N/A"}\n`;
+    textBody += `- Cold-Chain Capability: ${ed.coldChainCapability || "N/A"}\n`;
+    textBody += `- Import & Regulatory Experience: ${ed.importExperience || "N/A"}\n`;
+    textBody += `- Indicative Volume Capacity: ${ed.indicativeVolume || "N/A"}\n`;
+    if (ed.commercialMessage) textBody += `- Commercial Message: ${ed.commercialMessage}\n`;
+  }
+
+  if (body.kadoyaDetails) {
+    const kd = body.kadoyaDetails;
+    textBody += `\nKADOYA (TAI TO KOME) FRANCHISE QUALIFICATION:\n`;
+    textBody += `- Partnership Type: ${kd.partnershipType || "N/A"}\n`;
+    textBody += `- Current Restaurant Brands: ${kd.currentBrands || "N/A"}\n`;
+    textBody += `- Existing Outlet Count: ${kd.outletCount || "N/A"}\n`;
+    textBody += `- Years Foodservice Experience: ${kd.yearsExperience || "N/A"}\n`;
+    textBody += `- Target Territories: ${kd.targetTerritories || country}\n`;
+    textBody += `- Launch Timeframe: ${kd.launchTimeframe || "N/A"}\n`;
+    textBody += `- Investment Budget: ${kd.investmentBudget || "N/A"}\n`;
+    textBody += `- Prime Real Estate Access: ${kd.realEstateAccess || "N/A"}\n`;
+    if (kd.companyBackground) textBody += `- Expansion Background: ${kd.companyBackground}\n`;
+    if (kd.message) textBody += `- Franchisee Message: ${kd.message}\n`;
   }
 
   textBody += `\nROUTING CONTEXT:\n`;
@@ -231,6 +265,36 @@ export async function onRequestPost(context: EventContext): Promise<Response> {
         <tr><th>Target Channels</th><td>${body.sonicDetails.intendedChannels || "N/A"}</td></tr>
         <tr><th>Specific Requests</th><td><strong>${(body.sonicDetails.requests || []).join(", ") || "Pricing & Specs"}</strong></td></tr>
         ${body.sonicDetails.message ? `<tr><th>Buyer Note</th><td>${body.sonicDetails.message}</td></tr>` : ""}
+      </table>
+      ` : ""}
+
+      ${body.eiwaDetails ? `
+      <div class="section-title">Eiwa Holdings Qualification & Product Selection</div>
+      <table>
+        <tr><th>Company Type</th><td><strong>${body.eiwaDetails.companyType || "N/A"}</strong></td></tr>
+        <tr><th>Selected Products</th><td><strong>${(body.eiwaDetails.interestedProducts || []).join(", ") || "Full Portfolio"}</strong></td></tr>
+        <tr><th>Intended Territory</th><td><strong>${body.eiwaDetails.intendedTerritory || country}</strong></td></tr>
+        <tr><th>Distribution Channels</th><td>${body.eiwaDetails.distributionChannels || "N/A"}</td></tr>
+        <tr><th>Cold-Chain Infrastructure</th><td>${body.eiwaDetails.coldChainCapability || "N/A"}</td></tr>
+        <tr><th>Import / Regulatory Experience</th><td>${body.eiwaDetails.importExperience || "N/A"}</td></tr>
+        <tr><th>Indicative Volume Capacity</th><td>${body.eiwaDetails.indicativeVolume || "N/A"}</td></tr>
+        ${body.eiwaDetails.commercialMessage ? `<tr><th>Commercial Message</th><td>${body.eiwaDetails.commercialMessage}</td></tr>` : ""}
+      </table>
+      ` : ""}
+
+      ${body.kadoyaDetails ? `
+      <div class="section-title">Kadoya (Tai to Kome) Franchise Qualification</div>
+      <table>
+        <tr><th>Partnership Type</th><td><strong>${body.kadoyaDetails.partnershipType || "N/A"}</strong></td></tr>
+        <tr><th>Target Territories</th><td><strong>${body.kadoyaDetails.targetTerritories || country}</strong></td></tr>
+        <tr><th>Current Brands Operated</th><td>${body.kadoyaDetails.currentBrands || "N/A"}</td></tr>
+        <tr><th>Existing Outlets</th><td><strong>${body.kadoyaDetails.outletCount || "N/A"}</strong></td></tr>
+        <tr><th>Foodservice Experience</th><td>${body.kadoyaDetails.yearsExperience || "N/A"} years</td></tr>
+        <tr><th>Preferred Launch Timeframe</th><td>${body.kadoyaDetails.launchTimeframe || "N/A"}</td></tr>
+        <tr><th>Investment Budget</th><td>${body.kadoyaDetails.investmentBudget || "N/A"}</td></tr>
+        <tr><th>Prime Real Estate Access</th><td>${body.kadoyaDetails.realEstateAccess || "N/A"}</td></tr>
+        ${body.kadoyaDetails.companyBackground ? `<tr><th>Expansion Background</th><td>${body.kadoyaDetails.companyBackground}</td></tr>` : ""}
+        ${body.kadoyaDetails.message ? `<tr><th>Applicant Message</th><td>${body.kadoyaDetails.message}</td></tr>` : ""}
       </table>
       ` : ""}
 

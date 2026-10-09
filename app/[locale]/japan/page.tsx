@@ -167,6 +167,36 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
                 <li style={{ marginBottom: "8px" }}>
                   {locale === "ja" ? (
                     <>
+                      <Link href={`/${locale}/opportunities/eiwa-japanese-food-ingredients-global-distribution`} style={{ fontWeight: "700", textDecoration: "underline", color: "var(--primary)" }}>
+                        永和ホールディングス／永和物産 日本の高級食品原料・特産食品 世界販売代理店募集
+                      </Link>：東京都千代田区麹町・食品香料・添加物・機能性原料の専門商社による海外展開。高付加価値の和柑橘精油（柚子・すだち・かぼす・直七）、ハラール対応出汁、オランダ産高濃度オニオン濃縮液（Brix72）、凍眠フローズン寿司、新感覚飲める大福、国産そばの実の国際パートナー募集。
+                    </>
+                  ) : (
+                    <>
+                      <Link href={`/${locale}/opportunities/eiwa-japanese-food-ingredients-global-distribution`} style={{ fontWeight: "700", textDecoration: "underline", color: "var(--primary)" }}>
+                        Eiwa Holdings — Premium Japanese Food Ingredients &amp; Specialty Foods Global Distribution
+                      </Link>: Tokyo-based trading specialist Eiwa Holdings Co., Ltd. / Eiwa Bussan Co., Ltd. is seeking qualified international distributors and importers for Japanese citrus oils (Yuzu, Sudachi, Kabosu, Naoshichi), Halal dashi, Dutch onion concentrate (Brix 72), Tomin frozen sushi, Drinkable Daifuku mochi, and Japanese buckwheat groats.
+                    </>
+                  )}
+                </li>
+                <li style={{ marginBottom: "8px" }}>
+                  {locale === "ja" ? (
+                    <>
+                      <Link href={`/${locale}/opportunities/kadoya-tai-to-kome-japanese-restaurant-franchise`} style={{ fontWeight: "700", textDecoration: "underline", color: "var(--primary)" }}>
+                        かどや（Tai to Kome）愛媛の郷土料理「鯛めし」×「唐揚げ」アジア展開 フランチャイズ・ライセンス募集
+                      </Link>：愛媛県宇和島市で1962年創業、売上約21.5億円・従業員約390名の老舗割烹・外食グループによる海外展開。「熱々土鍋ご飯×黄金出汁×唐揚げフック戦略」で香港・台湾・タイなどアジア市場へ進出。出汁輸出＆標準マニュアルによる職人不要の高収益オペレーション。
+                    </>
+                  ) : (
+                    <>
+                      <Link href={`/${locale}/opportunities/kadoya-tai-to-kome-japanese-restaurant-franchise`} style={{ fontWeight: "700", textDecoration: "underline", color: "var(--primary)" }}>
+                        Kadoya — Bring Authentic Japanese Tai-meshi &amp; Karaage to Asia (Franchise &amp; Licensing)
+                      </Link>: Founded in 1962 in Uwajima, Ehime (~JPY 2.15B net sales, ~390 employees), Kadoya Co., Ltd. presents its international concept &quot;Tai to Kome&quot; (Sea Bream &amp; Rice). Combining clay-pot Tai-meshi, signature golden dashi, and accessible karaage fried chicken for multi-unit restaurant operators across Hong Kong, Taiwan, and Thailand.
+                    </>
+                  )}
+                </li>
+                <li style={{ marginBottom: "8px" }}>
+                  {locale === "ja" ? (
+                    <>
                       <Link href={`/${locale}/opportunities/celeble-non-alcoholic-sparkling-wine-distribution`} style={{ fontWeight: "700", textDecoration: "underline", color: "var(--primary)" }}>
                         セレブレ（Celeblé）日本のプレミアム0.00%ノンアルコールスパークリング飲料 世界販売代理店募集
                       </Link>：富山県・株式会社バランスによる独自発酵製法（脱アルコールではなくアルコール非生成発酵）の0.00%・カフェインゼロ・動物性原料不使用の本格ワインテイスト飲料。フレンチ・イタリアン・和食店での高い採用実績。

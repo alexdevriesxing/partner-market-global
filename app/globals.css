@@ -3451,3 +3451,767 @@ h1, h2, h3 { text-wrap: balance; }
   }
 }
 
+/* ==========================================================================
+   Featured Eiwa Holdings Hero on Homepage (#1 Lead Opportunity)
+   ========================================================================== */
+.featured-hero-eiwa {
+  position: relative;
+  background: linear-gradient(135deg, #06140d 0%, #0c2016 50%, #07150e 100%);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.featured-hero-eiwa::before {
+  content: "";
+  position: absolute;
+  top: -140px;
+  right: -140px;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, rgba(16, 185, 129, 0.14) 40%, transparent 70%);
+  pointer-events: none;
+}
+
+.eiwa-hero-inner {
+  display: grid;
+  grid-template-columns: 1.18fr 0.92fr;
+  gap: 38px;
+  align-items: center;
+  padding: 40px 44px;
+}
+
+.eiwa-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.eiwa-top-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.eiwa-eyebrow {
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #fbbf24;
+}
+
+.eiwa-badge-new {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, #b45309, #d97706);
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.35);
+}
+
+.eiwa-badge-origin {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: rgba(212, 175, 55, 0.14);
+  border: 1px solid rgba(212, 175, 55, 0.38);
+  color: #fef08a;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.eiwa-title {
+  font-size: clamp(28px, 3.3vw, 44px);
+  font-weight: 800;
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.eiwa-title span {
+  background: linear-gradient(135deg, #fef08a 0%, #34d399 60%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.eiwa-subheading {
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: #a7f3d0;
+  font-weight: 500;
+  margin: 0;
+}
+
+.eiwa-description {
+  font-size: 0.95rem;
+  line-height: 1.62;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.eiwa-description strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.eiwa-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 4px 0;
+}
+
+.eiwa-proof-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.eiwa-proof-val {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #fbbf24;
+  letter-spacing: 0.02em;
+}
+
+.eiwa-proof-label {
+  font-size: 0.70rem;
+  color: #94a3b8;
+  line-height: 1.3;
+}
+
+.eiwa-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 2px;
+}
+
+.eiwa-chip {
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+}
+
+.eiwa-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.btn-eiwa-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.4);
+  transition: all 0.2s ease;
+  border: 1px solid #34d399;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.btn-eiwa-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.55);
+  background: #059669;
+  color: #ffffff;
+}
+
+.btn-eiwa-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: #fef08a;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  background: rgba(212, 175, 55, 0.08);
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.btn-eiwa-secondary:hover {
+  background: rgba(212, 175, 55, 0.18);
+  border-color: rgba(212, 175, 55, 0.7);
+  color: #ffffff;
+}
+
+.eiwa-tertiary {
+  margin-top: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.eiwa-tertiary-link {
+  font-size: 0.88rem;
+  color: #34d399;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.15s ease, transform 0.15s ease;
+  text-decoration: none;
+}
+
+.eiwa-tertiary-link:hover {
+  color: #6ee7b7;
+  transform: translateX(3px);
+}
+
+.eiwa-seo-context {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #94a3b8;
+  background: rgba(0, 0, 0, 0.28);
+  border-left: 3px solid #fbbf24;
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.eiwa-hero-media {
+  position: relative;
+}
+
+.eiwa-image-card {
+  display: block;
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+  background: #06140d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.eiwa-image-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 44px rgba(212, 175, 55, 0.35);
+}
+
+.eiwa-hero-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.eiwa-media-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(6, 20, 13, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: #fef08a;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.eiwa-media-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #fbbf24;
+  box-shadow: 0 0 8px #fbbf24;
+}
+
+.eiwa-media-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 16px;
+  background: linear-gradient(180deg, transparent 0%, rgba(6, 20, 13, 0.85) 40%, rgba(6, 20, 13, 0.96) 100%);
+}
+
+.eiwa-media-cta {
+  color: #fef08a;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .eiwa-hero-inner {
+    grid-template-columns: 1fr;
+    padding: 30px 24px;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .eiwa-proof-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Eiwa Detailed Product Section Styles */
+.eiwa-product-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.eiwa-product-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.eiwa-product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
+  padding: 24px;
+}
+
+@media (max-width: 860px) {
+  .eiwa-product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eiwa-cert-table-wrap {
+  overflow-x: auto;
+  margin-top: 16px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.eiwa-cert-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.eiwa-cert-table th {
+  background: #f8fafc;
+  color: #334155;
+  font-weight: 700;
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.eiwa-cert-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: top;
+  color: #1e293b;
+}
+
+.eiwa-cert-table tr:hover td {
+  background: #fcfcfc;
+}
+
+/* ==========================================================================
+   Featured Japanese Opportunity - Kadoya Co., Ltd. (Tai to Kome Franchise)
+   ========================================================================== */
+.featured-hero-kadoya {
+  margin: 18px 0 32px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #140d07 0%, #1f140b 50%, #110b06 100%);
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  box-shadow: 0 20px 48px rgba(20, 13, 7, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-hero-kadoya::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.16) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.kadoya-hero-inner {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr;
+  gap: 36px;
+  align-items: center;
+  padding: 38px 42px;
+}
+
+.kadoya-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.kadoya-top-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.kadoya-eyebrow {
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #fbbf24;
+}
+
+.kadoya-badge-new {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(217, 119, 6, 0.22);
+  color: #fde68a;
+  border: 1px solid rgba(217, 119, 6, 0.5);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.kadoya-badge-origin {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #d1d5db;
+}
+
+.kadoya-title {
+  font-size: 2.15rem;
+  line-height: 1.18;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.kadoya-title span {
+  color: #fbbf24;
+  display: inline-block;
+}
+
+.kadoya-subheading {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  font-weight: 600;
+  color: #fde68a;
+  margin: 0;
+}
+
+.kadoya-description {
+  font-size: 0.93rem;
+  line-height: 1.62;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.kadoya-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.kadoya-proof-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.kadoya-proof-val {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #fbbf24;
+  letter-spacing: 0.04em;
+}
+
+.kadoya-proof-label {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  line-height: 1.3;
+}
+
+.kadoya-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.kadoya-chip {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.kadoya-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.btn-kadoya-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #d97706, #b45309);
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid #f59e0b;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4);
+  transition: all 0.2s ease;
+}
+
+.btn-kadoya-primary:hover {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(217, 119, 6, 0.55);
+}
+
+.btn-kadoya-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fde68a !important;
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  padding: 12px 22px;
+  border-radius: 8px;
+  border: 1px solid rgba(217, 119, 6, 0.4);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-kadoya-secondary:hover {
+  background: rgba(217, 119, 6, 0.18);
+  border-color: #f59e0b;
+  color: #ffffff !important;
+}
+
+.kadoya-tertiary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.84rem;
+}
+
+.kadoya-tertiary-link {
+  color: #fbbf24;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.kadoya-tertiary-link:hover {
+  color: #fef08a;
+  text-decoration: underline;
+}
+
+.kadoya-seo-context {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: #94a3b8;
+  background: rgba(0, 0, 0, 0.28);
+  border-left: 3px solid #fbbf24;
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.kadoya-hero-media {
+  position: relative;
+}
+
+.kadoya-image-card {
+  display: block;
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+  background: #140d07;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.kadoya-image-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 44px rgba(217, 119, 6, 0.35);
+}
+
+.kadoya-hero-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.kadoya-media-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(20, 13, 7, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(217, 119, 6, 0.4);
+  color: #fef08a;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.kadoya-media-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #fbbf24;
+  box-shadow: 0 0 8px #fbbf24;
+}
+
+.kadoya-media-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 16px;
+  background: linear-gradient(180deg, transparent 0%, rgba(20, 13, 7, 0.85) 40%, rgba(20, 13, 7, 0.96) 100%);
+}
+
+.kadoya-media-cta {
+  color: #fef08a;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .kadoya-hero-inner {
+    grid-template-columns: 1fr;
+    padding: 30px 24px;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .kadoya-proof-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Kadoya Opportunity Detail Page Styles */
+.kadoya-detail-hero {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.kadoya-prompt-banner {
+  background: linear-gradient(135deg, #140d07 0%, #22140a 55%, #100a05 100%);
+  border: 1px solid rgba(217, 119, 6, 0.45);
+  border-radius: 14px;
+  padding: 24px 28px;
+  color: #f8fafc;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.kadoya-roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+@media (max-width: 860px) {
+  .kadoya-roadmap-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .kadoya-roadmap-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kadoya-roadmap-step {
+  padding: 16px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.kadoya-step-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #b45309;
+  background: #fef3c7;
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+

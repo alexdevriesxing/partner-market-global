@@ -40,7 +40,25 @@ Commercial model: 100% commission-based. Commission scope, trigger, territory, a
 
 ## Active Featured Commercial Opportunities
 
-### 1. Nippon Career Industry Co., Ltd. — Industrial Ultra-Thin Fresh Meat Slicers & Processing Systems
+### 1. Eiwa Holdings Co., Ltd. / Eiwa Bussan Co., Ltd. — Premium Japanese Food Ingredients & Specialty Foods Global Distribution
+- **Slug**: `eiwa-japanese-food-ingredients-global-distribution`
+- **URL**: https://www.partnermarketglobal.com/en/opportunities/eiwa-japanese-food-ingredients-global-distribution/
+- **Sector**: Food Flavorings & Additives / Japanese Specialty Ingredients / Frozen Food & Confectionery
+- **Category**: Distribution Rights / Import Opportunities / Direct B2B Supply
+- **Origin**: Kojimachi, Chiyoda-ku, Tokyo, Japan (Introduced in partnership with Japan Industrial Promotion - JIP)
+- **Target Markets**: Southeast Asia (Indonesia, Malaysia, Singapore, Thailand, Vietnam, Philippines), Middle East (UAE, Saudi Arabia), North America, Europe, Global
+- **Key Details**: Tokyo-based specialized food trading company presenting a six-category export portfolio: (1) Japanese Citrus Oils (Yuzu, Sudachi, Kabosu, Naoshichi) and Ginger Oil; (2) Halal-certified Japanese Dashi Seasoning for professional foodservice and ramen broth bases; (3) Onion Concentrate Brix 72 (Netherlands origin, imported by Eiwa Bussan, concentrated 12–14:1 via low-temperature vacuum evaporation); (4) Tomin Liquid-Frozen Sushi by Uota (-30°C liquid coolant freezing, platter packs and unagi bowls, strict -18°C cold chain); (5) Drinkable Daifuku by ItWokashi (modern melt-in-the-mouth mochi in 6 gourmet flavors); and (6) Premium Japanese Buckwheat Groats (Sobanomi / Fagopyrum esculentum) rich in dietary fiber and antioxidant rutin. Partner Market Global coordinates qualified B2B trade introductions, technical data sheets, and sample evaluations directly with Eiwa Holdings.
+
+### 2. Kadoya Co., Ltd. (Tai to Kome) — Authentic Japanese Tai-meshi & Karaage Restaurant Franchise & Licensing
+- **Slug**: `kadoya-tai-to-kome-japanese-restaurant-franchise`
+- **URL**: https://www.partnermarketglobal.com/en/opportunities/kadoya-tai-to-kome-japanese-restaurant-franchise/
+- **Sector**: Restaurant Franchise & Licensing / Food & Beverage / Japanese Regional Cuisine
+- **Category**: Franchise Opportunities / Master Franchise Rights / Restaurant Licensing
+- **Origin**: Uwajima, Ehime Prefecture & Tokyo, Japan (Est. 1962, ~JPY 2.15B sales, ~390 employees; in collaboration with Japan Industrial Promotion - JIP)
+- **Target Markets**: Priority: Hong Kong, Taiwan, Thailand (Bangkok); Secondary: Singapore, Indonesia, Malaysia, Philippines, Vietnam
+- **Key Details**: Established 60+ year regional dining operator bringing its international concept "Tai to Kome" (Sea Bream & Rice) to Asia. Built around authentic clay-pot sea bream rice (cooked Matsuyama style) paired with Kadoya's "Karaage Hook Strategy" (crispy Japanese fried chicken) to overcome the subtlety of white fish and drive high-frequency multi-generational and lunch dining. Lean international supply model: proprietary golden dashi concentrate is exported from Japan, while fresh fish, rice, chicken, and produce are sourced locally in host markets. Standardized SOP enables kitchen operations with 2–3 trained local staff per shift without expensive expatriate Japanese master chefs. Flexible formats from 10–20 tsubo express counters to 50+ tsubo flagship restaurants. Stage-gate 4-phase rollout: Pop-up -> Menu Licensing -> Flagship FC -> Master Franchise.
+
+### 3. Nippon Career Industry Co., Ltd. — Industrial Ultra-Thin Fresh Meat Slicers & Processing Systems
 - **Slug**: `nippon-career-ultra-thin-meat-slicing`
 - **URL**: https://www.partnermarketglobal.com/en/opportunities/nippon-career-ultra-thin-meat-slicing/
 - **Sector**: Food Processing Machinery / Industrial Meat Slicing Automation

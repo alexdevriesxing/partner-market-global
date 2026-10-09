@@ -86,6 +86,8 @@ function InquiryFormClient({
   const isSonic = oppSlug === "sonic-friends-europe-2027";
   const isTsubame = oppSlug === "premium-japanese-tsubame-drinkware";
   const isNipponCareer = oppSlug === "nippon-career-ultra-thin-meat-slicing";
+  const isEiwa = oppSlug === "eiwa-japanese-food-ingredients-global-distribution";
+  const isKadoya = oppSlug === "kadoya-tai-to-kome-japanese-restaurant-franchise";
 
   const opportunity = opportunities.find(o => o.slug === oppSlug);
   const originCountry = opportunity?.originCountry || "";
@@ -187,6 +189,32 @@ function InquiryFormClient({
     targetCountryMarket: ""
   });
 
+  const [eiwaFields, setEiwaFields] = useState({
+    jobTitle: "",
+    companyType: "",
+    interestedProducts: [] as string[],
+    intendedTerritory: "",
+    distributionChannels: "",
+    coldChainCapability: "",
+    indicativeVolume: "",
+    importExperience: "",
+    commercialMessage: ""
+  });
+
+  const [kadoyaFields, setKadoyaFields] = useState({
+    jobTitle: "",
+    currentBrands: "",
+    outletCount: "",
+    yearsExperience: "",
+    targetTerritories: "",
+    partnershipType: "",
+    launchTimeframe: "",
+    investmentBudget: "",
+    realEstateAccess: "",
+    companyBackground: "",
+    message: ""
+  });
+
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
@@ -235,6 +263,18 @@ function InquiryFormClient({
         productsOfInterest: exists
           ? prev.productsOfInterest.filter((i) => i !== item)
           : [...prev.productsOfInterest, item]
+      };
+    });
+  };
+
+  const handleEiwaProductToggle = (item: string) => {
+    setEiwaFields((prev) => {
+      const exists = prev.interestedProducts.includes(item);
+      return {
+        ...prev,
+        interestedProducts: exists
+          ? prev.interestedProducts.filter((i) => i !== item)
+          : [...prev.interestedProducts, item]
       };
     });
   };
@@ -338,24 +378,130 @@ function InquiryFormClient({
       }
     }
 
+    if (isEiwa) {
+      leadScore += 20;
+      if (eiwaFields.interestedProducts.length > 0) {
+        leadScore += 15;
+        prioritySignals.push(`Eiwa Products (${eiwaFields.interestedProducts.length} selected)`);
+      }
+      if (["Food Ingredient Distributor", "Food Manufacturer / Industrial Processor", "Japanese Food Importer / Wholesaler", "Japanese Restaurant Chain / Multi-Unit Dining", "Supermarket Chain / Premium Retailer", "Frozen Food / Cold-Chain Logistics Specialist"].includes(eiwaFields.companyType)) {
+        leadScore += 15;
+        prioritySignals.push(`Target Channel (${eiwaFields.companyType})`);
+      }
+      if (eiwaFields.coldChainCapability) {
+        prioritySignals.push(`Cold-Chain: ${eiwaFields.coldChainCapability}`);
+      }
+      if (eiwaFields.intendedTerritory) {
+        prioritySignals.push(`Territory: ${eiwaFields.intendedTerritory}`);
+      }
+    }
+
+    if (isKadoya) {
+      leadScore += 25;
+      if (["Master Franchise (Country / Region)", "Multi-Unit Franchise", "Flagship Franchise Store"].includes(kadoyaFields.partnershipType)) {
+        leadScore += 20;
+        prioritySignals.push(`Partnership (${kadoyaFields.partnershipType})`);
+      }
+      if (["Hong Kong", "Taiwan", "Thailand"].some((m) => (kadoyaFields.targetTerritories || "").toLowerCase().includes(m.toLowerCase()))) {
+        leadScore += 15;
+        prioritySignals.push(`Priority Market (${kadoyaFields.targetTerritories})`);
+      }
+      if (kadoyaFields.outletCount && (kadoyaFields.outletCount.includes("3") || kadoyaFields.outletCount.includes("6") || kadoyaFields.outletCount.includes("16") || kadoyaFields.outletCount.includes("50"))) {
+        leadScore += 15;
+        prioritySignals.push(`Scale: ${kadoyaFields.outletCount}`);
+      }
+      if (kadoyaFields.realEstateAccess && kadoyaFields.realEstateAccess.includes("prime mall")) {
+        leadScore += 10;
+        prioritySignals.push("Prime Mall Access");
+      }
+    }
+
     const priorityRating = leadScore >= 45 ? "HIGH PRIORITY" : leadScore >= 25 ? "MEDIUM PRIORITY" : "STANDARD";
 
     const payload = {
-      opportunity: isTsubame ? "Opportunity: Tsubame Premium Japanese Drinkware" : isNipponCareer ? "Opportunity: Nippon Career Ultra-Thin Meat Slicing" : (oppTitle || (isSonic ? "SONIC & FRIENDS Europe 2027" : "General Opportunity")),
+      opportunity: isKadoya
+        ? "Opportunity: Kadoya Tai to Kome Japanese Restaurant Franchise & Licensing"
+        : isEiwa
+        ? "Opportunity: Eiwa Holdings Japanese Food Ingredients & Specialty Foods"
+        : isTsubame
+        ? "Opportunity: Tsubame Premium Japanese Drinkware"
+        : isNipponCareer
+        ? "Opportunity: Nippon Career Ultra-Thin Meat Slicing"
+        : (oppTitle || (isSonic ? "SONIC & FRIENDS Europe 2027" : "General Opportunity")),
       oppSlug: oppSlug || "general",
-      brand: isTsubame ? "Tsubame Drinkware / Tamahashi" : isNipponCareer ? "Nippon Career Slicer Platform" : (isSonic ? "SONIC & FRIENDS" : opportunity?.brand || "N/A"),
-      principal: isTsubame ? "Tamahashi Corporation / JIP Japan" : isNipponCareer ? "NIPPON CAREER INDUSTRY CO., LTD." : (isSonic ? "Japan Industrial Promotion Inc. (Daiki Fukaura)" : source || "JIP Japan"),
+      brand: isKadoya
+        ? "Kadoya — Tai to Kome (かどや / 鯛と米)"
+        : isEiwa
+        ? "Eiwa Holdings / Eiwa Bussan"
+        : isTsubame
+        ? "Tsubame Drinkware / Tamahashi"
+        : isNipponCareer
+        ? "Nippon Career Slicer Platform"
+        : (isSonic ? "SONIC & FRIENDS" : opportunity?.brand || "N/A"),
+      principal: isKadoya
+        ? "Kadoya Co., Ltd. (via JIP Japan)"
+        : isEiwa
+        ? "Eiwa Holdings Co., Ltd. / Eiwa Bussan Co., Ltd. (via JIP Japan)"
+        : isTsubame
+        ? "Tamahashi Corporation / JIP Japan"
+        : isNipponCareer
+        ? "NIPPON CAREER INDUSTRY CO., LTD."
+        : (isSonic ? "Japan Industrial Promotion Inc. (Daiki Fukaura)" : source || "JIP Japan"),
       contactName: isSonic ? `${sonicFields.firstName} ${sonicFields.lastName}`.trim() : formData.name,
-      jobTitle: isNipponCareer ? (nipponCareerFields.jobTitle || "Commercial Decision Maker") : isTsubame ? (tsubameFields.jobTitle || "Commercial Buyer") : (sonicFields.jobTitle || "Buyer / Decision Maker"),
+      jobTitle: isKadoya
+        ? (kadoyaFields.jobTitle || "Executive / Restaurant Operator")
+        : isEiwa
+        ? (eiwaFields.jobTitle || "Commercial Decision Maker")
+        : isNipponCareer
+        ? (nipponCareerFields.jobTitle || "Commercial Decision Maker")
+        : isTsubame
+        ? (tsubameFields.jobTitle || "Commercial Buyer")
+        : (sonicFields.jobTitle || "Buyer / Decision Maker"),
       company: formData.company,
       email: formData.email,
       phone: formData.phone,
-      country: isNipponCareer && nipponCareerFields.targetCountryMarket ? nipponCareerFields.targetCountryMarket : formData.country,
+      country: isKadoya && kadoyaFields.targetTerritories
+        ? (formData.country || kadoyaFields.targetTerritories)
+        : isEiwa && eiwaFields.intendedTerritory
+        ? (formData.country || eiwaFields.intendedTerritory)
+        : isNipponCareer && nipponCareerFields.targetCountryMarket
+        ? nipponCareerFields.targetCountryMarket
+        : formData.country,
       website: formData.website || "",
-      companyType: isSonic ? sonicFields.companyType : isNipponCareer ? (nipponCareerFields.organisationType || formData.partnerType) : formData.partnerType,
-      activity: isTsubame ? (tsubameFields.marketsServed ? `Markets: ${tsubameFields.marketsServed} | ${formData.activity}` : formData.activity) : isNipponCareer ? (nipponCareerFields.expectedApplication ? `App: ${nipponCareerFields.expectedApplication} | Vol: ${nipponCareerFields.processingVolume || "N/A"} | ${formData.activity}` : formData.activity) : formData.activity,
-      network: isTsubame ? (tsubameFields.estimatedOpportunity ? `Channel/Est: ${tsubameFields.estimatedOpportunity} | ${formData.network}` : formData.network) : formData.network,
-      reason: isTsubame ? (`Products: ${tsubameFields.productsOfInterest.join(", ") || "General"} | Message: ${formData.reason}`) : isNipponCareer ? (`Interest: ${nipponCareerFields.interest || "Commercial Introduction"} | Application: ${nipponCareerFields.expectedApplication || "Ultra-thin slicing"} | Volume: ${nipponCareerFields.processingVolume || "Standard"} | Market: ${nipponCareerFields.targetCountryMarket || formData.country} | Note: ${formData.reason || "I would like Partner Market Global to arrange an introduction regarding Nippon Career Industry."}`) : (isSonic ? sonicFields.requests.join(", ") : formData.reason),
+      companyType: isKadoya
+        ? (kadoyaFields.partnershipType ? `Restaurant Operator (${kadoyaFields.partnershipType})` : formData.partnerType)
+        : isEiwa
+        ? (eiwaFields.companyType || formData.partnerType)
+        : isSonic
+        ? sonicFields.companyType
+        : isNipponCareer
+        ? (nipponCareerFields.organisationType || formData.partnerType)
+        : formData.partnerType,
+      activity: isKadoya
+        ? (`Brands: ${kadoyaFields.currentBrands || "N/A"} | Outlets: ${kadoyaFields.outletCount || "N/A"} | Exp: ${kadoyaFields.yearsExperience || "N/A"} | Real Estate: ${kadoyaFields.realEstateAccess || "N/A"} | ${formData.activity}`)
+        : isEiwa
+        ? (eiwaFields.distributionChannels ? `Channels: ${eiwaFields.distributionChannels} | Cold-Chain: ${eiwaFields.coldChainCapability || "N/A"} | ${formData.activity}` : formData.activity)
+        : isTsubame
+        ? (tsubameFields.marketsServed ? `Markets: ${tsubameFields.marketsServed} | ${formData.activity}` : formData.activity)
+        : isNipponCareer
+        ? (nipponCareerFields.expectedApplication ? `App: ${nipponCareerFields.expectedApplication} | Vol: ${nipponCareerFields.processingVolume || "N/A"} | ${formData.activity}` : formData.activity)
+        : formData.activity,
+      network: isKadoya
+        ? (`Target Territory: ${kadoyaFields.targetTerritories || formData.country} | Timeframe: ${kadoyaFields.launchTimeframe || "N/A"} | Budget: ${kadoyaFields.investmentBudget || "N/A"} | ${formData.network}`)
+        : isEiwa
+        ? (eiwaFields.intendedTerritory ? `Territory: ${eiwaFields.intendedTerritory} | Vol: ${eiwaFields.indicativeVolume || "N/A"} | ${formData.network}` : formData.network)
+        : isTsubame
+        ? (tsubameFields.estimatedOpportunity ? `Channel/Est: ${tsubameFields.estimatedOpportunity} | ${formData.network}` : formData.network)
+        : formData.network,
+      reason: isKadoya
+        ? (`Partnership: ${kadoyaFields.partnershipType || "Standard"} | Background: ${kadoyaFields.companyBackground || "N/A"} | Note: ${formData.reason || kadoyaFields.message || "Franchise inquiry for Kadoya Tai to Kome."}`)
+        : isEiwa
+        ? (`Products: ${eiwaFields.interestedProducts.join(", ") || "Full Portfolio"} | Import Exp: ${eiwaFields.importExperience || "Standard"} | Note: ${formData.reason || eiwaFields.commercialMessage || "Commercial inquiry regarding Eiwa Holdings portfolio."}`)
+        : isTsubame
+        ? (`Products: ${tsubameFields.productsOfInterest.join(", ") || "General"} | Message: ${formData.reason}`)
+        : isNipponCareer
+        ? (`Interest: ${nipponCareerFields.interest || "Commercial Introduction"} | Application: ${nipponCareerFields.expectedApplication || "Ultra-thin slicing"} | Volume: ${nipponCareerFields.processingVolume || "Standard"} | Market: ${nipponCareerFields.targetCountryMarket || formData.country} | Note: ${formData.reason || "I would like Partner Market Global to arrange an introduction regarding Nippon Career Industry."}`)
+        : (isSonic ? sonicFields.requests.join(", ") : formData.reason),
       requirements: formData.requirements,
       leadScore,
       priorityRating,
@@ -366,6 +512,8 @@ function InquiryFormClient({
       ebaraDetails: isEbara ? ebaraFields : undefined,
       tsubameDetails: isTsubame ? tsubameFields : undefined,
       nipponCareerDetails: isNipponCareer ? nipponCareerFields : undefined,
+      eiwaDetails: isEiwa ? eiwaFields : undefined,
+      kadoyaDetails: isKadoya ? kadoyaFields : undefined,
       utmData: utms,
       referrer
     };
@@ -1318,6 +1466,370 @@ function InquiryFormClient({
                 value={nipponCareerFields.processingVolume}
                 onChange={(e) => setNipponCareerFields({ ...nipponCareerFields, processingVolume: e.target.value })}
                 placeholder="e.g. 500 kg daily, 5 metric tons weekly, or multi-facility rollout"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+          </div>
+        )}
+
+        {isEiwa && (
+          <div
+            className="custom-qualifying-fields span-2"
+            style={{
+              gridColumn: "span 2",
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "16px",
+              marginTop: "16px",
+              borderTop: "2px solid #d4af37",
+              paddingTop: "20px"
+            }}
+          >
+            <div
+              className="span-2"
+              style={{
+                gridColumn: "span 2",
+                background: "linear-gradient(135deg, #07170f 0%, #0d2518 100%)",
+                border: "1px solid rgba(212, 175, 55, 0.45)",
+                padding: "16px 20px",
+                borderRadius: "8px",
+                color: "#f8fafc"
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
+                <span style={{ display: "inline-block", width: "8px", height: "8px", borderRadius: "50%", background: "#fbbf24" }}></span>
+                <h3 style={{ margin: 0, fontSize: "1.05rem", fontWeight: "700", color: "#fbbf24" }}>
+                  Eiwa Holdings Co., Ltd. / Eiwa Bussan — Commercial Partner Qualification
+                </h3>
+              </div>
+              <p style={{ margin: 0, fontSize: "0.88rem", color: "#cbd5e1", lineHeight: 1.5 }}>
+                Partner Market Global screens inbound international distribution inquiries and facilitates commercial introductions to Eiwa Holdings and Japan Industrial Promotion (JIP). Complete the qualification criteria below to expedite evaluation.
+              </p>
+            </div>
+
+            <label>
+              Job Title / Decision-Maker Role *
+              <input
+                type="text"
+                required
+                value={eiwaFields.jobTitle}
+                onChange={(e) => setEiwaFields({ ...eiwaFields, jobTitle: e.target.value })}
+                placeholder="e.g. Managing Director, Sourcing Director, Head of Procurement"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+
+            <label>
+              Company Type / Business Model *
+              <select
+                required
+                value={eiwaFields.companyType}
+                onChange={(e) => setEiwaFields({ ...eiwaFields, companyType: e.target.value })}
+                style={{ width: "100%", marginTop: "6px" }}
+              >
+                <option value="">Select company type</option>
+                <option value="Food Ingredient Distributor">Food Ingredient Distributor &amp; Wholesaler</option>
+                <option value="Food Manufacturer / Industrial Processor">Food Manufacturer / Industrial Processor</option>
+                <option value="Japanese Food Importer / Wholesaler">Japanese &amp; Asian Food Importer</option>
+                <option value="Japanese Restaurant Chain / Multi-Unit Dining">Japanese Restaurant Chain / Multi-Unit Dining</option>
+                <option value="Luxury Hotel Group / Airline Catering">Luxury Hotel Group / Airline Catering Concessionaire</option>
+                <option value="Supermarket Chain / Premium Retailer">Supermarket Chain / Gourmet Grocery Buyer</option>
+                <option value="Beverage & Functional Drink Manufacturer">Beverage &amp; Functional Drink Manufacturer</option>
+                <option value="Cosmetics & Personal Care Formulator">Cosmetics &amp; Personal Care Formulator</option>
+                <option value="Frozen Food / Cold-Chain Logistics Specialist">Frozen Food / Cold-Chain Logistics Specialist</option>
+                <option value="Other Commercial Partner">Other Commercial Partner</option>
+              </select>
+            </label>
+
+            <div className="span-2" style={{ gridColumn: "span 2", marginTop: 4 }}>
+              <span style={{ display: "block", fontSize: "0.9rem", fontWeight: 700, marginBottom: 8, color: "var(--foreground, #0f172a)" }}>
+                Interested Product Categories (Select all that apply) *
+              </span>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 10 }}>
+                {[
+                  { id: "citrus_oils", label: "Japanese Citrus Oils (Yuzu, Sudachi, Kabosu, Naoshichi, Ginger)" },
+                  { id: "halal_dashi", label: "Halal Japanese Dashi (Bonito & Kelp Umami Broth)" },
+                  { id: "onion_concentrate", label: "Onion Concentrate Brix 72 (Netherlands Origin)" },
+                  { id: "frozen_sushi", label: "Tomin Frozen Sushi (Platters, Portions, Unagi Bowls)" },
+                  { id: "drinkable_daifuku", label: "Drinkable Daifuku (ItWokashi 6 Flavors)" },
+                  { id: "sobanomi", label: "Japanese Buckwheat Groats / Sobanomi (Superfood)" }
+                ].map((prod) => (
+                  <label
+                    key={prod.id}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 8,
+                      padding: "8px 12px",
+                      background: eiwaFields.interestedProducts.includes(prod.label) ? "rgba(16, 185, 129, 0.1)" : "#f8fafc",
+                      border: eiwaFields.interestedProducts.includes(prod.label) ? "1px solid #10b981" : "1px solid #e2e8f0",
+                      borderRadius: 6,
+                      fontSize: "0.85rem",
+                      cursor: "pointer"
+                    }}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={eiwaFields.interestedProducts.includes(prod.label)}
+                      onChange={() => handleEiwaProductToggle(prod.label)}
+                    />
+                    <span>{prod.label}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <label>
+              Intended Territory / Country Coverage *
+              <input
+                type="text"
+                required
+                value={eiwaFields.intendedTerritory}
+                onChange={(e) => setEiwaFields({ ...eiwaFields, intendedTerritory: e.target.value })}
+                placeholder="e.g. Indonesia, Malaysia, Singapore, Thailand, UAE, Saudi Arabia, USA"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+
+            <label>
+              Existing Channels &amp; Customer Base *
+              <input
+                type="text"
+                required
+                value={eiwaFields.distributionChannels}
+                onChange={(e) => setEiwaFields({ ...eiwaFields, distributionChannels: e.target.value })}
+                placeholder="e.g. 150+ restaurant accounts, 30 supermarket doors, industrial food factories"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+
+            <label>
+              Cold-Chain Capabilities *
+              <select
+                required
+                value={eiwaFields.coldChainCapability}
+                onChange={(e) => setEiwaFields({ ...eiwaFields, coldChainCapability: e.target.value })}
+                style={{ width: "100%", marginTop: "6px" }}
+              >
+                <option value="">Select cold-chain capability</option>
+                <option value="Unbroken -18C Frozen Storage & Fleet">Unbroken -18°C Frozen Storage &amp; Fleet (Sushi-Ready)</option>
+                <option value="Ambient & Chilled (+0 to +4C) Only">Ambient &amp; Chilled (+0°C to +4°C) Only</option>
+                <option value="Third-Party Logistics (3PL) Cold-Chain Partner">Third-Party Logistics (3PL) Cold-Chain Partner</option>
+                <option value="Ambient Only / Not Required for Our Categories">Ambient Only / Not Required for Our Categories</option>
+              </select>
+            </label>
+
+            <label>
+              Import &amp; Regulatory Experience *
+              <select
+                required
+                value={eiwaFields.importExperience}
+                onChange={(e) => setEiwaFields({ ...eiwaFields, importExperience: e.target.value })}
+                style={{ width: "100%", marginTop: "6px" }}
+              >
+                <option value="">Select import experience</option>
+                <option value="Active Licensed Food Importer with Customs Track Record">Active Licensed Food Importer with Customs Track Record</option>
+                <option value="Partnering with Local Licensed Importer of Record">Partnering with Local Licensed Importer of Record</option>
+                <option value="In Process of Securing Import Licenses / BPOM / FDA">In Process of Securing Import Licenses / BPOM / FDA</option>
+                <option value="Domestic Distributor Sourcing Landed Goods">Domestic Distributor Sourcing Landed Goods</option>
+              </select>
+            </label>
+
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              Indicative Volume / Purchase Capacity (Optional)
+              <input
+                type="text"
+                value={eiwaFields.indicativeVolume}
+                onChange={(e) => setEiwaFields({ ...eiwaFields, indicativeVolume: e.target.value })}
+                placeholder="e.g. Initial sample trial, 1 pallet/month, 20ft FCL container quarterly, or drum bulk orders"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+          </div>
+        )}
+
+        {isKadoya && (
+          <div
+            className="custom-qualifying-fields span-2"
+            style={{
+              gridColumn: "span 2",
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "16px",
+              marginTop: "16px",
+              borderTop: "2px solid #d97706",
+              paddingTop: "20px"
+            }}
+          >
+            <div
+              className="span-2"
+              style={{
+                gridColumn: "span 2",
+                background: "linear-gradient(135deg, #180f07 0%, #29180b 100%)",
+                border: "1px solid rgba(217, 119, 6, 0.45)",
+                padding: "16px 20px",
+                borderRadius: "8px",
+                color: "#f8fafc"
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
+                <span style={{ display: "inline-block", width: "8px", height: "8px", borderRadius: "50%", background: "#fbbf24" }}></span>
+                <h3 style={{ margin: 0, fontSize: "1.05rem", fontWeight: "700", color: "#fbbf24" }}>
+                  Kadoya Co., Ltd. — Franchise &amp; Licensing Partner Qualification
+                </h3>
+              </div>
+              <p style={{ margin: 0, fontSize: "0.88rem", color: "#cbd5e1", lineHeight: 1.5 }}>
+                Partner Market Global screens inbound international franchise and restaurant licensing candidates for Kadoya&apos;s &quot;Tai to Kome&quot; concept in partnership with Japan Industrial Promotion (JIP). Complete the operational profile below to expedite evaluation.
+              </p>
+            </div>
+
+            <label>
+              Your Position / Corporate Role *
+              <input
+                type="text"
+                required
+                value={kadoyaFields.jobTitle}
+                onChange={(e) => setKadoyaFields({ ...kadoyaFields, jobTitle: e.target.value })}
+                placeholder="e.g. Managing Director, VP Development, Master Franchisee"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+
+            <label>
+              Preferred Partnership Format *
+              <select
+                required
+                value={kadoyaFields.partnershipType}
+                onChange={(e) => setKadoyaFields({ ...kadoyaFields, partnershipType: e.target.value })}
+                style={{ width: "100%", marginTop: "6px" }}
+              >
+                <option value="">Select partnership format</option>
+                <option value="Master Franchise (Country / Region)">Master Franchise Rights (Country / Regional Exclusivity)</option>
+                <option value="Multi-Unit Franchise">Multi-Unit Franchise Development Agreement</option>
+                <option value="Flagship Franchise Store">Flagship Franchise Store (Single-Market Pilot)</option>
+                <option value="Single-Market Restaurant License">Single-Market Restaurant License</option>
+                <option value="Restaurant Menu License & Dashi Supply">Menu Licensing &amp; Dashi Supply (Existing Restaurant Addition)</option>
+                <option value="Airport / Transit Hub Concession">Airport / Transit Hub Concession</option>
+                <option value="Hotel F&B Brand Integration">Hotel F&amp;B Brand Integration</option>
+                <option value="Strategic Joint Venture / Investment">Strategic Joint Venture / Investment</option>
+              </select>
+            </label>
+
+            <label>
+              Current Restaurant Brands Operated *
+              <input
+                type="text"
+                required
+                value={kadoyaFields.currentBrands}
+                onChange={(e) => setKadoyaFields({ ...kadoyaFields, currentBrands: e.target.value })}
+                placeholder="e.g. 2 Japanese dining concepts, 1 bakery chain, 1 burger franchise"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+
+            <label>
+              Number of Existing Outlets in Operation *
+              <select
+                required
+                value={kadoyaFields.outletCount}
+                onChange={(e) => setKadoyaFields({ ...kadoyaFields, outletCount: e.target.value })}
+                style={{ width: "100%", marginTop: "6px" }}
+              >
+                <option value="">Select outlet scale</option>
+                <option value="1-2 outlets">1 – 2 active outlets</option>
+                <option value="3-5 outlets">3 – 5 active outlets</option>
+                <option value="6-15 outlets">6 – 15 active outlets</option>
+                <option value="16-50 outlets">16 – 50 active outlets</option>
+                <option value="50+ outlets">50+ multi-unit restaurant chain</option>
+                <option value="New investment venture with seasoned operators">New venture with seasoned operators</option>
+              </select>
+            </label>
+
+            <label>
+              Years of Foodservice / Restaurant Experience *
+              <select
+                required
+                value={kadoyaFields.yearsExperience}
+                onChange={(e) => setKadoyaFields({ ...kadoyaFields, yearsExperience: e.target.value })}
+                style={{ width: "100%", marginTop: "6px" }}
+              >
+                <option value="">Select experience level</option>
+                <option value="1-3 years">1 – 3 years</option>
+                <option value="4-7 years">4 – 7 years</option>
+                <option value="8-15 years">8 – 15 years</option>
+                <option value="15+ years">15+ years established enterprise</option>
+              </select>
+            </label>
+
+            <label>
+              Target Expansion Territory / Cities *
+              <input
+                type="text"
+                required
+                value={kadoyaFields.targetTerritories}
+                onChange={(e) => setKadoyaFields({ ...kadoyaFields, targetTerritories: e.target.value })}
+                placeholder="e.g. Hong Kong, Taipei, Bangkok, Singapore, Jakarta"
+                style={{ width: "100%", marginTop: "6px" }}
+              />
+            </label>
+
+            <label>
+              Target Launch Timeframe *
+              <select
+                required
+                value={kadoyaFields.launchTimeframe}
+                onChange={(e) => setKadoyaFields({ ...kadoyaFields, launchTimeframe: e.target.value })}
+                style={{ width: "100%", marginTop: "6px" }}
+              >
+                <option value="">Select launch timeframe</option>
+                <option value="Immediate (0-3 months) / Pop-Up pilot">Immediate (0–3 months) / Pop-Up pilot</option>
+                <option value="Within 3-6 months">Within 3 – 6 months</option>
+                <option value="Within 6-12 months">Within 6 – 12 months</option>
+                <option value="12-24 months strategic pipeline">12 – 24 months strategic pipeline</option>
+              </select>
+            </label>
+
+            <label>
+              Available Investment Budget *
+              <select
+                required
+                value={kadoyaFields.investmentBudget}
+                onChange={(e) => setKadoyaFields({ ...kadoyaFields, investmentBudget: e.target.value })}
+                style={{ width: "100%", marginTop: "6px" }}
+              >
+                <option value="">Select capital allocation</option>
+                <option value="USD 150k - 300k (Express / 10-15 tsubo format)">USD 150k – 300k (Express / 10–15 tsubo format)</option>
+                <option value="USD 300k - 600k (Standard casual dining / 25-35 tsubo)">USD 300k – 600k (Standard casual dining / 25–35 tsubo)</option>
+                <option value="USD 600k - 1.2M (Flagship store / 40-50+ tsubo)">USD 600k – 1.2M (Flagship store / 40–50+ tsubo)</option>
+                <option value="USD 1.2M+ (Multi-unit / Master Franchise rollout)">USD 1.2M+ (Multi-unit / Master Franchise rollout)</option>
+                <option value="Subject to concept sizing and territory review">Subject to concept sizing and territory review</option>
+              </select>
+            </label>
+
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              Prime Real Estate &amp; Commercial Mall Access *
+              <select
+                required
+                value={kadoyaFields.realEstateAccess}
+                onChange={(e) => setKadoyaFields({ ...kadoyaFields, realEstateAccess: e.target.value })}
+                style={{ width: "100%", marginTop: "6px" }}
+              >
+                <option value="">Select real estate capacity</option>
+                <option value="Existing prime mall tenant relationships & secured pipeline">Direct prime mall tenant relationships &amp; secured pipeline</option>
+                <option value="Streetfront retail locations currently owned or leased">Streetfront retail locations currently owned or leased</option>
+                <option value="Airport / transit concession contracts in place">Airport / transit concession contracts in place</option>
+                <option value="Hotel F&B properties available for immediate branding">Hotel F&amp;B properties available for immediate branding</option>
+                <option value="Commercial leasing team ready to secure sites upon agreement">Commercial leasing team ready to secure sites upon agreement</option>
+              </select>
+            </label>
+
+            <label className="span-2" style={{ gridColumn: "span 2" }}>
+              Company F&amp;B Operating Background &amp; Expansion Objectives
+              <textarea
+                rows={3}
+                value={kadoyaFields.companyBackground}
+                onChange={(e) => setKadoyaFields({ ...kadoyaFields, companyBackground: e.target.value })}
+                placeholder="Brief summary of your company's restaurant management infrastructure, commissary kitchen capabilities, and vision for Kadoya Tai to Kome in your market..."
                 style={{ width: "100%", marginTop: "6px" }}
               />
             </label>

@@ -26,7 +26,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const metadata = pageMetadata({
     locale,
     path: `/opportunities/${opportunity.slug}`,
-    title: opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution"
+    title: opportunity.slug === "eiwa-japanese-food-ingredients-global-distribution"
+      ? "Premium Japanese Food Ingredients & Specialty Foods — Global Distribution Partners Wanted | Eiwa Holdings"
+      : opportunity.slug === "kadoya-tai-to-kome-japanese-restaurant-franchise"
+      ? "Bring Authentic Japanese Tai-meshi & Karaage to Asia — Kadoya Franchise & Licensing Partners Wanted | Partner Market Global"
+      : opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution"
       ? "Japanese Premium 0.00% Sparkling Beverage Seeking Global Distribution Partners | Celeblé"
       : opportunity.slug === "nippon-career-ultra-thin-meat-slicing"
       ? "Nippon Career Industrial Meat Slicers | International Business Opportunity"
@@ -39,7 +43,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : opportunity.slug === "yachiyo-mengyo-handa-somen-eu-distribution"
       ? "Yachiyo Mengyo Handa Somen EU Distribution | Partner Market Global"
       : opportunity.title,
-    description: opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution"
+    description: opportunity.slug === "eiwa-japanese-food-ingredients-global-distribution"
+      ? "Discover Japan's finest food ingredients with Eiwa Holdings of Tokyo. Exploring international distribution for Japanese citrus oils, Halal dashi, onion concentrate, Tomin frozen sushi, drinkable daifuku & buckwheat groats."
+      : opportunity.slug === "kadoya-tai-to-kome-japanese-restaurant-franchise"
+      ? "Partner with Kadoya Co., Ltd. (Uwajima, Ehime) to introduce authentic clay-pot sea bream rice (Tai-meshi), rich golden dashi, and signature crispy karaage to Asia. Franchise & restaurant licensing opportunities across Hong Kong, Taiwan, Thailand & Southeast Asia."
+      : opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution"
       ? "Balance Co., Ltd. of Toyama, Japan is seeking qualified international importers, distributors and market-development partners for Celeblé, its premium 0.00% sparkling beverage range."
       : opportunity.slug === "nippon-career-ultra-thin-meat-slicing"
       ? "Partner Market Global is seeking supermarkets, meat processors, distributors and restaurant groups interested in Nippon Career Industry's Japanese ultra-thin fresh meat slicing technology."
@@ -151,6 +159,80 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
     [t('quickFacts.status'), opportunity.status]
   ];
 
+  const eiwaFaqs = [
+    {
+      question: "What products are included in Eiwa Holdings' export portfolio?",
+      answer: "Eiwa Holdings offers six distinct product categories: Japanese citrus oils (Yuzu, Sudachi, Kabosu, Naoshichi, Ginger), Halal-certified Japanese dashi seasoning, Dutch-origin onion concentrate Brix 72 (imported by Eiwa Bussan), Tomin liquid-frozen sushi (platters, packs, unagi bowls), Drinkable Daifuku (ItWokashi modern mochi confectionery in 6 flavours), and premium whole Japanese buckwheat groats (Sobanomi)."
+    },
+    {
+      question: "Are all products in the Eiwa Holdings portfolio Halal-certified?",
+      answer: "No. Halal certification varies by product category. Japanese citrus oils and Japanese dashi are described as Halal in supplier catalogue materials, but specific certifying bodies, certificates, and covered SKUs require confirmation during commercial qualification. The Onion Concentrate Brix 72 (Netherlands origin) currently has unconfirmed Halal status. Tomin Frozen Sushi, Drinkable Daifuku, and Buckwheat Groats do not hold Halal certification."
+    },
+    {
+      question: "Where does the Onion Concentrate Brix 72 originate?",
+      answer: "The Onion Concentrate Brix 72 is produced in the Netherlands and imported into Japan by Eiwa Bussan Co., Ltd. It is concentrated 12–14:1 using low-temperature vacuum evaporation to preserve fresh allium sweetness and aroma. It is not of Japanese domestic origin."
+    },
+    {
+      question: "What freezing technology is used for Tomin Frozen Sushi, and what cold-chain conditions are required?",
+      answer: "The sushi is produced by specialist manufacturer Uota (株式会社魚太) using Tomin liquid freezing technology. By freezing through liquid coolant at approximately -30°C, ice crystals remain microscopic, preventing cellular wall damage and drip loss upon thawing. The product requires strict uninterrupted -18°C or lower cold-chain logistics from Japan to destination."
+    },
+    {
+      question: "Can the Drinkable Daifuku and Sobanomi Buckwheat be certified Kosher or Gluten-Free?",
+      answer: "According to supplier catalogue documentation, Drinkable Daifuku does not hold Kosher or Halal certifications. Whole Japanese Buckwheat Groats (Sobanomi) are inherently gluten-free botanical seeds (Polygonaceae), but commercial guarantees against potential agricultural cross-contact with gluten-containing grains (wheat, barley) must be formally confirmed per batch before retail labelling claims."
+    },
+    {
+      question: "What target partner profiles is Eiwa Holdings seeking?",
+      answer: "Eiwa Holdings is seeking specialist B2B food ingredient distributors, industrial food flavoring/additive companies, Japanese food & HORECA importers, restaurant groups & central kitchens, international hotel chains, airline catering procurement, and premium supermarket/health food buyers."
+    },
+    {
+      question: "Which international geographic markets are prioritized?",
+      answer: "Primary priority markets include Southeast Asia (Indonesia, Malaysia, Singapore, Thailand, Vietnam, Philippines), with secondary evaluation for the Middle East (UAE, Saudi Arabia), North America (USA, Canada), and Europe, subject to import regulatory feasibility and partner qualification."
+    },
+    {
+      question: "How does the commercial introduction and sampling process work through Partner Market Global?",
+      answer: "Partner Market Global screens qualified B2B trade inquiries in partnership with Japan Industrial Promotion (JIP). After initial verification of company credentials, target territory, and cold-chain/import capabilities, qualified buyers receive confidential product technical sheets, export pricing discussions, and test sample coordination directly with Eiwa Holdings' international trade team."
+    }
+  ];
+
+  const kadoyaFaqs = [
+    {
+      question: "What is Tai-meshi, and how do Uwajima and Matsuyama styles differ?",
+      answer: "Tai-meshi is an iconic regional culinary specialty originating from Ehime Prefecture in Shikoku, Japan, centered on Japanese sea bream (tai) and rice. Kadoya specializes in both traditional styles: Uwajima-style Tai-meshi features fresh, sashimi-grade raw sea bream seasoned in a savory egg-yolk and dashi sauce served over hot rice; while Matsuyama-style Tai-meshi features seasoned sea bream cooked together with seasoned rice, traditionally served piping-hot in an earthenware clay pot. For Asian expansion, Kadoya emphasizes the comforting, cooked clay-pot preparation paired with rich golden dashi."
+    },
+    {
+      question: "Why is the 'Karaage Hook Strategy' central to the international concept?",
+      answer: "While sea bream is prized as an exquisite fish in Japan, white fish alone can sometimes be perceived as subtle or unfamiliar by casual international diners. Pairing Kadoya's signature crispy Japanese karaage (fried chicken) with sea bream rice overcomes the plainness of white fish, providing an immediately recognizable, juicy favorite that appeals to children, younger demographics, and families. This ensures high-frequency weekday dining alongside premium clay-pot meals."
+    },
+    {
+      question: "How is the signature golden dashi supplied to overseas restaurants?",
+      answer: "Kadoya exports its proprietary, highly concentrated golden dashi and essential secret seasonings directly from Japan to maintain authentic flavor profiles and brand consistency. Fresh ingredients such as fish, rice, vegetables, and chicken are sourced locally within the target Asian market, dramatically lowering international supply chain costs and import tariffs while ensuring local freshness."
+    },
+    {
+      question: "Can the menu be localized for Asian consumer preferences?",
+      answer: "Yes. Kadoya's international partnership framework explicitly accommodates flavor localization—such as adjusting sweet and savory sauce profiles to suit local palates across Hong Kong, Taiwan, and Thailand—subject to Kadoya's brand guidelines and approval. Regional side dishes and beverage pairings may also be tailored to local dining habits."
+    },
+    {
+      question: "What franchise and licensing formats are available?",
+      answer: "Kadoya offers flexible commercial structures depending on operator capabilities: Single-Market Restaurant Licensing, Flagship Franchise Stores, Multi-Unit Development Agreements, and Master Franchise Rights covering an entire country or region. Additionally, menu licensing (supplying proprietary dashi to existing Japanese restaurant groups) is available as an agile pilot entry."
+    },
+    {
+      question: "Which geographic markets are prioritized for international rollout?",
+      answer: "Primary priority targets specifically designated in Kadoya's international roadmap include Hong Kong, Taiwan, and Thailand. Secondary evaluation markets include Singapore, Indonesia, Malaysia, the Philippines, and Vietnam. Each market is assessed based on local dining preferences, seafood import logistics, and franchise partner track record."
+    },
+    {
+      question: "What are the store format requirements and expected capital investment?",
+      answer: "Store formats range from flexible 10-tsubo (approx. 33 m²) express or food-hall concepts to 50+ tsubo (approx. 165+ m²) flagship full-service dining restaurants. Formats suit shopping malls, high-traffic streetfronts, transit hubs, airports, and hotel restaurants. While the supplier model presents illustrative monthly sales of JPY 7M–10M with a 2–3 year payback, exact kitchen investment, lease terms, and capital expenditure vary by territory and are detailed in confidential franchise documentation."
+    },
+    {
+      question: "Does the concept require hiring expensive Japanese master chefs?",
+      answer: "No. A core operational advantage of Kadoya's international licensing model is operational standardization. Utilizing imported dashi concentrate and comprehensive kitchen SOPs, stores can be operated efficiently by 2–3 trained local kitchen staff per shift without relying on expensive expatriate Japanese master chefs."
+    },
+    {
+      question: "How can qualified restaurant operators and franchise groups apply?",
+      answer: "Interested multi-unit operators and hospitality groups can submit a qualified B2B inquiry through Partner Market Global. Inquiries are screened in collaboration with Japan Industrial Promotion (JIP). Qualified applicants receive the full confidential franchise disclosure package, unit economics, and direct introductory meetings with Kadoya's executive leadership."
+    }
+  ];
+
   const nipponCareerFaqs = [
     {
       question: "Can Nippon Career slicers cut completely fresh and chilled raw meat without pre-freezing?",
@@ -194,7 +276,29 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
     }
   ];
 
-  const faqSchema = opportunity.slug === "nippon-career-ultra-thin-meat-slicing" ? {
+  const faqSchema = opportunity.slug === "eiwa-japanese-food-ingredients-global-distribution" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: eiwaFaqs.map(faq => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer
+      }
+    }))
+  } : opportunity.slug === "kadoya-tai-to-kome-japanese-restaurant-franchise" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: kadoyaFaqs.map(faq => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer
+      }
+    }))
+  } : opportunity.slug === "nippon-career-ultra-thin-meat-slicing" ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: nipponCareerFaqs.map(faq => ({
@@ -213,7 +317,45 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
       <Link href={`/${locale}/opportunities`} className="breadcrumb">{t('back')}</Link>
       <section className="detail-shell">
         <article className="detail-main">
-          {opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution" ? (
+          {opportunity.slug === "eiwa-japanese-food-ingredients-global-distribution" ? (
+            <div className="eiwa-detail-hero">
+              <picture>
+                <source
+                  media="(max-width: 640px)"
+                  srcSet="/images/opportunities/eiwa/eiwa-hero-mobile.webp"
+                  type="image/webp"
+                />
+                <source
+                  srcSet="/images/opportunities/eiwa/eiwa-hero-desktop.webp"
+                  type="image/webp"
+                />
+                <img
+                  className="detail-hero-img"
+                  src="/images/opportunities/eiwa/eiwa-hero-desktop.webp"
+                  alt="Eiwa Holdings Japanese food ingredients, citrus oils, Halal dashi, Dutch onion concentrate Brix 72, Tomin frozen sushi, Drinkable Daifuku, and buckwheat groats"
+                />
+              </picture>
+            </div>
+          ) : opportunity.slug === "kadoya-tai-to-kome-japanese-restaurant-franchise" ? (
+            <div className="kadoya-detail-hero">
+              <picture>
+                <source
+                  media="(max-width: 640px)"
+                  srcSet="/images/opportunities/kadoya/kadoya-hero-mobile.webp"
+                  type="image/webp"
+                />
+                <source
+                  srcSet="/images/opportunities/kadoya/kadoya-hero-desktop.webp"
+                  type="image/webp"
+                />
+                <img
+                  className="detail-hero-img"
+                  src="/images/opportunities/kadoya/kadoya-hero-desktop.webp"
+                  alt="Kadoya Tai to Kome authentic clay pot sea bream rice, golden dashi, and signature karaage Japanese restaurant franchise"
+                />
+              </picture>
+            </div>
+          ) : opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution" ? (
             <div className="celeble-detail-hero">
               <picture>
                 <source
@@ -283,14 +425,26 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                   {isJip && <JIPJapanBadge variant="detail" showLabel={true} />}
                   {opportunity.verificationBadges.map((badge) => <span className="top-badge" key={badge}>✓ {badge}</span>)}
                 </div>
-                <h1>{opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution" ? "Japanese Premium 0.00% Sparkling Beverage Seeking Global Distribution Partners" : opportunity.slug === "izutsu-yatsuhashi-kyoto" ? "Izutsu Yatsuhashi — A Taste of Kyoto Since 1805" : opportunity.slug === "nippon-career-ultra-thin-meat-slicing" ? "Nippon Career Industry — Industrial Fresh Meat Slicers & Processing Systems" : opportunity.title}</h1>
-                <p>{opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution" ? "Balance Co., Ltd. of Toyama, Japan is seeking qualified international importers, distributors and market-development partners for Celeblé, its premium 0.00% sparkling beverage range." : opportunity.slug === "izutsu-yatsuhashi-kyoto" ? "A premium Japanese confectionery opportunity for luxury hotels, high-end restaurants, premium cafés, gifting partners and distributors in the United States and Middle East." : opportunity.slug === "nippon-career-ultra-thin-meat-slicing" ? "Direct B2B partner introduction for qualified supermarket groups, meat processors, restaurant chains, and industrial food machinery distributors seeking Japan's leading ultra-thin fresh meat slicing technology." : opportunity.summary}</p>
+                <h1>{opportunity.slug === "eiwa-japanese-food-ingredients-global-distribution" ? "Discover Japan's Finest Food Ingredients. Bring Them to Your Market." : opportunity.slug === "kadoya-tai-to-kome-japanese-restaurant-franchise" ? "Bring Authentic Japanese Tai-meshi & Karaage to Asia — Kadoya Franchise & Licensing" : opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution" ? "Japanese Premium 0.00% Sparkling Beverage Seeking Global Distribution Partners" : opportunity.slug === "izutsu-yatsuhashi-kyoto" ? "Izutsu Yatsuhashi — A Taste of Kyoto Since 1805" : opportunity.slug === "nippon-career-ultra-thin-meat-slicing" ? "Nippon Career Industry — Industrial Fresh Meat Slicers & Processing Systems" : opportunity.title}</h1>
+                <p>{opportunity.slug === "eiwa-japanese-food-ingredients-global-distribution" ? "Eiwa Holdings and Eiwa Bussan (Tokyo) are exploring international distribution and strategic commercial partnerships for a distinctive portfolio of food ingredients: Japanese citrus oils, Halal dashi, Dutch onion concentrate Brix 72, Tomin liquid-frozen sushi, Drinkable Daifuku, and buckwheat groats." : opportunity.slug === "kadoya-tai-to-kome-japanese-restaurant-franchise" ? "Partner with Kadoya Co., Ltd. (est. 1962, Ehime Prefecture) to introduce authentic clay-pot sea bream rice, rich golden dashi, and signature karaage to Hong Kong, Taiwan, Thailand, and key Asian dining markets." : opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution" ? "Balance Co., Ltd. of Toyama, Japan is seeking qualified international importers, distributors and market-development partners for Celeblé, its premium 0.00% sparkling beverage range." : opportunity.slug === "izutsu-yatsuhashi-kyoto" ? "A premium Japanese confectionery opportunity for luxury hotels, high-end restaurants, premium cafés, gifting partners and distributors in the United States and Middle East." : opportunity.slug === "nippon-career-ultra-thin-meat-slicing" ? "Direct B2B partner introduction for qualified supermarket groups, meat processors, restaurant chains, and industrial food machinery distributors seeking Japan's leading ultra-thin fresh meat slicing technology." : opportunity.summary}</p>
               </div>
               <div className="quick-panel">
                 <strong>{t('interested')}</strong>
                 <p>Send a qualified inquiry to receive more information.</p>
                 <Link className="btn btn-primary full" href={`/${locale}/contact?oppTitle=${encodeURIComponent(opportunity.title)}&oppSlug=${opportunity.slug}&source=${isJip ? "JIP Japan" : "General"}`}>{t('sendInquiry')}</Link>
-                {opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution" ? (
+                {opportunity.slug === "eiwa-japanese-food-ingredients-global-distribution" ? (
+                  <>
+                    <a className="btn btn-primary full" href="#inquire">Request Product Catalog &amp; Terms</a>
+                    <a className="btn btn-line full" href="#eiwa-products" style={{ marginTop: 8 }}>View 6 Product Categories</a>
+                    <a className="btn btn-line full" href="/downloads/eiwa-holdings-export-product-catalog.pdf" download style={{ marginTop: 8 }}>Download Export Catalog (PDF)</a>
+                  </>
+                ) : opportunity.slug === "kadoya-tai-to-kome-japanese-restaurant-franchise" ? (
+                  <>
+                    <a className="btn btn-primary full" href="#inquire">Request Franchise Information</a>
+                    <a className="btn btn-line full" href="#kadoya-concept" style={{ marginTop: 8 }}>View Concept &amp; Menu</a>
+                    <a className="btn btn-line full" href="/downloads/kadoya-tai-to-kome-franchise-presentation.pdf" download style={{ marginTop: 8 }}>Download FC Presentation (PDF)</a>
+                  </>
+                ) : opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution" ? (
                   <>
                     <a className="btn btn-primary full" href="#inquire">Request Distribution Terms</a>
                     <a className="btn btn-line full" href="#lineup" style={{ marginTop: 8 }}>View 4-SKU Lineup</a>
@@ -2943,6 +3097,900 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
               </>
             )}
 
+            {/* Custom Rich Sections for Eiwa Holdings Co., Ltd. / Eiwa Bussan Co., Ltd. */}
+            {opportunity.slug === "eiwa-japanese-food-ingredients-global-distribution" && (
+              <>
+                {/* 1. TOP PROMPT BANNER */}
+                <div style={{
+                  background: "linear-gradient(135deg, #06180f 0%, #0d2e1c 55%, #05140b 100%)",
+                  border: "1px solid rgba(16, 185, 129, 0.45)",
+                  borderRadius: "14px",
+                  padding: "24px 28px",
+                  color: "#f8fafc",
+                  marginBottom: "24px",
+                  boxShadow: "0 8px 24px rgba(0, 0, 0, 0.25)",
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: "18px"
+                }}>
+                  <div style={{ maxWidth: "720px" }}>
+                    <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(16, 185, 129, 0.2)", padding: "4px 10px", borderRadius: "999px", fontSize: "0.76rem", fontWeight: 700, color: "#6ee7b7", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "8px" }}>
+                      <span>🌿</span> FEATURED B2B FOOD INGREDIENTS OPPORTUNITY
+                    </div>
+                    <h3 style={{ margin: "0 0 6px 0", fontSize: "1.35rem", fontWeight: 800, color: "#ffffff" }}>
+                      Interested in Importing or Distributing Eiwa Holdings Food Ingredients?
+                    </h3>
+                    <p style={{ margin: 0, fontSize: "0.92rem", lineHeight: 1.55, color: "#cbd5e1" }}>
+                      Partner Market Global facilitates direct qualified B2B commercial introductions between verified importers, food manufacturers, and restaurant groups with Eiwa Holdings Co., Ltd. / Eiwa Bussan Co., Ltd. in Tokyo, introduced via Japan Industrial Promotion (JIP).
+                    </p>
+                  </div>
+                  <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+                    <a href="#inquire" className="btn btn-primary" style={{ background: "linear-gradient(135deg, #059669, #047857)", borderColor: "#059669" }}>
+                      Request Product Terms
+                    </a>
+                    <a href="/downloads/eiwa-holdings-export-product-catalog.pdf" download className="btn btn-line" style={{ color: "#ffffff", borderColor: "rgba(255,255,255,0.4)" }}>
+                      Download Export Catalog (PDF)
+                    </a>
+                  </div>
+                </div>
+
+                {/* 2. COMPANY PROFILE & SOURCING HERITAGE */}
+                <div className="content-card" id="eiwa-profile" style={{ marginTop: 24 }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#059669", fontWeight: 700 }}>CORPORATE PROFILE &bull; TOKYO, JAPAN</span>
+                  </div>
+                  <h2>Eiwa Holdings &amp; Eiwa Bussan: Tokyo Food Ingredient Specialists</h2>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, alignItems: "start", marginTop: 16 }}>
+                    <div>
+                      <p style={{ lineHeight: 1.65, marginBottom: 14, color: "#334155" }}>
+                        Headquartered in Kojimachi, Chiyoda-ku, Tokyo, <strong>Eiwa Holdings Co., Ltd.</strong> and its trading arm <strong>Eiwa Bussan Co., Ltd.</strong> (official website: <a href="https://www.eiwa-trade.co.jp/" target="_blank" rel="noopener noreferrer" style={{ color: "#059669", fontWeight: 600, textDecoration: "underline" }}>eiwa-trade.co.jp</a>) are specialized Japanese commercial operators supplying food flavorings, additives, functional ingredients, lactic acid bacteria, and international culinary solutions.
+                      </p>
+                      <p style={{ lineHeight: 1.65, marginBottom: 14, color: "#334155" }}>
+                        In collaboration with <strong>Japan Industrial Promotion (JIP)</strong>, Eiwa Holdings is currently developing international distribution partnerships for a carefully curated export portfolio of six commercial product categories. Priority geographical regions include Southeast Asia (Indonesia, Malaysia, Singapore, Thailand, Vietnam, Philippines), with secondary consideration for Middle Eastern, North American, and European markets subject to regulatory matching.
+                      </p>
+                      <p style={{ lineHeight: 1.65, marginBottom: 14, color: "#334155" }}>
+                        Partner Market Global conducts pre-qualification to connect serious commercial importers, industrial food processors, hospitality procurement leaders, and distributor networks with authorized commercial principals at Eiwa Holdings.
+                      </p>
+                    </div>
+                    <div style={{ background: "var(--soft-bg, #f8fafc)", padding: 20, borderRadius: 12, border: "1px solid #e2e8f0" }}>
+                      <h4 style={{ margin: "0 0 12px 0", fontSize: "1rem", color: "#0f172a" }}>Eiwa Holdings At A Glance</h4>
+                      <ul style={{ listStyleType: "none", paddingLeft: 0, margin: 0, fontSize: "0.9rem", lineHeight: 1.8, color: "#334155" }}>
+                        <li>🏢 <strong>Headquarters:</strong> Kojimachi, Chiyoda-ku, Tokyo 102-0083, Japan</li>
+                        <li>🌐 <strong>Official Website:</strong> <a href="https://www.eiwa-trade.co.jp/" target="_blank" rel="noopener noreferrer" style={{ color: "#059669" }}>www.eiwa-trade.co.jp</a></li>
+                        <li>🤝 <strong>Introduction Partner:</strong> Japan Industrial Promotion (JIP)</li>
+                        <li>📦 <strong>Export Portfolio:</strong> 6 Distinct B2B Commercial Product Categories</li>
+                        <li>🌏 <strong>Priority Target Regions:</strong> Southeast Asia, Middle East, Global</li>
+                        <li>⚖️ <strong>Regulatory Integrity:</strong> Clear distinction between domestic Japanese &amp; imported Dutch lines</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="tsubame-stats-row" style={{ marginTop: 24 }}>
+                    <div className="tsubame-stat-box">
+                      <span className="tsubame-stat-val" style={{ color: "#059669" }}>Tokyo HQ</span>
+                      <span className="tsubame-stat-label">Kojimachi, Chiyoda-ku</span>
+                    </div>
+                    <div className="tsubame-stat-box">
+                      <span className="tsubame-stat-val" style={{ color: "#059669" }}>6 Lines</span>
+                      <span className="tsubame-stat-label">Export Categories</span>
+                    </div>
+                    <div className="tsubame-stat-box">
+                      <span className="tsubame-stat-val" style={{ color: "#059669" }}>Brix 72</span>
+                      <span className="tsubame-stat-label">High-Purity Concentrate</span>
+                    </div>
+                    <div className="tsubame-stat-box">
+                      <span className="tsubame-stat-val" style={{ color: "#059669" }}>-30&deg;C Liquid</span>
+                      <span className="tsubame-stat-label">Tomin Ultra-Rapid Freezing</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. SIX CORE PRODUCT CATEGORIES */}
+                <div className="content-card" id="eiwa-products" style={{ marginTop: 24 }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#059669", fontWeight: 700 }}>EXPORT PRODUCT CATALOGUE &bull; JULY 2026</span>
+                  </div>
+                  <h2>The Eiwa Export Portfolio: Six Commercial Product Lines</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 20px 0" }}>
+                    Each category serves distinct culinary and manufacturing sectors, backed by supplier catalogue specifications and verified trade documentation:
+                  </p>
+
+                  {/* Product 1: Japanese Citrus Oils */}
+                  <div className="eiwa-product-card">
+                    <div className="eiwa-product-grid">
+                      <div>
+                        <img
+                          src="/images/opportunities/eiwa/eiwa-citrus-oils.webp"
+                          alt="Authentic Japanese citrus oils Yuzu Sudachi Kabosu Naoshichi bottles and fresh fruit"
+                          style={{ width: "100%", height: "260px", objectFit: "cover", borderRadius: "10px", border: "1px solid #e2e8f0" }}
+                          loading="lazy"
+                        />
+                      </div>
+                      <div>
+                        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "8px" }}>
+                          <span className="mini-badge" style={{ color: "#047857", background: "#ecfdf5", borderColor: "#a7f3d0" }}>Japanese Citrus Line</span>
+                          <span className="mini-badge" style={{ color: "#1e40af", background: "#eff6ff", borderColor: "#bfdbfe" }}>Catalog Halal / Kosher Claim</span>
+                        </div>
+                        <h3 style={{ margin: "0 0 8px 0", fontSize: "1.2rem", color: "#0f172a" }}>
+                          1. Japanese Citrus &amp; Ginger Essential Oils
+                        </h3>
+                        <p style={{ fontSize: "0.9rem", lineHeight: 1.6, color: "#334155", margin: "0 0 12px 0" }}>
+                          Aromatic cold-pressed and steam-distilled essential oils derived from Japan&apos;s most prized regional citrus fruits: <strong>Yuzu</strong>, <strong>Sudachi</strong>, <strong>Kabosu</strong>, and <strong>Naoshichi</strong>, alongside specialty Japanese <strong>Ginger Oil</strong>.
+                        </p>
+                        <div style={{ background: "#f8fafc", padding: "10px 14px", borderRadius: "8px", fontSize: "0.85rem", color: "#475569", marginBottom: "12px", border: "1px solid #e2e8f0" }}>
+                          <strong>Indicative Annual Production Quantities (Supplier Catalog):</strong>
+                          <ul style={{ margin: "6px 0 0 0", paddingLeft: "18px" }}>
+                            <li>Yuzu Oil: ~11,200 kg</li>
+                            <li>Sudachi Oil: ~400 kg | Kabosu Oil: ~300 kg</li>
+                            <li>Naoshichi Oil: ~250 kg | Ginger Oil: ~150 kg</li>
+                          </ul>
+                          <span style={{ fontSize: "0.78rem", color: "#64748b", fontStyle: "italic", display: "block", marginTop: "4px" }}>
+                            *Note: Quantities reflect supplier catalogue figures and require seasonal harvest confirmation.
+                          </span>
+                        </div>
+                        <p style={{ fontSize: "0.88rem", lineHeight: 1.55, color: "#475569", margin: "0 0 8px 0" }}>
+                          <strong>Commercial Applications:</strong> Craft beverages, luxury confectionery, dressings, sauces, high-end perfumery, cosmetics, and fragrance formulation.
+                        </p>
+                        <p style={{ fontSize: "0.82rem", color: "#b45309", background: "#fffbeb", padding: "6px 10px", borderRadius: "6px", border: "1px solid #fde68a", margin: 0 }}>
+                          ⚠️ <em>Certification Notice:</em> The catalogue describes these oils as Halal and Kosher certified. Partner Market Global verifies specific certificates, certifying bodies, and covered SKUs during buyer qualification.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Product 2: Halal Japanese Dashi */}
+                  <div className="eiwa-product-card">
+                    <div className="eiwa-product-grid">
+                      <div>
+                        <img
+                          src="/images/opportunities/eiwa/eiwa-halal-dashi.webp"
+                          alt="Halal Japanese Dashi umami broth seasoning with bonito shavings and kombu kelp"
+                          style={{ width: "100%", height: "260px", objectFit: "cover", borderRadius: "10px", border: "1px solid #e2e8f0" }}
+                          loading="lazy"
+                        />
+                      </div>
+                      <div>
+                        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "8px" }}>
+                          <span className="mini-badge" style={{ color: "#047857", background: "#ecfdf5", borderColor: "#a7f3d0" }}>Authentic Umami</span>
+                          <span className="mini-badge" style={{ color: "#1e40af", background: "#eff6ff", borderColor: "#bfdbfe" }}>Catalog Halal Certified Claim</span>
+                        </div>
+                        <h3 style={{ margin: "0 0 8px 0", fontSize: "1.2rem", color: "#0f172a" }}>
+                          2. Halal Japanese Dashi Seasoning
+                        </h3>
+                        <p style={{ fontSize: "0.9rem", lineHeight: 1.6, color: "#334155", margin: "0 0 12px 0" }}>
+                          Traditional Japanese dashi seasoning engineered to deliver authentic umami depth using classic ingredients such as bonito (katsuo) and kelp (kombu). Formulated specifically to allow professional kitchens and food manufacturers to prepare genuine Japanese culinary bases in compliance with halal dietary requirements.
+                        </p>
+                        <p style={{ fontSize: "0.88rem", lineHeight: 1.55, color: "#475569", margin: "0 0 12px 0" }}>
+                          <strong>Target Commercial Channels:</strong> Japanese restaurant chains in Southeast Asia and the Middle East, foodservice distributors, central kitchen commissaries, noodle broth manufacturing, and institutional catering.
+                        </p>
+                        <p style={{ fontSize: "0.82rem", color: "#b45309", background: "#fffbeb", padding: "6px 10px", borderRadius: "6px", border: "1px solid #fde68a", margin: 0 }}>
+                          ⚠️ <em>Verification Note:</em> The catalogue indicates Halal certification; however, certifying bodies, packaging formats, and covered SKU formulations are confirmed directly with buyers upon formal territory inquiry.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Product 3: Onion Concentrate Brix 72 */}
+                  <div className="eiwa-product-card" style={{ borderLeft: "4px solid #0f766e" }}>
+                    <div className="eiwa-product-grid">
+                      <div>
+                        <img
+                          src="/images/opportunities/eiwa/eiwa-onion-concentrate.webp"
+                          alt="Premium Onion Concentrate Brix 72 thick golden liquid ingredient from Netherlands"
+                          style={{ width: "100%", height: "260px", objectFit: "cover", borderRadius: "10px", border: "1px solid #e2e8f0" }}
+                          loading="lazy"
+                        />
+                      </div>
+                      <div>
+                        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "8px" }}>
+                          <span className="mini-badge" style={{ color: "#0e7490", background: "#ecfeff", borderColor: "#a5f3fc" }}>Netherlands Origin</span>
+                          <span className="mini-badge" style={{ color: "#047857", background: "#ecfdf5", borderColor: "#a7f3d0" }}>Brix 72 High Concentration</span>
+                          <span className="mini-badge" style={{ color: "#6b7280", background: "#f3f4f6", borderColor: "#e5e7eb" }}>Imported by Eiwa Bussan</span>
+                        </div>
+                        <h3 style={{ margin: "0 0 8px 0", fontSize: "1.2rem", color: "#0f172a" }}>
+                          3. Onion Concentrate Brix 72 (Netherlands Origin)
+                        </h3>
+                        <p style={{ fontSize: "0.9rem", lineHeight: 1.6, color: "#334155", margin: "0 0 12px 0" }}>
+                          A premium, viscous concentrated liquid onion ingredient produced using advanced low-temperature vacuum evaporation technology. Approximately <strong>12&ndash;14 kg of fresh onions</strong> are concentrated into <strong>1 kg of finished product</strong> at Brix 72, preserving natural sweetness, aromatic allium volatile compounds, and rich color without scorching or burnt notes.
+                        </p>
+                        <div style={{ background: "#f0fdfa", padding: "10px 14px", borderRadius: "8px", fontSize: "0.85rem", color: "#0f766e", marginBottom: "12px", border: "1px solid #ccfbf1" }}>
+                          <strong>Important Origin &amp; Compliance Statement:</strong>
+                          <div style={{ marginTop: "4px" }}>
+                            This ingredient <strong>originates in the Netherlands</strong> and is imported into Japan by Eiwa Bussan Co., Ltd. It must not be marketed as Japanese domestic origin. Halal certification status is currently unconfirmed and subject to verification.
+                          </div>
+                        </div>
+                        <p style={{ fontSize: "0.88rem", lineHeight: 1.55, color: "#475569", margin: 0 }}>
+                          <strong>Industrial &amp; Culinary Applications:</strong> Curry bases, demi-glace and brown sauces, instant noodle broth pastes, commercial ramen soups, marinades, dressings, and prepared ready-meals.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Product 4: Tomin Frozen Sushi (Uota) */}
+                  <div className="eiwa-product-card">
+                    <div className="eiwa-product-grid">
+                      <div>
+                        <img
+                          src="/images/opportunities/eiwa/eiwa-tomin-frozen-sushi.webp"
+                          alt="Tomin liquid-frozen sushi platters nigiri rolls and unagi bowls by Uota Japan"
+                          style={{ width: "100%", height: "260px", objectFit: "cover", borderRadius: "10px", border: "1px solid #e2e8f0" }}
+                          loading="lazy"
+                        />
+                      </div>
+                      <div>
+                        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "8px" }}>
+                          <span className="mini-badge" style={{ color: "#1e40af", background: "#eff6ff", borderColor: "#bfdbfe" }}>Tomin Liquid-Frozen Tech</span>
+                          <span className="mini-badge" style={{ color: "#047857", background: "#ecfdf5", borderColor: "#a7f3d0" }}>Manufactured by Uota (魚太)</span>
+                          <span className="mini-badge" style={{ color: "#b45309", background: "#fffbeb", borderColor: "#fde68a" }}>Strict -18&deg;C Cold Chain</span>
+                        </div>
+                        <h3 style={{ margin: "0 0 8px 0", fontSize: "1.2rem", color: "#0f172a" }}>
+                          4. Tomin Liquid-Frozen Sushi &amp; Seafood (Manufacturer: Uota)
+                        </h3>
+                        <p style={{ fontSize: "0.9rem", lineHeight: 1.6, color: "#334155", margin: "0 0 12px 0" }}>
+                          Manufactured by specialist Japanese seafood and sushi maker <strong>Uota (株式会社魚太)</strong> utilizing revolutionary <strong>Tomin (凍眠) liquid-freezing technology</strong>. By plunging packaged sushi into liquid coolant at approximately -30&deg;C, freezing occurs up to 20 times faster than blast freezing, preventing large ice crystals from tearing cell walls. Thawed sushi maintains identical mouthfeel, sushi rice fluffiness, and sashimi firmness to freshly rolled sushi.
+                        </p>
+                        <p style={{ fontSize: "0.88rem", lineHeight: 1.55, color: "#475569", margin: "0 0 12px 0" }}>
+                          <strong>Product Lineup:</strong> Frozen sushi party platters, individual retail sushi packs, and premium Japanese unagi (glazed eel) bowls.
+                        </p>
+                        <p style={{ fontSize: "0.82rem", color: "#b45309", background: "#fffbeb", padding: "6px 10px", borderRadius: "6px", border: "1px solid #fde68a", margin: 0 }}>
+                          ⚠️ <em>Cold-Chain &amp; Halal Notice:</em> Requires uninterrupted &le; -18&deg;C frozen cold-chain shipping from Japan to customer. This product line does <strong>not</strong> hold Halal certification.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Product 5: Drinkable Daifuku */}
+                  <div className="eiwa-product-card">
+                    <div className="eiwa-product-grid">
+                      <div>
+                        <img
+                          src="/images/opportunities/eiwa/eiwa-drinkable-daifuku.webp"
+                          alt="Drinkable Daifuku ItWokashi modern Japanese melt-in-mouth mochi confection in 6 flavours"
+                          style={{ width: "100%", height: "260px", objectFit: "cover", borderRadius: "10px", border: "1px solid #e2e8f0" }}
+                          loading="lazy"
+                        />
+                      </div>
+                      <div>
+                        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "8px" }}>
+                          <span className="mini-badge" style={{ color: "#7c3aed", background: "#f5f3ff", borderColor: "#ddd6fe" }}>Modern Wagashi (ItWokashi)</span>
+                          <span className="mini-badge" style={{ color: "#047857", background: "#ecfdf5", borderColor: "#a7f3d0" }}>6 Gourmet Flavours</span>
+                          <span className="mini-badge" style={{ color: "#b45309", background: "#fffbeb", borderColor: "#fde68a" }}>Frozen Storage</span>
+                        </div>
+                        <h3 style={{ margin: "0 0 8px 0", fontSize: "1.2rem", color: "#0f172a" }}>
+                          5. Drinkable Daifuku (Brand: ItWokashi / イトヲカシ)
+                        </h3>
+                        <p style={{ fontSize: "0.9rem", lineHeight: 1.6, color: "#334155", margin: "0 0 12px 0" }}>
+                          An innovative modern reinterpretation of traditional Japanese daifuku mochi created by <strong>ItWokashi (イトヲカシ)</strong>. Featuring an extraordinarily silky, melt-in-the-mouth texture that creates a novel &quot;drinkable&quot; confectionery sensation while preserving classic Japanese confection craftsmanship.
+                        </p>
+                        <p style={{ fontSize: "0.88rem", lineHeight: 1.55, color: "#475569", margin: "0 0 12px 0" }}>
+                          <strong>Flavour Assortment:</strong> Uji Matcha &amp; White Bean, Strawberry &amp; Cream, Yuzu, Roasted Green Tea (Hojicha), Black Sesame, and seasonal releases.
+                        </p>
+                        <p style={{ fontSize: "0.82rem", color: "#64748b", background: "#f8fafc", padding: "6px 10px", borderRadius: "6px", border: "1px solid #e2e8f0", margin: 0 }}>
+                          ℹ️ <em>Specification Note:</em> Shipped frozen; served thawed and chilled. Does not hold Halal or Kosher certification. Suited for premium Japanese cafés, dessert bars, luxury gifting, and department store specialty food halls.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Product 6: Buckwheat Groats */}
+                  <div className="eiwa-product-card">
+                    <div className="eiwa-product-grid">
+                      <div>
+                        <img
+                          src="/images/opportunities/eiwa/eiwa-sobanomi-buckwheat.webp"
+                          alt="Japanese buckwheat groats Sobanomi whole kernels on ceramic dish with soba noodles and plant"
+                          style={{ width: "100%", height: "260px", objectFit: "cover", borderRadius: "10px", border: "1px solid #e2e8f0" }}
+                          loading="lazy"
+                        />
+                      </div>
+                      <div>
+                        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "8px" }}>
+                          <span className="mini-badge" style={{ color: "#854d0e", background: "#fefce8", borderColor: "#fef08a" }}>100% Japanese Origin</span>
+                          <span className="mini-badge" style={{ color: "#047857", background: "#ecfdf5", borderColor: "#a7f3d0" }}>Whole Buckwheat Groats</span>
+                          <span className="mini-badge" style={{ color: "#0e7490", background: "#ecfeff", borderColor: "#a5f3fc" }}>High Dietary Fiber &amp; Rutin</span>
+                        </div>
+                        <h3 style={{ margin: "0 0 8px 0", fontSize: "1.2rem", color: "#0f172a" }}>
+                          6. Japanese Buckwheat Groats (Sobanomi / 蕎麦の実)
+                        </h3>
+                        <p style={{ fontSize: "0.9rem", lineHeight: 1.6, color: "#334155", margin: "0 0 12px 0" }}>
+                          100% Japanese domestically cultivated buckwheat groats (<em>Fagopyrum esculentum</em>). Naturally packed with dietary fiber, plant-based protein, and potent antioxidant rutin (quercetin-3-rutinoside). Celebrated in Japan as a superfood and functional whole grain.
+                        </p>
+                        <p style={{ fontSize: "0.88rem", lineHeight: 1.55, color: "#475569", margin: "0 0 12px 0" }}>
+                          <strong>Culinary Applications:</strong> Simmered together with rice (<em>sobanomi gohan</em>), grain salad bowls, porridge, artisanal soba flour milling, craft brewing adjuncts, and health food toppings.
+                        </p>
+                        <p style={{ fontSize: "0.82rem", color: "#b45309", background: "#fffbeb", padding: "6px 10px", borderRadius: "6px", border: "1px solid #fde68a", margin: 0 }}>
+                          ⚠️ <em>Allergen &amp; Cross-Contact Compliance:</em> While buckwheat is botanically a pseudo-cereal seed and inherently gluten-free, formal commercial gluten-free guarantees against agricultural cross-contact with wheat/barley must be verified per shipment batch. Does not hold Halal or Kosher certification.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4. B2B CERTIFICATION & VERIFICATION MATRIX */}
+                <div className="content-card" style={{ marginTop: 24 }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#059669", fontWeight: 700 }}>TRADE COMPLIANCE DISCLOSURE</span>
+                  </div>
+                  <h2>B2B Certification &amp; Sourcing Verification Matrix</h2>
+                  <p style={{ fontSize: "0.95rem", color: "#475569", margin: "4px 0 16px 0" }}>
+                    Partner Market Global maintains rigorous transparency standards. The table below delineates manufacturer catalogue statements from formal verification requirements:
+                  </p>
+
+                  <div className="eiwa-cert-table-wrap">
+                    <table className="eiwa-cert-table">
+                      <thead>
+                        <tr>
+                          <th>Product Category</th>
+                          <th>Geographic Origin</th>
+                          <th>Supplier Catalog Claims</th>
+                          <th>PMG Verification Requirement</th>
+                          <th>Logistics / Cold Chain</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><strong>Japanese Citrus Oils</strong></td>
+                          <td>Japan</td>
+                          <td>Halal &amp; Kosher certified; annual production figures listed</td>
+                          <td>Certificates, certifying bodies, and covered SKUs to be confirmed during trade match</td>
+                          <td>Ambient / Cool dark storage (tamper-evident bottles/drums)</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Japanese Dashi Seasoning</strong></td>
+                          <td>Japan</td>
+                          <td>Halal certified traditional seasoning</td>
+                          <td>Certifying authority and formulation details to be verified before supply agreement</td>
+                          <td>Ambient dry storage</td>
+                        </tr>
+                        <tr style={{ background: "#f0fdfa" }}>
+                          <td><strong>Onion Concentrate Brix 72</strong></td>
+                          <td><strong>Netherlands</strong> (Imported by Eiwa Bussan)</td>
+                          <td>12&ndash;14:1 low-temp concentration, Brix 72</td>
+                          <td><strong>Must NOT be marketed as Japanese origin</strong>; Halal status unconfirmed</td>
+                          <td>Ambient / Cool storage</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Tomin Frozen Sushi (Uota)</strong></td>
+                          <td>Japan (Produced by Uota)</td>
+                          <td>-30&deg;C Tomin liquid freezing; platters &amp; eel bowls</td>
+                          <td>Not Halal certified</td>
+                          <td>Strict unbroken &le; -18&deg;C frozen cold chain required</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Drinkable Daifuku (ItWokashi)</strong></td>
+                          <td>Japan</td>
+                          <td>6 gourmet flavours, silky melt-in-mouth texture</td>
+                          <td>Not Halal or Kosher certified</td>
+                          <td>Frozen storage (&le; -18&deg;C); thaw and serve chilled</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Sobanomi Buckwheat Groats</strong></td>
+                          <td>Japan</td>
+                          <td>100% domestic Japanese buckwheat; high fiber &amp; rutin</td>
+                          <td>Inherently gluten-free botanic seed; batch cross-contact verification required for GF claims; Not Halal/Kosher</td>
+                          <td>Ambient dry grain storage</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* 5. TARGET PARTNER PROFILES */}
+                <div className="content-card" style={{ marginTop: 24 }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#059669", fontWeight: 700 }}>PARTNERSHIP CRITERIA</span>
+                  </div>
+                  <h2>Target Partner Profiles for Eiwa Holdings Portfolio</h2>
+                  <p style={{ fontSize: "0.95rem", color: "#475569", margin: "4px 0 16px 0" }}>
+                    Eiwa Holdings seeks experienced international business partners across eight core commercial profiles:
+                  </p>
+
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 16 }}>
+                    <div style={{ background: "#ffffff", padding: 16, borderRadius: 10, border: "1px solid #e2e8f0" }}>
+                      <strong style={{ display: "block", color: "#059669", marginBottom: 6 }}>1. Specialty Food Ingredient Distributors</strong>
+                      <span style={{ fontSize: "0.88rem", color: "#475569" }}>Importers supplying natural flavorings, botanical extracts, and concentrated culinary bases to local manufacturers.</span>
+                    </div>
+                    <div style={{ background: "#ffffff", padding: 16, borderRadius: 10, border: "1px solid #e2e8f0" }}>
+                      <strong style={{ display: "block", color: "#059669", marginBottom: 6 }}>2. Beverage &amp; Flavoring Manufacturers</strong>
+                      <span style={{ fontSize: "0.88rem", color: "#475569" }}>Industrial producers seeking authentic Yuzu and citrus oils for craft sodas, RTD teas, and confectionery.</span>
+                    </div>
+                    <div style={{ background: "#ffffff", padding: 16, borderRadius: 10, border: "1px solid #e2e8f0" }}>
+                      <strong style={{ display: "block", color: "#059669", marginBottom: 6 }}>3. Japanese Food &amp; HORECA Importers</strong>
+                      <span style={{ fontSize: "0.88rem", color: "#475569" }}>Distributors supplying authentic Japanese ingredients, dashi, and specialty seasonings to regional dining outlets.</span>
+                    </div>
+                    <div style={{ background: "#ffffff", padding: 16, borderRadius: 10, border: "1px solid #e2e8f0" }}>
+                      <strong style={{ display: "block", color: "#059669", marginBottom: 6 }}>4. Restaurant Chains &amp; Central Kitchens</strong>
+                      <span style={{ fontSize: "0.88rem", color: "#475569" }}>Ramen and Japanese dining groups requiring consistent high-potency onion concentrate and dashi broth bases.</span>
+                    </div>
+                    <div style={{ background: "#ffffff", padding: 16, borderRadius: 10, border: "1px solid #e2e8f0" }}>
+                      <strong style={{ display: "block", color: "#059669", marginBottom: 6 }}>5. Luxury Hotels &amp; High-End Caterers</strong>
+                      <span style={{ fontSize: "0.88rem", color: "#059669" }}>Hospitality properties seeking premium Tomin frozen sushi platters and Drinkable Daifuku for banquets and VIP lounges.</span>
+                    </div>
+                    <div style={{ background: "#ffffff", padding: 16, borderRadius: 10, border: "1px solid #e2e8f0" }}>
+                      <strong style={{ display: "block", color: "#059669", marginBottom: 6 }}>6. Airline Catering Procurement</strong>
+                      <span style={{ fontSize: "0.88rem", color: "#475569" }}>In-flight dining kitchens requiring shelf-stable concentrated flavor ingredients and thaw-stable frozen meal solutions.</span>
+                    </div>
+                    <div style={{ background: "#ffffff", padding: 16, borderRadius: 10, border: "1px solid #e2e8f0" }}>
+                      <strong style={{ display: "block", color: "#059669", marginBottom: 6 }}>7. Premium Supermarkets &amp; Retailers</strong>
+                      <span style={{ fontSize: "0.88rem", color: "#475569" }}>Gourmet grocery chains in Southeast Asia and Middle East seeking innovative Wagashi sweets and Japanese groats.</span>
+                    </div>
+                    <div style={{ background: "#ffffff", padding: 16, borderRadius: 10, border: "1px solid #e2e8f0" }}>
+                      <strong style={{ display: "block", color: "#059669", marginBottom: 6 }}>8. Natural Health &amp; Functional Food Brands</strong>
+                      <span style={{ fontSize: "0.88rem", color: "#475569" }}>Wellness brands seeking authentic Japanese buckwheat groats rich in dietary fiber and antioxidant rutin.</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 6. FIVE-STEP COMMERCIAL PROCESS */}
+                <div className="content-card" style={{ marginTop: 24, borderLeft: "4px solid #059669" }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#059669", fontWeight: 700 }}>PARTNERSHIP ONBOARDING PROTOCOL</span>
+                  </div>
+                  <h2>Five-Step Commercial Introduction Workflow</h2>
+                  <p style={{ fontSize: "0.95rem", color: "#334155", margin: "4px 0 16px 0" }}>
+                    Partner Market Global and Japan Industrial Promotion (JIP) structure introductions via a secure five-step process:
+                  </p>
+
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 14 }}>
+                    <div style={{ background: "#f8fafc", padding: 14, borderRadius: 8, border: "1px solid #e2e8f0" }}>
+                      <span style={{ fontSize: "0.8rem", fontWeight: 800, color: "#059669" }}>STEP 1</span>
+                      <strong style={{ display: "block", fontSize: "0.95rem", margin: "4px 0" }}>B2B Inquiry Screening</strong>
+                      <span style={{ fontSize: "0.82rem", color: "#64748b" }}>Buyer registers interest, specifying target product lines and distribution channel.</span>
+                    </div>
+                    <div style={{ background: "#f8fafc", padding: 14, borderRadius: 8, border: "1px solid #e2e8f0" }}>
+                      <span style={{ fontSize: "0.8rem", fontWeight: 800, color: "#059669" }}>STEP 2</span>
+                      <strong style={{ display: "block", fontSize: "0.95rem", margin: "4px 0" }}>Technical Review</strong>
+                      <span style={{ fontSize: "0.82rem", color: "#64748b" }}>Confidential technical specification sheets, Brix values, and shelf-life data provided.</span>
+                    </div>
+                    <div style={{ background: "#f8fafc", padding: 14, borderRadius: 8, border: "1px solid #e2e8f0" }}>
+                      <span style={{ fontSize: "0.8rem", fontWeight: 800, color: "#059669" }}>STEP 3</span>
+                      <strong style={{ display: "block", fontSize: "0.95rem", margin: "4px 0" }}>Sample Evaluation</strong>
+                      <span style={{ fontSize: "0.82rem", color: "#64748b" }}>Test samples coordinated for sensory tasting, formulation testing, or kitchen trials.</span>
+                    </div>
+                    <div style={{ background: "#f8fafc", padding: 14, borderRadius: 8, border: "1px solid #e2e8f0" }}>
+                      <span style={{ fontSize: "0.8rem", fontWeight: 800, color: "#059669" }}>STEP 4</span>
+                      <strong style={{ display: "block", fontSize: "0.95rem", margin: "4px 0" }}>Compliance &amp; Certs</strong>
+                      <span style={{ fontSize: "0.82rem", color: "#64748b" }}>Import documentation, Halal certificates, and country-specific food labeling aligned.</span>
+                    </div>
+                    <div style={{ background: "#f8fafc", padding: 14, borderRadius: 8, border: "1px solid #e2e8f0" }}>
+                      <span style={{ fontSize: "0.8rem", fontWeight: 800, color: "#059669" }}>STEP 5</span>
+                      <strong style={{ display: "block", fontSize: "0.95rem", margin: "4px 0" }}>Direct Commercial Agreement</strong>
+                      <span style={{ fontSize: "0.82rem", color: "#64748b" }}>Commercial contract and shipment logistics executed directly with Eiwa Holdings in Tokyo.</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 7. FREQUENTLY ASKED QUESTIONS */}
+                <div className="content-card" id="eiwa-faqs" style={{ marginTop: 24 }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#059669", fontWeight: 700 }}>QUESTIONS &amp; ANSWERS</span>
+                  </div>
+                  <h2>Frequently Asked Questions About Eiwa Holdings</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 16px 0" }}>
+                    Detailed answers to common commercial, compliance, and product queries:
+                  </p>
+
+                  <div style={{ marginTop: 16 }}>
+                    {eiwaFaqs.map((faq, idx) => (
+                      <details key={idx} className="nippon-faq-item" open={idx === 0} style={{ borderColor: "#d1fae5" }}>
+                        <summary className="nippon-faq-question" style={{ color: "#065f46" }}>
+                          <span>{idx + 1}. {faq.question}</span>
+                          <span style={{ fontSize: "0.8rem", color: "#64748b" }}>▼</span>
+                        </summary>
+                        <div className="nippon-faq-answer">
+                          {faq.answer}
+                        </div>
+                      </details>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
+
+            {/* Custom Rich Sections for Kadoya Co., Ltd. (Tai to Kome Franchise) */}
+            {opportunity.slug === "kadoya-tai-to-kome-japanese-restaurant-franchise" && (
+              <>
+                {/* 1. TOP PROMPT BANNER */}
+                <div className="kadoya-prompt-banner" style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: "18px"
+                }}>
+                  <div style={{ maxWidth: "720px" }}>
+                    <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(217, 119, 6, 0.25)", padding: "4px 10px", borderRadius: "999px", fontSize: "0.76rem", fontWeight: 700, color: "#fde68a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "8px" }}>
+                      <span>🐟</span> FEATURED RESTAURANT FRANCHISE OPPORTUNITY
+                    </div>
+                    <h3 style={{ margin: "0 0 6px 0", fontSize: "1.35rem", fontWeight: 800, color: "#ffffff" }}>
+                      Bring Kadoya (Tai to Kome) Japanese Restaurant Concept to Your Market
+                    </h3>
+                    <p style={{ margin: 0, fontSize: "0.92rem", lineHeight: 1.55, color: "#cbd5e1" }}>
+                      Partner Market Global facilitates direct qualified introductions between Asian multi-unit restaurant operators, hospitality groups, and master franchise candidates with Kadoya Co., Ltd. of Ehime &amp; Tokyo, introduced via Japan Industrial Promotion (JIP).
+                    </p>
+                  </div>
+                  <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+                    <a href="#inquire" className="btn btn-primary" style={{ background: "linear-gradient(135deg, #d97706, #b45309)", borderColor: "#d97706" }}>
+                      Request Franchise Terms
+                    </a>
+                    <a href="/downloads/kadoya-tai-to-kome-franchise-presentation.pdf" download className="btn btn-line" style={{ color: "#ffffff", borderColor: "rgba(255,255,255,0.4)" }}>
+                      Download FC Presentation (PDF)
+                    </a>
+                  </div>
+                </div>
+
+                {/* 2. COMPANY PROFILE & HERITAGE (UWAJIMA, EHIME) */}
+                <div className="content-card" id="kadoya-heritage" style={{ marginTop: 24 }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(217, 119, 6, 0.12)", border: "1px solid rgba(217, 119, 6, 0.35)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#b45309", fontWeight: 700 }}>FOUNDED 1962 &bull; UWAJIMA, EHIME PREFECTURE</span>
+                  </div>
+                  <h2>Kadoya Co., Ltd.: Over 60 Years of Japanese Regional Culinary Heritage</h2>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, alignItems: "start", marginTop: 16 }}>
+                    <div>
+                      <p style={{ lineHeight: 1.65, marginBottom: 14, color: "#334155" }}>
+                        Founded in <strong>September 1962</strong> in Uwajima City, Ehime Prefecture (Shikoku), <strong>Kadoya Co., Ltd. (株式会社かどや)</strong> (official website: <a href="https://www.kadoya-taimeshi.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#d97706", fontWeight: 600, textDecoration: "underline" }}>kadoya-taimeshi.com</a>) is a revered regional culinary institution famous across Japan for mastercrafting authentic <strong>Tai-meshi (Sea Bream Rice)</strong>.
+                      </p>
+                      <p style={{ lineHeight: 1.65, marginBottom: 14, color: "#334155" }}>
+                        From its coastal Shikoku origins, Kadoya has grown into a major hospitality enterprise generating approximately <strong>JPY 2.15 billion in company net sales</strong> with approximately <strong>390 employees</strong> across multiple full-service restaurants in Ehime and prestigious Tokyo locations—including Matsuyama Airport and prime commercial districts like Toranomon.
+                      </p>
+                      <p style={{ lineHeight: 1.65, marginBottom: 14, color: "#334155" }}>
+                        Introduced through <strong>Japan Industrial Promotion (JIP)</strong>, Kadoya is now launching its international franchise brand <strong>&quot;Tai to Kome&quot; (鯛と米 / Sea Bream &amp; Rice)</strong>, partnering with qualified Asian restaurant groups to bring authentic Ehime sea bream rice and signature karaage to Hong Kong, Taiwan, Thailand, and neighboring markets.
+                      </p>
+                    </div>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                      <img
+                        src="/images/opportunities/kadoya/kadoya-restaurant-dining-room.webp"
+                        alt="Authentic Kadoya Japanese restaurant dining room with warm timber and traditional screens"
+                        style={{ width: "100%", height: "160px", objectFit: "cover", borderRadius: "10px", border: "1px solid #e2e8f0" }}
+                        loading="lazy"
+                      />
+                      <img
+                        src="/images/opportunities/kadoya/kadoya-mall-storefront.webp"
+                        alt="Kadoya restaurant storefront in modern shopping commercial center"
+                        style={{ width: "100%", height: "160px", objectFit: "cover", borderRadius: "10px", border: "1px solid #e2e8f0" }}
+                        loading="lazy"
+                      />
+                      <div style={{ gridColumn: "1 / -1", background: "#fef3c7", padding: "10px 14px", borderRadius: "8px", fontSize: "0.82rem", color: "#92400e" }}>
+                        📌 <em>Company Figures:</em> Net sales (~JPY 2.15B) and staff (~390) reflect Kadoya company-wide operating figures as reported in the July 2026 presentation, not individual store economics.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="tsubame-stats-row" style={{ marginTop: 24 }}>
+                    <div className="tsubame-stat-box">
+                      <span className="tsubame-stat-val" style={{ color: "#d97706" }}>Est. 1962</span>
+                      <span className="tsubame-stat-label">60+ Years Heritage</span>
+                    </div>
+                    <div className="tsubame-stat-box">
+                      <span className="tsubame-stat-val" style={{ color: "#d97706" }}>&yen;2.15 Billion</span>
+                      <span className="tsubame-stat-label">Company Net Sales</span>
+                    </div>
+                    <div className="tsubame-stat-box">
+                      <span className="tsubame-stat-val" style={{ color: "#d97706" }}>Tai to Kome</span>
+                      <span className="tsubame-stat-label">International Concept</span>
+                    </div>
+                    <div className="tsubame-stat-box">
+                      <span className="tsubame-stat-val" style={{ color: "#d97706" }}>2&ndash;3 Staff</span>
+                      <span className="tsubame-stat-label">Lean Kitchen SOP</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. CONCEPT ARCHITECTURE & THE KARAAGE HOOK */}
+                <div className="content-card" id="kadoya-concept" style={{ marginTop: 24 }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(217, 119, 6, 0.12)", border: "1px solid rgba(217, 119, 6, 0.35)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#b45309", fontWeight: 700 }}>THE MENU ARCHITECTURE</span>
+                  </div>
+                  <h2>The &quot;Tai to Kome&quot; Formula: Clay Pot Sea Bream + The Karaage Hook</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 20px 0" }}>
+                    Kadoya solves the classic commercial challenge of international Japanese seafood restaurants through an ingenious dual-pillar culinary proposition:
+                  </p>
+
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 20 }}>
+                    <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 12, overflow: "hidden", display: "flex", flexDirection: "column" }}>
+                      <img
+                        src="/images/opportunities/kadoya/kadoya-authentic-tai-meshi-pot.webp"
+                        alt="Earthenware clay pot steaming sea bream rice Tai-meshi with golden dashi"
+                        style={{ width: "100%", height: "220px", objectFit: "cover" }}
+                        loading="lazy"
+                      />
+                      <div style={{ padding: 18, flexGrow: 1, display: "flex", flexDirection: "column" }}>
+                        <span className="mini-badge" style={{ color: "#b45309", background: "#fef3c7", borderColor: "#fde68a", alignSelf: "flex-start", marginBottom: 8 }}>Pillar 1: The Gourmet Anchor</span>
+                        <h3 style={{ margin: "0 0 8px 0", fontSize: "1.15rem", color: "#0f172a" }}>Authentic Clay-Pot Sea Bream Rice (Tai-meshi)</h3>
+                        <p style={{ fontSize: "0.88rem", lineHeight: 1.6, color: "#475569", margin: "0 0 12px 0" }}>
+                          Piping-hot earthenware clay pot rice infused with seasoned broth and crowned with succulent sea bream. Diners enjoy the interactive Japanese ritual: tasting the delicate fish and seasoned rice first, followed by pouring steaming golden dashi broth to create a rich *dashi-chazuke*.
+                        </p>
+                        <div style={{ marginTop: "auto", fontSize: "0.82rem", color: "#0f766e", fontWeight: 600 }}>
+                          ✓ High perceived value &bull; Premium dinner check averages &bull; Authentic visual theatre
+                        </div>
+                      </div>
+                    </div>
+
+                    <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 12, overflow: "hidden", display: "flex", flexDirection: "column" }}>
+                      <img
+                        src="/images/opportunities/kadoya/kadoya-signature-karaage.webp"
+                        alt="Crispy golden Japanese fried chicken karaage with lemon garnish"
+                        style={{ width: "100%", height: "220px", objectFit: "cover" }}
+                        loading="lazy"
+                      />
+                      <div style={{ padding: 18, flexGrow: 1, display: "flex", flexDirection: "column" }}>
+                        <span className="mini-badge" style={{ color: "#15803d", background: "#f0fdf4", borderColor: "#bbf7d0", alignSelf: "flex-start", marginBottom: 8 }}>Pillar 2: The Karaage Hook</span>
+                        <h3 style={{ margin: "0 0 8px 0", fontSize: "1.15rem", color: "#0f172a" }}>Signature Crispy Japanese Karaage</h3>
+                        <p style={{ fontSize: "0.88rem", lineHeight: 1.6, color: "#475569", margin: "0 0 12px 0" }}>
+                          While white fish can occasionally be perceived as subtle or plain by casual international diners, Kadoya&apos;s signature ultra-crispy karaage provides an instantly craveable, high-frequency favorite. It drives strong family dining, attracts younger guests, and guarantees high weekday lunch footfall.
+                        </p>
+                        <div style={{ marginTop: "auto", fontSize: "0.82rem", color: "#0f766e", fontWeight: 600 }}>
+                          ✓ High-frequency repeat visits &bull; Low food cost &bull; Broad multi-generational appeal
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4. REGIONAL TAI-MESHI CULINARY DISTINCTION */}
+                <div className="content-card" style={{ marginTop: 24 }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(217, 119, 6, 0.12)", border: "1px solid rgba(217, 119, 6, 0.35)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#b45309", fontWeight: 700 }}>CULINARY TRADITION EXPLAINED</span>
+                  </div>
+                  <h2>The Two Styles of Ehime Tai-meshi: Uwajima vs. Matsuyama</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 16px 0" }}>
+                    Ehime Prefecture is unique in Japan for boasting two distinct cultural preparations of sea bream rice. Kadoya has mastered both:
+                  </p>
+
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 18 }}>
+                    <div style={{ background: "#f8fafc", padding: 18, borderRadius: 10, border: "1px solid #e2e8f0" }}>
+                      <h4 style={{ margin: "0 0 8px 0", color: "#0f172a", fontSize: "1.05rem" }}>1. Uwajima-Style Tai-meshi (Raw Sashimi Style)</h4>
+                      <p style={{ fontSize: "0.88rem", lineHeight: 1.6, color: "#334155", margin: "0 0 10px 0" }}>
+                        Originating from the seafaring fishermen of Uwajima Bay. Fresh, sashimi-grade raw sea bream slices are steeped in a savory sauce whisked with raw egg yolk, soy, mirin, and dashi, then poured over a bowl of hot steamed white rice with seaweed and sesame.
+                      </p>
+                      <span style={{ fontSize: "0.82rem", color: "#64748b", fontStyle: "italic" }}>
+                        A revered culinary delicacy, celebrated across gourmet dining circles in Tokyo and Ehime.
+                      </span>
+                    </div>
+
+                    <div style={{ background: "#fef3c7", padding: 18, borderRadius: 10, border: "1px solid #fde68a" }}>
+                      <h4 style={{ margin: "0 0 8px 0", color: "#92400e", fontSize: "1.05rem" }}>2. Matsuyama-Style Tai-meshi (Clay Pot Cooked Style) &bull; Asian Rollout Focus</h4>
+                      <p style={{ fontSize: "0.88rem", lineHeight: 1.6, color: "#78350f", margin: "0 0 10px 0" }}>
+                        Seasoned sea bream is cooked directly inside an earthenware clay pot with specially seasoned broth and Japanese rice. The heat seals the sweet fish juices into every grain of rice, creating fragrant golden aroma and delicious crispy rice crust (*okoge*).
+                      </p>
+                      <span style={{ fontSize: "0.82rem", color: "#92400e", fontWeight: 600 }}>
+                        ★ Designated primary concept for international expansion due to comforting warmth, universal appeal of cooked seafood, and food safety simplicity.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 5. PROPRIETARY GOLDEN DASHI & LEAN SUPPLY CHAIN */}
+                <div className="content-card" style={{ marginTop: 24 }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(217, 119, 6, 0.12)", border: "1px solid rgba(217, 119, 6, 0.35)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#b45309", fontWeight: 700 }}>PROPRIETARY IP &bull; LEAN LOGISTICS</span>
+                  </div>
+                  <h2>Proprietary Golden Dashi &amp; Local Sourcing Model</h2>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, alignItems: "start", marginTop: 16 }}>
+                    <div>
+                      <p style={{ lineHeight: 1.65, marginBottom: 14, color: "#334155" }}>
+                        The core intellectual property of Kadoya is its <strong>Proprietary Golden Dashi</strong>—a meticulously balanced broth concentrate formulated over decades in Ehime to achieve rich umami without heavy sodium or artificial sharpness.
+                      </p>
+                      <h4 style={{ margin: "16px 0 8px 0", fontSize: "1rem", color: "#0f172a" }}>The Smart International Supply Formula:</h4>
+                      <ul style={{ paddingLeft: 18, margin: "0 0 14px 0", fontSize: "0.9rem", lineHeight: 1.7, color: "#334155" }}>
+                        <li><strong>Exported from Japan:</strong> Proprietary concentrated golden dashi bases and signature karaage seasoning powders are dispatched directly from Japan, safeguarding trade secrets and flavor consistency.</li>
+                        <li><strong>Sourced Locally:</strong> Fresh sea bream/fish, rice, chicken, vegetables, and cooking oil are sourced locally in the destination Asian market.</li>
+                        <li><strong>Commercial Benefit:</strong> Slashes international freight charges and seafood import tariffs, avoids complex raw meat cold-chain hurdles, and ensures local produce freshness while keeping gross margins attractive (&ge; 65&ndash;70%).</li>
+                      </ul>
+                      <p style={{ fontSize: "0.88rem", color: "#475569", margin: 0 }}>
+                        <strong>Palate Localization:</strong> Kadoya permits measured sweetness and seasoning adjustments in collaboration with franchisees to tailor flavors to Hong Kong, Taiwan, or Thai dining preferences.
+                      </p>
+                    </div>
+                    <div>
+                      <img
+                        src="/images/opportunities/kadoya/kadoya-dashi-kitchen-manual.webp"
+                        alt="Kadoya standardized kitchen preparation manual and golden dashi broth testing"
+                        style={{ width: "100%", height: "240px", objectFit: "cover", borderRadius: "10px", border: "1px solid #e2e8f0" }}
+                        loading="lazy"
+                      />
+                      <div style={{ background: "#f8fafc", padding: "12px", borderRadius: "8px", marginTop: "8px", border: "1px solid #e2e8f0", fontSize: "0.82rem", color: "#64748b" }}>
+                        Standardized kitchen SOP: Dashi dilution ratios, digital timer rice cooking, and portion control eliminate operational guesswork.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 6. LEAN KITCHEN OPERATIONS & STORE FORMATS */}
+                <div className="content-card" style={{ marginTop: 24 }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(217, 119, 6, 0.12)", border: "1px solid rgba(217, 119, 6, 0.35)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#b45309", fontWeight: 700 }}>UNIT ECONOMICS &bull; LEAN LABOR</span>
+                  </div>
+                  <h2>Lean Kitchen Operations: No Japanese Master Chef Required</h2>
+                  <p style={{ color: "#334155", fontSize: "0.95rem", lineHeight: 1.6, margin: "4px 0 18px 0" }}>
+                    The greatest barrier to international Japanese restaurant scalability is the dependence on expensive expatriate Japanese master chefs. Kadoya has engineered its franchise format for complete operational autonomy:
+                  </p>
+
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 14, marginBottom: 22 }}>
+                    <div style={{ background: "#f0fdf4", padding: 14, borderRadius: 8, border: "1px solid #bbf7d0" }}>
+                      <strong style={{ display: "block", color: "#15803d", marginBottom: 4 }}>2&ndash;3 Kitchen Staff Per Shift</strong>
+                      <span style={{ fontSize: "0.85rem", color: "#334155" }}>Standardized clay pot heating stations and fryers allow efficient throughput with compact team.</span>
+                    </div>
+                    <div style={{ background: "#f0fdf4", padding: 14, borderRadius: 8, border: "1px solid #bbf7d0" }}>
+                      <strong style={{ display: "block", color: "#15803d", marginBottom: 4 }}>Standardized Cooking Manuals</strong>
+                      <span style={{ fontSize: "0.85rem", color: "#334155" }}>Step-by-step photographic SOPs and digital timer guidance ensure consistent dish presentation.</span>
+                    </div>
+                    <div style={{ background: "#f0fdf4", padding: 14, borderRadius: 8, border: "1px solid #bbf7d0" }}>
+                      <strong style={{ display: "block", color: "#15803d", marginBottom: 4 }}>Rapid Order Fulfillment</strong>
+                      <span style={{ fontSize: "0.85rem", color: "#334155" }}>Pre-portioned dashi concentrates and streamlined prep ensure 8&ndash;12 minute table service.</span>
+                    </div>
+                  </div>
+
+                  <h3 style={{ margin: "20px 0 12px 0", fontSize: "1.15rem", color: "#0f172a" }}>Flexible Store Formats &amp; Real Estate Footprints</h3>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 16 }}>
+                    <div style={{ background: "#ffffff", padding: 16, borderRadius: 10, border: "1px solid #e2e8f0" }}>
+                      <span className="kadoya-step-badge">EXPRESS / FOOD HALL</span>
+                      <h4 style={{ margin: "4px 0 6px 0", fontSize: "1.05rem" }}>10&ndash;20 Tsubo (approx. 33&ndash;66 m&sup2;)</h4>
+                      <p style={{ fontSize: "0.85rem", color: "#64748b", margin: "0 0 8px 0" }}>Fast-casual mall food halls, railway transit hubs, airport dining concourses.</p>
+                      <ul style={{ paddingLeft: 18, margin: 0, fontSize: "0.82rem", color: "#475569" }}>
+                        <li>Counter order &bull; High seat turnover &bull; Karaage set meals &bull; Rapid lunch volume</li>
+                      </ul>
+                    </div>
+
+                    <div style={{ background: "#ffffff", padding: 16, borderRadius: 10, border: "1px solid #e2e8f0" }}>
+                      <span className="kadoya-step-badge">CASUAL DINING</span>
+                      <h4 style={{ margin: "4px 0 6px 0", fontSize: "1.05rem" }}>25&ndash;35 Tsubo (approx. 82&ndash;115 m&sup2;)</h4>
+                      <p style={{ fontSize: "0.85rem", color: "#64748b", margin: "0 0 8px 0" }}>Regional retail malls, prime high-street commercial strips, office district hubs.</p>
+                      <ul style={{ paddingLeft: 18, margin: 0, fontSize: "0.82rem", color: "#475569" }}>
+                        <li>40&ndash;60 seats &bull; Full table service &bull; Clay-pot dining theatre &bull; Balanced lunch/dinner</li>
+                      </ul>
+                    </div>
+
+                    <div style={{ background: "#ffffff", padding: 16, borderRadius: 10, border: "1px solid #e2e8f0" }}>
+                      <span className="kadoya-step-badge">FLAGSHIP RESTAURANT</span>
+                      <h4 style={{ margin: "4px 0 6px 0", fontSize: "1.05rem" }}>40&ndash;50+ Tsubo (approx. 132&ndash;165+ m&sup2;)</h4>
+                      <p style={{ fontSize: "0.85rem", color: "#64748b", margin: "0 0 8px 0" }}>Luxury shopping centres, Japanese gourmet dining zones, hotel dining facilities.</p>
+                      <ul style={{ paddingLeft: 18, margin: 0, fontSize: "0.82rem", color: "#475569" }}>
+                        <li>Private dining rooms &bull; Sake pairing program &bull; Uwajima raw &amp; cooked styles</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 7. FOUR-PHASE INTERNATIONAL ROLLOUT ROADMAP */}
+                <div className="content-card" style={{ marginTop: 24 }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(217, 119, 6, 0.12)", border: "1px solid rgba(217, 119, 6, 0.35)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#b45309", fontWeight: 700 }}>INTERNATIONAL EXPANSION STRATEGY</span>
+                  </div>
+                  <h2>Kadoya 4-Phase International Rollout Roadmap</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 16px 0" }}>
+                    Kadoya&apos;s presentation defines a low-risk, stage-gate international growth pathway:
+                  </p>
+
+                  <div className="kadoya-roadmap-grid">
+                    <div className="kadoya-roadmap-step">
+                      <span className="kadoya-step-badge">PHASE 1</span>
+                      <h4 style={{ margin: "4px 0 6px 0", fontSize: "1rem" }}>Pop-Up / Pilot Entry</h4>
+                      <p style={{ fontSize: "0.82rem", color: "#64748b", margin: 0, lineHeight: 1.5 }}>
+                        Department store food fairs, pop-up events, or culinary proof-of-concept tests to gauge local consumer taste acceptance.
+                      </p>
+                    </div>
+
+                    <div className="kadoya-roadmap-step">
+                      <span className="kadoya-step-badge">PHASE 2</span>
+                      <h4 style={{ margin: "4px 0 6px 0", fontSize: "1rem" }}>Menu Licensing</h4>
+                      <p style={{ fontSize: "0.82rem", color: "#64748b", margin: 0, lineHeight: 1.5 }}>
+                        Supplying proprietary golden dashi to established restaurant groups to test Tai-meshi dishes on existing restaurant menus with zero capital expenditure.
+                      </p>
+                    </div>
+
+                    <div className="kadoya-roadmap-step">
+                      <span className="kadoya-step-badge">PHASE 3</span>
+                      <h4 style={{ margin: "4px 0 6px 0", fontSize: "1rem" }}>Flagship Franchise</h4>
+                      <p style={{ fontSize: "0.82rem", color: "#64748b", margin: 0, lineHeight: 1.5 }}>
+                        Opening the first dedicated &quot;Tai to Kome&quot; standalone restaurant in a prime retail location (Hong Kong, Taipei, or Bangkok).
+                      </p>
+                    </div>
+
+                    <div className="kadoya-roadmap-step">
+                      <span className="kadoya-step-badge">PHASE 4</span>
+                      <h4 style={{ margin: "4px 0 6px 0", fontSize: "1rem" }}>Master Franchise</h4>
+                      <p style={{ fontSize: "0.82rem", color: "#64748b", margin: 0, lineHeight: 1.5 }}>
+                        Territorial multi-unit licensing and sub-franchise rights granted to proven regional F&amp;B conglomerates across national territories.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 8. ILLUSTRATIVE UNIT ECONOMICS & COMPLIANCE DISCLAIMER */}
+                <div className="content-card" style={{ marginTop: 24, border: "2px solid #f59e0b", background: "#fffdfa" }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(217, 119, 6, 0.15)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#b45309", fontWeight: 700 }}>ILLUSTRATIVE UNIT ECONOMICS (SUPPLIER MODEL)</span>
+                  </div>
+                  <h2>Illustrative Restaurant Unit Economics</h2>
+                  <p style={{ fontSize: "0.92rem", color: "#475569", margin: "4px 0 16px 0" }}>
+                    The supplier presentation outlines the following indicative performance model for a standard Asian shopping mall restaurant:
+                  </p>
+
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 14, marginBottom: 16 }}>
+                    <div style={{ background: "#ffffff", padding: 14, borderRadius: 8, border: "1px solid #fde68a", textAlign: "center" }}>
+                      <span style={{ fontSize: "0.8rem", color: "#78350f", fontWeight: 600 }}>MONTHLY GROSS REVENUE</span>
+                      <strong style={{ display: "block", fontSize: "1.25rem", color: "#b45309", marginTop: 4 }}>JPY 7M &ndash; 10M</strong>
+                      <span style={{ fontSize: "0.78rem", color: "#9ca3af" }}>Approx. USD 45k&ndash;65k / month</span>
+                    </div>
+
+                    <div style={{ background: "#ffffff", padding: 14, borderRadius: 8, border: "1px solid #fde68a", textAlign: "center" }}>
+                      <span style={{ fontSize: "0.8rem", color: "#78350f", fontWeight: 600 }}>OPERATING PROFIT MARGIN</span>
+                      <strong style={{ display: "block", fontSize: "1.25rem", color: "#b45309", marginTop: 4 }}>~15% Target</strong>
+                      <span style={{ fontSize: "0.78rem", color: "#9ca3af" }}>After local prime food &amp; labor costs</span>
+                    </div>
+
+                    <div style={{ background: "#ffffff", padding: 14, borderRadius: 8, border: "1px solid #fde68a", textAlign: "center" }}>
+                      <span style={{ fontSize: "0.8rem", color: "#78350f", fontWeight: 600 }}>ESTIMATED PAYBACK PERIOD</span>
+                      <strong style={{ display: "block", fontSize: "1.25rem", color: "#b45309", marginTop: 4 }}>2 &ndash; 3 Years</strong>
+                      <span style={{ fontSize: "0.78rem", color: "#9ca3af" }}>Subject to fit-out capex &amp; lease terms</span>
+                    </div>
+                  </div>
+
+                  <div style={{ padding: "12px 16px", background: "#fef3c7", borderRadius: "8px", borderLeft: "4px solid #d97706" }}>
+                    <p style={{ margin: 0, fontSize: "0.84rem", lineHeight: 1.6, color: "#92400e" }}>
+                      ⚠️ <strong>Mandatory Financial Compliance Disclaimer:</strong> Figures presented above are illustrative planning models supplied by Kadoya Co., Ltd. for conceptual discussion. They do not constitute a financial performance representation, profit guarantee, or binding contractual statement. Actual revenues, operating margins, buildout capital expenditures, and payback horizons will vary significantly depending upon host market real estate rental costs, local labor rates, import duties, exchange rates, and business execution. Complete franchise disclosure information and terms are made available exclusively to qualified candidates under Non-Disclosure Agreement (NDA) during commercial due diligence.
+                    </p>
+                  </div>
+                </div>
+
+                {/* 9. TARGET FRANCHISEE PROFILES & PRIORITY TERRITORIES */}
+                <div className="content-card" style={{ marginTop: 24 }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(217, 119, 6, 0.12)", border: "1px solid rgba(217, 119, 6, 0.35)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#b45309", fontWeight: 700 }}>TERRITORY &amp; APPLICANT QUALIFICATION</span>
+                  </div>
+                  <h2>Prioritized Asian Territories &amp; Ideal Franchisee Criteria</h2>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20, marginTop: 14 }}>
+                    <div>
+                      <h4 style={{ margin: "0 0 10px 0", fontSize: "1rem", color: "#0f172a" }}>Priority Expansion Markets:</h4>
+                      <ul style={{ paddingLeft: 18, margin: 0, fontSize: "0.88rem", lineHeight: 1.7, color: "#334155" }}>
+                        <li>🎯 <strong>Hong Kong:</strong> High-density Japanese dining appreciation, shopping mall dining hubs.</li>
+                        <li>🎯 <strong>Taiwan:</strong> Deep affinity for authentic Japanese cuisine, established clay-pot and rice dining culture.</li>
+                        <li>🎯 <strong>Thailand (Bangkok):</strong> Major Japanese food dining capital, booming mall restaurant scene.</li>
+                        <li>🌏 <strong>Secondary Evaluation:</strong> Singapore, Indonesia, Malaysia, Philippines, and Vietnam.</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 style={{ margin: "0 0 10px 0", fontSize: "1rem", color: "#0f172a" }}>Ideal Partner Profile:</h4>
+                      <ul style={{ paddingLeft: 18, margin: 0, fontSize: "0.88rem", lineHeight: 1.7, color: "#334155" }}>
+                        <li>✓ Established multi-unit restaurant operators with proven Asian operating track record.</li>
+                        <li>✓ Retail conglomerates and department store hospitality divisions.</li>
+                        <li>✓ Airport and railway transit concession operators.</li>
+                        <li>✓ Financial capacity to fund store fit-out and multi-unit territory development.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 10. FREQUENTLY ASKED QUESTIONS */}
+                <div className="content-card" id="kadoya-faqs" style={{ marginTop: 24 }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(217, 119, 6, 0.12)", border: "1px solid rgba(217, 119, 6, 0.35)", borderRadius: 999, padding: "4px 12px", marginBottom: 12 }}>
+                    <span style={{ fontSize: "0.8rem", color: "#b45309", fontWeight: 700 }}>QUESTIONS &amp; ANSWERS</span>
+                  </div>
+                  <h2>Frequently Asked Questions About Kadoya (Tai to Kome)</h2>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", margin: "4px 0 16px 0" }}>
+                    Essential information regarding the concept, dashi supply, menu adaptation, and franchise partnership:
+                  </p>
+
+                  <div style={{ marginTop: 16 }}>
+                    {kadoyaFaqs.map((faq, idx) => (
+                      <details key={idx} className="nippon-faq-item" open={idx === 0} style={{ borderColor: "#fde68a" }}>
+                        <summary className="nippon-faq-question" style={{ color: "#92400e" }}>
+                          <span>{idx + 1}. {faq.question}</span>
+                          <span style={{ fontSize: "0.8rem", color: "#64748b" }}>▼</span>
+                        </summary>
+                        <div className="nippon-faq-answer">
+                          {faq.answer}
+                        </div>
+                      </details>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
+
             <div className="content-grid-2">
               <div className="content-card" id="company">
                 <h2>{t('companyBackground')}</h2>
@@ -2977,11 +4025,21 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
                 <div className="document-grid">
                   {opportunity.documentsAvailable.map((document) => {
                     const isCeleblePdf = opportunity.slug === "celeble-non-alcoholic-sparkling-wine-distribution" && document.includes("Product Introduction Deck");
+                    const isEiwaPdf = opportunity.slug === "eiwa-japanese-food-ingredients-global-distribution" && (document.includes("Product Catalog") || document.includes("Catalog"));
+                    const isKadoyaPdf = opportunity.slug === "kadoya-tai-to-kome-japanese-restaurant-franchise" && (document.includes("Franchise Presentation") || document.includes("FC presentation"));
                     return (
                       <div className="document-item" key={document}>
                         <span className="pdf-icon">▣</span>
                         {isCeleblePdf ? (
                           <a href="/downloads/celeble-product-introduction-balance-co.pdf" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", color: "inherit", fontWeight: 600 }}>
+                            {document} (Download PDF ↗)
+                          </a>
+                        ) : isEiwaPdf ? (
+                          <a href="/downloads/eiwa-holdings-export-product-catalog.pdf" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", color: "inherit", fontWeight: 600 }}>
+                            {document} (Download PDF ↗)
+                          </a>
+                        ) : isKadoyaPdf ? (
+                          <a href="/downloads/kadoya-tai-to-kome-franchise-presentation.pdf" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline", color: "inherit", fontWeight: 600 }}>
                             {document} (Download PDF ↗)
                           </a>
                         ) : (
