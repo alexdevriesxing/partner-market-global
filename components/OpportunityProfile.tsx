@@ -19,9 +19,15 @@ export function OpportunityProfile({
   const contactHref = `/${locale}/contact?oppTitle=${encodeURIComponent(opportunity.title)}&oppSlug=${opportunity.slug}&oppId=${opportunity.id}&source=JIP%20Japan`;
   const editorial = p.images.editorial;
 
+  const idAlias: Record<string, string> = {
+    expansion: "market",
+    partner: "partner-profile",
+    considerations: "commercial"
+  };
+
   return (
     <div className="profile-body">
-      <section className="content-card" id="overview" aria-labelledby="exec-overview">
+      <section className="content-card" id="executive-overview" aria-labelledby="exec-overview">
         <h2 id="exec-overview">Executive overview</h2>
         <p style={{ fontSize: "1.05rem", lineHeight: 1.7 }}>{p.executiveOverview}</p>
         <dl className="quick-facts" style={{ marginTop: 16 }}>
@@ -39,7 +45,7 @@ export function OpportunityProfile({
       </section>
 
       {p.sections.map((s, i) => (
-        <section className="content-card" id={s.id} key={s.id} style={{ marginTop: 24 }} aria-labelledby={`h-${s.id}`}>
+        <section className="content-card" id={idAlias[s.id] || s.id} key={s.id} style={{ marginTop: 24 }} aria-labelledby={`h-${s.id}`}>
           <h2 id={`h-${s.id}`}>{s.heading}</h2>
           {s.paragraphs.map((para, j) => (
             <p key={j} style={{ lineHeight: 1.75 }}>{para}</p>

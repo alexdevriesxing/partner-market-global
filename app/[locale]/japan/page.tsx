@@ -300,6 +300,13 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
                     </>
                   )}
                 </li>
+                {newProfileOpps.map((opp) => (
+                  <li key={opp.slug}>
+                    <Link href={`/${locale}/opportunities/${opp.slug}`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
+                      {opp.title}
+                    </Link>: {opp.summary}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

@@ -59,7 +59,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : opportunity.slug === "sonic-friends-europe-2027"
       ? "European retailers, distributors and wholesalers can enquire about the new SONIC & FRIENDS merchandise range from Japan for the 2027 Sonic retail window."
       : opportunity.profile?.metaDescription || opportunity.summary,
-    image: opportunity.heroImage
+    image: opportunity.profile?.images?.hero?.base
+      ? `${opportunity.profile.images.hero.base}.jpg`
+      : opportunity.heroImage
   });
   return opportunity.seoKeywords?.length
     ? { ...metadata, keywords: opportunity.seoKeywords }
@@ -338,6 +340,14 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
     }
   } : null;
 
+  const organizationSchema = opportunity.profile ? {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: opportunity.profile.legalName,
+    ...(opportunity.profile.officialWebsites[0] ? { url: opportunity.profile.officialWebsites[0] } : {}),
+    ...(opportunity.profile.headquarters ? { address: { "@type": "PostalAddress", streetAddress: opportunity.profile.headquarters, addressCountry: "JP" } } : {})
+  } : null;
+
   const related = opportunity.profile
     ? opportunities
         .filter((o) => o.originCountry === "Japan" && o.slug !== opportunity.slug)
@@ -346,7 +356,7 @@ export default async function OpportunityDetailPage({ params }: PageProps) {
 
   return (
     <>
-      <StructuredData data={[offerSchema, breadcrumbSchema, ...(webPageSchema ? [webPageSchema] : []), ...(faqSchema ? [faqSchema] : [])]} />
+      <StructuredData data={[offerSchema, breadcrumbSchema, ...(webPageSchema ? [webPageSchema] : []), ...(organizationSchema ? [organizationSchema] : []), ...(faqSchema ? [faqSchema] : [])]} />
       <Link href={`/${locale}/opportunities`} className="breadcrumb">{t('back')}</Link>
       <section className="detail-shell">
         <article className="detail-main">
