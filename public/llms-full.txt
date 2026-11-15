@@ -94,15 +94,51 @@ This document provides complete, machine-readable specifications for all commerc
 
 ---
 
-## OPPORTUNITY: Ebara Foods Indonesia Foodservice & Noodle Partnership
+## OPPORTUNITY: Ebara Foods Southeast Asia Foodservice Distributorship (Thailand, Malaysia & Philippines)
 - Slug: ebara-foods-indonesia-distribution-noodle-partnership
 - URL: https://www.partnermarketglobal.com/en/opportunities/ebara-foods-indonesia-distribution-noodle-partnership/
 - Company: Ebara Foods Industry / EBARA SINGAPORE PTE. LTD.
 - Category: Food & Beverage / Professional Foodservice Solutions
-- Type: Foodservice Distribution / Noodle Manufacturing / Strategic Alliances / M&A
-- Target Markets: Indonesia (Priority: Bali; secondary: Jakarta, Surabaya)
+- Type: Foodservice Distributorship / B2B Wholesale
+- Target Markets: Thailand, Malaysia, Philippines (Indonesia sales temporarily suspended as of 29 September 2026)
 - Product Scope: Professional Ramen Soup Bases (Tori Paitan, Tonkotsu, Miso, Plant-forward), Kansui, Noodle Texturizers, Japanese Foodservice Seasonings
-- Target Partners: HORECA distributors, ramen ingredient wholesalers, noodle manufacturers, trading companies, M&A investment candidates. MASUYA is excluded as active partner.
+- Target Partners: HORECA distributors, ramen ingredient wholesalers, noodle manufacturers, trading companies in Thailand, Malaysia and the Philippines. MASUYA is excluded as active partner.
+
+---
+
+## OPPORTUNITY: STAYGOLD Inc. — Luxury Resale Wholesale, Franchise & Trading
+- Slug: staygold-japan-luxury-resale-wholesale-franchise-trading
+- URL: https://www.partnermarketglobal.com/en/opportunities/staygold-japan-luxury-resale-wholesale-franchise-trading/
+- Company: STAYGOLD Inc. (Tokyo, Japan)
+- Target Markets: ASEAN
+- Product Scope: Authenticated pre-owned luxury watches, jewelry, designer handbags and apparel (BRAND REVALUE, BRING)
+
+---
+
+## OPPORTUNITY: ASAHI SEIKA CO., LTD. — Japanese Karinto Snacks & Gourmet Popcorn
+- Slug: japanese-karinto-gourmet-popcorn-global-distribution
+- URL: https://www.partnermarketglobal.com/en/opportunities/japanese-karinto-gourmet-popcorn-global-distribution/
+- Company: ASAHI SEIKA CO., LTD. (Tokyo, Japan)
+- Target Markets: International (subject to confirmation)
+- Product Scope: Japanese Karinto snacks, air-popped gourmet popcorn, OEM contract manufacturing
+
+---
+
+## OPPORTUNITY: Nittou Foods Industry Co., Ltd. — Awayuki Japanese Culinary Salt
+- Slug: awayuki-japanese-finishing-salt-distribution-oem-partners
+- URL: https://www.partnermarketglobal.com/en/opportunities/awayuki-japanese-finishing-salt-distribution-oem-partners/
+- Company: Nittou Foods Industry Co., Ltd. (Hiroshima, Japan)
+- Target Markets: Europe, Southeast Asia
+- Product Scope: Awayuki Shio culinary finishing flake salt, OEM / private-label food manufacturing
+
+---
+
+## OPPORTUNITY: TAMAYA CO., LTD. (Heartdance) — Japanese Fashion Accessories
+- Slug: heartdance-japanese-fashion-accessories-wholesale-distribution
+- URL: https://www.partnermarketglobal.com/en/opportunities/heartdance-japanese-fashion-accessories-wholesale-distribution/
+- Company: TAMAYA CO., LTD. (Osaka & Tokyo, Japan)
+- Target Markets: International (to be confirmed)
+- Product Scope: Heartdance hair accessories, earrings, necklaces, rings, bags and fashion accessories
 
 ---
 

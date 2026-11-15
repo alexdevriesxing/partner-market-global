@@ -48,9 +48,61 @@ export type Opportunity = {
   sourcePartner?: string;
   isPinned?: boolean;
   featuredOrder?: number;
+  /** Long-form profile (present on opportunities added through lib/jip-new). */
+  profile?: JipProfile;
+  /** ISO date the listing was first published on this site. */
+  addedOn?: string;
 };
 
 import jipOpportunitiesRaw from "./jip-opportunities.json";
+import type { JipProfile } from "./jip-profile-types";
+import { publishedJipProfiles } from "./jip-new";
+
+const tagLabels: Record<string, string> = {
+  import: "Import",
+  export: "Export",
+  distribution: "Distribution",
+  franchise: "Franchise",
+  licensing: "Licensing",
+  "private-label-oem": "Private Label / OEM"
+};
+
+const sectionText = (p: JipProfile, id: string) =>
+  (p.sections.find((s) => s.id === id)?.paragraphs ?? []).join("\n\n");
+
+const profileOpportunities: Opportunity[] = publishedJipProfiles.map((p) => ({
+  id: p.id,
+  slug: p.slug,
+  title: p.title,
+  type: p.directoryTags.map((t) => tagLabels[t]).join(" / "),
+  sector: p.sector,
+  originCountry: "Japan",
+  targetMarkets: p.targetMarkets,
+  heroImage: `${p.images.hero!.base}.webp`,
+  cardImage: p.images.card!.src!,
+  summary: p.summary,
+  description: p.executiveOverview,
+  companyBackground: sectionText(p, "company"),
+  productDetails: sectionText(p, "products"),
+  marketOpportunity: sectionText(p, "expansion"),
+  partnerProfile: sectionText(p, "partner"),
+  commercialModel: p.commercialModel,
+  territoryAvailability: p.territoryAvailability,
+  investmentRequirement: "Order volumes, pricing and launch requirements are discussed directly after a qualified inquiry.",
+  credentials: p.credentials,
+  verificationBadges: p.verificationBadges,
+  documentsAvailable: p.documentsAvailable,
+  risks: p.risks,
+  status: "Open for qualified inquiries",
+  featured: false,
+  brand: p.brand,
+  company: p.legalName,
+  seoKeywords: p.keywords,
+  imageAlt: p.images.hero!.alt,
+  sourcePartner: "JIP Japan",
+  profile: p,
+  addedOn: p.addedOn
+}));
 
 interface JipRaw {
   id: string;
@@ -338,39 +390,24 @@ const mappedJipOpportunities: Opportunity[] = (jipOpportunitiesRaw as unknown as
       type: formattedType,
       sector: jip.category + (jip.subCategory ? ` / ${jip.subCategory}` : ""),
       originCountry: "Japan",
-      targetMarkets: ["Indonesia", "Bali", "Jakarta", "Surabaya"],
+      targetMarkets: ["Thailand", "Malaysia", "Philippines"],
       heroImage: `/images/opportunities/${jip.heroImageFile || jip.imageFile}`,
       cardImage: `/images/opportunities/${jip.imageFile}`,
-      summary: "EBARA SINGAPORE PTE. LTD., part of Japan’s Ebara Foods Group, is seeking Indonesian foodservice distributors, ramen-ingredient wholesalers, trading companies and noodle manufacturers, with Bali as the initial priority market.",
-      description: "EBARA SINGAPORE PTE. LTD., part of the established Japanese seasoning manufacturer Ebara Foods Group, is seeking qualified partners to expand its professional foodservice ingredient business in Indonesia.\n\nThe opportunity is aimed at locally connected B2B distributors, specialist wholesalers, trading companies and noodle manufacturers capable of developing Ebara products as an important core line rather than placing them passively within a large general catalogue.\n\nBali is the initial priority market, followed by selected opportunities elsewhere in Indonesia. Ebara is also open to discussing broader strategic alliances and potential acquisition or M&A opportunities with suitable local businesses.",
+      summary: "EBARA SINGAPORE PTE. LTD., part of Japan’s Ebara Foods Group, is seeking foodservice distributors in Thailand, Malaysia and the Philippines. Sales to Indonesia are temporarily suspended (29 September 2026 update).",
+      description: "EBARA SINGAPORE PTE. LTD., part of the established Japanese seasoning manufacturer Ebara Foods Group, is seeking qualified distributorship partners to expand its professional foodservice ingredient business in Thailand, Malaysia and the Philippines.\n\nStatus update (29 September 2026): Sales to Indonesia are temporarily suspended. The current commercial focus has shifted to Thailand, Malaysia and the Philippines.\n\nThe opportunity is aimed at locally connected B2B foodservice distributors, specialist wholesalers and trading companies capable of developing Ebara products as an active core line for Japanese restaurants, ramen operators, hotels and central kitchens.",
       companyBackground: "Ebara Foods Industry, Inc. is a Japanese food manufacturer established in 1958. The group produces and sells seasonings and has a long operating history in sauces, soup products and professional foodservice solutions.\n\nEBARA SINGAPORE PTE. LTD. was established to provide products and services suited to local Southeast Asian markets, promote Japanese sauce and seasoning culture and support the continued expansion of the Ebara brand within the region.\n\nThe group also operates EBARA FOODS MALAYSIA SDN. BHD., supporting its broader presence in Southeast Asia.",
       productDetails: "Proposed Combined Professional Ramen & Noodle-Production Solution:\n\nRamen Soup Solutions:\n- Tori Paitan-style soup\n- Miso ramen soup\n- Tonkotsu-style soup\n- Vegetable or plant-forward ramen soup\n- Other professional Japanese soup bases subject to availability\n\nNoodle-Production Ingredients:\n- Kansui or alkaline noodle agents\n- Ingredients supporting ramen-noodle texture and consistency\n- Soup thickeners and texture-management ingredients\n\nComplementary Professional Foodservice Seasonings:\n\n(Final product availability, formulations, pack sizes, ingredients, certifications, halal status, pricing and minimum order quantities will be confirmed during partner qualification.)",
-      marketOpportunity: "Outside Indonesia’s largest distribution centres, reliable access to fresh or frozen specialist ramen noodles can be limited. As a result, some ramen operators produce noodles themselves or source them through smaller local manufacturers.\n\nThis creates an opportunity to connect professional noodle production with compatible soup bases and supporting ingredients. The proposition can help a local distributor or manufacturer offer restaurant customers a more coherent ramen solution instead of selling individual ingredients in isolation.\n\nBali is especially relevant because it has a concentrated hospitality and restaurant sector, a substantial Japanese and international dining presence, independent restaurants that value specialist technical support, local operators supplying several restaurant customers, and a practical environment for testing a focused B2B route to market.",
-      partnerProfile: "Priority target partners include:\n1. Specialist B2B & Foodservice Distributors with strong HORECA relationships, active sales coverage, and market-development resources. (MASUYA is explicitly excluded as an active partner).\n2. Ramen-Ingredient Wholesalers supplying ramen outlets, izakayas, hotels, and central kitchens.\n3. Noodle Manufacturers seeking to expand SKU ranges and bundle noodles with soup bases.\n4. Local Trading Companies with Japanese-Indonesian networks and regulatory/import knowledge.\n5. Strategic Investment or M&A Candidates interested in evaluating exploratory partnership, investment, or acquisition.",
-      commercialModel: "Potential structures include non-exclusive distribution, territory-based distribution, specialist foodservice wholesaling, trading-company representation, noodle-manufacturing partnerships, co-developed ramen solutions, product bundling, strategic alliances, minority/majority investment, or acquisition subject to evaluation.\n\nTerritory rights, exclusivity, pricing, minimum orders, product selection, and performance expectations will be discussed with qualified candidates.",
-      territoryAvailability: "Indonesia (Priority territory: Bali. Secondary territories: Jakarta, Surabaya, and other commercially relevant Indonesian cities).",
-      investmentRequirement: "Working capital, local sales capability, warehousing and market-development resources may be required depending on partnership type. Terms agreed during qualification.",
-      credentials: jip.keyStrengths || [
-        "Established Japanese food-seasoning group",
-        "Southeast Asian operating presence through Ebara Singapore",
-        "Malaysian group entity also in operation",
-        "Dedicated professional foodservice opportunity",
-        "Priority launch focus on Bali",
-        "Combination of soup bases and noodle-production ingredients",
-        "Opportunity to create a specialist ramen-supply proposition",
-        "Suitable for distributors that can provide active technical and commercial selling",
-        "Potential partnerships with local noodle manufacturers",
-        "Potential strategic investment, acquisition or M&A discussions",
-        "Opportunity to expand into additional Indonesian territories after market validation"
-      ],
+      marketOpportunity: "Demand for authentic Japanese ramen and dining concepts across Thailand, Malaysia and the Philippines continues to expand across urban hospitality hubs, restaurant chains and hotels.\n\nEbara's professional soup bases, kansui noodle agents and foodservice seasonings enable qualified local distributors to supply complete ramen and Japanese kitchen solutions to independent restaurants, multi-unit groups and noodle manufacturers.",
+      partnerProfile: "Priority target partners are established B2B foodservice distributors, ramen-ingredient wholesalers and local trading companies in Thailand, Malaysia and the Philippines with active HORECA accounts, cold/ambient warehousing, import licensing and technical sales capability.",
+      commercialModel: "Distributorship structures in Thailand, Malaysia and the Philippines. Territory rights, exclusivity, pricing, minimum orders and product selection will be discussed with qualified candidates.",
+      territoryAvailability: "Active focus: Thailand, Malaysia and the Philippines. (Indonesia sales temporarily suspended as of 29 September 2026.)",
+      investmentRequirement: "Working capital, local sales capability, warehousing and market-development resources may be required depending on territory scope. Terms agreed during qualification.",
+      credentials: jip.keyStrengths || [],
       verificationBadges: [
         "Client Opportunity",
         "JIP Japan Vetted",
-        "Indonesia",
-        "Foodservice Distribution",
-        "Noodle Manufacturing",
-        "Strategic Partnership",
-        "M&A Potential"
+        "Thailand / Malaysia / Philippines",
+        "Foodservice Distributorship"
       ],
       documentsAvailable: [
         "Company profile",
@@ -1025,7 +1062,8 @@ export const opportunities: Opportunity[] = [
   tsubameDrinkwareOpportunity,
   ...(sonicOpp
     ? [sonicOpp, ...staticOpportunities, ...otherMappedJip]
-    : [...staticOpportunities, ...mappedJipOpportunities])
+    : [...staticOpportunities, ...mappedJipOpportunities]),
+  ...profileOpportunities
 ];
 
 export const categories = [

@@ -119,7 +119,7 @@ export async function onRequestPost(context: EventContext): Promise<Response> {
   textBody += `=======================================================\n\n`;
   textBody += `Reference ID: ${referenceId}\n`;
   textBody += `Timestamp: ${new Date().toUTCString()}\n`;
-  textBody += `Opportunity: ${oppTitle} (${oppSlug})\n`;
+  textBody += `Opportunity: ${oppTitle} (${oppSlug}${body.oppId ? ` / ${body.oppId}` : ""})\n`;
   textBody += `Lead Score: ${leadScore}/100 (${priorityRating})\n`;
   if (prioritySignals && prioritySignals !== "N/A") {
     textBody += `Priority Signals: ${prioritySignals}\n`;

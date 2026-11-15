@@ -94,13 +94,39 @@ Commercial model: 100% commission-based. Commission scope, trigger, territory, a
 - **Target Markets**: Europe, United Kingdom, France, Germany, Spain, Belgium, Italy, Portugal
 - **Key Details**: SEGA's approachable kawaii-aesthetic character merchandise collection (mascots, plush, cushions, Sanrio collab). Strategically positioned for the major March–April 2027 European movie premiere window and Sonic 35th Anniversary live tour. January 2027 Shenzhen FOB warehouse availability.
 
-### 2. Ebara Foods Industry / Ebara Singapore — Indonesia Foodservice & Noodle Partnership
+### 2. Ebara Foods Industry / Ebara Singapore — Southeast Asia Foodservice Distributorship (Thailand, Malaysia & Philippines)
 - **Slug**: `ebara-foods-indonesia-distribution-noodle-partnership`
 - **URL**: https://www.partnermarketglobal.com/en/opportunities/ebara-foods-indonesia-distribution-noodle-partnership/
-- **Sector**: Food & Beverage / Foodservice Seasonings & Noodle Manufacturing
+- **Sector**: Food & Beverage / Foodservice Seasonings & Noodle Ingredients
 - **Origin**: Japan / Singapore
-- **Target Markets**: Indonesia (Priority: Bali, Jakarta, Surabaya)
-- **Key Details**: Ramen soup solutions (Tori Paitan, Tonkotsu, Miso), noodle manufacturing ingredients, B2B foodservice distribution, and strategic investment/M&A exploration.
+- **Target Markets**: Thailand, Malaysia, Philippines (Note: Indonesia sales temporarily suspended per 29 September 2026 update)
+- **Key Details**: Ramen soup solutions (Tori Paitan, Tonkotsu, Miso), noodle manufacturing ingredients, and B2B foodservice distributorship in Thailand, Malaysia, and the Philippines.
+
+### 2b. STAYGOLD Inc. — Luxury Resale Wholesale, Franchise & Trading (ASEAN)
+- **Slug**: `staygold-japan-luxury-resale-wholesale-franchise-trading`
+- **URL**: https://www.partnermarketglobal.com/en/opportunities/staygold-japan-luxury-resale-wholesale-franchise-trading/
+- **Company**: STAYGOLD Inc. (Tokyo, Japan)
+- **Target Markets**: ASEAN
+- **Key Details**: Authenticated pre-owned luxury watches, jewelry, designer bags and apparel via BRAND REVALUE and BRING for wholesale, franchising and white-label supply.
+
+### 2c. ASAHI SEIKA CO., LTD. — Japanese Karinto Snacks & Gourmet Popcorn
+- **Slug**: `japanese-karinto-gourmet-popcorn-global-distribution`
+- **URL**: https://www.partnermarketglobal.com/en/opportunities/japanese-karinto-gourmet-popcorn-global-distribution/
+- **Company**: ASAHI SEIKA CO., LTD. (Nishitokyo, Tokyo, Japan — Est. 1924)
+- **Key Details**: Traditional Japanese Karinto snacks, air-popped gourmet popcorn (Anthony's Popcorn) and OEM manufacturing from an FSSC 22000-certified plant.
+
+### 2d. Nittou Foods Industry Co., Ltd. — Awayuki Japanese Culinary Salt & OEM
+- **Slug**: `awayuki-japanese-finishing-salt-distribution-oem-partners`
+- **URL**: https://www.partnermarketglobal.com/en/opportunities/awayuki-japanese-finishing-salt-distribution-oem-partners/
+- **Company**: Nittou Foods Industry Co., Ltd. (Hiroshima, Japan — Est. 1937)
+- **Target Markets**: Europe, Southeast Asia
+- **Key Details**: Snow-like culinary finishing flake salt (Awayuki Shio) and private-label / OEM food manufacturing.
+
+### 2e. TAMAYA CO., LTD. (Heartdance) — Japanese Fashion Accessories
+- **Slug**: `heartdance-japanese-fashion-accessories-wholesale-distribution`
+- **URL**: https://www.partnermarketglobal.com/en/opportunities/heartdance-japanese-fashion-accessories-wholesale-distribution/
+- **Company**: TAMAYA CO., LTD. (Osaka & Tokyo, Japan — Est. 1937)
+- **Key Details**: International wholesale and retail expansion for Heartdance hair accessories, earrings, necklaces, rings and bags.
 
 ### 3. Yachiyo Mengyo — Organic Handa Somen & Thin Udon EU Distribution
 - **Slug**: `yachiyo-mengyo-handa-somen-eu-distribution`

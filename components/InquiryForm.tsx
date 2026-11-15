@@ -429,6 +429,7 @@ function InquiryFormClient({
         ? "Opportunity: Nippon Career Ultra-Thin Meat Slicing"
         : (oppTitle || (isSonic ? "SONIC & FRIENDS Europe 2027" : "General Opportunity")),
       oppSlug: oppSlug || "general",
+      oppId: opportunity?.id || "N/A",
       brand: isKadoya
         ? "Kadoya — Tai to Kome (かどや / 鯛と米)"
         : isEiwa
@@ -1111,17 +1112,17 @@ function InquiryFormClient({
 
             <label>
               Headquarters Location *
-              <input type="text" required value={ebaraFields.hqLocation} onChange={(e) => setEbaraFields({...ebaraFields, hqLocation: e.target.value})} placeholder="e.g. Jakarta, Denpasar, Surabaya, Singapore" style={{ width: "100%", marginTop: "6px" }} />
+              <input type="text" required value={ebaraFields.hqLocation} onChange={(e) => setEbaraFields({...ebaraFields, hqLocation: e.target.value})} placeholder="e.g. Bangkok, Kuala Lumpur, Manila, Singapore" style={{ width: "100%", marginTop: "6px" }} />
             </label>
 
             <label>
-              Indonesian Territories Covered *
-              <input type="text" required value={ebaraFields.indonesianTerritories} onChange={(e) => setEbaraFields({...ebaraFields, indonesianTerritories: e.target.value})} placeholder="e.g. Bali, Greater Jakarta, East Java" style={{ width: "100%", marginTop: "6px" }} />
+              Target Territories Covered (Thailand / Malaysia / Philippines) *
+              <input type="text" required value={ebaraFields.indonesianTerritories} onChange={(e) => setEbaraFields({...ebaraFields, indonesianTerritories: e.target.value})} placeholder="e.g. Greater Bangkok, Klang Valley / Penang, Metro Manila" style={{ width: "100%", marginTop: "6px" }} />
             </label>
 
             <label>
-              Bali Presence / Operational Coverage *
-              <input type="text" required value={ebaraFields.baliPresence} onChange={(e) => setEbaraFields({...ebaraFields, baliPresence: e.target.value})} placeholder="e.g. Direct warehouse in Denpasar / Active sales rep in Bali" style={{ width: "100%", marginTop: "6px" }} />
+              Local Warehousing &amp; Sales Coverage *
+              <input type="text" required value={ebaraFields.baliPresence} onChange={(e) => setEbaraFields({...ebaraFields, baliPresence: e.target.value})} placeholder="e.g. Direct warehouse and HORECA sales team in Thailand / Malaysia / Philippines" style={{ width: "100%", marginTop: "6px" }} />
             </label>
 
             <label>
@@ -1170,8 +1171,8 @@ function InquiryFormClient({
             </label>
 
             <label className="span-2">
-              Food Import Licences & BPOM Regulatory Experience *
-              <input type="text" required value={ebaraFields.importLicencesBPOM} onChange={(e) => setEbaraFields({...ebaraFields, importLicencesBPOM: e.target.value})} placeholder="e.g. Active API-U / BPOM registration experience for Japanese food products" style={{ width: "100%", marginTop: "6px" }} />
+              Food Import Licences &amp; Local Regulatory Experience (Thailand FDA / Malaysia / Philippines FDA) *
+              <input type="text" required value={ebaraFields.importLicencesBPOM} onChange={(e) => setEbaraFields({...ebaraFields, importLicencesBPOM: e.target.value})} placeholder="e.g. Active food import licence and Thai FDA / Malaysia / Philippines FDA registration experience" style={{ width: "100%", marginTop: "6px" }} />
             </label>
 
             <label>
@@ -1229,7 +1230,7 @@ function InquiryFormClient({
 
             <label className="span-2">
               Proposed Route-to-Market & Commercial Plan *
-              <textarea required value={ebaraFields.proposedRtmPlan} onChange={(e) => setEbaraFields({...ebaraFields, proposedRtmPlan: e.target.value})} placeholder="Outline your proposed timeline, target restaurant accounts in Bali/Indonesia, and commercial launch plan..." style={{ width: "100%", marginTop: "6px", minHeight: "80px" }} />
+              <textarea required value={ebaraFields.proposedRtmPlan} onChange={(e) => setEbaraFields({...ebaraFields, proposedRtmPlan: e.target.value})} placeholder="Outline your proposed timeline, target restaurant accounts in Thailand, Malaysia or the Philippines, and commercial launch plan..." style={{ width: "100%", marginTop: "6px", minHeight: "80px" }} />
             </label>
           </div>
         )}

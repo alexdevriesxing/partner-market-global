@@ -87,6 +87,7 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
   const tCta = await getTranslations('cta');
 
   const japanOpportunities = opportunities.filter((o) => o.originCountry === "Japan");
+  const newProfileOpps = japanOpportunities.filter((o) => Boolean(o.profile));
   const sonicOpp = opportunities.find((o) => o.slug === "sonic-friends-europe-2027");
   const yachiyoOpp = opportunities.find((o) => o.slug === "yachiyo-mengyo-handa-somen-eu-distribution");
   const nittohOpp = opportunities.find((o) => o.slug === "nittoh-japanese-dollies-utility-carts-distribution");
@@ -288,14 +289,14 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
                   {locale === "ja" ? (
                     <>
                       <Link href={`/${locale}/opportunities/ebara-foods-indonesia-distribution-noodle-partnership`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
-                        Ebara Foods インドネシア業務用スープ・製麺・戦略的提携
-                      </Link>：エバラ食品グループ（EBARA SINGAPORE）による、バリ島を中心とした業務用ラーメンスープ・製麺原料ディストリビューターおよびM&amp;A・事業提携機会。
+                        Ebara Foods 東南アジア業務用スープ・ディストリビューター提携（タイ・マレーシア・フィリピン）
+                      </Link>：エバラ食品グループ（EBARA SINGAPORE）による、タイ・マレーシア・フィリピン向けの業務用ラーメンスープ・調味料ディストリビューター提携機会（インドネシア向け販売は一時休止中）。
                     </>
                   ) : (
                     <>
                       <Link href={`/${locale}/opportunities/ebara-foods-indonesia-distribution-noodle-partnership`} style={{ fontWeight: "600", textDecoration: "underline", color: "var(--primary)" }}>
-                        Ebara Foods Indonesia Foodservice &amp; Noodle Partnership
-                      </Link>: Professional ramen soup bases, noodle manufacturing ingredients, B2B distribution, and M&amp;A opportunities in Bali and Indonesia for Ebara Foods Group.
+                        Ebara Foods Southeast Asia Foodservice Distributorship (Thailand, Malaysia &amp; Philippines)
+                      </Link>: Professional ramen soup bases, noodle ingredients, and foodservice seasonings for Thailand, Malaysia, and the Philippines (Indonesia sales temporarily suspended).
                     </>
                   )}
                 </li>
@@ -320,7 +321,7 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
       </section>
 
       {/* Latest Japanese Opportunities */}
-      {(sonicOpp || ebaraOpp || yachiyoOpp || nittohOpp || ichibanOpp) && (
+      {(newProfileOpps.length > 0 || sonicOpp || ebaraOpp || yachiyoOpp || nittohOpp || ichibanOpp) && (
         <section className="japan-grid-section bg-soft" style={{ paddingTop: "48px", paddingBottom: "48px", borderBottom: "1px solid var(--border)", borderTop: "1px solid var(--border)" }}>
           <div className="section-top text-center" style={{ marginBottom: "32px" }}>
             <span className="eyebrow" style={{ color: "var(--primary)", fontWeight: "600", letterSpacing: "0.05em" }}>NEW RELEASES</span>
@@ -333,6 +334,9 @@ export default async function JapanLandingPage({ params }: { params: Promise<{ l
           </div>
           <div className="container" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
             <div className="opportunity-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "24px" }}>
+              {newProfileOpps.map((opp) => (
+                <OpportunityCard key={opp.slug} opportunity={opp} locale={locale} />
+              ))}
               {sonicOpp && <OpportunityCard opportunity={sonicOpp} locale={locale} />}
               {ebaraOpp && <OpportunityCard opportunity={ebaraOpp} locale={locale} />}
               {yachiyoOpp && <OpportunityCard opportunity={yachiyoOpp} locale={locale} />}
